@@ -13,7 +13,6 @@ namespace DefaultNamespace
         private void Start()
         {
             _features = GetComponent<Features>();
-            GetComponent<StateMachine>().moveAction += MoveInDirection;
         }
 
         public void MoveInDirection(Vector3 destination)

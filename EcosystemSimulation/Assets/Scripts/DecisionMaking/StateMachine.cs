@@ -1,21 +1,25 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using DefaultNamespace;
 using UnityEngine;
 
 [RequireComponent(typeof(Needs))]
+[RequireComponent(typeof(Sensors))]
 public class StateMachine : MonoBehaviour
 {
-    public Action<Vector3> moveAction;  //todo change to joining references in editor
-    public Action interactAction;
-
+    private ActorActions _actions;
+    
     private Needs _needs;
+    private Sensors _sensors;
 
     private ActorState _currentState;
     
     private void Start()
     {
+        _actions = GetComponent<ActorActions>();
         _needs = GetComponent<Needs>();
+        _sensors = GetComponent<Sensors>();
     }
 
     private void Update()
@@ -28,7 +32,6 @@ public class StateMachine : MonoBehaviour
     private void InferState()
     {
         _currentState = ActorState.Chilling;
-        Debug.Log($"_needs.FeatureDictionary[Hunger] > 80 {_needs.NeedsDictionary["Hunger"] > 80}");
         if (_needs.NeedsDictionary["Hunger"] > 80)
         {
             _currentState = ActorState.LookingForFood;
@@ -40,8 +43,15 @@ public class StateMachine : MonoBehaviour
         switch (_currentState)
         {
             case ActorState.LookingForFood:
-                var closestFood = FindClosestFood();
-                moveAction(closestFood.transform.position);
+                try
+                {
+                    _actions.MoveInDirection(_sensors.ClosestFoodPositionInSensorsRange());
+                    
+                }
+                catch (TargetNotFoundException)
+                {
+                    Debug.Log("Food not found in sensory range");
+                }
                 break;
             case ActorState.Eating:
                 break;
@@ -60,25 +70,6 @@ public class StateMachine : MonoBehaviour
             default:
                 throw new ArgumentOutOfRangeException();
         }
-    }
-    
-    public GameObject FindClosestFood()
-    {
-        var gos = GameObject.FindGameObjectsWithTag("Food");
-        GameObject closest = null;
-        var distance = Mathf.Infinity;
-        var position = transform.position;
-        foreach (var go in gos)
-        {
-            var diff = go.transform.position - position;
-            var curDistance = diff.sqrMagnitude;
-            if (curDistance < distance)
-            {
-                closest = go;
-                distance = curDistance;
-            }
-        }
-        return closest;
     }
     
     private enum ActorState
