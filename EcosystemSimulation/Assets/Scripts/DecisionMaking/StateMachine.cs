@@ -32,10 +32,20 @@ public class StateMachine : MonoBehaviour
     private void InferState()
     {
         _currentState = ActorState.Chilling;
-        if (_needs.NeedsDictionary["Hunger"] > 80)
+        if (!(_needs.NeedsDictionary["Hunger"] > 80)) return;   //if is not hungry enough it just chills
+        
+        //else tries to find food
+        try
+        {
+            _sensors.ClosestFoodPositionInSensorsRange();
+            _currentState = ActorState.HeadForFood;
+            Debug.Log($"HeadForFood");
+        }
+        catch (TargetNotFoundException)
         {
             _currentState = ActorState.LookingForFood;
-        } 
+            Debug.Log($"LookingForFood");
+        }
     }
 
     private void ActOnState()
@@ -43,15 +53,16 @@ public class StateMachine : MonoBehaviour
         switch (_currentState)
         {
             case ActorState.LookingForFood:
+                    var moveDirection = transform.position + _actions.RandomWanderer.GetWanderingDirection();   //todo change, because adding this to current position here is probably bad idea
+                    _actions.MoveInDirection(moveDirection);
+                break;
+            case ActorState.HeadForFood:
                 try
                 {
                     _actions.MoveInDirection(_sensors.ClosestFoodPositionInSensorsRange());
-                    
                 }
                 catch (TargetNotFoundException)
-                {
-                    Debug.Log("Food not found in sensory range");
-                }
+                { }
                 break;
             case ActorState.Eating:
                 break;
@@ -74,7 +85,8 @@ public class StateMachine : MonoBehaviour
     
     private enum ActorState
     {
-        LookingForFood,
+        LookingForFood,     //does not see food, wandering looking for it
+        HeadForFood,        //knows where are food, and heading for it
         Eating,
         LookingForMate,
         Mating,

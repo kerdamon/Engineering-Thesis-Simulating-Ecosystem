@@ -1,6 +1,5 @@
 ﻿using System;
 using UnityEngine;
-using Random = UnityEngine.Random;
 
 
 namespace DefaultNamespace
@@ -10,22 +9,36 @@ namespace DefaultNamespace
     {
         private Features _features;
 
+        [SerializeField] private int randomWanderingThreshold;
+        public RandomWanderer RandomWanderer { get; set; }
+
         private void Start()
         {
             _features = GetComponent<Features>();
+            RandomWanderer = new RandomWanderer(randomWanderingThreshold);
+        }
+
+        private void Update()
+        {
+#if UNITY_EDITOR
+            RandomWanderer.MaxCounter = randomWanderingThreshold;
+#endif
         }
 
         public void MoveInDirection(Vector3 destination)
         {
-            var position = transform.position;
-            var x = position.x;
-            var z = position.z;
-            transform.position += new Vector3(destination.x - x, 0, destination.z - z) * _features.FeatureDictionary["Speed"];
+            var moveDir = new Vector3(destination.x - transform.position.x, 0f, destination.z - transform.position.z);
+            transform.position += moveDir.normalized * (_features.FeatureDictionary["Speed"] * Time.deltaTime);
         }
 
         public void Interact()
         {
             
+        }
+
+        public void WanderRandomly()
+        {
+            throw new NotImplementedException();
         }
     }
 }
