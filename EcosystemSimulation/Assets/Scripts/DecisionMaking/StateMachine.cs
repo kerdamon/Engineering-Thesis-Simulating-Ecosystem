@@ -13,8 +13,8 @@ public class StateMachine : MonoBehaviour
     private Needs _needs;
     private Sensors _sensors;
 
-    private ActorState _currentState;
-    
+    public ActorState CurrentState { get; private set; }
+
     private void Start()
     {
         _actions = GetComponent<ActorActions>();
@@ -31,24 +31,24 @@ public class StateMachine : MonoBehaviour
 
     private void InferState()
     {
-        _currentState = ActorState.Chilling;
+        CurrentState = ActorState.Chilling;
         if (!(_needs.NeedsDictionary["Hunger"] > 80)) return;   //if is not hungry enough it just chills
         
         //else tries to find food
         try
         {
             _sensors.ClosestFoodPositionInSensorsRange();
-            _currentState = ActorState.HeadForFood;
+            CurrentState = ActorState.HeadForFood;
         }
         catch (TargetNotFoundException)
         {
-            _currentState = ActorState.LookingForFood;
+            CurrentState = ActorState.LookingForFood;
         }
     }
 
     private void ActOnState()
     {
-        switch (_currentState)
+        switch (CurrentState)
         {
             case ActorState.LookingForFood:
                     _actions.MoveInDirection(_actions.RandomWanderer.GetWanderingDirection());
@@ -79,8 +79,8 @@ public class StateMachine : MonoBehaviour
                 throw new ArgumentOutOfRangeException();
         }
     }
-    
-    private enum ActorState
+
+    public enum ActorState
     {
         LookingForFood,     //does not see food, wandering looking for it
         HeadForFood,        //knows where are food, and heading for it
