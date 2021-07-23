@@ -39,12 +39,10 @@ public class StateMachine : MonoBehaviour
         {
             _sensors.ClosestFoodPositionInSensorsRange();
             _currentState = ActorState.HeadForFood;
-            Debug.Log($"HeadForFood");
         }
         catch (TargetNotFoundException)
         {
             _currentState = ActorState.LookingForFood;
-            Debug.Log($"LookingForFood");
         }
     }
 
@@ -53,13 +51,12 @@ public class StateMachine : MonoBehaviour
         switch (_currentState)
         {
             case ActorState.LookingForFood:
-                    var moveDirection = transform.position + _actions.RandomWanderer.GetWanderingDirection();   //todo change, because adding this to current position here is probably bad idea
-                    _actions.MoveInDirection(moveDirection);
+                    _actions.MoveInDirection(_actions.RandomWanderer.GetWanderingDirection());
                 break;
             case ActorState.HeadForFood:
                 try
                 {
-                    _actions.MoveInDirection(_sensors.ClosestFoodPositionInSensorsRange());
+                    _actions.MoveToPoint(_sensors.ClosestFoodPositionInSensorsRange());
                 }
                 catch (TargetNotFoundException)
                 { }

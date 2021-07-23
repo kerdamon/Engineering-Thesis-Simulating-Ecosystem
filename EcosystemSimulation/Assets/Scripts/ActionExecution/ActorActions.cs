@@ -25,20 +25,20 @@ namespace DefaultNamespace
 #endif
         }
 
-        public void MoveInDirection(Vector3 destination)
+        public void MoveToPoint(Vector3 destination)
         {
             var moveDir = new Vector3(destination.x - transform.position.x, 0f, destination.z - transform.position.z);
             transform.position += moveDir.normalized * (_features.FeatureDictionary["Speed"] * Time.deltaTime);
         }
 
+        public void MoveInDirection(Vector3 direction)
+        {
+            transform.position += direction.normalized * (_features.FeatureDictionary["Speed"] * Time.deltaTime);
+        }
+
         public void Interact()
         {
             
-        }
-
-        public void WanderRandomly()
-        {
-            throw new NotImplementedException();
         }
     }
 }
