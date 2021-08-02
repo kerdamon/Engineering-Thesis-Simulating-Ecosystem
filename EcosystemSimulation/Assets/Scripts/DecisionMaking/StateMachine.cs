@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using DefaultNamespace;
+using UnityEditor;
 using UnityEngine;
 
 [RequireComponent(typeof(Needs))]
@@ -12,6 +13,11 @@ public class StateMachine : MonoBehaviour
     
     private Needs _needs;
     private Sensors _sensors;
+    private MatingController _matingController;
+
+    private int _matingCounter;
+
+    [SerializeField] private int matingCounterMax;
 
     public ActorState CurrentState { get; private set; }
 
@@ -20,6 +26,7 @@ public class StateMachine : MonoBehaviour
         _actions = GetComponent<ActorActions>();
         _needs = GetComponent<Needs>();
         _sensors = GetComponent<Sensors>();
+        _matingController = GetComponent<MatingController>();
     }
 
     private void Update()
@@ -31,19 +38,36 @@ public class StateMachine : MonoBehaviour
 
     private void InferState()
     {
-        CurrentState = ActorState.Chilling;
-        if (!(_needs.NeedsDictionary["Hunger"] > 80)) return;   //if is not hungry enough it just chills
+        if (_needs.NeedsDictionary["Hunger"] > 80)
+        {
+            try
+            {
+                _sensors.ClosestFoodPositionInSensorsRange();
+                CurrentState = ActorState.HeadingForFood;
+            }
+            catch (TargetNotFoundException)
+            {
+                CurrentState = ActorState.LookingForFood;
+            } 
+        }
+        else
+        {
+            try
+            {
+                var closestSameSpeciesActor = _sensors.ClosestSameSpeciesActorPositionInSensoryRange();
+                CurrentState = ActorState.HeadingToMate;
+                if (_actions.ActorsAreInInteractionRange(gameObject, closestSameSpeciesActor))
+                {
+                    CurrentState = ActorState.Mating;
+                }
+            }
+            catch (TargetNotFoundException)
+            {
+                CurrentState = ActorState.LookingForMate;
+            }  
+        }
         
-        //else tries to find food
-        try
-        {
-            _sensors.ClosestFoodPositionInSensorsRange();
-            CurrentState = ActorState.HeadForFood;
-        }
-        catch (TargetNotFoundException)
-        {
-            CurrentState = ActorState.LookingForFood;
-        }
+
     }
 
     private void ActOnState()
@@ -51,21 +75,30 @@ public class StateMachine : MonoBehaviour
         switch (CurrentState)
         {
             case ActorState.LookingForFood:
+            case ActorState.LookingForMate:
                     _actions.MoveInDirection(_actions.RandomWanderer.GetWanderingDirection());
                 break;
-            case ActorState.HeadForFood:
+            case ActorState.HeadingForFood:
                 try
                 {
-                    _actions.MoveToPoint(_sensors.ClosestFoodPositionInSensorsRange());
+                    _actions.MoveToPointUpToDistance(_sensors.ClosestFoodPositionInSensorsRange().transform.position);
+                }
+                catch (TargetNotFoundException)
+                { }
+                break;
+            case ActorState.HeadingToMate:
+                try
+                {
+                    _actions.MoveToPointUpToDistance(_sensors.ClosestSameSpeciesActorPositionInSensoryRange().transform.position);
                 }
                 catch (TargetNotFoundException)
                 { }
                 break;
             case ActorState.Eating:
                 break;
-            case ActorState.LookingForMate:
-                break;
             case ActorState.Mating:
+                if(++_matingCounter > matingCounterMax)
+                    _matingController.SpawnOffspring(gameObject, _sensors.ClosestSameSpeciesActorPositionInSensoryRange());
                 break;
             case ActorState.LookingForWater:
                 break;
@@ -75,6 +108,8 @@ public class StateMachine : MonoBehaviour
                 break;
             case ActorState.Chilling:
                 break;
+            case ActorState.HeadingToWater:
+                break;
             default:
                 throw new ArgumentOutOfRangeException();
         }
@@ -83,11 +118,13 @@ public class StateMachine : MonoBehaviour
     public enum ActorState
     {
         LookingForFood,     //does not see food, wandering looking for it
-        HeadForFood,        //knows where are food, and heading for it
+        HeadingForFood,        //knows where are food, and heading for it
         Eating,
         LookingForMate,
+        HeadingToMate,
         Mating,
         LookingForWater,
+        HeadingToWater,
         Drinking,
         RunningAway,
         Chilling

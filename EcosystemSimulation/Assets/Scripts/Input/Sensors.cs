@@ -17,37 +17,47 @@ public class Sensors : MonoBehaviour
         _features = GetComponent<Features>();
     }
 
-    public Vector3 ClosestFoodPositionInSensorsRange()
+    public GameObject ClosestFoodPositionInSensorsRange()
     {
-        var gos = GameObject.FindGameObjectsWithTag("Food");
+        return ClosestGameObjectWithTagWithinSensoryRange("Food");
+    }
+
+    public GameObject ClosestSameSpeciesActorPositionInSensoryRange()
+    {
+        return ClosestGameObjectWithTagWithinSensoryRange("Rabbit");
+    }
+
+    private GameObject ClosestGameObjectWithTagWithinSensoryRange(string tagName)
+    {
+        var gos = GameObject.FindGameObjectsWithTag(tagName);
         GameObject closest = null;
         var distance = Mathf.Infinity;
         var position = transform.position;
         foreach (var go in gos)
         {
-            if (!FoodIsWithinSensoryRange(go))
+            if (!ObjectIsWithinSensoryRange(go))
+                continue;
+            if (go == gameObject)
                 continue;
             var diff = go.transform.position - position;
             var curDistance = diff.sqrMagnitude;
-            if (!(curDistance < distance)) 
+            if (!(curDistance < distance))
                 continue;
             closest = go;
             distance = curDistance;
         }
+
         if (closest is null)
             throw new TargetNotFoundException();
-        return closest.transform.position;
+        return closest;
     }
 
-    private bool FoodIsWithinSensoryRange(GameObject go)
+    private bool ObjectIsWithinSensoryRange(GameObject go)
     {
         return Math.Abs((transform.position - go.transform.position).magnitude) < _features.FeatureDictionary["SensoryRange"];
     }
-
-
 }
 
 public class TargetNotFoundException : Exception
 {
-        
 }

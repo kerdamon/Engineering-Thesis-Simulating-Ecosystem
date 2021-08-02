@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Security.Cryptography.X509Certificates;
 using UnityEngine;
 
 
@@ -10,6 +11,7 @@ namespace DefaultNamespace
         private Features _features;
 
         [SerializeField] private int randomWanderingThreshold;
+        [SerializeField] private int interactionRange;
         public RandomWanderer RandomWanderer { get; set; }
 
         private void Start()
@@ -25,9 +27,16 @@ namespace DefaultNamespace
 #endif
         }
 
-        public void MoveToPoint(Vector3 destination)
+        public bool ActorsAreInInteractionRange(GameObject actor1, GameObject actor2)
         {
-            var moveDir = new Vector3(destination.x - transform.position.x, 0f, destination.z - transform.position.z);
+            return (actor1.transform.position - actor2.transform.position).magnitude < interactionRange;
+        }
+
+        public void MoveToPointUpToDistance(Vector3 destination)
+        {
+            var diffX = destination.x - transform.position.x;
+            var diffZ = destination.z - transform.position.z;
+            var moveDir = new Vector3(diffX, 0f, diffZ);
             transform.position += moveDir.normalized * (_features.FeatureDictionary["Speed"] * Time.deltaTime);
         }
 
@@ -36,9 +45,6 @@ namespace DefaultNamespace
             transform.position += direction.normalized * (_features.FeatureDictionary["Speed"] * Time.deltaTime);
         }
 
-        public void Interact()
-        {
-            
-        }
+
     }
 }
