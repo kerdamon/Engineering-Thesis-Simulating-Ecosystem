@@ -17,7 +17,7 @@ public class Needs : MonoBehaviour
     private void Update()
     {
 #if UNITY_EDITOR
-        UpdateDictionary(); 
+        UpdateDictionary();     //todo change, because can't change needs in game (because it overrides it with gui value)
 #endif
     }
 

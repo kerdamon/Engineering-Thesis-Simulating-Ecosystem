@@ -13,11 +13,10 @@ public class StateMachine : MonoBehaviour
     
     private Needs _needs;
     private Sensors _sensors;
-    private MatingController _matingController;
+    private MatingInteractor _matingInteractor;
+    private EatingInteractor _eatingInteractor;
 
-    private int _matingCounter;
-
-    [SerializeField] private int matingCounterMax;
+    private bool _matingWasInvoked = false;     //todo remove, only temporary to see if it works
 
     public ActorState CurrentState { get; private set; }
 
@@ -26,7 +25,8 @@ public class StateMachine : MonoBehaviour
         _actions = GetComponent<ActorActions>();
         _needs = GetComponent<Needs>();
         _sensors = GetComponent<Sensors>();
-        _matingController = GetComponent<MatingController>();
+        _matingInteractor = GetComponent<MatingInteractor>();
+        _eatingInteractor = GetComponent<EatingInteractor>();
     }
 
     private void Update()
@@ -42,8 +42,12 @@ public class StateMachine : MonoBehaviour
         {
             try
             {
-                _sensors.ClosestFoodPositionInSensorsRange();
+                var closestFoodPosition = _sensors.ClosestFoodPositionInSensorsRange();
                 CurrentState = ActorState.HeadingForFood;
+                if (_actions.ActorsAreInInteractionRange(gameObject, closestFoodPosition))
+                {
+                    CurrentState = ActorState.Eating;
+                }
             }
             catch (TargetNotFoundException)
             {
@@ -95,10 +99,14 @@ public class StateMachine : MonoBehaviour
                 { }
                 break;
             case ActorState.Eating:
+                _eatingInteractor.Interact(gameObject, _sensors.ClosestFoodPositionInSensorsRange(), 0);
                 break;
             case ActorState.Mating:
-                if(++_matingCounter > matingCounterMax)
-                    _matingController.SpawnOffspring(gameObject, _sensors.ClosestSameSpeciesActorPositionInSensoryRange());
+                if (!_matingWasInvoked)
+                {
+                    _matingInteractor.Interact(gameObject, _sensors.ClosestSameSpeciesActorPositionInSensoryRange(), 5);
+                    _matingWasInvoked= true;
+                }
                 break;
             case ActorState.LookingForWater:
                 break;
