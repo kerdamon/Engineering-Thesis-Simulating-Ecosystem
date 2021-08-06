@@ -37,12 +37,12 @@ namespace DefaultNamespace
             var diffX = destination.x - transform.position.x;
             var diffZ = destination.z - transform.position.z;
             var moveDir = new Vector3(diffX, 0f, diffZ);
-            transform.position += moveDir.normalized * (_features.FeatureDictionary["Speed"] * Time.deltaTime);
+            transform.position += moveDir.normalized * (_features["Speed"] * Time.deltaTime);
         }
 
         public void MoveInDirection(Vector3 direction)
         {
-            transform.position += direction.normalized * (_features.FeatureDictionary["Speed"] * Time.deltaTime);
+            transform.position += direction.normalized * (_features["Speed"] * Time.deltaTime);
         }
 
 

@@ -54,7 +54,7 @@ public class Sensors : MonoBehaviour
 
     private bool ObjectIsWithinSensoryRange(GameObject go)
     {
-        return Math.Abs((transform.position - go.transform.position).magnitude) < _features.FeatureDictionary["SensoryRange"];
+        return Math.Abs((transform.position - go.transform.position).magnitude) < _features["SensoryRange"];
     }
 }
 

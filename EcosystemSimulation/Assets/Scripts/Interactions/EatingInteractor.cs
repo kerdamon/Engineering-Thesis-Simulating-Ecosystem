@@ -20,7 +20,7 @@ public class EatingInteractor : Interactor
 
     protected override void EndInteraction(GameObject actor, GameObject food)
     {
-        _needs.NeedsDictionary["Hunger"] -= 10f;    //todo magic number - change
+        _needs["Hunger"] = -50f;    //todo magic number - change
         Destroy(food);
     }
 

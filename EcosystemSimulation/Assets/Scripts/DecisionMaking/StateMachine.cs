@@ -38,7 +38,7 @@ public class StateMachine : MonoBehaviour
 
     private void InferState()
     {
-        if (_needs.NeedsDictionary["Hunger"] > 80)
+        if (_needs["Hunger"] > 80)
         {
             try
             {

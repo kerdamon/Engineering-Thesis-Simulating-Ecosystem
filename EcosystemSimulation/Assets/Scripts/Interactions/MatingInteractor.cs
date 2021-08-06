@@ -13,21 +13,24 @@ public class MatingInteractor : Interactor
 
     protected override void EndInteraction(GameObject actor1, GameObject actor2)
     {
-        Dictionary<string, float> offspringFeatures = new Dictionary<string, float>();
-        foreach (var f in actor1.GetComponent<Features>().FeatureDictionary)
-        {
-            offspringFeatures[f.Key] = (f.Value + actor2.GetComponent<Features>().FeatureDictionary[f.Key]) / 2;
-        }
-
-        Debug.Log($"Spawning 1 offspring with features:");
-        foreach (var offspringFeature in offspringFeatures)
-        {
-            Debug.Log($"{offspringFeature.Key}: {offspringFeature.Value}");
-        }
+        SpawnOffspring(actor1, actor2);
     }
 
     protected override void WaitingIncrement(float percentageCompleted)
     {
         Debug.Log($"PercentageCompleted: {percentageCompleted}");
+    }
+
+    private void SpawnOffspring(GameObject actor1, GameObject actor2)
+    {
+        var offspring = Instantiate(gameObject, transform);
+        offspring.transform.Translate(Random.value, 0, Random.value);
+        var offspringFeatures = offspring.GetComponent<Features>();
+        var actor1Features = actor1.GetComponent<Features>();
+        var actor2Features = actor2.GetComponent<Features>(); 
+        foreach (var f in actor1Features)
+        {
+            offspringFeatures[f.Key] = (f.Value + actor2Features[f.Key]) / 2;
+        }
     }
 }
