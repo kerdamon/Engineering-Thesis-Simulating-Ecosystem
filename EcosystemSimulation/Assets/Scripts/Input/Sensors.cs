@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Reflection;
+using Input;
 using UnityEngine;
 using UnityEngine.Analytics;
 using UnityEngine.TextCore;
@@ -22,9 +23,14 @@ public class Sensors : MonoBehaviour
         return ClosestGameObjectWithTagWithinSensoryRange("Food");
     }
 
-    public GameObject ClosestSameSpeciesActorPositionInSensoryRange()
+    public GameObject ClosestPartnerPositionInSensoryRange()
     {
-        return ClosestGameObjectWithTagWithinSensoryRange("Rabbit");
+        var potentialPartner = ClosestGameObjectWithTagWithinSensoryRange("Rabbit");
+        if (potentialPartner.GetComponent<BinaryFeatures>()["isFemale"] !=
+            gameObject.GetComponent<BinaryFeatures>()["isFemale"])
+            return potentialPartner;
+        throw new TargetNotFoundException();
+        return potentialPartner;
     }
 
     private GameObject ClosestGameObjectWithTagWithinSensoryRange(string tagName)

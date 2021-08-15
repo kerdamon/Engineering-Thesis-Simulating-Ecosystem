@@ -3,5 +3,5 @@ using System.Collections.Generic;
 using Input;
 using UnityEngine;
 
-public class Needs : DictionarySerializer
+public class Needs : DictionarySerializer<float>
 { }

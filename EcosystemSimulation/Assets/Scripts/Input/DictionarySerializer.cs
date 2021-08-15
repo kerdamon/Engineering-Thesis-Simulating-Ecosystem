@@ -5,20 +5,20 @@ using UnityEngine;
 
 namespace Input
 {
-    public class DictionarySerializer : MonoBehaviour, IEnumerable<KeyValuePair<string, float>>
+    public class DictionarySerializer<TValue> : MonoBehaviour, IEnumerable<KeyValuePair<string, TValue>>
     {
         [SerializeField] private List<string> keys;
-        [SerializeField] private List<float> values;
+        [SerializeField] private List<TValue> values;
 
-        public float this[string key]
+        public TValue this[string key]
         {
             get => values[keys.IndexOf(key)];
             set => values[keys.IndexOf(key)] = value;
         }
 
-        public IEnumerator<KeyValuePair<string, float>> GetEnumerator()
+        public IEnumerator<KeyValuePair<string, TValue>> GetEnumerator()
         {
-            return new DictionarySerializerEnumerator(keys, values);
+            return new DictionarySerializerEnumerator<TValue>(keys, values);
         }
         
         IEnumerator IEnumerable.GetEnumerator()
@@ -28,13 +28,13 @@ namespace Input
     }
 }
 
-class DictionarySerializerEnumerator : IEnumerator<KeyValuePair<string, float>>
+class DictionarySerializerEnumerator<TValue> : IEnumerator<KeyValuePair<string, TValue>>
 {
     private List<string> _keys;
-    private List<float> _values;
+    private List<TValue> _values;
     private int _index = -1;
 
-    public DictionarySerializerEnumerator(List<string> keys, List<float> values)
+    public DictionarySerializerEnumerator(List<string> keys, List<TValue> values)
     {
         _keys = keys;
         _values = values;
@@ -53,7 +53,7 @@ class DictionarySerializerEnumerator : IEnumerator<KeyValuePair<string, float>>
 
     object IEnumerator.Current => Current;
 
-    public KeyValuePair<string, float> Current => new KeyValuePair<string, float>(_keys[_index], _values[_index]);
+    public KeyValuePair<string, TValue> Current => new KeyValuePair<string, TValue>(_keys[_index], _values[_index]);
     public void Dispose()
     {
     }

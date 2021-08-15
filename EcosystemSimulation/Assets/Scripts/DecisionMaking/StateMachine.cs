@@ -58,7 +58,7 @@ public class StateMachine : MonoBehaviour
         {
             try
             {
-                var closestSameSpeciesActor = _sensors.ClosestSameSpeciesActorPositionInSensoryRange();
+                var closestSameSpeciesActor = _sensors.ClosestPartnerPositionInSensoryRange();
                 CurrentState = ActorState.HeadingToMate;
                 if (_actions.ActorsAreInInteractionRange(gameObject, closestSameSpeciesActor))
                 {
@@ -93,7 +93,7 @@ public class StateMachine : MonoBehaviour
             case ActorState.HeadingToMate:
                 try
                 {
-                    _actions.MoveToPointUpToDistance(_sensors.ClosestSameSpeciesActorPositionInSensoryRange().transform.position);
+                    _actions.MoveToPointUpToDistance(_sensors.ClosestPartnerPositionInSensoryRange().transform.position);
                 }
                 catch (TargetNotFoundException)
                 { }
@@ -104,7 +104,7 @@ public class StateMachine : MonoBehaviour
             case ActorState.Mating:
                 if (!_matingWasInvoked)
                 {
-                    _matingInteractor.Interact(gameObject, _sensors.ClosestSameSpeciesActorPositionInSensoryRange(), 5);
+                    _matingInteractor.Interact(gameObject, _sensors.ClosestPartnerPositionInSensoryRange(), 5);
                     _matingWasInvoked= true;
                 }
                 break;
