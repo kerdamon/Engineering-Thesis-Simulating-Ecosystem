@@ -6,16 +6,16 @@ using UnityEngine;
 public class StateVisualizer : MonoBehaviour
 {
     private TextMesh _tooltip;
-    private StateMachine _state;
+    private StateMachine _rabbitState;
 
     private void Start()
     {
         _tooltip = GetComponentInChildren<TextMesh>();
-        _state = GetComponent<StateMachine>();
+        _rabbitState = GetComponent<StateMachine>();
     }
 
     void Update()
     {
-        _tooltip.text = _state.CurrentState.ToString();
+        _tooltip.text = _rabbitState.CurrentState.ToString();
     }
 }
