@@ -1,8 +1,5 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using DefaultNamespace;
-using UnityEditor;
 using UnityEngine;
 
 [RequireComponent(typeof(Needs))]

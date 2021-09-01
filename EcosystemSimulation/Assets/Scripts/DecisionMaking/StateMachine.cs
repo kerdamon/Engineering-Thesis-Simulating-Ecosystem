@@ -1,11 +1,5 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using System.Linq;
-using DecisionMaking;
 using DecisionMaking.States;
-using DefaultNamespace;
-using UnityEditor;
 using UnityEngine;
 
 [RequireComponent(typeof(StatesList))]

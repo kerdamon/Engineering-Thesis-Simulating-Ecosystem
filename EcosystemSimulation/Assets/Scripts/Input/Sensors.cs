@@ -1,11 +1,6 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Reflection;
 using Input;
 using UnityEngine;
-using UnityEngine.Analytics;
-using UnityEngine.TextCore;
 
 public class Sensors : MonoBehaviour
 {

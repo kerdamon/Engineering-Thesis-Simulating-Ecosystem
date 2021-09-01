@@ -1,6 +1,4 @@
-﻿using UnityEngine;
-
-namespace DecisionMaking.States
+﻿namespace DecisionMaking.States
 {
     public interface IState
     {
