@@ -2,26 +2,23 @@
 
 namespace DecisionMaking.States
 {
-    public class EatingState : IState
+    public class EatingState : State
     {
-        public float Priority { get; set; } = 0;
+        public override float Priority => 0;
         private Sensors _sensors;
         private EatingInteractor _eatingInteractor;
 
-        private GameObject _actor;
-
-        public EatingState(GameObject actor)
+        public void Start()
         {
-            _actor = actor;
-            _sensors = actor.GetComponent<Sensors>();
-            _eatingInteractor = actor.GetComponent<EatingInteractor>();
+            _sensors = GetComponentInParent<Sensors>();
+            _eatingInteractor = GetComponentInParent<EatingInteractor>();
         }
 
-        public void Act()
+        public override void Act()
         {
-            _eatingInteractor.Interact(_actor, _sensors.ClosestFoodPositionInSensorsRange(), 0);
+            _eatingInteractor.Interact(gameObject, _sensors.ClosestFoodPositionInSensorsRange(), 0);
         }
 
-        public float CurrentRank => Priority;
+        public override float CurrentRank => Priority;
     }
 }

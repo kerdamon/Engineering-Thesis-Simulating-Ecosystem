@@ -3,22 +3,22 @@ using UnityEngine;
 
 namespace DecisionMaking.States
 {
-    public class ChillingState : IState
+    public class ChillingState : State
     {
-        public float Priority { get; set; } = 100;
+        public override float Priority => 100;
 
         private ActorActions _actions;
         
-        public ChillingState(GameObject actor)
+        public void Start()
         {
-            _actions = actor.GetComponent<ActorActions>(); 
+            _actions = GetComponentInParent<ActorActions>(); 
         }
         
-        public void Act()
+        public override void Act()
         {
             _actions.MoveInDirection(_actions.RandomWanderer.GetWanderingDirection());
         }
 
-        public float CurrentRank => Priority;
+        public override float CurrentRank => Priority;
     }
 }

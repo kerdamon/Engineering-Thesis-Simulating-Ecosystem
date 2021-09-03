@@ -1,25 +1,59 @@
-﻿using DefaultNamespace;
+﻿using System.Threading;
+using DefaultNamespace;
 using UnityEngine;
 
 namespace DecisionMaking.States
 {
-    public class LookingForFoodState : IState
+    public class LookingForFoodState : State
     {
-        public float Priority { get; set; } = 5;
-        private readonly Needs _needs;
+        public override float Priority => 5;
+
+        private Needs _needs;
         private ActorActions _actions;
+        private Sensors _sensors;
+
+        private StateMachine _stateMachine;
+        private HeadingForFoodState _nextState;
         
-        public LookingForFoodState(GameObject actor)
+        public void Start()
         {
-            _needs = actor.GetComponent<Needs>();
-            _actions = actor.GetComponent<ActorActions>();
+            _needs = GetComponentInParent<Needs>();
+            _actions = GetComponentInParent<ActorActions>();
+            _sensors = GetComponentInParent<Sensors>();
+            _stateMachine = GetComponentInParent<StateMachine>();
+            _nextState = transform.parent.gameObject.GetComponentInChildren<HeadingForFoodState>();
         }
 
-        public void Act()
+        public override void Act()
         {
             _actions.MoveInDirection(_actions.RandomWanderer.GetWanderingDirection());
+            Debug.Log($"Checking if can switch to next state: {CanSwitchToNextState()}");
+            if (CanSwitchToNextState())
+            {
+                
+                SwitchToNextState();
+            }
+
         }
 
-        public float CurrentRank => Priority * _needs["Hunger"];
+        private bool CanSwitchToNextState()
+        {
+            try
+            {
+                _sensors.ClosestFoodPositionInSensorsRange();
+                return true;
+            }
+            catch (ThreadStartException)
+            {
+                return false;
+            }
+        }
+        
+        private void SwitchToNextState()
+        {
+            _stateMachine.CurrentState = _nextState;
+        }
+        
+        public override float CurrentRank => Priority * _needs["Hunger"];
     }
 }
