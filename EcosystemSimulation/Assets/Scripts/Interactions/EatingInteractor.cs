@@ -10,18 +10,18 @@ public class EatingInteractor : Interactor
         _needs = GetComponent<Needs>();
     }
 
-    protected override void StartInteraction(GameObject actor, GameObject food)
+    protected override void AtInteractionStart(GameObject actor, GameObject food)
     {
         Debug.Log($"Start Eating");
     }
 
-    protected override void EndInteraction(GameObject actor, GameObject food)
+    protected override void AtInteractionEnd(GameObject actor, GameObject food)
     {
         _needs["Hunger"] = -50f;    //todo magic number - change
         Destroy(food);
     }
 
-    protected override void WaitingIncrement(float percentageCompleted)
+    protected override void AtInteractionIncrement(float percentageCompleted)
     {
         Debug.Log($"PercentageCompleted: {percentageCompleted}");
     }

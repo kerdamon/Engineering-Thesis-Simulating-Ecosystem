@@ -5,13 +5,13 @@ namespace DecisionMaking.States
 {
     public class HeadingForFoodState : State
     {
-        public override float Priority => 0;
         private Needs _needs;
         private ActorActions _actions;
         private Sensors _sensors;
         
         private StateMachine _stateMachine;
         private EatingState _nextState;
+        private LookingForFoodState _previousState;
         
         public void Start()
         {
@@ -19,19 +19,23 @@ namespace DecisionMaking.States
             _actions = GetComponentInParent<ActorActions>();
             _sensors = GetComponentInParent<Sensors>();
             _stateMachine = GetComponentInParent<StateMachine>();
-            _nextState = transform.parent.gameObject.GetComponentInChildren<EatingState>();
+            var parent = transform.parent;
+            _nextState = parent.gameObject.GetComponentInChildren<EatingState>();
+            _previousState = parent.gameObject.GetComponentInChildren<LookingForFoodState>(); 
         }
 
         public override void Act()
         {
             var closestFoodPosition = _sensors.ClosestFoodPositionInSensorsRange();
-
+            Debug.Log($"Acting");
             try
             {
-                _actions.MoveToPointUpToDistance(closestFoodPosition.transform.position);   //todo not working
+                _actions.MoveToPointUpToDistance(closestFoodPosition.transform.position); //todo not working
             }
             catch (TargetNotFoundException)
-            { }
+            {
+                Debug.Log($"Target Not Found");
+            }
             
             if (_actions.ActorsAreInInteractionRange(gameObject, closestFoodPosition))  //todo abstract this into checking and next state as in looking for food state
             {
@@ -39,6 +43,6 @@ namespace DecisionMaking.States
             }
         }
 
-        public override float CurrentRank => Priority;
+        public override float CurrentRank => _previousState.CurrentRank + 1;
     }
 }

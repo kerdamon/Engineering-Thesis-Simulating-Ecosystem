@@ -14,7 +14,7 @@ public class StateMachine : MonoBehaviour
     private void Start()
     {
         _mainStatesList = _mainStates.GetComponents<State>().ToList();
-        InferState();
+        CurrentState = _mainStatesList[0];
     }
 
     private void Update()
@@ -25,9 +25,11 @@ public class StateMachine : MonoBehaviour
 
     private void InferState()
     {
-        Debug.Log($"_statesList.States[0].CurrentRank {_mainStatesList[0].CurrentRank} ");
-        Debug.Log($"_statesList.States[1].CurrentRank {_mainStatesList[1].CurrentRank} ");
-        CurrentState = _mainStatesList.Aggregate((state1, state2) => state1.CurrentRank > state2.CurrentRank ? state1 : state2);
+        var newStateCandidate = _mainStatesList.Aggregate((state1, state2) => state1.CurrentRank > state2.CurrentRank ? state1 : state2);
+        if (newStateCandidate.CurrentRank > CurrentState.CurrentRank)
+        {
+            CurrentState = newStateCandidate;
+        }
     }
 }
 

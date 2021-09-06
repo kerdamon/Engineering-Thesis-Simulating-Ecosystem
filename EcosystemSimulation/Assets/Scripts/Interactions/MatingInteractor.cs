@@ -3,18 +3,17 @@ using UnityEngine;
 
 public class MatingInteractor : Interactor
 {
-
-    protected override void StartInteraction(GameObject actor1, GameObject actor2)
+    protected override void AtInteractionStart(GameObject actor1, GameObject actor2)
     {
         Debug.Log($"Start mating");
     }
 
-    protected override void EndInteraction(GameObject actor1, GameObject actor2)
+    protected override void AtInteractionEnd(GameObject actor1, GameObject actor2)
     {
         SpawnOffspring(actor1, actor2);
     }
 
-    protected override void WaitingIncrement(float percentageCompleted)
+    protected override void AtInteractionIncrement(float percentageCompleted)
     {
         Debug.Log($"PercentageCompleted: {percentageCompleted}");
     }

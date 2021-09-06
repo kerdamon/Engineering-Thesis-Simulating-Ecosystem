@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using UnityEngine;
 
 namespace Interactions
@@ -11,25 +12,28 @@ namespace Interactions
             InteractCoroutine = InteractWithWaiting(actor1, actor2, time);
             StartCoroutine(InteractCoroutine);
         }
+        
+        public Action AfterInteraction;
 
-        IEnumerator InteractWithWaiting(GameObject actor1, GameObject actor2, float time)
+        private IEnumerator InteractWithWaiting(GameObject actor1, GameObject actor2, float time)
         {
-            StartInteraction(actor1, actor2);
+            AtInteractionStart(actor1, actor2);
 
             var timeElapsed = 0.0f;
             var timeIncrement = 0.1f;
             while (timeElapsed < time)
             {
                 timeElapsed += timeIncrement;
-                WaitingIncrement(timeElapsed / time);
+                AtInteractionIncrement(timeElapsed / time);
                 yield return new WaitForSeconds(timeIncrement);
             }
             
-            EndInteraction(actor1, actor2);
+            AtInteractionEnd(actor1, actor2);
+            AfterInteraction();
         }
 
-        protected abstract void StartInteraction(GameObject actor1, GameObject actor2);
-        protected abstract void EndInteraction(GameObject actor1, GameObject actor2);
-        protected abstract void WaitingIncrement(float percentageCompleted);
+        protected abstract void AtInteractionStart(GameObject actor1, GameObject actor2);
+        protected abstract void AtInteractionEnd(GameObject actor1, GameObject actor2);
+        protected abstract void AtInteractionIncrement(float percentageCompleted);
     }
 }

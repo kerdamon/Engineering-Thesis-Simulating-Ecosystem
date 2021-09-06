@@ -5,7 +5,7 @@ namespace DecisionMaking.States
 {
     public class ChillingState : State
     {
-        public override float Priority => 100;
+        public float Priority => 30;
 
         private ActorActions _actions;
         

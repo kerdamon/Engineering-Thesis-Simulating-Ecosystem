@@ -6,8 +6,6 @@ namespace DecisionMaking.States
 {
     public class LookingForFoodState : State
     {
-        public override float Priority => 5;
-
         private Needs _needs;
         private ActorActions _actions;
         private Sensors _sensors;
@@ -27,13 +25,10 @@ namespace DecisionMaking.States
         public override void Act()
         {
             _actions.MoveInDirection(_actions.RandomWanderer.GetWanderingDirection());
-            Debug.Log($"Checking if can switch to next state: {CanSwitchToNextState()}");
             if (CanSwitchToNextState())
             {
-                
                 SwitchToNextState();
             }
-
         }
 
         private bool CanSwitchToNextState()
@@ -54,6 +49,6 @@ namespace DecisionMaking.States
             _stateMachine.CurrentState = _nextState;
         }
         
-        public override float CurrentRank => Priority * _needs["Hunger"];
+        public override float CurrentRank => _needs["Hunger"];
     }
 }
