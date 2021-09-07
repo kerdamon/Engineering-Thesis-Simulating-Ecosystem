@@ -17,7 +17,7 @@ public class EatingInteractor : Interactor
 
     protected override void AtInteractionEnd(GameObject actor, GameObject food)
     {
-        _needs["Hunger"] = -50f;    //todo magic number - change
+        _needs["Hunger"] -= 30f;    //todo magic number - change
         Destroy(food);
     }
 
