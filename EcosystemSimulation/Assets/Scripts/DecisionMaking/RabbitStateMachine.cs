@@ -39,7 +39,7 @@ public class RabbitStateMachine : MonoBehaviour
         {
             try
             {
-                var closestFoodPosition = _sensors.ClosestFoodPositionInSensorsRange();
+                var closestFoodPosition = _sensors.ClosestFoodPositionInSensoryRange();
                 CurrentState = ActorState.HeadingForFood;
                 if (_actions.ActorsAreInInteractionRange(gameObject, closestFoodPosition))
                 {
@@ -82,7 +82,7 @@ public class RabbitStateMachine : MonoBehaviour
             case ActorState.HeadingForFood:
                 try
                 {
-                    _actions.MoveToPointUpToDistance(_sensors.ClosestFoodPositionInSensorsRange().transform.position);
+                    _actions.MoveToPointUpToDistance(_sensors.ClosestFoodPositionInSensoryRange().transform.position);
                 }
                 catch (TargetNotFoundException)
                 { }
@@ -96,7 +96,7 @@ public class RabbitStateMachine : MonoBehaviour
                 { }
                 break;
             case ActorState.Eating:
-                _eatingInteractor.Interact(gameObject, _sensors.ClosestFoodPositionInSensorsRange(), 0);
+                _eatingInteractor.Interact(gameObject, _sensors.ClosestFoodPositionInSensoryRange(), 0);
                 break;
             case ActorState.Mating:
                 if (!_matingWasInvoked)

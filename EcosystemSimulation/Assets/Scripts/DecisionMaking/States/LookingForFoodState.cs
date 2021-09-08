@@ -4,38 +4,19 @@ using UnityEngine;
 
 namespace DecisionMaking.States
 {
-    public class LookingForFoodState : State
+    public class LookingForFoodState : LookingForState
     {
-        private Needs _needs;
-        private ActorActions _actions;
-        private Sensors _sensors;
-
-        private StateMachine _stateMachine;
-        private HeadingForFoodState _nextState;
+        public override void Start()
+        {
+            base.Start();
+            NextState = transform.parent.gameObject.GetComponentInChildren<HeadingForFoodState>();
+        }
         
-        public void Start()
-        {
-            _needs = GetComponentInParent<Needs>();
-            _actions = GetComponentInParent<ActorActions>();
-            _sensors = GetComponentInParent<Sensors>();
-            _stateMachine = GetComponentInParent<StateMachine>();
-            _nextState = transform.parent.gameObject.GetComponentInChildren<HeadingForFoodState>();
-        }
-
-        public override void Act()
-        {
-            _actions.MoveInDirection(_actions.RandomWanderer.GetWanderingDirection());
-            if (CanSwitchToNextState())
-            {
-                SwitchToNextState();
-            }
-        }
-
-        private bool CanSwitchToNextState()
+        protected override bool CanSwitchToNextState()
         {
             try
             {
-                _sensors.ClosestFoodPositionInSensorsRange();
+                Sensors.ClosestFoodPositionInSensoryRange();
                 return true;
             }
             catch (ThreadStartException)
@@ -44,11 +25,6 @@ namespace DecisionMaking.States
             }
         }
         
-        private void SwitchToNextState()
-        {
-            _stateMachine.CurrentState = _nextState;
-        }
-        
-        public override float CurrentRank => _needs["Hunger"];
+        public override float CurrentRank => Needs["Hunger"];
     }
 }

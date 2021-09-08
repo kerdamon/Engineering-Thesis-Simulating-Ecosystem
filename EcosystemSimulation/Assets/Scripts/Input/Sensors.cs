@@ -13,7 +13,7 @@ public class Sensors : MonoBehaviour
         _features = GetComponent<Features>();
     }
 
-    public GameObject ClosestFoodPositionInSensorsRange()
+    public GameObject ClosestFoodPositionInSensoryRange()
     {
         return ClosestGameObjectWithTagWithinSensoryRange("Food");
     }
@@ -25,7 +25,6 @@ public class Sensors : MonoBehaviour
             gameObject.GetComponent<BinaryFeatures>()["isFemale"])
             return potentialPartner;
         throw new TargetNotFoundException();
-        return potentialPartner;
     }
 
     private GameObject ClosestGameObjectWithTagWithinSensoryRange(string tagName)

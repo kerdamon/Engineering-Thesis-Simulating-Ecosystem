@@ -2,31 +2,19 @@
 
 namespace DecisionMaking.States
 {
-    public class EatingState : State
+    public class EatingState : InteractionState
     {
-        private Sensors _sensors;
-        private EatingInteractor _eatingInteractor;
-        
-        private StateMachine _stateMachine;
-        private HeadingForFoodState _previousState;
-        private ChillingState _nextState;
-
-        public void Start()
+        public override void Start()
         {
-            _sensors = GetComponentInParent<Sensors>();
-            _eatingInteractor = GetComponentInParent<EatingInteractor>();
-            _stateMachine = GetComponentInParent<StateMachine>();
+            base.Start();
             var parent = transform.parent;
-            _previousState = parent.gameObject.GetComponentInChildren<HeadingForFoodState>();
-            _nextState = parent.gameObject.GetComponentInChildren<ChillingState>(); 
-            _eatingInteractor.AfterInteraction = () => _stateMachine.CurrentState = _nextState;
+            PreviousState = parent.gameObject.GetComponentInChildren<HeadingForFoodState>();
+            NextState = parent.gameObject.GetComponentInChildren<ChillingState>(); 
         }
 
         public override void Act()
         {
-            _eatingInteractor.Interact(gameObject, _sensors.ClosestFoodPositionInSensorsRange(), 0);
+            interactor.Interact(transform.parent.gameObject, Sensors.ClosestFoodPositionInSensoryRange(), 0);
         }
-
-        public override float CurrentRank => _previousState.CurrentRank + 1;
     }
 }
