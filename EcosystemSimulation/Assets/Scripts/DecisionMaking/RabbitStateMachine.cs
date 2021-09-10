@@ -96,12 +96,12 @@ public class RabbitStateMachine : MonoBehaviour
                 { }
                 break;
             case ActorState.Eating:
-                _eatingInteractor.Interact(gameObject, _sensors.ClosestFoodPositionInSensoryRange(), 0);
+                //_eatingInteractor.Interact(gameObject, _sensors.ClosestFoodPositionInSensoryRange(), 0);
                 break;
             case ActorState.Mating:
                 if (!_matingWasInvoked)
                 {
-                    _matingInteractor.Interact(gameObject, _sensors.ClosestPartnerPositionInSensoryRange(), 5);
+                    //_matingInteractor.Interact(gameObject, _sensors.ClosestPartnerPositionInSensoryRange(), 5);
                     _matingWasInvoked= true;
                 }
                 break;

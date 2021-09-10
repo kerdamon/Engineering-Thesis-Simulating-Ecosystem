@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using System.Security.Cryptography.X509Certificates;
 using UnityEngine;
 
 namespace Interactions
@@ -7,33 +8,52 @@ namespace Interactions
     public abstract class Interactor : MonoBehaviour
     {
         private IEnumerator InteractCoroutine;
-        public void Interact(GameObject actor1, GameObject actor2, float time)
+        protected float TimeElapsed;
+        [SerializeField] protected float timeIncrement;
+        [SerializeField] private float interactionDuration;
+
+        protected GameObject Actor;
+        public GameObject SecondActor { get; set; }
+        
+        protected virtual void Start()
         {
-            InteractCoroutine = InteractWithWaiting(actor1, actor2, time);
+            Actor = transform.parent.gameObject;
+            InteractCoroutine = InteractWithWaiting();
+        }
+
+        public void Interact(GameObject secondActor)
+        {
+            SecondActor = secondActor;
             StartCoroutine(InteractCoroutine);
         }
         
         public Action AfterInteraction;
 
-        private IEnumerator InteractWithWaiting(GameObject actor1, GameObject actor2, float time)
+        private IEnumerator InteractWithWaiting()
         {
-            AtInteractionStart(actor1, actor2);
-
-            var timeElapsed = 0.0f;
-            var timeIncrement = 0.1f;
-            while (timeElapsed < time)
+            TimeElapsed = 0.0f;
+            AtInteractionStart();
+            
+            while (TimeElapsed < interactionDuration)
             {
-                timeElapsed += timeIncrement;
-                AtInteractionIncrement(timeElapsed / time);
+                TimeElapsed += timeIncrement;
+                AtInteractionIncrement();
                 yield return new WaitForSeconds(timeIncrement);
             }
             
-            AtInteractionEnd(actor1, actor2);
+            AtInteractionEnd();
             AfterInteraction();
         }
 
-        protected abstract void AtInteractionStart(GameObject actor1, GameObject actor2);
-        protected abstract void AtInteractionEnd(GameObject actor1, GameObject actor2);
-        protected abstract void AtInteractionIncrement(float percentageCompleted);
+        protected virtual void AtInteractionStart()
+        {
+        }
+        protected virtual void AtInteractionEnd()
+        {
+            InteractCoroutine = InteractWithWaiting();
+        }
+        protected virtual void AtInteractionIncrement()
+        {
+        }
     }
 }

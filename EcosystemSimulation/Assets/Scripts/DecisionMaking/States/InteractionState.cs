@@ -6,7 +6,7 @@ namespace DecisionMaking.States
     public abstract class InteractionState : State
     {
         protected Sensors Sensors;
-        [SerializeField] protected Interactor interactor;
+        protected Interactor Interactor;
         
         private StateMachine _stateMachine;
         protected HeadingForState PreviousState;
@@ -16,7 +16,7 @@ namespace DecisionMaking.States
         {
             Sensors = GetComponentInParent<Sensors>();
             _stateMachine = GetComponentInParent<StateMachine>();
-            interactor.AfterInteraction = () => _stateMachine.CurrentState = NextState;
+            Interactor.AfterInteraction = () => _stateMachine.CurrentState = NextState;
         }
 
         public override float CurrentRank => PreviousState.CurrentRank + 1;

@@ -3,20 +3,19 @@ using UnityEngine;
 
 public class EatingInteractor : Interactor
 {
-    protected override void AtInteractionStart(GameObject actor, GameObject food)
+    [SerializeField] private float hungerChangeFactor;
+    private Needs _needs;
+    
+    protected override void Start()
     {
-        Debug.Log($"Start Eating");
+        base.Start();
+        _needs = Actor.GetComponent<Needs>();
     }
-
-    protected override void AtInteractionEnd(GameObject actor, GameObject food)
+    protected override void AtInteractionEnd()
     {
-        var needs = actor.GetComponent<Needs>();
-        needs["Hunger"] -= 30f;    //todo magic number - change
-        Destroy(food);
-    }
-
-    protected override void AtInteractionIncrement(float percentageCompleted)
-    {
-        Debug.Log($"PercentageCompleted: {percentageCompleted}");
+        Debug.Log($"Interaction end");
+        _needs["Hunger"] -= hungerChangeFactor;    //todo magic number - change
+        Destroy(SecondActor);
+        base.AtInteractionEnd();
     }
 }

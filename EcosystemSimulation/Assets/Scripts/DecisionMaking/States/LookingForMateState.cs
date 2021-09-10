@@ -4,19 +4,19 @@ using UnityEngine;
 
 namespace DecisionMaking.States
 {
-    public class LookingForFoodState : LookingForState
+    public class LookingForMateState : LookingForState
     {
         public override void Start()
         {
             base.Start();
-            NextState = transform.parent.gameObject.GetComponentInChildren<HeadingForFoodState>();
+            NextState = transform.parent.gameObject.GetComponentInChildren<HeadingForMateState>();
         }
         
         protected override bool CanSwitchToNextState()
         {
             try
             {
-                Sensors.ClosestFoodPositionInSensoryRange();
+                Sensors.ClosestPartnerPositionInSensoryRange();
                 return true;
             }
             catch (TargetNotFoundException)
@@ -25,6 +25,6 @@ namespace DecisionMaking.States
             }
         }
         
-        public override float CurrentRank => Needs["Hunger"];
+        public override float CurrentRank => 60;    //todo change magic number
     }
 }

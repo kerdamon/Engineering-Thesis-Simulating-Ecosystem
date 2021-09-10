@@ -1,4 +1,5 @@
 ﻿using DefaultNamespace;
+using Interactions;
 using UnityEngine;
 
 namespace DecisionMaking.States
