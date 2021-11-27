@@ -3,6 +3,10 @@ using UnityEngine;
 
 public class MatingInteractor : Interactor
 {
+    protected override void AtInteractionStart()
+    {
+    }
+
     protected override void AtInteractionEnd()
     {
         SpawnOffspring(SecondActor);

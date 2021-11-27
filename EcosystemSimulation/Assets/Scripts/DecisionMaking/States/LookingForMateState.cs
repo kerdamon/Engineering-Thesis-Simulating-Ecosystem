@@ -1,5 +1,6 @@
 ﻿using System.Threading;
 using DefaultNamespace;
+using Input;
 using UnityEngine;
 
 namespace DecisionMaking.States
@@ -16,8 +17,8 @@ namespace DecisionMaking.States
         {
             try
             {
-                Sensors.ClosestPartnerPositionInSensoryRange();
-                return true;
+                var closestPartner = Sensors.ClosestPartnerPositionInSensoryRange();
+                return !closestPartner.GetComponent<GenderController>().IsPregnant;
             }
             catch (TargetNotFoundException)
             {

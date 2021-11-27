@@ -1,4 +1,5 @@
 ﻿using DefaultNamespace;
+using Input;
 using Interactions;
 using UnityEngine;
 
@@ -22,19 +23,18 @@ namespace DecisionMaking.States
 
         public override void Act()
         {
-            var target = FindTarget();
             try
             {
+                var target = FindTarget();
                 Actions.MoveToPointUpToDistance(target.transform.position);
+                if (CanSwitchToNextState())
+                {
+                    SwitchToNextState();
+                }
             }
             catch (TargetNotFoundException)
             {
                 SwitchToPreviousState();
-            }
-            
-            if (CanSwitchToNextState())
-            {
-                SwitchToNextState();
             }
         }
 

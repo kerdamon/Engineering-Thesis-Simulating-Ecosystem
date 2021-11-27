@@ -1,5 +1,6 @@
 using System;
 using DefaultNamespace;
+using Input;
 using UnityEngine;
 
 [RequireComponent(typeof(Needs))]
