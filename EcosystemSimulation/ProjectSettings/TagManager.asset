@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Food
   - Rabbit
+  - Water
   layers:
   - Default
   - TransparentFX
