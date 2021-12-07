@@ -1,7 +1,7 @@
 using Interactions;
 using UnityEngine;
 
-public class MatingInteractor : Interactor
+public class MatingInteraction : Interaction
 {
     protected override void AtInteractionStart()
     {

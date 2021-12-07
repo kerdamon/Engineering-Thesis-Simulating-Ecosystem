@@ -11,8 +11,8 @@ public class RabbitStateMachine : MonoBehaviour
     
     private Needs _needs;
     private Sensors _sensors;
-    private MatingInteractor _matingInteractor;
-    private EatingInteractor _eatingInteractor;
+    private MatingInteraction _matingInteraction;
+    private EatingInteraction _eatingInteraction;
 
     private bool _matingWasInvoked = false;     //todo remove, only temporary to see if it works
 
@@ -23,8 +23,8 @@ public class RabbitStateMachine : MonoBehaviour
         _actions = GetComponent<ActorActions>();
         _needs = GetComponent<Needs>();
         _sensors = GetComponent<Sensors>();
-        _matingInteractor = GetComponent<MatingInteractor>();
-        _eatingInteractor = GetComponent<EatingInteractor>();
+        _matingInteraction = GetComponent<MatingInteraction>();
+        _eatingInteraction = GetComponent<EatingInteraction>();
     }
 
     private void Update()

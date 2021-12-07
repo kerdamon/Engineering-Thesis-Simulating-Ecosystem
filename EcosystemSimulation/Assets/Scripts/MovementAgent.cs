@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Interactions;
 using Unity.MLAgents;
 using Unity.MLAgents.Actuators;
 using Unity.MLAgents.Sensors;
@@ -12,12 +13,14 @@ public class MovementAgent : Agent
     [SerializeField] private float turningSpeed;   
     
     private Rigidbody _agentRigidbody;
+    private RabbitInteractionManager _rabbitInteractionManager;
 
     private bool _wantInteraction = false;
 
     public override void Initialize()
     {
         _agentRigidbody = GetComponent<Rigidbody>();
+        _rabbitInteractionManager = GetComponent<RabbitInteractionManager>();
     }
 
     public override void CollectObservations(VectorSensor sensor)
@@ -25,7 +28,6 @@ public class MovementAgent : Agent
         var localVelocity = transform.InverseTransformDirection(_agentRigidbody.velocity);
         sensor.AddObservation(localVelocity.x);
         sensor.AddObservation(localVelocity.z);
-        
     }
 
     public override void OnActionReceived(ActionBuffers actions)
@@ -52,7 +54,7 @@ public class MovementAgent : Agent
 
         _agentRigidbody.AddForce(dirToGo * movementSpeed, ForceMode.VelocityChange);
         transform.Rotate(rotateDir, Time.fixedDeltaTime * turningSpeed);
-
+        
         if (_agentRigidbody.velocity.sqrMagnitude > 25f) // slow it down
         {
             _agentRigidbody.velocity *= 0.95f;
@@ -63,12 +65,16 @@ public class MovementAgent : Agent
     {
         if (_wantInteraction)
         {
-            //_interactor.collision.gameObject(collision.gameObject);
+            _rabbitInteractionManager.Interact(collision.gameObject);
         }
     }
 
     private void Interact(ActionBuffers actions)
     {
         _wantInteraction = actions.DiscreteActions[0] > 0;
+        // if (!_wantInteraction && _rabbitInteractionManager.isInteracting)
+        // {
+        //     _rabbitInteractionManager.StopInteraction();
+        // }
     }
 }

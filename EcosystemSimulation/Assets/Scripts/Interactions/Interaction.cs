@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Interactions
 {
-    public abstract class Interactor : MonoBehaviour
+    public abstract class Interaction : MonoBehaviour
     {
         private IEnumerator InteractCoroutine;
         protected float TimeElapsed;

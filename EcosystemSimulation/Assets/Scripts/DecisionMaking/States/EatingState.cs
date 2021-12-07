@@ -9,14 +9,14 @@ namespace DecisionMaking.States
             var parent = transform.parent.gameObject;
             PreviousState = parent.GetComponentInChildren<HeadingForFoodState>();
             NextState = parent.GetComponentInChildren<ChillingState>(); 
-            Interactor = parent.GetComponentInChildren<EatingInteractor>();
+            Interaction = parent.GetComponentInChildren<EatingInteraction>();
             base.Start();
         }
 
         public override void Act()
         {
             Debug.Log("act");
-            Interactor.Interact(Sensors.ClosestFoodPositionInSensoryRange());
+            Interaction.Interact(Sensors.ClosestFoodPositionInSensoryRange());
         }
     }
 }

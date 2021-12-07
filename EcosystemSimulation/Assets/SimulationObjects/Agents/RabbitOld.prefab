@@ -327,7 +327,7 @@ GameObject:
   - component: {fileID: 7448714912443197844}
   - component: {fileID: 3662636372745853830}
   m_Layer: 0
-  m_Name: Rabbit
+  m_Name: RabbitOld
   m_TagString: Rabbit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

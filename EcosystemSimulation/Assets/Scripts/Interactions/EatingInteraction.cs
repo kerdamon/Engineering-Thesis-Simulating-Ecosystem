@@ -1,7 +1,7 @@
 using Interactions;
 using UnityEngine;
 
-public class EatingInteractor : Interactor
+public class EatingInteraction : Interaction
 {
     [SerializeField] private float hungerChangeFactor;
     private Needs _needs;
