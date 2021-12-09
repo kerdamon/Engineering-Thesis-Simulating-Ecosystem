@@ -9,13 +9,12 @@ public class EatingInteraction : Interaction
     protected override void Start()
     {
         base.Start();
-        _needs = Actor.GetComponent<Needs>();
+        _needs = SimulationObject.GetComponent<Needs>();
     }
     protected override void AtInteractionEnd()
     {
-        Debug.Log($"Interaction end");
         _needs["Hunger"] -= hungerChangeFactor;    //todo magic number - change
-        Destroy(SecondActor);
+        Destroy(SecondSimulationObject);
         base.AtInteractionEnd();
     }
 }

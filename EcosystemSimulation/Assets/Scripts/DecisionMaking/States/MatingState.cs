@@ -15,7 +15,7 @@ namespace DecisionMaking.States
 
         public override void Act()
         {
-            Interaction.Interact(Sensors.ClosestPartnerPositionInSensoryRange());
+            Interaction.StartInteraction(Sensors.ClosestPartnerPositionInSensoryRange());
         }
     }
 }

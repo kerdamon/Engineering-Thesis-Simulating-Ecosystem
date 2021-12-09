@@ -9,7 +9,7 @@ public class MatingInteraction : Interaction
 
     protected override void AtInteractionEnd()
     {
-        SpawnOffspring(SecondActor);
+        SpawnOffspring(SecondSimulationObject);
     }
 
     private void SpawnOffspring(GameObject mate)
@@ -17,7 +17,7 @@ public class MatingInteraction : Interaction
         var offspring = Instantiate(gameObject, transform);
         offspring.transform.Translate(Random.value, 0, Random.value);
         var offspringFeatures = offspring.GetComponent<Features>();
-        var actorFeatures = Actor.GetComponent<Features>();
+        var actorFeatures = SimulationObject.GetComponent<Features>();
         var mateFeatures = mate.GetComponent<Features>(); 
         foreach (var f in actorFeatures)
         {

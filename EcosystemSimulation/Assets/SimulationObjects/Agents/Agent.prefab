@@ -18,7 +18,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6269546211709938654
 Transform:
   m_ObjectHideFlags: 0
@@ -297,6 +297,7 @@ GameObject:
   - component: {fileID: 4035078786211711001}
   - component: {fileID: 7853836569500315272}
   - component: {fileID: 8154992024437168278}
+  - component: {fileID: 3456267507235149265}
   m_Layer: 0
   m_Name: Agent
   m_TagString: Untagged
@@ -337,7 +338,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 84
   m_CollisionDetection: 0
 --- !u!114 &8308489713242390373
 MonoBehaviour:
@@ -396,9 +397,9 @@ MonoBehaviour:
   agentParameters:
     maxStep: 0
   hasUpgradedFromAgentParameters: 1
-  MaxStep: 0
-  movementSpeed: 0
-  turningSpeed: 0
+  MaxStep: 5000
+  movementSpeed: 2
+  turningSpeed: 50
 --- !u!114 &8154992024437168278
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -418,6 +419,20 @@ MonoBehaviour:
   - 30
   - 30
   increaseRate: 1
+--- !u!114 &3456267507235149265
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6193517788997554062}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a5c9d521e5ef4759a8246a07d52221e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DecisionPeriod: 10
+  TakeActionsBetweenDecisions: 1
 --- !u!1 &6694033262013608289
 GameObject:
   m_ObjectHideFlags: 0
@@ -436,7 +451,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7548820249490069175
 Transform:
   m_ObjectHideFlags: 0

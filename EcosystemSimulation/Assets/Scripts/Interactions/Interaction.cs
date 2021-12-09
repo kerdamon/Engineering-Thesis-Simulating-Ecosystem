@@ -1,35 +1,42 @@
 ﻿using System;
 using System.Collections;
 using System.Security.Cryptography.X509Certificates;
+using TMPro.EditorUtilities;
 using UnityEngine;
 
 namespace Interactions
 {
     public abstract class Interaction : MonoBehaviour
     {
-        private IEnumerator InteractCoroutine;
+        private IEnumerator _interactCoroutine;
         protected float TimeElapsed;
         [SerializeField] protected float timeIncrement;
         [SerializeField] private float interactionDuration;
 
-        protected GameObject Actor;
-        public GameObject SecondActor { get; set; }
+        protected GameObject SimulationObject;
+        public GameObject SecondSimulationObject { get; set; }
         
         protected virtual void Start()
         {
-            Actor = transform.parent.gameObject;
-            InteractCoroutine = InteractWithWaiting();
+            SimulationObject = transform.parent.gameObject;
+            _interactCoroutine = InteractionCoroutine();
         }
 
-        public void Interact(GameObject secondActor)
+        public void StartInteraction(GameObject secondActor)
         {
-            SecondActor = secondActor;
-            StartCoroutine(InteractCoroutine);
+            _interactCoroutine = InteractionCoroutine();
+            SecondSimulationObject = secondActor;
+            StartCoroutine(_interactCoroutine);
+        }
+
+        public void Stop()
+        {
+           StopAllCoroutines();
         }
         
         public Action AfterInteraction;
 
-        private IEnumerator InteractWithWaiting()
+        private IEnumerator InteractionCoroutine()
         {
             TimeElapsed = 0.0f;
             AtInteractionStart();
@@ -50,7 +57,6 @@ namespace Interactions
         }
         protected virtual void AtInteractionEnd()
         {
-            InteractCoroutine = InteractWithWaiting();
         }
         protected virtual void AtInteractionIncrement()
         {
