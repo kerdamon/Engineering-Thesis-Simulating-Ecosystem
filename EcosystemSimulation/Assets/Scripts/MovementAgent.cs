@@ -72,7 +72,6 @@ public class MovementAgent : Agent
     private void Interact(ActionBuffers actions)
     {
         _wantInteraction = actions.DiscreteActions[0] > 0;
-        Debug.Log($"Teraz jestesmy w trakcie interackji? {_rabbitInteractionManager.IsInteracting}");
         if (!_wantInteraction && _rabbitInteractionManager.IsInteracting)
         {
             _rabbitInteractionManager.StopInteraction();
