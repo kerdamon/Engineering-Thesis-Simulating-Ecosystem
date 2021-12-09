@@ -297,6 +297,8 @@ GameObject:
   - component: {fileID: 7853836569500315272}
   - component: {fileID: 8154992024437168278}
   - component: {fileID: 3456267507235149265}
+  - component: {fileID: 3056754191753714340}
+  - component: {fileID: 4367339644587198246}
   m_Layer: 0
   m_Name: Agent
   m_TagString: Untagged
@@ -385,7 +387,7 @@ MonoBehaviour:
     maxStep: 0
   hasUpgradedFromAgentParameters: 1
   MaxStep: 5000
-  movementSpeed: 2
+  movementSpeed: 1
   turningSpeed: 50
 --- !u!114 &8154992024437168278
 MonoBehaviour:
@@ -420,6 +422,94 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DecisionPeriod: 10
   TakeActionsBetweenDecisions: 1
+--- !u!114 &3056754191753714340
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6193517788997554062}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f8abecd5902d09449e947799d9330a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &4367339644587198246
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6193517788997554062}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec8722596ac4fb346894cd62602b3999, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ObservationShape: 2 channels x 40 width x 40 height
+  m_SensorName: MovementGridSensor
+  m_ObservationStacks: 1
+  m_CompressionType: 1
+  m_ObservationType: 0
+  m_ChannelLabels: []
+  m_Debug_CreateSensorOnAwake: 0
+  m_Debug_CreateSensorOnValidate: 1
+  m_Debug_FrameInterval: 1
+  m_Debug_DrawGridBuffer: 0
+  m_Debug_GridBufferDrawer:
+    Context: {fileID: 0}
+    Editor: {fileID: 0}
+    GridSizeRatio: 0
+    IsEnabled: 0
+    IsStandby: 0
+  m_GridShape:
+    NumChannels: 2
+    Width: 40
+    Height: 40
+  m_ClearCacheOnReset: 0
+  m_ColliderBufferSize: 64
+  m_TmpObjectToAdd: {fileID: 0}
+  m_GameObjectSettingsList:
+  - Tag: Food
+    Enabled: 1
+    DetectionType: 0
+    Modifier: 0
+    Detectable: {fileID: 3861191557342994614, guid: aca7aeccaff29d64290ca94f0785d2e7, type: 3}
+    m_UserObservables:
+      m_Observables: []
+    m_Observables:
+    - Name: One-Hot
+      Type: 1
+      Index: -1
+      Enabled: 1
+      Color: {r: 1, g: 0.32911384, b: 0, a: 1}
+    m_DetectorSpaceType: 0
+  - Tag: Water
+    Enabled: 1
+    DetectionType: 2
+    Modifier: 0
+    Detectable: {fileID: 7477169605539638210, guid: e6834bc987bb21b4db858d3a60b8ab18, type: 3}
+    m_UserObservables:
+      m_Observables: []
+    m_Observables:
+    - Name: One-Hot
+      Type: 1
+      Index: -1
+      Enabled: 1
+      Color: {r: 0.24705884, g: 0.38431376, b: 0.96470594, a: 1}
+    m_DetectorSpaceType: 0
+  m_RotationType: 0
+  m_DetectionBounds:
+    m_Center: {x: 0, y: 0, z: 8.8}
+    m_Extent: {x: 16, y: 0.5, z: 16}
+  m_EditorBounds:
+    m_Center: {x: 0, y: 0, z: 8.8}
+    m_Extent: {x: 16, y: 0.5, z: 16}
+  m_CellSize: 0.8
+  m_NumCells: {x: 40, y: 1, z: 40}
+  m_DetectionSize: {x: 32, y: 1, z: 32}
+  m_BoundsSize: {x: 32, y: 1, z: 32}
+  m_Offset: {x: 0, y: 0, z: 8.8}
 --- !u!1 &6694033262013608289
 GameObject:
   m_ObjectHideFlags: 0

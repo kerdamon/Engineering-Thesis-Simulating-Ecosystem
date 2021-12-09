@@ -361,7 +361,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 126188848680487115, guid: a487920c7ca62f441a0afa6450b48ff7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -12.7
+      value: -8.9
       objectReference: {fileID: 0}
     - target: {fileID: 126188848680487115, guid: a487920c7ca62f441a0afa6450b48ff7, type: 3}
       propertyPath: m_LocalPosition.y
@@ -369,7 +369,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 126188848680487115, guid: a487920c7ca62f441a0afa6450b48ff7, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.9000015
+      value: -0.3
       objectReference: {fileID: 0}
     - target: {fileID: 126188848680487115, guid: a487920c7ca62f441a0afa6450b48ff7, type: 3}
       propertyPath: m_LocalRotation.w
@@ -418,6 +418,14 @@ PrefabInstance:
     - target: {fileID: 4857345277020938569, guid: a487920c7ca62f441a0afa6450b48ff7, type: 3}
       propertyPath: m_Name
       value: Interactions
+      objectReference: {fileID: 0}
+    - target: {fileID: 8624104079503594552, guid: a487920c7ca62f441a0afa6450b48ff7, type: 3}
+      propertyPath: m_Debug_DrawGridBuffer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8624104079503594552, guid: a487920c7ca62f441a0afa6450b48ff7, type: 3}
+      propertyPath: m_Debug_GridBufferDrawer.Editor
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 8992116659846896391, guid: a487920c7ca62f441a0afa6450b48ff7, type: 3}
       propertyPath: m_BehaviorType
