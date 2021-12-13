@@ -3,7 +3,9 @@ using UnityEngine;
 
 public class EatingInteraction : Interaction
 {
-    [SerializeField] private float hungerChangeFactor;
+    [SerializeField] private float energyReceivedPerBite;
+    [SerializeField] private float biteSize;
+
     private Needs _needs;
     
     protected override void Start()
@@ -13,8 +15,8 @@ public class EatingInteraction : Interaction
     }
     protected override void AtInteractionEnd()
     {
-        _needs["Hunger"] -= hungerChangeFactor;    //todo magic number - change
-        Destroy(SecondSimulationObject);
+        var eatenValue = SecondSimulationObject.GetComponent<PlantGrower>().OnEaten(biteSize);
+        _needs["Hunger"] -= eatenValue * energyReceivedPerBite;
         base.AtInteractionEnd();
     }
 }
