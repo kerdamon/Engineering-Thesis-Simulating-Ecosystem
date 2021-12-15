@@ -8,6 +8,8 @@ TagManager:
   - Rabbit
   - Water
   - Fox
+  - WaterContainer
+  - Wall
   layers:
   - Default
   - TransparentFX
