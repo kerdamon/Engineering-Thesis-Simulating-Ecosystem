@@ -54,6 +54,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Untagged
       objectReference: {fileID: 0}
+    - target: {fileID: 4035078786211711001, guid: 7024a0394b3d4d94bbb875675d3ef939, type: 3}
+      propertyPath: m_Model
+      value: 
+      objectReference: {fileID: 5022602860645237092, guid: 68494c5e91a90584aa8e187d10b26e80, type: 3}
     - target: {fileID: 4367339644587198246, guid: 7024a0394b3d4d94bbb875675d3ef939, type: 3}
       propertyPath: m_TmpObjectToAdd
       value: 
@@ -108,15 +112,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4367339644587198246, guid: 7024a0394b3d4d94bbb875675d3ef939, type: 3}
       propertyPath: m_GameObjectSettingsList.Array.data[2].m_Observables.Array.data[0].Color.b
-      value: 0.8952427
+      value: 0.3019608
       objectReference: {fileID: 0}
     - target: {fileID: 4367339644587198246, guid: 7024a0394b3d4d94bbb875675d3ef939, type: 3}
       propertyPath: m_GameObjectSettingsList.Array.data[2].m_Observables.Array.data[0].Color.g
-      value: 0.2297417
+      value: 0.3019608
       objectReference: {fileID: 0}
     - target: {fileID: 4367339644587198246, guid: 7024a0394b3d4d94bbb875675d3ef939, type: 3}
       propertyPath: m_GameObjectSettingsList.Array.data[2].m_Observables.Array.data[0].Color.r
-      value: 0.6876906
+      value: 0.3019608
       objectReference: {fileID: 0}
     - target: {fileID: 4367339644587198246, guid: 7024a0394b3d4d94bbb875675d3ef939, type: 3}
       propertyPath: m_GameObjectSettingsList.Array.data[2].m_Observables.Array.data[0].Enabled

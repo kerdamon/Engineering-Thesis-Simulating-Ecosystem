@@ -467,7 +467,7 @@ MonoBehaviour:
     Width: 40
     Height: 40
   m_ClearCacheOnReset: 0
-  m_ColliderBufferSize: 64
+  m_ColliderBufferSize: 128
   m_TmpObjectToAdd: {fileID: 0}
   m_GameObjectSettingsList:
   - Tag: Food

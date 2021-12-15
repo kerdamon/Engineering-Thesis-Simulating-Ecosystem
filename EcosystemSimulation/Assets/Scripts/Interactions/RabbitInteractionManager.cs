@@ -34,7 +34,12 @@ namespace Interactions
                     CurrentInteraction.StartInteraction(target);
                     break;
                 case "Water":
-                    //_drinkingInteraction.AfterInteractdion = () => target.GetComponent<MovementAgent>().AddReward(1.0f);
+                    //_movementAgent.AddReward(-1.0f);
+                    break;
+                case "Wall":
+                    //_movementAgent.AddReward(-1.0f);
+                    break;
+                default:
                     break;
             }
         }
