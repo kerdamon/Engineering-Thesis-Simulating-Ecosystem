@@ -34,11 +34,17 @@ public class EatingCarrotTrainingArea : MonoBehaviour, ITrainingArea
 
     public void ResetArea()
     {
+        StartCoroutine(InnerReset());
+    }
+
+    private IEnumerator InnerReset()
+    {
         //ClearObjects();
         foreach (Transform child in waterContainterTransform)
         {
             RandomizePositionAndRotation(child);
         }
+        yield return 0;
         foreach (Transform child in agentsContainterTransform)
         {
             RandomizePositionAndRotationWithCollisionCheck(child, agentsContainterTransform);
