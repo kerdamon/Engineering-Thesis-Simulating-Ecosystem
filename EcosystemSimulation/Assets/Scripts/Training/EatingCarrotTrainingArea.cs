@@ -25,43 +25,35 @@ public class EatingCarrotTrainingArea : MonoBehaviour, ITrainingArea
     {
         if (UnityEngine.Input.GetKeyDown(KeyCode.R))
         {
-            foreach (Transform child in agentsContainterTransform)
-            {
-                RandomizePositionAndRotationWithCollisionCheck(child, agentsContainterTransform);
-            }
+            ResetArea();
         }
     }
 
     public void ResetArea()
     {
-        StartCoroutine(InnerReset());
+        StopCoroutine("InnerReset");
+        StartCoroutine("InnerReset");
     }
 
     private IEnumerator InnerReset()
     {
-        //ClearObjects();
-        foreach (Transform child in waterContainterTransform)
+        //ClearFood();
+        foreach (Transform water in waterContainterTransform)
         {
-            RandomizePositionAndRotation(child);
+            RandomizePositionAndRotation(water);
         }
         yield return 0;
-        foreach (Transform child in agentsContainterTransform)
+        foreach (Transform agent in agentsContainterTransform)
         {
-            RandomizePositionAndRotationWithCollisionCheck(child, agentsContainterTransform);
+            RandomizePositionAndRotationWithCollisionCheck(agent, agentsContainterTransform);
         }
-        foreach (Transform child in foodGeneratorContainterTransform)
+        yield return 0;
+        foreach (Transform foodGenerator in foodGeneratorContainterTransform)
         {
-            RandomizePositionAndRotation(child);
+            ClearFood(foodGenerator);
+            RandomizePositionAndRotationWithCollisionCheck(foodGenerator, foodGeneratorContainterTransform);
         }
-    }
-
-    void RandomizeObjectPosition(Transform containerTransform)
-    {
-        foreach(Transform child in containerTransform)
-        {
-            var collision = containerTransform.GetComponent<BoxCollider>();
-            RandomizePositionAndRotation(child);
-        }
+        yield return 0;
     }
 
     void RandomizePositionAndRotationWithCollisionCheck(Transform obj, Transform containterTransform)
@@ -71,6 +63,7 @@ public class EatingCarrotTrainingArea : MonoBehaviour, ITrainingArea
         var newRotation = obj.rotation;
         while (iterator < maxRepositionsOnCollisions)
         {
+            Debug.Log($"iterator: {iterator}, obj: {obj}");
             newPosition = containterTransform.TransformPoint(new Vector3(Random.Range(-range, range), obj.localPosition.y, Random.Range(-range, range)));
             newRotation = Quaternion.Euler(new Vector3(0f, Random.Range(0, 360)));
             var isCollision = Physics.CheckBox(newPosition, obj.localScale / 2);
@@ -89,21 +82,13 @@ public class EatingCarrotTrainingArea : MonoBehaviour, ITrainingArea
     {
         gameObject.localPosition = new Vector3(Random.Range(-range, range), gameObject.localPosition.y, Random.Range(-range, range));
         gameObject.rotation = Quaternion.Euler(new Vector3(0f, Random.Range(0, 360)));
-        gameObject.Translate(Vector3.zero);
-        Debug.Log("jest");
     }
 
-    void ClearObjects()
+    void ClearFood(Transform foodGeneratorTransform)
     {
-        foreach(var agent in Agents)
+        foreach(Transform foodObject in foodGeneratorTransform)
         {
-            Destroy(agent);
+            Destroy(foodObject.gameObject);
         }
-        foreach(var foodObject in FoodGenerators)
-        {
-            Destroy(foodObject);
-        }
-        Agents.Clear();
-        FoodGenerators.Clear();
     }
 }

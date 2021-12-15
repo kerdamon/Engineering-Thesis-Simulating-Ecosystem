@@ -42,7 +42,7 @@ MonoBehaviour:
   timeIncrement: 0
   interactionDuration: 0
   energyReceivedPerBite: 30
-  biteSize: 0.1
+  biteSize: 0.2
 --- !u!1001 &5419256088767157022
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -53,6 +53,74 @@ PrefabInstance:
     - target: {fileID: 1154593301421759403, guid: 7024a0394b3d4d94bbb875675d3ef939, type: 3}
       propertyPath: m_TagString
       value: Untagged
+      objectReference: {fileID: 0}
+    - target: {fileID: 4367339644587198246, guid: 7024a0394b3d4d94bbb875675d3ef939, type: 3}
+      propertyPath: m_TmpObjectToAdd
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4367339644587198246, guid: 7024a0394b3d4d94bbb875675d3ef939, type: 3}
+      propertyPath: m_ObservationShape
+      value: 3 channels x 40 width x 40 height
+      objectReference: {fileID: 0}
+    - target: {fileID: 4367339644587198246, guid: 7024a0394b3d4d94bbb875675d3ef939, type: 3}
+      propertyPath: m_GridShape.NumChannels
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4367339644587198246, guid: 7024a0394b3d4d94bbb875675d3ef939, type: 3}
+      propertyPath: m_GameObjectSettingsList.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4367339644587198246, guid: 7024a0394b3d4d94bbb875675d3ef939, type: 3}
+      propertyPath: m_GameObjectSettingsList.Array.data[2].Tag
+      value: Wall
+      objectReference: {fileID: 0}
+    - target: {fileID: 4367339644587198246, guid: 7024a0394b3d4d94bbb875675d3ef939, type: 3}
+      propertyPath: m_GameObjectSettingsList.Array.data[2].Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4367339644587198246, guid: 7024a0394b3d4d94bbb875675d3ef939, type: 3}
+      propertyPath: m_GameObjectSettingsList.Array.data[2].Detectable
+      value: 
+      objectReference: {fileID: 2174476613852957656, guid: dc15c8a7998b1cc40815f38e93e1ebe8, type: 3}
+    - target: {fileID: 4367339644587198246, guid: 7024a0394b3d4d94bbb875675d3ef939, type: 3}
+      propertyPath: m_GameObjectSettingsList.Array.data[2].DetectionType
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4367339644587198246, guid: 7024a0394b3d4d94bbb875675d3ef939, type: 3}
+      propertyPath: m_GameObjectSettingsList.Array.data[2].m_Observables.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4367339644587198246, guid: 7024a0394b3d4d94bbb875675d3ef939, type: 3}
+      propertyPath: m_GameObjectSettingsList.Array.data[2].m_Observables.Array.data[0].Name
+      value: One-Hot
+      objectReference: {fileID: 0}
+    - target: {fileID: 4367339644587198246, guid: 7024a0394b3d4d94bbb875675d3ef939, type: 3}
+      propertyPath: m_GameObjectSettingsList.Array.data[2].m_Observables.Array.data[0].Type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4367339644587198246, guid: 7024a0394b3d4d94bbb875675d3ef939, type: 3}
+      propertyPath: m_GameObjectSettingsList.Array.data[2].m_Observables.Array.data[0].Index
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4367339644587198246, guid: 7024a0394b3d4d94bbb875675d3ef939, type: 3}
+      propertyPath: m_GameObjectSettingsList.Array.data[2].m_Observables.Array.data[0].Color.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4367339644587198246, guid: 7024a0394b3d4d94bbb875675d3ef939, type: 3}
+      propertyPath: m_GameObjectSettingsList.Array.data[2].m_Observables.Array.data[0].Color.b
+      value: 0.8952427
+      objectReference: {fileID: 0}
+    - target: {fileID: 4367339644587198246, guid: 7024a0394b3d4d94bbb875675d3ef939, type: 3}
+      propertyPath: m_GameObjectSettingsList.Array.data[2].m_Observables.Array.data[0].Color.g
+      value: 0.2297417
+      objectReference: {fileID: 0}
+    - target: {fileID: 4367339644587198246, guid: 7024a0394b3d4d94bbb875675d3ef939, type: 3}
+      propertyPath: m_GameObjectSettingsList.Array.data[2].m_Observables.Array.data[0].Color.r
+      value: 0.6876906
+      objectReference: {fileID: 0}
+    - target: {fileID: 4367339644587198246, guid: 7024a0394b3d4d94bbb875675d3ef939, type: 3}
+      propertyPath: m_GameObjectSettingsList.Array.data[2].m_Observables.Array.data[0].Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5401294408096259029, guid: 7024a0394b3d4d94bbb875675d3ef939, type: 3}
       propertyPath: m_RootOrder
