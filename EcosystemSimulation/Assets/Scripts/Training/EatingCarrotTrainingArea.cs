@@ -12,6 +12,8 @@ public class EatingCarrotTrainingArea : MonoBehaviour, ITrainingArea
     [SerializeField] Transform waterContainterTransform;
     [SerializeField] Transform agentsContainterTransform;
     [SerializeField] Transform foodGeneratorContainterTransform;
+    [SerializeField] private int maxRepositionsOnCollisions;
+
 
     private void Awake()
     {
@@ -19,12 +21,32 @@ public class EatingCarrotTrainingArea : MonoBehaviour, ITrainingArea
         FoodGenerators = new List<GameObject>();
     }
 
+    private void Update()
+    {
+        if (UnityEngine.Input.GetKeyDown(KeyCode.R))
+        {
+            foreach (Transform child in agentsContainterTransform)
+            {
+                RandomizePositionAndRotationWithCollisionCheck(child, agentsContainterTransform);
+            }
+        }
+    }
+
     public void ResetArea()
     {
-        ClearObjects();
-        RandomizeObjectPosition(waterContainterTransform);
-        RandomizeObjectPosition(agentsContainterTransform);
-        RandomizeObjectPosition(foodGeneratorContainterTransform);
+        //ClearObjects();
+        foreach (Transform child in waterContainterTransform)
+        {
+            RandomizePositionAndRotation(child);
+        }
+        foreach (Transform child in agentsContainterTransform)
+        {
+            RandomizePositionAndRotationWithCollisionCheck(child, agentsContainterTransform);
+        }
+        foreach (Transform child in foodGeneratorContainterTransform)
+        {
+            RandomizePositionAndRotation(child);
+        }
     }
 
     void RandomizeObjectPosition(Transform containerTransform)
@@ -36,10 +58,33 @@ public class EatingCarrotTrainingArea : MonoBehaviour, ITrainingArea
         }
     }
 
+    void RandomizePositionAndRotationWithCollisionCheck(Transform obj, Transform containterTransform)
+    {
+        var iterator = 0;
+        var newPosition = obj.position;
+        var newRotation = obj.rotation;
+        while (iterator < maxRepositionsOnCollisions)
+        {
+            newPosition = containterTransform.TransformPoint(new Vector3(Random.Range(-range, range), obj.localPosition.y, Random.Range(-range, range)));
+            newRotation = Quaternion.Euler(new Vector3(0f, Random.Range(0, 360)));
+            var isCollision = Physics.CheckBox(newPosition, obj.localScale / 2);
+            if(!isCollision)
+            {
+                break;
+            }
+            iterator++;
+
+        }
+        obj.position = newPosition;
+        obj.rotation = newRotation;
+    }
+
     void RandomizePositionAndRotation(Transform gameObject)
     {
         gameObject.localPosition = new Vector3(Random.Range(-range, range), gameObject.localPosition.y, Random.Range(-range, range));
         gameObject.rotation = Quaternion.Euler(new Vector3(0f, Random.Range(0, 360)));
+        gameObject.Translate(Vector3.zero);
+        Debug.Log("jest");
     }
 
     void ClearObjects()

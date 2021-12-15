@@ -519,6 +519,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1482531619}
     - target: {fileID: 1051155771357043496, guid: 088c0f92575661e4cb072a10cc06bf41, type: 3}
+      propertyPath: maxRepositionsOnCollisions
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1051155771357043496, guid: 088c0f92575661e4cb072a10cc06bf41, type: 3}
       propertyPath: foodGeneratorContainterTransform
       value: 
       objectReference: {fileID: 173919947}
