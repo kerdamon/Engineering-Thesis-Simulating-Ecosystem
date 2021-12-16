@@ -5,8 +5,6 @@ using System.Linq;
 
 public class EatingCarrotTrainingArea : MonoBehaviour, ITrainingArea
 {
-    public List<GameObject> Agents { get; set; }
-    public List<GameObject> FoodGenerators { get; set; }
     public float range;
 
     [SerializeField] Transform waterContainterTransform;
@@ -14,30 +12,14 @@ public class EatingCarrotTrainingArea : MonoBehaviour, ITrainingArea
     [SerializeField] Transform foodGeneratorContainterTransform;
     [SerializeField] private int maxRepositionsOnCollisions;
 
-
-    private void Awake()
-    {
-        Agents = new List<GameObject>();
-        FoodGenerators = new List<GameObject>();
-    }
-
-    private void Update()
-    {
-        if (UnityEngine.Input.GetKeyDown(KeyCode.R))
-        {
-            ResetArea();
-        }
-    }
-
     public void ResetArea()
     {
-        StopCoroutine("InnerReset");
-        StartCoroutine("InnerReset");
+        StopCoroutine(nameof(InnerReset));
+        StartCoroutine(nameof(InnerReset));
     }
 
     private IEnumerator InnerReset()
     {
-        //ClearFood();
         foreach (Transform water in waterContainterTransform)
         {
             RandomizePositionAndRotation(water);
@@ -63,7 +45,6 @@ public class EatingCarrotTrainingArea : MonoBehaviour, ITrainingArea
         var newRotation = obj.rotation;
         while (iterator < maxRepositionsOnCollisions)
         {
-            Debug.Log($"iterator: {iterator}, obj: {obj}");
             newPosition = containterTransform.TransformPoint(new Vector3(Random.Range(-range, range), obj.localPosition.y, Random.Range(-range, range)));
             newRotation = Quaternion.Euler(new Vector3(0f, Random.Range(0, 360)));
             var isCollision = Physics.CheckBox(newPosition, obj.localScale / 2);
