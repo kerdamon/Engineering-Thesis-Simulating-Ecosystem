@@ -299,6 +299,7 @@ GameObject:
   - component: {fileID: 3456267507235149265}
   - component: {fileID: 3056754191753714340}
   - component: {fileID: 4367339644587198246}
+  - component: {fileID: 6015840689533625489}
   m_Layer: 0
   m_Name: Agent
   m_TagString: Untagged
@@ -386,7 +387,7 @@ MonoBehaviour:
   agentParameters:
     maxStep: 0
   hasUpgradedFromAgentParameters: 1
-  MaxStep: 5000
+  MaxStep: 4000
   movementSpeed: 1
   turningSpeed: 50
 --- !u!114 &8154992024437168278
@@ -407,7 +408,7 @@ MonoBehaviour:
   values:
   - 30
   - 30
-  increaseRate: 0.5
+  increaseRate: 1
 --- !u!114 &3456267507235149265
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -448,7 +449,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_ObservationShape: 2 channels x 40 width x 40 height
   m_SensorName: MovementGridSensor
-  m_ObservationStacks: 1
+  m_ObservationStacks: 2
   m_CompressionType: 1
   m_ObservationType: 0
   m_ChannelLabels: []
@@ -467,23 +468,9 @@ MonoBehaviour:
     Width: 40
     Height: 40
   m_ClearCacheOnReset: 0
-  m_ColliderBufferSize: 64
+  m_ColliderBufferSize: 128
   m_TmpObjectToAdd: {fileID: 0}
   m_GameObjectSettingsList:
-  - Tag: Food
-    Enabled: 1
-    DetectionType: 0
-    Modifier: 0
-    Detectable: {fileID: 3861191557342994614, guid: aca7aeccaff29d64290ca94f0785d2e7, type: 3}
-    m_UserObservables:
-      m_Observables: []
-    m_Observables:
-    - Name: One-Hot
-      Type: 1
-      Index: -1
-      Enabled: 1
-      Color: {r: 1, g: 0.32911384, b: 0, a: 1}
-    m_DetectorSpaceType: 0
   - Tag: Water
     Enabled: 1
     DetectionType: 2
@@ -498,6 +485,20 @@ MonoBehaviour:
       Enabled: 1
       Color: {r: 0.24705884, g: 0.38431376, b: 0.96470594, a: 1}
     m_DetectorSpaceType: 0
+  - Tag: Wall
+    Enabled: 1
+    DetectionType: 2
+    Modifier: 0
+    Detectable: {fileID: 2174476613852957656, guid: dc15c8a7998b1cc40815f38e93e1ebe8, type: 3}
+    m_UserObservables:
+      m_Observables: []
+    m_Observables:
+    - Name: One-Hot
+      Type: 1
+      Index: -1
+      Enabled: 1
+      Color: {r: 0.089847244, g: 0, b: 0.14150941, a: 1}
+    m_DetectorSpaceType: 0
   m_RotationType: 0
   m_DetectionBounds:
     m_Center: {x: 0, y: 0, z: 8.8}
@@ -510,6 +511,34 @@ MonoBehaviour:
   m_DetectionSize: {x: 32, y: 1, z: 32}
   m_BoundsSize: {x: 32, y: 1, z: 32}
   m_Offset: {x: 0, y: 0, z: 8.8}
+--- !u!114 &6015840689533625489
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6193517788997554062}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f06e7c5ae2f9934e93db866ce90ef93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Shape:
+    m_ScanResultsByLOD:
+    - LocalPoints:
+      - {x: 0, y: 0, z: 0}
+    m_LocalPoints:
+    - {x: 0, y: 0, z: 0}
+    m_WorldPoints: []
+    m_MergeDisconnected: 0
+    m_Flatten: 0
+    m_MaxLOD: 0
+    m_SelectedLOD: 0
+    m_ScanLOD: 0
+    m_GizmoLOD: 0
+    m_Projection: 0
+    m_PointCount: 1
+    m_DrawGrid: 0
 --- !u!1 &6694033262013608289
 GameObject:
   m_ObjectHideFlags: 0

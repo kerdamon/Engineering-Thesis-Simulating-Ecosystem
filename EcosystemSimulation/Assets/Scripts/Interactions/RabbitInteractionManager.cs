@@ -5,7 +5,7 @@ namespace Interactions
 {
     public class RabbitInteractionManager : MonoBehaviour
     {
-        private EatingInteraction _eatingInteraction;
+        private EatingCarrotInteraction _eatingCarrotInteraction;
         private DrinkingInteraction _drinkingInteraction;
         private MatingInteraction _matingInteraction;
 
@@ -16,9 +16,9 @@ namespace Interactions
 
         private void Start()
         {
-            _eatingInteraction = GetComponent<EatingInteraction>();
-            _eatingInteraction.AfterInteraction = () => _movementAgent.AddReward(1.0f);
-            _eatingInteraction.AfterInteraction += () => CurrentInteraction = null;
+            _eatingCarrotInteraction = GetComponent<EatingCarrotInteraction>();
+            _eatingCarrotInteraction.AfterInteraction = () => _movementAgent.AddReward(1.0f);
+            _eatingCarrotInteraction.AfterInteraction += () => CurrentInteraction = null;
             
             _drinkingInteraction = GetComponent<DrinkingInteraction>();
             _matingInteraction = GetComponent<MatingInteraction>();
@@ -30,7 +30,7 @@ namespace Interactions
             switch (target.tag)
             {
                 case "Food":
-                    CurrentInteraction = _eatingInteraction;
+                    CurrentInteraction = _eatingCarrotInteraction;
                     CurrentInteraction.StartInteraction(target);
                     break;
                 case "Water":

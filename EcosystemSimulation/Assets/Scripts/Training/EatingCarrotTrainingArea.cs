@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 
+//TODO this should be derivig from Trainig Area, and EatinngCarrotTrainingArea should be prefab variant from TrainingArea. 
 public class EatingCarrotTrainingArea : MonoBehaviour, ITrainingArea
 {
     public float range;
