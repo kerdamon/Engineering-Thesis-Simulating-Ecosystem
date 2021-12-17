@@ -17,7 +17,7 @@ public class TrainingArea : MonoBehaviour, ITrainingArea
         StartCoroutine(nameof(InnerReset));
     }
 
-    private IEnumerator InnerReset()
+    protected virtual IEnumerator InnerReset()
     {
         foreach (Transform water in waterContainterTransform)
         {
@@ -31,7 +31,7 @@ public class TrainingArea : MonoBehaviour, ITrainingArea
         yield return 0;
     }
 
-    void RandomizePositionAndRotationWithCollisionCheck(Transform obj, Transform containterTransform)
+    protected void RandomizePositionAndRotationWithCollisionCheck(Transform obj, Transform containterTransform)
     {
         var iterator = 0;
         var newPosition = obj.position;
@@ -52,7 +52,7 @@ public class TrainingArea : MonoBehaviour, ITrainingArea
         obj.rotation = newRotation;
     }
 
-    void RandomizePositionAndRotation(Transform gameObject)
+    protected void RandomizePositionAndRotation(Transform gameObject)
     {
         gameObject.localPosition = new Vector3(Random.Range(-range, range), gameObject.localPosition.y, Random.Range(-range, range));
         gameObject.rotation = Quaternion.Euler(new Vector3(0f, Random.Range(0, 360)));

@@ -3,34 +3,32 @@ using UnityEngine;
 
 namespace Interactions
 {
-    public class RabbitInteractionManager : MonoBehaviour
+    public class FoxInteractionManager : InteractionManager
     {
-        private EatingCarrotInteraction _eatingCarrotInteraction;
+        private EatingRabbitInteraction _eatingRabbitInteraction;
         private DrinkingInteraction _drinkingInteraction;
         private MatingInteraction _matingInteraction;
-
+        
         private MovementAgent _movementAgent;
-
-        public Interaction CurrentInteraction { get; private set; }
-        public bool IsInteracting => !(CurrentInteraction is null);
-
-        private void Start()
+        
+        protected override void Start()
         {
-            _eatingCarrotInteraction = GetComponent<EatingCarrotInteraction>();
-            _eatingCarrotInteraction.AfterInteraction = () => _movementAgent.AddReward(1.0f);
-            _eatingCarrotInteraction.AfterInteraction += () => CurrentInteraction = null;
+            _eatingRabbitInteraction = GetComponent<EatingRabbitInteraction>();
+            _eatingRabbitInteraction.AfterInteraction = () => _movementAgent.AddReward(1.0f);
+            _eatingRabbitInteraction.AfterInteraction += () => CurrentInteraction = null;
             
             _drinkingInteraction = GetComponent<DrinkingInteraction>();
             _matingInteraction = GetComponent<MatingInteraction>();
             _movementAgent = transform.parent.GetComponent<MovementAgent>();
+            base.Start();
         }
-
-        public void Interact(GameObject target)
+        
+        public override void Interact(GameObject target)
         {
             switch (target.tag)
             {
-                case "Food":
-                    CurrentInteraction = _eatingCarrotInteraction;
+                case "Rabbit":
+                    CurrentInteraction = _eatingRabbitInteraction;
                     CurrentInteraction.StartInteraction(target);
                     break;
                 case "Water":
@@ -42,12 +40,6 @@ namespace Interactions
                 default:
                     break;
             }
-        }
-
-        public void StopInteraction()
-        {
-            CurrentInteraction.Stop();
-            CurrentInteraction = null;
         }
     }
 }

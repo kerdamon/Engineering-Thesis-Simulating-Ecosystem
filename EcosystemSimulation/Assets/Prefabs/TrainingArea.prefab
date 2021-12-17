@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8957373554470226633}
-  - component: {fileID: 7618058149729741524}
   m_Layer: 0
   m_Name: TrainingArea
   m_TagString: Untagged
@@ -36,22 +35,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7618058149729741524
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1214504199623532094}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2cf0de714fb84316a50e19a47b7acaaf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  range: 80
-  waterContainterTransform: {fileID: 4206320172469515756}
-  agentsContainterTransform: {fileID: 5176200932221528017}
-  maxRepositionsOnCollisions: 50
 --- !u!1 &1964719298465540833
 GameObject:
   m_ObjectHideFlags: 0

@@ -199,6 +199,74 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4035078786211711001, guid: 7024a0394b3d4d94bbb875675d3ef939, type: 3}
+      propertyPath: m_BehaviorName
+      value: FoxMovement
+      objectReference: {fileID: 0}
+    - target: {fileID: 4367339644587198246, guid: 7024a0394b3d4d94bbb875675d3ef939, type: 3}
+      propertyPath: m_TmpObjectToAdd
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4367339644587198246, guid: 7024a0394b3d4d94bbb875675d3ef939, type: 3}
+      propertyPath: m_ObservationShape
+      value: 3 channels x 40 width x 40 height
+      objectReference: {fileID: 0}
+    - target: {fileID: 4367339644587198246, guid: 7024a0394b3d4d94bbb875675d3ef939, type: 3}
+      propertyPath: m_GridShape.NumChannels
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4367339644587198246, guid: 7024a0394b3d4d94bbb875675d3ef939, type: 3}
+      propertyPath: m_GameObjectSettingsList.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4367339644587198246, guid: 7024a0394b3d4d94bbb875675d3ef939, type: 3}
+      propertyPath: m_GameObjectSettingsList.Array.data[2].Tag
+      value: Rabbit
+      objectReference: {fileID: 0}
+    - target: {fileID: 4367339644587198246, guid: 7024a0394b3d4d94bbb875675d3ef939, type: 3}
+      propertyPath: m_GameObjectSettingsList.Array.data[2].Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4367339644587198246, guid: 7024a0394b3d4d94bbb875675d3ef939, type: 3}
+      propertyPath: m_GameObjectSettingsList.Array.data[2].Detectable
+      value: 
+      objectReference: {fileID: 1750105339244115855, guid: 96ed80feb81eb9047973ee382c5a40df, type: 3}
+    - target: {fileID: 4367339644587198246, guid: 7024a0394b3d4d94bbb875675d3ef939, type: 3}
+      propertyPath: m_GameObjectSettingsList.Array.data[2].m_Observables.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4367339644587198246, guid: 7024a0394b3d4d94bbb875675d3ef939, type: 3}
+      propertyPath: m_GameObjectSettingsList.Array.data[2].m_Observables.Array.data[0].Name
+      value: One-Hot
+      objectReference: {fileID: 0}
+    - target: {fileID: 4367339644587198246, guid: 7024a0394b3d4d94bbb875675d3ef939, type: 3}
+      propertyPath: m_GameObjectSettingsList.Array.data[2].m_Observables.Array.data[0].Type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4367339644587198246, guid: 7024a0394b3d4d94bbb875675d3ef939, type: 3}
+      propertyPath: m_GameObjectSettingsList.Array.data[2].m_Observables.Array.data[0].Index
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4367339644587198246, guid: 7024a0394b3d4d94bbb875675d3ef939, type: 3}
+      propertyPath: m_GameObjectSettingsList.Array.data[2].m_Observables.Array.data[0].Color.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4367339644587198246, guid: 7024a0394b3d4d94bbb875675d3ef939, type: 3}
+      propertyPath: m_GameObjectSettingsList.Array.data[2].m_Observables.Array.data[0].Color.b
+      value: 0.3504806
+      objectReference: {fileID: 0}
+    - target: {fileID: 4367339644587198246, guid: 7024a0394b3d4d94bbb875675d3ef939, type: 3}
+      propertyPath: m_GameObjectSettingsList.Array.data[2].m_Observables.Array.data[0].Color.g
+      value: 0.36357018
+      objectReference: {fileID: 0}
+    - target: {fileID: 4367339644587198246, guid: 7024a0394b3d4d94bbb875675d3ef939, type: 3}
+      propertyPath: m_GameObjectSettingsList.Array.data[2].m_Observables.Array.data[0].Color.r
+      value: 0.41509432
+      objectReference: {fileID: 0}
+    - target: {fileID: 4367339644587198246, guid: 7024a0394b3d4d94bbb875675d3ef939, type: 3}
+      propertyPath: m_GameObjectSettingsList.Array.data[2].m_Observables.Array.data[0].Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5401294408096259029, guid: 7024a0394b3d4d94bbb875675d3ef939, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -255,3 +323,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5f195dd3e684cef84779eeb4476ce03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &3665811006495689094
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2686867059541727278}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8e74bd2a2f34e399959c39ba885af71, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeIncrement: 0
+  interactionDuration: 0

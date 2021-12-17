@@ -13,14 +13,14 @@ public class MovementAgent : Agent
     [SerializeField] private float turningSpeed;   
     
     private Rigidbody _agentRigidbody;
-    private RabbitInteractionManager _rabbitInteractionManager;
+    private InteractionManager _interactionManager;
 
     private bool _wantInteraction = false;
 
     public override void Initialize()
     {
         _agentRigidbody = GetComponent<Rigidbody>();
-        _rabbitInteractionManager = GetComponentInChildren<RabbitInteractionManager>();
+        _interactionManager = GetComponentInChildren<InteractionManager>();
     }
 
     public override void CollectObservations(VectorSensor sensor)
@@ -66,16 +66,16 @@ public class MovementAgent : Agent
     {
         if (_wantInteraction)
         {
-            _rabbitInteractionManager.Interact(collision.gameObject);
+            _interactionManager.Interact(collision.gameObject);
         }
     }
 
     private void Interact(ActionBuffers actions)
     {
         _wantInteraction = actions.DiscreteActions[0] > 0;
-        if (!_wantInteraction && _rabbitInteractionManager.IsInteracting)
+        if (!_wantInteraction && _interactionManager.IsInteracting)
         {
-            _rabbitInteractionManager.StopInteraction();
+            _interactionManager.StopInteraction();
         }
     }
 
