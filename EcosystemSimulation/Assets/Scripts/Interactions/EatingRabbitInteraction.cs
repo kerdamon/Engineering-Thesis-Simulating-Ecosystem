@@ -12,9 +12,9 @@ public class EatingRabbitInteraction : Interaction
     }
     protected override void AtInteractionEnd()
     {
-        var _rabbitInteractionManager = SecondSimulationObject.GetComponent<RabbitInteractionManager>();
-        var energy_received = _rabbitInteractionManager.OnEaten();
-        _needs["Hunger"] -= energy_received;
+        var rabbitInteractionManager = SecondSimulationObject.GetComponentInChildren<RabbitInteractionManager>();
+        var energyReceived = rabbitInteractionManager.OnEaten();
+        _needs["Hunger"] -= energyReceived;
         base.AtInteractionEnd();
     }
 }

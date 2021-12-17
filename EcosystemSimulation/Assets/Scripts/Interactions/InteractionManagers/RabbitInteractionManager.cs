@@ -45,7 +45,7 @@ namespace Interactions
 
         public float OnEaten()
         {
-            Destroy(gameObject);
+            Destroy(transform.parent.gameObject);
             return 50.0f;   //todo make this depenndent on feature like size
         }
     }
