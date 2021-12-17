@@ -18,6 +18,21 @@ public class PlantGrower : MonoBehaviour
         StartCoroutine(Grow());
     }
 
+    public float OnEaten(float value)
+    {
+        var eatenValue = value > size ? size : value;
+        if ((size - value) <= minSize)
+        {
+            Destroy(this.gameObject);
+        }
+        else
+        {
+            size -= value;
+            UpdateScale();
+        }
+        return eatenValue;
+    }
+
     private IEnumerator Grow()
     {
         while (Math.Abs(size - maxSize) > 0.01f)
