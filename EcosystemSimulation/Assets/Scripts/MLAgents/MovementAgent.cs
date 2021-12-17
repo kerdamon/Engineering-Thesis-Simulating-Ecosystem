@@ -32,9 +32,13 @@ public class MovementAgent : Agent
 
     public override void OnActionReceived(ActionBuffers actions)
     {
-        AddReward(-1f/MaxStep);
         MoveAgent(actions);
         Interact(actions);
+        ModifyRewardOnActionReceived();
+    }
+
+    protected virtual void ModifyRewardOnActionReceived()
+    {
     }
     
     public void MoveAgent(ActionBuffers actions)
