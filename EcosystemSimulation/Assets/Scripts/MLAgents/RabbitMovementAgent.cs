@@ -10,7 +10,6 @@ public class RabbitMovementAgent : MovementAgent
     {
         base.Initialize();
         rabbit_each_step_fixed = Academy.Instance.EnvironmentParameters.GetWithDefault("fox_eating_rabbit_reward", 0.0f);
-        Debug.Log($"rabbit_each_step_fixed = {rabbit_each_step_fixed}");
     }
 
     protected override void ModifyRewardOnActionReceived()
