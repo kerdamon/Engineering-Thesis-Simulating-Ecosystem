@@ -5,31 +5,52 @@ using UnityEngine;
 
 public class StateMachine : MonoBehaviour
 {
-    private List<State> _mainStatesList; //main states are states that can be switched to regardless of current state
+    private List<MainState> _mainStatesList; //main states are states that can be switched to regardless of current state
 
-    [SerializeField] private GameObject _mainStates;
+    [SerializeField] private GameObject mainStates;
+    public IList<EventState> EventStates { get; set; }
     
-    public State CurrentState { get; set; }
+    public State CurrentState { get; private set; }
 
     private void Start()
     {
-        _mainStatesList = _mainStates.GetComponents<State>().ToList();
-        CurrentState = _mainStatesList[0];
+        _mainStatesList = mainStates.GetComponents<MainState>().ToList();
+        ChangeStateTo(_mainStatesList[0]);
     }
 
     private void Update()
     {
-        InferState();
-        CurrentState.Act();
+        var thereIsActiveEventState = InferEventState();
+        if (!thereIsActiveEventState)
+        {
+            InferState();
+        }
+        
+    }
+
+    private bool InferEventState()
+    {
+        // if (EventStates.Count <= 0)
+        //     return false;
+        // CurrentState = EventStates.Last();
+        // return true;
+        return false;
+        //todo implement this
     }
 
     private void InferState()
     {
         var newStateCandidate = _mainStatesList.Aggregate((state1, state2) => state1.CurrentRank > state2.CurrentRank ? state1 : state2);
-        if (newStateCandidate.CurrentRank > CurrentState.CurrentRank)
+        if (newStateCandidate.CurrentRank > ((MainState)CurrentState).CurrentRank)
         {
-            CurrentState = newStateCandidate;
+            ChangeStateTo(newStateCandidate);
         }
+    }
+
+    private void ChangeStateTo(State newState)
+    {
+        CurrentState = newState;
+        CurrentState.prepareModel();
     }
 }
 
