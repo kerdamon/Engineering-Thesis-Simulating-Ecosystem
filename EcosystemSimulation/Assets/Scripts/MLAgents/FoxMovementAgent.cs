@@ -10,7 +10,6 @@ public class FoxMovementAgent : MovementAgent
     {
         base.Initialize();
         fox_each_step_fixed = Academy.Instance.EnvironmentParameters.GetWithDefault("fox_eating_rabbit_reward", 0.0f);
-        Debug.Log($"fox_each_step_fixed = {fox_each_step_fixed}");
     }
 
     protected override void ModifyRewardOnActionReceived()

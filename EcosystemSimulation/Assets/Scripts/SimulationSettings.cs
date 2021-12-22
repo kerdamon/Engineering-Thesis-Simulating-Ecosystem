@@ -7,9 +7,11 @@ using UnityEngine;
 public class SimulationSettings : MonoBehaviour
 {
     private List<ITrainingArea> TrainingAreas;
+    private Academy _academyInstance;
     void Awake()
     {
-        Academy.Instance.OnEnvironmentReset += EnvironmentReset;
+        _academyInstance = Academy.Instance;
+        _academyInstance.OnEnvironmentReset += EnvironmentReset;
         TrainingAreas = new List<ITrainingArea>();
     }
 

@@ -2754,6 +2754,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 227323837655669078, guid: 088c0f92575661e4cb072a10cc06bf41, type: 3}
+      propertyPath: m_Model
+      value: 
+      objectReference: {fileID: 5022602860645237092, guid: adda06e962a885143b2310d59d449cb3, type: 3}
     - target: {fileID: 1051155771357043496, guid: 088c0f92575661e4cb072a10cc06bf41, type: 3}
       propertyPath: waterContainterTransform
       value: 
@@ -2770,14 +2774,30 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 1695877491311120894, guid: 088c0f92575661e4cb072a10cc06bf41, type: 3}
+      propertyPath: m_Model
+      value: 
+      objectReference: {fileID: 5022602860645237092, guid: adda06e962a885143b2310d59d449cb3, type: 3}
+    - target: {fileID: 2084151871150939841, guid: 088c0f92575661e4cb072a10cc06bf41, type: 3}
+      propertyPath: m_ObservationShape
+      value: 3 channels x 40 width x 40 height
+      objectReference: {fileID: 0}
     - target: {fileID: 2084151871150939841, guid: 088c0f92575661e4cb072a10cc06bf41, type: 3}
       propertyPath: m_Debug_DrawGridBuffer
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2084151871150939841, guid: 088c0f92575661e4cb072a10cc06bf41, type: 3}
+      propertyPath: m_GridShape.NumChannels
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2084151871150939841, guid: 088c0f92575661e4cb072a10cc06bf41, type: 3}
       propertyPath: m_Debug_GridBufferDrawer.Editor
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 2398585700661783878, guid: 088c0f92575661e4cb072a10cc06bf41, type: 3}
+      propertyPath: m_Model
+      value: 
+      objectReference: {fileID: 5022602860645237092, guid: adda06e962a885143b2310d59d449cb3, type: 3}
     - target: {fileID: 4106571675197426942, guid: 088c0f92575661e4cb072a10cc06bf41, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0.5
@@ -2866,5 +2886,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6182261036113656860, guid: 088c0f92575661e4cb072a10cc06bf41, type: 3}
+      propertyPath: m_Model
+      value: 
+      objectReference: {fileID: 5022602860645237092, guid: adda06e962a885143b2310d59d449cb3, type: 3}
+    - target: {fileID: 6639670290703130238, guid: 088c0f92575661e4cb072a10cc06bf41, type: 3}
+      propertyPath: m_Model
+      value: 
+      objectReference: {fileID: 5022602860645237092, guid: adda06e962a885143b2310d59d449cb3, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 088c0f92575661e4cb072a10cc06bf41, type: 3}

@@ -31,7 +31,7 @@ public class TrainingArea : MonoBehaviour, ITrainingArea
         yield return 0;
     }
 
-    protected void RandomizePositionAndRotationWithCollisionCheck(Transform obj, Transform containterTransform)
+    public void RandomizePositionAndRotationWithCollisionCheck(Transform obj, Transform containterTransform)
     {
         var iterator = 0;
         var newPosition = obj.position;
