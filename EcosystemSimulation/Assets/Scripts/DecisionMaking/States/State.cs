@@ -4,6 +4,10 @@ namespace DecisionMaking.States
 {
     public abstract class State : MonoBehaviour
     {
-        public abstract void prepareModel();
+        public virtual void PrepareModel()
+        {
+            
+        }
+        public abstract float CurrentRank { get; }
     }
 }

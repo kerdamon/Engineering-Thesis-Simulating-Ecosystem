@@ -15,9 +15,5 @@ namespace DecisionMaking.States
         
         public override float CurrentRank => scoreCurve.Evaluate(_needs["ReproductionUrge"]);
 
-        public override void prepareModel()
-        {
-            Debug.Log($"Przygotowuje model do stanu {nameof(LookingForMateState)}");
-        }
     }
 }

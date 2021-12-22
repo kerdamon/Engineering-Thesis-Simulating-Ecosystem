@@ -5,43 +5,26 @@ using UnityEngine;
 
 public class StateMachine : MonoBehaviour
 {
-    private List<MainState> _mainStatesList; //main states are states that can be switched to regardless of current state
-
-    [SerializeField] private GameObject mainStates;
-    public IList<EventState> EventStates { get; set; }
+    [SerializeField] private GameObject states;
     
     public State CurrentState { get; private set; }
-
+    private List<State> _statesList; //main states are states that can be switched to regardless of current state
+    
     private void Start()
     {
-        _mainStatesList = mainStates.GetComponents<MainState>().ToList();
-        ChangeStateTo(_mainStatesList[0]);
+        _statesList = states.GetComponents<State>().ToList();
+        ChangeStateTo(_statesList[0]);
     }
 
     private void Update()
     {
-        var thereIsActiveEventState = InferEventState();
-        if (!thereIsActiveEventState)
-        {
-            InferState();
-        }
-        
-    }
-
-    private bool InferEventState()
-    {
-        // if (EventStates.Count <= 0)
-        //     return false;
-        // CurrentState = EventStates.Last();
-        // return true;
-        return false;
-        //todo implement this
+        InferState();
     }
 
     private void InferState()
     {
-        var newStateCandidate = _mainStatesList.Aggregate((state1, state2) => state1.CurrentRank > state2.CurrentRank ? state1 : state2);
-        if (newStateCandidate.CurrentRank > ((MainState)CurrentState).CurrentRank)
+        var newStateCandidate = _statesList.Aggregate((state1, state2) => state1.CurrentRank > state2.CurrentRank ? state1 : state2);
+        if (newStateCandidate.CurrentRank > CurrentState.CurrentRank)
         {
             ChangeStateTo(newStateCandidate);
         }
@@ -50,7 +33,7 @@ public class StateMachine : MonoBehaviour
     private void ChangeStateTo(State newState)
     {
         CurrentState = newState;
-        CurrentState.prepareModel();
+        CurrentState.PrepareModel();
     }
 }
 
