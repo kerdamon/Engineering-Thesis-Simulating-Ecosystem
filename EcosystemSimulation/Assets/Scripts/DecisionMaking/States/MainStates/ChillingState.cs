@@ -9,7 +9,7 @@ namespace DecisionMaking.States
 
         public override void prepareModel()
         {
-            Debug.Log($"Przygotowuje model do stanu {nameof(LookingForFoodState)}");
+            Debug.Log($"Przygotowuje model do stanu {nameof(ChillingState)}");
         }
     }
 }

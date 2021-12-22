@@ -8,5 +8,6 @@ public class Needs : DictionarySerializer<float>
     private void Update()
     {
         this["Hunger"] += Time.deltaTime * increaseRate;
+        this["ReproductionUrge"] += Time.deltaTime * increaseRate;
     }
 }
