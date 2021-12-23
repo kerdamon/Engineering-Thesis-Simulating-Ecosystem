@@ -12,10 +12,6 @@ PrefabInstance:
       value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 4035078786211711001, guid: 7024a0394b3d4d94bbb875675d3ef939, type: 3}
-      propertyPath: m_Model
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 4035078786211711001, guid: 7024a0394b3d4d94bbb875675d3ef939, type: 3}
       propertyPath: m_BehaviorName
       value: RabbitMovement
       objectReference: {fileID: 0}
@@ -25,7 +21,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4367339644587198246, guid: 7024a0394b3d4d94bbb875675d3ef939, type: 3}
       propertyPath: m_ObservationShape
-      value: 3 channels x 40 width x 40 height
+      value: 4 channels x 40 width x 40 height
       objectReference: {fileID: 0}
     - target: {fileID: 4367339644587198246, guid: 7024a0394b3d4d94bbb875675d3ef939, type: 3}
       propertyPath: m_ObservationStacks
@@ -33,7 +29,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4367339644587198246, guid: 7024a0394b3d4d94bbb875675d3ef939, type: 3}
       propertyPath: m_GridShape.NumChannels
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4367339644587198246, guid: 7024a0394b3d4d94bbb875675d3ef939, type: 3}
       propertyPath: m_GameObjectSettingsList.Array.size
@@ -53,7 +49,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4367339644587198246, guid: 7024a0394b3d4d94bbb875675d3ef939, type: 3}
       propertyPath: m_GameObjectSettingsList.Array.data[2].Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4367339644587198246, guid: 7024a0394b3d4d94bbb875675d3ef939, type: 3}
       propertyPath: m_GameObjectSettingsList.Array.data[3].Enabled
@@ -286,6 +282,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0fd605caa99545da9ab874ffe69fbb37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  nnModel: {fileID: 0}
   rank: 1.5
   active: 0
 --- !u!114 &5702460755254705487
@@ -300,6 +297,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78661b1d268540b1992312ea4d51b9bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  nnModel: {fileID: 0}
   scoreCurve:
     serializedVersion: 2
     m_Curve:
@@ -336,6 +334,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 386c2ea4e80d4e618f55df30907e3540, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  nnModel: {fileID: 0}
   scoreCurve:
     serializedVersion: 2
     m_Curve:
