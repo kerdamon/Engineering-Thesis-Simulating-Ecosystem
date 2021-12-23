@@ -160,12 +160,13 @@ GameObject:
   m_Component:
   - component: {fileID: 5401294408096259029}
   - component: {fileID: 7655439576289399706}
+  - component: {fileID: 8154992024437168278}
   - component: {fileID: 4035078786211711001}
   - component: {fileID: 7853836569500315272}
-  - component: {fileID: 8154992024437168278}
+  - component: {fileID: 9079999088701981155}
   - component: {fileID: 3056754191753714340}
   - component: {fileID: 4367339644587198246}
-  - component: {fileID: 9079999088701981155}
+  - component: {fileID: 160763740095807357}
   m_Layer: 0
   m_Name: Agent
   m_TagString: Untagged
@@ -205,6 +206,27 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 84
   m_CollisionDetection: 0
+--- !u!114 &8154992024437168278
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6193517788997554062}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bb064e31cb9ba8488e74d4c4feb7dcf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  keys:
+  - Hunger
+  - Thirst
+  - ReproductionUrge
+  values:
+  - 30
+  - 30
+  - 0
+  increaseRate: 1
 --- !u!114 &4035078786211711001
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -253,7 +275,7 @@ MonoBehaviour:
   MaxStep: 4000
   movementSpeed: 1
   turningSpeed: 50
---- !u!114 &8154992024437168278
+--- !u!114 &9079999088701981155
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -262,18 +284,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 6193517788997554062}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7bb064e31cb9ba8488e74d4c4feb7dcf, type: 3}
+  m_Script: {fileID: 11500000, guid: 3a5c9d521e5ef4759a8246a07d52221e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keys:
-  - Hunger
-  - Thirst
-  - ReproductionUrge
-  values:
-  - 30
-  - 30
-  - 0
-  increaseRate: 1
+  DecisionPeriod: 5
+  TakeActionsBetweenDecisions: 1
 --- !u!114 &3056754191753714340
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -362,7 +377,7 @@ MonoBehaviour:
       Type: 1
       Index: -1
       Enabled: 1
-      Color: {r: 1, g: 0.58023894, b: 0.22075468, a: 1}
+      Color: {r: 1, g: 0.63128126, b: 0.21960783, a: 1}
     m_DetectorSpaceType: 0
   - Tag: Rabbit
     Enabled: 1
@@ -404,7 +419,7 @@ MonoBehaviour:
   m_DetectionSize: {x: 45, y: 1, z: 57}
   m_BoundsSize: {x: 45, y: 1, z: 57}
   m_Offset: {x: 0, y: 0, z: 14}
---- !u!114 &9079999088701981155
+--- !u!114 &160763740095807357
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -413,11 +428,73 @@ MonoBehaviour:
   m_GameObject: {fileID: 6193517788997554062}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3a5c9d521e5ef4759a8246a07d52221e, type: 3}
+  m_Script: {fileID: 11500000, guid: ec8722596ac4fb346894cd62602b3999, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DecisionPeriod: 5
-  TakeActionsBetweenDecisions: 1
+  m_ObservationShape: 2 channels x 6 width x 6 height
+  m_SensorName: WideMovementGridSensor
+  m_ObservationStacks: 1
+  m_CompressionType: 1
+  m_ObservationType: 0
+  m_ChannelLabels: []
+  m_Debug_CreateSensorOnAwake: 0
+  m_Debug_CreateSensorOnValidate: 1
+  m_Debug_FrameInterval: 1
+  m_Debug_DrawGridBuffer: 0
+  m_Debug_GridBufferDrawer:
+    Context: {fileID: 0}
+    Editor: {fileID: 0}
+    GridSizeRatio: 0
+    IsEnabled: 0
+    IsStandby: 0
+  m_GridShape:
+    NumChannels: 2
+    Width: 6
+    Height: 6
+  m_ClearCacheOnReset: 0
+  m_ColliderBufferSize: 64
+  m_TmpObjectToAdd: {fileID: 0}
+  m_GameObjectSettingsList:
+  - Tag: Food
+    Enabled: 1
+    DetectionType: 0
+    Modifier: 0
+    Detectable: {fileID: 3861191557342994614, guid: aca7aeccaff29d64290ca94f0785d2e7, type: 3}
+    m_UserObservables:
+      m_Observables: []
+    m_Observables:
+    - Name: One-Hot
+      Type: 1
+      Index: -1
+      Enabled: 1
+      Color: {r: 1, g: 0.6313726, b: 0.21960786, a: 1}
+    m_DetectorSpaceType: 0
+  - Tag: Rabbit
+    Enabled: 1
+    DetectionType: 0
+    Modifier: 0
+    Detectable: {fileID: 3423865683179977847, guid: 4c91d6955328cdd4599cfe9d11ea14a7, type: 3}
+    m_UserObservables:
+      m_Observables: []
+    m_Observables:
+    - Name: One-Hot
+      Type: 1
+      Index: -1
+      Enabled: 1
+      Color: {r: 0.6039216, g: 0.5294118, b: 0.37647063, a: 1}
+    m_DetectorSpaceType: 0
+  m_RotationType: 0
+  m_DetectionBounds:
+    m_Center: {x: 0, y: 0, z: 0}
+    m_Extent: {x: 105, y: 0.5, z: 105}
+  m_EditorBounds:
+    m_Center: {x: 0, y: 0, z: 0}
+    m_Extent: {x: 105, y: 0.5, z: 105}
+  m_CellSize: 35
+  m_NumCells: {x: 6, y: 1, z: 6}
+  m_DetectionSize: {x: 210, y: 1, z: 210}
+  m_BoundsSize: {x: 210, y: 1, z: 210}
+  m_Offset: {x: 0, y: 0, z: 0}
 --- !u!1 &6508573061898438162
 GameObject:
   m_ObjectHideFlags: 0
