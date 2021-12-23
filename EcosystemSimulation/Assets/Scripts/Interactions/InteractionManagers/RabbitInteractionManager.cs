@@ -22,7 +22,7 @@ namespace Interactions
             _trainingArea = GetComponentInParent<TrainingArea>();
 
             is_training = Mathf.Abs(Academy.Instance.EnvironmentParameters.GetWithDefault("is_training", 0.0f)) > 0.0001f;
-            Debug.Log($"isTraining = {is_training}");
+            //Debug.Log($"isTraining = {is_training}");
 
             var rabbit_eating_carrot_reward = Academy.Instance.EnvironmentParameters.GetWithDefault("rabbit_eating_carrot_reward", 0.0f);
             rabbit_on_eaten = Academy.Instance.EnvironmentParameters.GetWithDefault("rabbit_on_eaten", 0.0f);

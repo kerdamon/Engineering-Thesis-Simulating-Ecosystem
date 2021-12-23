@@ -10,6 +10,7 @@ TagManager:
   - Fox
   - WaterContainer
   - Wall
+  - FoxBody
   layers:
   - Default
   - TransparentFX
