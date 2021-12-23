@@ -1,5 +1,4 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 using Unity.MLAgents;
 
 namespace Interactions
@@ -7,7 +6,7 @@ namespace Interactions
     public abstract class InteractionManager : MonoBehaviour
     {
         protected MovementAgent MovementAgent;
-        protected DrinkingInteraction DrinkingInteraction;
+        private DrinkingInteraction _drinkingInteraction;
         protected MatingInteraction MatingInteraction;
 
         public Interaction CurrentInteraction { get; protected set; }
@@ -20,14 +19,14 @@ namespace Interactions
         {
             var parent = transform.parent;
             MovementAgent = parent.GetComponent<MovementAgent>();
-            DrinkingInteraction = GetComponent<DrinkingInteraction>();
+            _drinkingInteraction = GetComponent<DrinkingInteraction>();
             //MatingInteraction = GetComponent<MatingInteraction>();
             
             agent_bump_into_wall = Academy.Instance.EnvironmentParameters.GetWithDefault("agent_bump_into_wall", 0.0f);
             agent_interact_with_water = Academy.Instance.EnvironmentParameters.GetWithDefault("agent_interact_with_water", 0.0f);
             
-            AddRewardAfterInteraction(DrinkingInteraction, agent_interact_with_water);
-            RegisterUpdatingCurrentInteractionAfterEndOf(DrinkingInteraction);
+            AddRewardAfterInteraction(_drinkingInteraction, agent_interact_with_water);
+            RegisterUpdatingCurrentInteractionAfterEndOf(_drinkingInteraction);
         }
 
         protected void AddRewardAfterInteraction(Interaction interaction, float rewardValue)
@@ -47,7 +46,7 @@ namespace Interactions
             switch (target.tag)
             {
                 case "Water":
-                    CurrentInteraction = DrinkingInteraction;
+                    CurrentInteraction = _drinkingInteraction;
                     CurrentInteraction.StartInteraction(target);
                     break;
                 case "Wall":

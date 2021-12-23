@@ -1,6 +1,5 @@
 ﻿using System;
 using Unity.MLAgents;
-using UnityEngine;
 
 namespace DefaultNamespace
 {

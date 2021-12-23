@@ -1,5 +1,4 @@
-﻿using MBaske.Sensors.Grid;
-using Unity.Barracuda;
+﻿using Unity.Barracuda;
 using Unity.MLAgents;
 using Unity.MLAgents.Policies;
 using UnityEngine;

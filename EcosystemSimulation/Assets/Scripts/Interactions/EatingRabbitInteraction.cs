@@ -1,5 +1,4 @@
 ﻿using Interactions;
-using UnityEngine;
 
 public class EatingRabbitInteraction : Interaction
 {

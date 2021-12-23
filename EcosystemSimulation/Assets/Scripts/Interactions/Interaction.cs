@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections;
-using System.Security.Cryptography.X509Certificates;
-using TMPro.EditorUtilities;
 using UnityEngine;
 
 namespace Interactions
