@@ -415,6 +415,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3438185227752121539, guid: da0347d17e632d14a9af1a0994473def, type: 3}
+      propertyPath: nnModel
+      value: 
+      objectReference: {fileID: 5022602860645237092, guid: adda06e962a885143b2310d59d449cb3, type: 3}
+    - target: {fileID: 3619141474256630760, guid: da0347d17e632d14a9af1a0994473def, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3619141474256630760, guid: da0347d17e632d14a9af1a0994473def, type: 3}
+      propertyPath: m_ObservationShape
+      value: 3 channels x 40 width x 40 height
+      objectReference: {fileID: 0}
+    - target: {fileID: 3619141474256630760, guid: da0347d17e632d14a9af1a0994473def, type: 3}
+      propertyPath: m_GridShape.NumChannels
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3619141474256630760, guid: da0347d17e632d14a9af1a0994473def, type: 3}
+      propertyPath: m_GameObjectSettingsList.Array.data[3].Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5014543819106390974, guid: da0347d17e632d14a9af1a0994473def, type: 3}
       propertyPath: m_Name
       value: SimulationArea
@@ -462,10 +482,6 @@ PrefabInstance:
     - target: {fileID: 5014543819106390975, guid: da0347d17e632d14a9af1a0994473def, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8684830512259518663, guid: da0347d17e632d14a9af1a0994473def, type: 3}
-      propertyPath: m_TagString
-      value: FoxBody
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: da0347d17e632d14a9af1a0994473def, type: 3}
