@@ -8,12 +8,11 @@ namespace Interactions
     public class RabbitInteractionManager : InteractionManager 
     {
         private EatingCarrotInteraction _eatingCarrotInteraction;
-        private DrinkingInteraction _drinkingInteraction;
-        private MatingInteraction _matingInteraction;
+
         private TrainingArea _trainingArea; //TODO change; only to use method to randomize position of this agent upon eating in training mode, it is probably spaghetti code
 
         private MovementAgent _movementAgent;
-        private float rabbit_on_eaten;
+        private float rabbit_on_eaten;  //todo change name and add reward at the end
 
         private bool is_training;    //TODO check; indicates if agent is currently trained or not (it is used for reseting agent in training scenarios on eaten)
 
@@ -28,15 +27,9 @@ namespace Interactions
             rabbit_on_eaten = Academy.Instance.EnvironmentParameters.GetWithDefault("rabbit_on_eaten", 0.0f);
 
             _eatingCarrotInteraction = GetComponent<EatingCarrotInteraction>();
-            if (Mathf.Abs(rabbit_eating_carrot_reward) > 0.0001f)
-            {
-                Debug.Log($"Added reward for rabbit_eating_carrot_reward equal to {rabbit_eating_carrot_reward}");
-                _eatingCarrotInteraction.AfterInteraction = () => _movementAgent.AddReward(rabbit_eating_carrot_reward);
-            }
-            _eatingCarrotInteraction.AfterInteraction += () => CurrentInteraction = null;
+            AddRewardAfterInteraction(_eatingCarrotInteraction, rabbit_eating_carrot_reward);
+            RegisterUpdatingCurrentInteractionAfterEndOf(_eatingCarrotInteraction);
             
-            _drinkingInteraction = GetComponent<DrinkingInteraction>();
-            _matingInteraction = GetComponent<MatingInteraction>();
             _movementAgent = transform.parent.GetComponent<MovementAgent>();
             base.Start();
         }

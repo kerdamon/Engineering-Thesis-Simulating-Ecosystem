@@ -17,6 +17,5 @@ public class EatingCarrotInteraction : Interaction
     {
         var eatenValue = SecondSimulationObject.GetComponent<PlantGrower>().OnEaten(biteSize);
         _needs["Hunger"] -= eatenValue * energyReceivedPerBite;
-        base.AtInteractionEnd();
     }
 }

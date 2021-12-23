@@ -15,6 +15,5 @@ public class EatingRabbitInteraction : Interaction
         var rabbitInteractionManager = SecondSimulationObject.GetComponentInChildren<RabbitInteractionManager>();
         var energyReceived = rabbitInteractionManager.OnEaten();
         _needs["Hunger"] -= energyReceived;
-        base.AtInteractionEnd();
     }
 }

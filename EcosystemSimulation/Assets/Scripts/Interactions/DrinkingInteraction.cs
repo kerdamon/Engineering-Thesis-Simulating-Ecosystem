@@ -13,9 +13,6 @@ public class DrinkingInteraction : Interaction
     }
     protected override void AtInteractionEnd()
     {
-        Debug.Log($"Interaction end");
-        //_needs["Hunger"] -= hungerChangeFactor;    //todo magic number - change
-        Destroy(SecondSimulationObject);
-        base.AtInteractionEnd();
+        _needs["Thirst"] -= thirstChangeFactor;    //todo magic number - change
     }
 }

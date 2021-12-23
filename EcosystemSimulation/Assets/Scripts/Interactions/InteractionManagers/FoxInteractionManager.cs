@@ -22,8 +22,6 @@ namespace Interactions
             }
             _eatingRabbitInteraction.AfterInteraction += () => CurrentInteraction = null;
             
-            _drinkingInteraction = GetComponent<DrinkingInteraction>();
-            _matingInteraction = GetComponent<MatingInteraction>();
             _movementAgent = transform.parent.GetComponent<MovementAgent>();
             base.Start();
         }

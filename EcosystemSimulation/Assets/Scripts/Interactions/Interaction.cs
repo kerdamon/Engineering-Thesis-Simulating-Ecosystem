@@ -39,7 +39,7 @@ namespace Interactions
         private IEnumerator InteractionCoroutine()
         {
             TimeElapsed = 0.0f;
-            AtInteractionStart();
+            //AtInteractionStart();
             
             while (TimeElapsed < interactionDuration)
             {
@@ -52,12 +52,10 @@ namespace Interactions
             AfterInteraction();
         }
 
-        protected virtual void AtInteractionStart()
-        {
-        }
-        protected virtual void AtInteractionEnd()
-        {
-        }
+        //protected abstract void AtInteractionStart();
+
+        protected abstract void AtInteractionEnd();
+        
         protected virtual void AtInteractionIncrement()
         {
         }
