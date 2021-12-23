@@ -341,8 +341,8 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 20
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Radius: 27
+  m_Center: {x: 0, y: 0, z: 10}
 --- !u!1 &6193517788997554062
 GameObject:
   m_ObjectHideFlags: 0
@@ -493,7 +493,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec8722596ac4fb346894cd62602b3999, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_ObservationShape: 2 channels x 40 width x 40 height
+  m_ObservationShape: 2 channels x 45 width x 57 height
   m_SensorName: MovementGridSensor
   m_ObservationStacks: 2
   m_CompressionType: 1
@@ -511,8 +511,8 @@ MonoBehaviour:
     IsStandby: 0
   m_GridShape:
     NumChannels: 2
-    Width: 40
-    Height: 40
+    Width: 45
+    Height: 57
   m_ClearCacheOnReset: 0
   m_ColliderBufferSize: 128
   m_TmpObjectToAdd: {fileID: 0}
@@ -547,16 +547,16 @@ MonoBehaviour:
     m_DetectorSpaceType: 0
   m_RotationType: 0
   m_DetectionBounds:
-    m_Center: {x: 0, y: 0, z: 8.8}
-    m_Extent: {x: 16, y: 0.5, z: 16}
+    m_Center: {x: 0, y: 0, z: 14}
+    m_Extent: {x: 22.5, y: 0.5, z: 28.5}
   m_EditorBounds:
-    m_Center: {x: 0, y: 0, z: 8.8}
-    m_Extent: {x: 16, y: 0.5, z: 16}
-  m_CellSize: 0.8
-  m_NumCells: {x: 40, y: 1, z: 40}
-  m_DetectionSize: {x: 32, y: 1, z: 32}
-  m_BoundsSize: {x: 32, y: 1, z: 32}
-  m_Offset: {x: 0, y: 0, z: 8.8}
+    m_Center: {x: 0, y: 0, z: 14}
+    m_Extent: {x: 22.5, y: 0.5, z: 28.5}
+  m_CellSize: 1
+  m_NumCells: {x: 45, y: 1, z: 57}
+  m_DetectionSize: {x: 45, y: 1, z: 57}
+  m_BoundsSize: {x: 45, y: 1, z: 57}
+  m_Offset: {x: 0, y: 0, z: 14}
 --- !u!114 &6015840689533625489
 MonoBehaviour:
   m_ObjectHideFlags: 0

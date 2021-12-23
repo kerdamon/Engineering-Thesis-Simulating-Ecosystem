@@ -21,7 +21,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4367339644587198246, guid: 7024a0394b3d4d94bbb875675d3ef939, type: 3}
       propertyPath: m_ObservationShape
-      value: 4 channels x 40 width x 40 height
+      value: 4 channels x 45 width x 55 height
       objectReference: {fileID: 0}
     - target: {fileID: 4367339644587198246, guid: 7024a0394b3d4d94bbb875675d3ef939, type: 3}
       propertyPath: m_ObservationStacks
