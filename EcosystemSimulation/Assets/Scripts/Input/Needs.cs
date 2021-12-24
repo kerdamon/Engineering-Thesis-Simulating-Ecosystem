@@ -7,7 +7,7 @@ using UnityEngine;
 public class Needs : DictionarySerializer<float>
 {
     [SerializeField] private float increaseRate;
-    [SerializeField] private float maxNeed;
+    [SerializeField] private float maxNeedValue;
 
     private MovementAgent _movementAgent;
     
@@ -26,8 +26,9 @@ public class Needs : DictionarySerializer<float>
 
     private void IncreaseAndKillIfMax(string need)
     {
-        this[need] += Time.deltaTime * increaseRate; 
-        if (this[need] >= 100.0f)
+        IncreaseNeedUpToMax(need);
+        const float epsilon = 0.0001f;
+        if (this[need] >= maxNeedValue - epsilon)
         {
             _movementAgent.KillAgent(need);
         }
@@ -36,9 +37,9 @@ public class Needs : DictionarySerializer<float>
     private void IncreaseNeedUpToMax(string need)
     {
         this[need] += Time.deltaTime * increaseRate; 
-        if (this[need] >= 100.0f)
+        if (this[need] >= maxNeedValue)
         {
-            this[need] = 100.0f;
+            this[need] = maxNeedValue;
         }
     }
 }

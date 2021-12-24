@@ -260,6 +260,7 @@ MonoBehaviour:
   - 30
   - 0
   increaseRate: 1
+  maxNeedValue: 100
 --- !u!114 &4035078786211711001
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -497,5 +497,9 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Fox
       objectReference: {fileID: 0}
+    - target: {fileID: 9191415489041165400, guid: da0347d17e632d14a9af1a0994473def, type: 3}
+      propertyPath: values.Array.data[2]
+      value: 92.8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: da0347d17e632d14a9af1a0994473def, type: 3}
