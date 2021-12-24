@@ -3,7 +3,7 @@ using System.Linq;
 using Unity.MLAgents;
 using UnityEngine;
 
-public class SimulationSettings : MonoBehaviour
+public class TrainingSettings : MonoBehaviour
 {
     private List<ITrainingArea> TrainingAreas;
     private Academy _academyInstance;
@@ -12,6 +12,8 @@ public class SimulationSettings : MonoBehaviour
         _academyInstance = Academy.Instance;
         _academyInstance.OnEnvironmentReset += EnvironmentReset;
         TrainingAreas = new List<ITrainingArea>();
+
+        //AddFixedRewardsForAgents();
     }
 
     private void EnvironmentReset()

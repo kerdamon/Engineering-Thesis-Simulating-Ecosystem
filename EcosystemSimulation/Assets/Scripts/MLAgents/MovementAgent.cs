@@ -28,11 +28,14 @@ public class MovementAgent : Agent
         sensor.AddObservation(localVelocity.z);
     }
 
+    public Action AfterAction;
+    
     public override void OnActionReceived(ActionBuffers actions)
     {
         MoveAgent(actions);
-        Interact(actions);
+        GetInteractDesire(actions);
         ModifyRewardOnActionReceived();
+        AfterAction();
     }
 
     protected virtual void ModifyRewardOnActionReceived()
@@ -65,13 +68,9 @@ public class MovementAgent : Agent
     }
 
 
-    private void Interact(ActionBuffers actions)    //todo move to ingeraction manager
+    private void GetInteractDesire(ActionBuffers actions)
     {
         WantInteraction = actions.DiscreteActions[0] > 0;
-        if (!WantInteraction && _interactionManager.IsInteracting)
-        {
-            _interactionManager.StopInteraction();
-        }
     }
 
     public override void Heuristic(in ActionBuffers actionsOut)

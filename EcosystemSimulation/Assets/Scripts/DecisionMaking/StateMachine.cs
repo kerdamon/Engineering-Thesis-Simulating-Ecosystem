@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using DecisionMaking.States;
 using Interactions;
+using Unity.MLAgents.Integrations.Match3;
 using UnityEngine;
 
 namespace DecisionMaking
@@ -13,16 +14,14 @@ namespace DecisionMaking
     
         public State CurrentState { get; private set; }
         private List<State> _statesList; //main states are states that can be switched to regardless of current state
+
         
         private void Start()
         {
             _statesList = states.GetComponents<State>().ToList();
             ChangeStateTo(defaultState);
-        }
-
-        private void Update()
-        {
-            InferState();
+            
+            GetComponentInParent<MovementAgent>().AfterAction += InferState;
         }
 
         private void InferState()

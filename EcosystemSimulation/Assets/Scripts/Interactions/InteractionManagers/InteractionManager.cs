@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using Unity.MLAgents;
+using Unity.MLAgents.Actuators;
 
 namespace Interactions
 {
@@ -27,7 +28,8 @@ namespace Interactions
             
             agent_bump_into_wall = Academy.Instance.EnvironmentParameters.GetWithDefault("agent_bump_into_wall", 0.0f);
             agent_interact_with_water = Academy.Instance.EnvironmentParameters.GetWithDefault("agent_interact_with_water", 0.0f);
-            
+
+            MovementAgent.AfterAction += StopInteractionWhenAgentDontWantTo;
             AddRewardAfterInteraction(_drinkingInteraction, agent_interact_with_water);
             RegisterUpdatingCurrentInteractionAfterEndOf(_drinkingInteraction);
         }
@@ -62,9 +64,9 @@ namespace Interactions
             }
         }
 
-        public void StopInteraction()
+        private void StopInteractionWhenAgentDontWantTo()
         {
-            if(IsInteracting)
+            if(!MovementAgent.WantInteraction && IsInteracting)
                 CurrentInteraction.Interrupt();
         }
        
