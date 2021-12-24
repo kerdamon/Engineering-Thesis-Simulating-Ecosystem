@@ -13,11 +13,9 @@ namespace DecisionMaking
     
         public State CurrentState { get; private set; }
         private List<State> _statesList; //main states are states that can be switched to regardless of current state
-        private InteractionManager _interactionManager;
         
         private void Start()
         {
-            _interactionManager = transform.parent.GetComponentInChildren<InteractionManager>();
             _statesList = states.GetComponents<State>().ToList();
             ChangeStateTo(defaultState);
         }
@@ -38,7 +36,6 @@ namespace DecisionMaking
 
         private void ChangeStateTo(State newState)
         {
-            _interactionManager.StopInteraction();
             CurrentState = newState;
             CurrentState.PrepareModel();
         }

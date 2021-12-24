@@ -17,10 +17,13 @@ public class DrinkingInteraction : Interaction
     protected override void AtInteractionIncrement()
     {
         Debug.Log($"Drinking");
-        _needs["Thirst"] -= thirstChangeFactor;
-        if (_needs["Thirst"] <= 0)
+        if (_needs["Thirst"] - thirstChangeFactor < 0)
         {
             Interrupt();
+        }
+        else
+        {
+            _needs["Thirst"] -= thirstChangeFactor;
         }
     }
 }

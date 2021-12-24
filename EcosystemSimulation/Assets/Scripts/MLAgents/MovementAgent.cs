@@ -64,15 +64,8 @@ public class MovementAgent : Agent
         }
     }
 
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (WantInteraction && !_interactionManager.IsInteracting)
-        {
-            _interactionManager.Interact(collision.gameObject);
-        }
-    }
 
-    private void Interact(ActionBuffers actions)
+    private void Interact(ActionBuffers actions)    //todo move to ingeraction manager
     {
         WantInteraction = actions.DiscreteActions[0] > 0;
         if (!WantInteraction && _interactionManager.IsInteracting)

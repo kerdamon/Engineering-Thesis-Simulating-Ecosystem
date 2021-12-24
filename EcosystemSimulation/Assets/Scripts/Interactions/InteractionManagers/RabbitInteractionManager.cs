@@ -28,7 +28,7 @@ namespace Interactions
             base.Start();
         }
 
-        public override void Interact(GameObject target)
+        protected override void Interact(GameObject target)
         {
             switch (target.tag)
             {

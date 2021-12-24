@@ -5,6 +5,9 @@ using UnityEngine;
 
 namespace DecisionMaking.States
 {
+    /// <summary>
+    /// State only indicates in which state agent is. State objects does not contain any logic other than determining its score and preparing movement model.
+    /// </summary>
     public abstract class State : MonoBehaviour
     {
         [SerializeField] private NNModel nnModel;

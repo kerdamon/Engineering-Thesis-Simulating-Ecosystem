@@ -8,10 +8,12 @@ namespace Interactions
         protected MovementAgent MovementAgent;
         private DrinkingInteraction _drinkingInteraction;
         protected MatingInteraction MatingInteraction;
-
+        private Needs _needs;
+        
         public Interaction CurrentInteraction { get; protected set; }
         public bool IsInteracting => !(CurrentInteraction is null);
 
+        
         private float agent_bump_into_wall;
         private float agent_interact_with_water;
 
@@ -20,6 +22,7 @@ namespace Interactions
             var parent = transform.parent;
             MovementAgent = parent.GetComponent<MovementAgent>();
             _drinkingInteraction = GetComponent<DrinkingInteraction>();
+            _needs = parent.GetComponent<Needs>();
             //MatingInteraction = GetComponent<MatingInteraction>();
             
             agent_bump_into_wall = Academy.Instance.EnvironmentParameters.GetWithDefault("agent_bump_into_wall", 0.0f);
@@ -42,13 +45,16 @@ namespace Interactions
             interaction.AfterInterruptedInteraction += ClearCurrentInteraction;
         }
 
-        public virtual void Interact(GameObject target)
+        protected virtual void Interact(GameObject target)
         {
             switch (target.tag)
             {
                 case "Water":
-                    CurrentInteraction = _drinkingInteraction;
-                    CurrentInteraction.StartInteraction(target);
+                    if (_needs["Thirst"] > 0)
+                    {
+                        CurrentInteraction = _drinkingInteraction;
+                        CurrentInteraction.StartInteraction(target);
+                    }
                     break;
                 case "Wall":
                     MovementAgent.AddReward(agent_bump_into_wall);
@@ -60,6 +66,15 @@ namespace Interactions
         {
             if(IsInteracting)
                 CurrentInteraction.Interrupt();
+        }
+       
+        private void OnTriggerEnter(Collider other)
+        {
+            if (MovementAgent.WantInteraction && !IsInteracting)
+            {
+                Debug.Log($"Rozpoczynam interakcje");
+                Interact(other.gameObject);
+            }
         }
     }
 }
