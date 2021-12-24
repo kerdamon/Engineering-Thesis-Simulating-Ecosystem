@@ -1,5 +1,6 @@
 using System;
 using Interactions;
+using JetBrains.Annotations;
 using Unity.MLAgents;
 using Unity.MLAgents.Actuators;
 using Unity.MLAgents.Sensors;
@@ -11,14 +12,12 @@ public class MovementAgent : Agent
     [SerializeField] private float turningSpeed;   
     
     private Rigidbody _agentRigidbody;
-    private InteractionManager _interactionManager;
 
     public bool WantInteraction { get; private set; } = false;
 
     public override void Initialize()
     {
         _agentRigidbody = GetComponent<Rigidbody>();
-        _interactionManager = GetComponentInChildren<InteractionManager>();
     }
 
     public override void CollectObservations(VectorSensor sensor)
@@ -94,5 +93,12 @@ public class MovementAgent : Agent
         }
         var discreteActionsOut = actionsOut.DiscreteActions;
         discreteActionsOut[0] = UnityEngine.Input.GetKey(KeyCode.Space) ? 1 : 0;
+    }
+
+    public void KillAgent(string deathCause)
+    {
+        //todo expand to state
+        Debug.Log($"Agent {gameObject.name} died of {deathCause}");
+        Destroy(gameObject);
     }
 }
