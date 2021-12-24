@@ -58,7 +58,8 @@ namespace Interactions
 
         public void StopInteraction()
         {
-            CurrentInteraction.Interrupt();
+            if(IsInteracting)
+                CurrentInteraction.Interrupt();
         }
     }
 }
