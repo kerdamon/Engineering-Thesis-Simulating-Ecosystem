@@ -10,9 +10,11 @@ public class Needs : DictionarySerializer<float>
     [SerializeField] private float maxNeedValue;
 
     private MovementAgent _movementAgent;
+    private Features _features;
     
     private void Start()
     {
+        _features = GetComponent<Features>();
         _movementAgent = GetComponent<MovementAgent>();
         _movementAgent.AfterAction += UpdateNeeds;
     }
@@ -36,7 +38,9 @@ public class Needs : DictionarySerializer<float>
 
     private void IncreaseNeedUpToMax(string need)
     {
-        this[need] += Time.deltaTime * increaseRate; 
+        var increaseAmount = Time.deltaTime * increaseRate;
+        increaseAmount += increaseAmount * (_features.CurrentGeneticCost / _features.MaxGeneticCost);
+        this[need] += increaseAmount;
         if (this[need] >= maxNeedValue)
         {
             this[need] = maxNeedValue;

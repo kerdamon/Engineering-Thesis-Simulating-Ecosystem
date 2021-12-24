@@ -194,6 +194,7 @@ GameObject:
   - component: {fileID: 5401294408096259029}
   - component: {fileID: 7655439576289399706}
   - component: {fileID: 8154992024437168278}
+  - component: {fileID: 5933343763909004989}
   - component: {fileID: 4035078786211711001}
   - component: {fileID: 7853836569500315272}
   - component: {fileID: 9079999088701981155}
@@ -261,6 +262,25 @@ MonoBehaviour:
   - 0
   increaseRate: 1
   maxNeedValue: 100
+--- !u!114 &5933343763909004989
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6193517788997554062}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 710280dd22ce97e439ee648f224eaf62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  keys:
+  - Speed
+  - SensoryRange
+  values:
+  - 50
+  - 50
+  maxFeatureValue: 100
 --- !u!114 &4035078786211711001
 MonoBehaviour:
   m_ObjectHideFlags: 0
