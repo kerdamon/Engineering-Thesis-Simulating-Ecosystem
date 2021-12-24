@@ -32,13 +32,14 @@ namespace Interactions
         protected void AddRewardAfterInteraction(Interaction interaction, float rewardValue)
         {
             if (!(Mathf.Abs(rewardValue) > 0.0001f)) return;    //check for 0.0f with epsilon
-            //Debug.Log($"Added reward for {interaction.name} equal to {rewardValue}");
-            interaction.AfterInteraction = () => MovementAgent.AddReward(rewardValue);
+            interaction.AfterSuccessfulInteraction += () => MovementAgent.AddReward(rewardValue);
         }
 
         protected void RegisterUpdatingCurrentInteractionAfterEndOf(Interaction interaction)
         {
-            interaction.AfterInteraction += () => CurrentInteraction = null; 
+            void ClearCurrentInteraction() => CurrentInteraction = null;
+            interaction.AfterSuccessfulInteraction += ClearCurrentInteraction;
+            interaction.AfterInterruptedInteraction += ClearCurrentInteraction;
         }
 
         public virtual void Interact(GameObject target)
@@ -57,8 +58,7 @@ namespace Interactions
 
         public void StopInteraction()
         {
-            CurrentInteraction.Stop();
-            CurrentInteraction = null;
+            CurrentInteraction.Interrupt();
         }
     }
 }

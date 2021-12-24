@@ -13,6 +13,10 @@ namespace Interactions
 
         protected GameObject SimulationObject;
         public GameObject SecondSimulationObject { get; set; }
+
+        public Action BeforeInteraction;
+        public Action AfterSuccessfulInteraction;
+        public Action AfterInterruptedInteraction;
         
         protected virtual void Start()
         {
@@ -27,17 +31,17 @@ namespace Interactions
             StartCoroutine(_interactCoroutine);
         }
 
-        public void Stop()
+        public void Interrupt()
         {
-           StopAllCoroutines();
+            StopAllCoroutines();
+            AfterInterruptedInteraction();
         }
         
-        public Action AfterInteraction;
-
         private IEnumerator InteractionCoroutine()
         {
+            BeforeInteraction();
             TimeElapsed = 0.0f;
-            //AtInteractionStart();
+            AtInteractionStart();
             
             while (TimeElapsed < interactionDuration)
             {
@@ -47,13 +51,17 @@ namespace Interactions
             }
             
             AtInteractionEnd();
-            AfterInteraction();
+            AfterSuccessfulInteraction();
         }
 
-        //protected abstract void AtInteractionStart();
+        protected virtual void AtInteractionStart()
+        {
+        }
 
-        protected abstract void AtInteractionEnd();
-        
+        protected virtual void AtInteractionEnd()
+        {
+        }
+
         protected virtual void AtInteractionIncrement()
         {
         }

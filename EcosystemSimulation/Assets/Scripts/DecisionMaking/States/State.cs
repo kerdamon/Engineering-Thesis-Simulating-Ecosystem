@@ -11,7 +11,7 @@ namespace DecisionMaking.States
         private Agent _agent;
         private string _behaviourName;
 
-        private void Start()
+        protected virtual void Start()
         {
             _agent = GetComponentInParent<MovementAgent>();
             _behaviourName = GetComponentInParent<BehaviorParameters>().BehaviorName;    //todo change if there are multiple behaviours on one agent

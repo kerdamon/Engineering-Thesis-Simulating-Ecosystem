@@ -43,9 +43,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58514d43e31d4f61b4f13c613b80dbc1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeIncrement: 0
-  interactionDuration: 0
-  thirstChangeFactor: 20
+  timeIncrement: 0.5
+  interactionDuration: 2
+  thirstChangeFactor: 3
 --- !u!1 &4018357708742935782
 GameObject:
   m_ObjectHideFlags: 0
@@ -58,6 +58,7 @@ GameObject:
   - component: {fileID: 2383757177602166797}
   - component: {fileID: 7718515594970422042}
   - component: {fileID: 8113273528401967737}
+  - component: {fileID: 2293594968326932604}
   m_Layer: 0
   m_Name: States
   m_TagString: Untagged
@@ -166,6 +167,22 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 27
   m_Center: {x: 0, y: 0, z: 10}
+--- !u!114 &2293594968326932604
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4018357708742935782}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bafa5554b95944a987fb4dbaecff792b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nnModel: {fileID: 0}
+  rank: 1.1
+  active: 0
+  drinkingInteraction: {fileID: 3711428792702864768}
 --- !u!1 &6193517788997554062
 GameObject:
   m_ObjectHideFlags: 0

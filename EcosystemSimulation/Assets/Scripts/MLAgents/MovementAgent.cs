@@ -1,3 +1,4 @@
+using System;
 using Interactions;
 using Unity.MLAgents;
 using Unity.MLAgents.Actuators;
@@ -12,7 +13,7 @@ public class MovementAgent : Agent
     private Rigidbody _agentRigidbody;
     private InteractionManager _interactionManager;
 
-    private bool _wantInteraction = false;
+    public bool WantInteraction { get; private set; } = false;
 
     public override void Initialize()
     {
@@ -62,10 +63,10 @@ public class MovementAgent : Agent
             _agentRigidbody.velocity *= 0.95f;
         }
     }
-    
-    void OnCollisionEnter(Collision collision)
+
+    private void OnCollisionEnter(Collision collision)
     {
-        if (_wantInteraction)
+        if (WantInteraction && !_interactionManager.IsInteracting)
         {
             _interactionManager.Interact(collision.gameObject);
         }
@@ -73,8 +74,8 @@ public class MovementAgent : Agent
 
     private void Interact(ActionBuffers actions)
     {
-        _wantInteraction = actions.DiscreteActions[0] > 0;
-        if (!_wantInteraction && _interactionManager.IsInteracting)
+        WantInteraction = actions.DiscreteActions[0] > 0;
+        if (!WantInteraction && _interactionManager.IsInteracting)
         {
             _interactionManager.StopInteraction();
         }
