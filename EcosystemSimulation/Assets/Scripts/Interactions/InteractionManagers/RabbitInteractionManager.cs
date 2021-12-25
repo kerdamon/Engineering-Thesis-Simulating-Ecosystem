@@ -33,9 +33,8 @@ namespace Interactions
             switch (target.tag)
             {
                 case "Food":
-                    CurrentInteraction = _eatingCarrotInteraction;
-                    CurrentInteraction.StartInteraction(target);
-                    break;
+                    LaunchNewInteraction(_eatingCarrotInteraction, target);
+                    return;
             }
             base.Interact(target);
         }

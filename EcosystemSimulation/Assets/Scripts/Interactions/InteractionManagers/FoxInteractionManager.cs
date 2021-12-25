@@ -11,11 +11,7 @@ namespace Interactions
         {
             _eatingRabbitInteraction = GetComponent<EatingRabbitInteraction>();
             var fox_eating_rabbit_reward = Academy.Instance.EnvironmentParameters.GetWithDefault("fox_eating_rabbit_reward", 0.0f);
-            // if (Mathf.Abs(fox_eating_rabbit_reward) > 0.0001f)
-            // {
-            //     _eatingRabbitInteraction.AfterInteraction = () => MovementAgent.AddReward(fox_eating_rabbit_reward);
-            // }
-            // _eatingRabbitInteraction.AfterInteraction += () => CurrentInteraction = null;
+
             AddRewardAfterInteraction(_eatingRabbitInteraction, fox_eating_rabbit_reward);
             RegisterUpdatingCurrentInteractionAfterEndOf(_eatingRabbitInteraction);
             
@@ -27,9 +23,8 @@ namespace Interactions
             switch (target.tag)
             {
                 case "Rabbit":
-                    CurrentInteraction = _eatingRabbitInteraction;
-                    CurrentInteraction.StartInteraction(target);
-                    break;
+                    LaunchNewInteraction(_eatingRabbitInteraction, target);
+                    return;
             }
             base.Interact(target);
         }

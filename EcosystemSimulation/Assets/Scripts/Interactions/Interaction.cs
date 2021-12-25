@@ -39,7 +39,7 @@ namespace Interactions
         
         private IEnumerator InteractionCoroutine()
         {
-            BeforeInteraction();
+            BeforeInteraction?.Invoke();
             TimeElapsed = 0.0f;
             AtInteractionStart();
             
@@ -51,7 +51,7 @@ namespace Interactions
             }
             
             AtInteractionEnd();
-            AfterSuccessfulInteraction();
+            AfterSuccessfulInteraction?.Invoke();
         }
 
         protected virtual void AtInteractionStart()

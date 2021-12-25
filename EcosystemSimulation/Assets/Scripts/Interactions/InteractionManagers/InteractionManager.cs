@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 using Unity.MLAgents;
-using Unity.MLAgents.Actuators;
 
 namespace Interactions
 {
@@ -8,7 +7,6 @@ namespace Interactions
     {
         protected MovementAgent MovementAgent;
         private DrinkingInteraction _drinkingInteraction;
-        protected MatingInteraction MatingInteraction;
         private Needs _needs;
         
         public Interaction CurrentInteraction { get; protected set; }
@@ -22,14 +20,15 @@ namespace Interactions
         {
             var parent = transform.parent;
             MovementAgent = parent.GetComponent<MovementAgent>();
-            _drinkingInteraction = GetComponent<DrinkingInteraction>();
+            
             _needs = parent.GetComponent<Needs>();
-            //MatingInteraction = GetComponent<MatingInteraction>();
             
             agent_bump_into_wall = Academy.Instance.EnvironmentParameters.GetWithDefault("agent_bump_into_wall", 0.0f);
             agent_interact_with_water = Academy.Instance.EnvironmentParameters.GetWithDefault("agent_interact_with_water", 0.0f);
 
             MovementAgent.AfterAction += StopInteractionWhenAgentDontWantTo;
+            
+            _drinkingInteraction = GetComponent<DrinkingInteraction>();
             AddRewardAfterInteraction(_drinkingInteraction, agent_interact_with_water);
             RegisterUpdatingCurrentInteractionAfterEndOf(_drinkingInteraction);
         }
@@ -54,14 +53,19 @@ namespace Interactions
                 case "Water":
                     if (_needs["Thirst"] > 0)
                     {
-                        CurrentInteraction = _drinkingInteraction;
-                        CurrentInteraction.StartInteraction(target);
+                        LaunchNewInteraction(_drinkingInteraction, target);
                     }
-                    break;
+                    return;
                 case "Wall":
                     MovementAgent.AddReward(agent_bump_into_wall);
-                    break;
+                    return;
             }
+        }
+
+        protected void LaunchNewInteraction(Interaction interaction, GameObject target)
+        {
+            CurrentInteraction = interaction;
+            CurrentInteraction.StartInteraction(target);
         }
 
         private void StopInteractionWhenAgentDontWantTo()
