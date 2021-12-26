@@ -44,7 +44,7 @@ namespace Interaction.InteractionManagers
                 case "Food":
                     LaunchNewInteraction(_eatingCarrotInteraction, target);
                     return;
-                case "Rabbit":
+                case "Rabbit-Female":
                     LaunchNewInteraction(_matingInteraction, target);
                     return;
             }
