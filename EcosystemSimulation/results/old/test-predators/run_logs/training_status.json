@@ -1,0 +1,87 @@
+{
+    "rabbit_eating_carrot_reward": {
+        "lesson_num": 0
+    },
+    "fox_eating_rabbit_reward": {
+        "lesson_num": 0
+    },
+    "rabbit_each_step_fixed": {
+        "lesson_num": 0
+    },
+    "fox_each_step_fixed": {
+        "lesson_num": 0
+    },
+    "rabbit_on_eaten": {
+        "lesson_num": 0
+    },
+    "is_training": {
+        "lesson_num": 0
+    },
+    "FoxMovement": {
+        "checkpoints": [
+            {
+                "steps": 1152,
+                "file_path": "results\\test-predators\\FoxMovement\\FoxMovement-1152.onnx",
+                "reward": null,
+                "creation_time": 1639753868.6798074,
+                "auxillary_file_paths": [
+                    "results\\test-predators\\FoxMovement\\FoxMovement-1152.pt"
+                ]
+            },
+            {
+                "steps": 4608,
+                "file_path": "results\\test-predators\\FoxMovement\\FoxMovement-4608.onnx",
+                "reward": null,
+                "creation_time": 1639754136.8170903,
+                "auxillary_file_paths": [
+                    "results\\test-predators\\FoxMovement\\FoxMovement-4608.pt"
+                ]
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 4608,
+            "file_path": "results\\test-predators\\FoxMovement.onnx",
+            "reward": null,
+            "creation_time": 1639754136.8170903,
+            "auxillary_file_paths": [
+                "results\\test-predators\\FoxMovement\\FoxMovement-4608.pt"
+            ]
+        }
+    },
+    "RabbitMovement": {
+        "checkpoints": [
+            {
+                "steps": 5760,
+                "file_path": "results\\test-predators\\RabbitMovement\\RabbitMovement-5760.onnx",
+                "reward": null,
+                "creation_time": 1639753868.7545154,
+                "auxillary_file_paths": [
+                    "results\\test-predators\\RabbitMovement\\RabbitMovement-5760.pt"
+                ]
+            },
+            {
+                "steps": 23040,
+                "file_path": "results\\test-predators\\RabbitMovement\\RabbitMovement-23040.onnx",
+                "reward": null,
+                "creation_time": 1639754136.7430482,
+                "auxillary_file_paths": [
+                    "results\\test-predators\\RabbitMovement\\RabbitMovement-23040.pt"
+                ]
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 23040,
+            "file_path": "results\\test-predators\\RabbitMovement.onnx",
+            "reward": null,
+            "creation_time": 1639754136.7430482,
+            "auxillary_file_paths": [
+                "results\\test-predators\\RabbitMovement\\RabbitMovement-23040.pt"
+            ]
+        }
+    },
+    "metadata": {
+        "stats_format_version": "0.3.0",
+        "mlagents_version": "0.27.0",
+        "torch_version": "1.7.1+cu110"
+    }
+}

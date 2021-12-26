@@ -1,0 +1,93 @@
+{
+    "rabbit_eating_carrot_reward": {
+        "lesson_num": 0
+    },
+    "fox_eating_rabbit_reward": {
+        "lesson_num": 0
+    },
+    "rabbit_each_step_fixed": {
+        "lesson_num": 0
+    },
+    "fox_each_step_fixed": {
+        "lesson_num": 0
+    },
+    "rabbit_on_eaten": {
+        "lesson_num": 0
+    },
+    "is_training": {
+        "lesson_num": 0
+    },
+    "agent_bump_into_wall": {
+        "lesson_num": 0
+    },
+    "agent_interact_with_water": {
+        "lesson_num": 0
+    },
+    "RabbitMovement": {
+        "checkpoints": [
+            {
+                "steps": 499936,
+                "file_path": "results\\predator-1\\RabbitMovement\\RabbitMovement-499936.onnx",
+                "reward": null,
+                "creation_time": 1639755624.516161,
+                "auxillary_file_paths": [
+                    "results\\predator-1\\RabbitMovement\\RabbitMovement-499936.pt"
+                ]
+            },
+            {
+                "steps": 999968,
+                "file_path": "results\\predator-1\\RabbitMovement\\RabbitMovement-999968.onnx",
+                "reward": null,
+                "creation_time": 1639756462.6169944,
+                "auxillary_file_paths": [
+                    "results\\predator-1\\RabbitMovement\\RabbitMovement-999968.pt"
+                ]
+            },
+            {
+                "steps": 1379520,
+                "file_path": "results\\predator-1\\RabbitMovement\\RabbitMovement-1379520.onnx",
+                "reward": null,
+                "creation_time": 1639757103.6364055,
+                "auxillary_file_paths": [
+                    "results\\predator-1\\RabbitMovement\\RabbitMovement-1379520.pt"
+                ]
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 1379520,
+            "file_path": "results\\predator-1\\RabbitMovement.onnx",
+            "reward": null,
+            "creation_time": 1639757103.6364055,
+            "auxillary_file_paths": [
+                "results\\predator-1\\RabbitMovement\\RabbitMovement-1379520.pt"
+            ]
+        }
+    },
+    "FoxMovement": {
+        "checkpoints": [
+            {
+                "steps": 137952,
+                "file_path": "results\\predator-1\\FoxMovement\\FoxMovement-137952.onnx",
+                "reward": 1.037037110577027,
+                "creation_time": 1639757103.7175398,
+                "auxillary_file_paths": [
+                    "results\\predator-1\\FoxMovement\\FoxMovement-137952.pt"
+                ]
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 137952,
+            "file_path": "results\\predator-1\\FoxMovement.onnx",
+            "reward": 1.037037110577027,
+            "creation_time": 1639757103.7175398,
+            "auxillary_file_paths": [
+                "results\\predator-1\\FoxMovement\\FoxMovement-137952.pt"
+            ]
+        }
+    },
+    "metadata": {
+        "stats_format_version": "0.3.0",
+        "mlagents_version": "0.27.0",
+        "torch_version": "1.7.1+cu110"
+    }
+}

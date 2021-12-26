@@ -414,9 +414,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec8722596ac4fb346894cd62602b3999, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_ObservationShape: 6 channels x 45 width x 57 height
+  m_ObservationShape: 6 channels x 34 width x 40 height
   m_SensorName: PreciseMovementGridSensor
-  m_ObservationStacks: 2
+  m_ObservationStacks: 1
   m_CompressionType: 1
   m_ObservationType: 0
   m_ChannelLabels: []
@@ -432,8 +432,8 @@ MonoBehaviour:
     IsStandby: 0
   m_GridShape:
     NumChannels: 6
-    Width: 45
-    Height: 57
+    Width: 34
+    Height: 40
   m_ClearCacheOnReset: 0
   m_ColliderBufferSize: 128
   m_TmpObjectToAdd: {fileID: 0}
@@ -524,16 +524,16 @@ MonoBehaviour:
     m_DetectorSpaceType: 0
   m_RotationType: 0
   m_DetectionBounds:
-    m_Center: {x: 0, y: 0, z: 14}
-    m_Extent: {x: 22.5, y: 0.5, z: 28.5}
+    m_Center: {x: 0, y: 0, z: 15}
+    m_Extent: {x: 25.5, y: 0.5, z: 30}
   m_EditorBounds:
-    m_Center: {x: 0, y: 0, z: 14}
-    m_Extent: {x: 22.5, y: 0.5, z: 28.5}
-  m_CellSize: 1
-  m_NumCells: {x: 45, y: 1, z: 57}
-  m_DetectionSize: {x: 45, y: 1, z: 57}
-  m_BoundsSize: {x: 45, y: 1, z: 57}
-  m_Offset: {x: 0, y: 0, z: 14}
+    m_Center: {x: 0, y: 0, z: 15}
+    m_Extent: {x: 25.5, y: 0.5, z: 30}
+  m_CellSize: 1.5
+  m_NumCells: {x: 34, y: 1, z: 40}
+  m_DetectionSize: {x: 51, y: 1, z: 60}
+  m_BoundsSize: {x: 51, y: 1, z: 60}
+  m_Offset: {x: 0, y: 0, z: 15}
 --- !u!114 &160763740095807357
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -546,7 +546,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec8722596ac4fb346894cd62602b3999, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_ObservationShape: 2 channels x 6 width x 6 height
+  m_ObservationShape: 3 channels x 20 width x 20 height
   m_SensorName: WideMovementGridSensor
   m_ObservationStacks: 1
   m_CompressionType: 1
@@ -563,11 +563,11 @@ MonoBehaviour:
     IsEnabled: 0
     IsStandby: 0
   m_GridShape:
-    NumChannels: 2
-    Width: 6
-    Height: 6
+    NumChannels: 3
+    Width: 20
+    Height: 20
   m_ClearCacheOnReset: 0
-  m_ColliderBufferSize: 64
+  m_ColliderBufferSize: 128
   m_TmpObjectToAdd: {fileID: 0}
   m_GameObjectSettingsList:
   - Tag: Food
@@ -584,11 +584,11 @@ MonoBehaviour:
       Enabled: 1
       Color: {r: 1, g: 0.6313726, b: 0.21960786, a: 1}
     m_DetectorSpaceType: 0
-  - Tag: Rabbit
+  - Tag: Rabbit-Female
     Enabled: 1
     DetectionType: 0
     Modifier: 0
-    Detectable: {fileID: 3423865683179977847, guid: 4c91d6955328cdd4599cfe9d11ea14a7, type: 3}
+    Detectable: {fileID: 7848537360153417307, guid: 18288d7095600f249aa0948e29a6c936, type: 3}
     m_UserObservables:
       m_Observables: []
     m_Observables:
@@ -596,19 +596,33 @@ MonoBehaviour:
       Type: 1
       Index: -1
       Enabled: 1
-      Color: {r: 0.6039216, g: 0.5294118, b: 0.37647063, a: 1}
+      Color: {r: 0.62352943, g: 0.62352943, b: 0.62352943, a: 1}
+    m_DetectorSpaceType: 0
+  - Tag: Rabbit-Male
+    Enabled: 1
+    DetectionType: 0
+    Modifier: 0
+    Detectable: {fileID: 3504797305807381156, guid: 2101d50fe66352549b4d0bcc52eec465, type: 3}
+    m_UserObservables:
+      m_Observables: []
+    m_Observables:
+    - Name: One-Hot
+      Type: 1
+      Index: -1
+      Enabled: 1
+      Color: {r: 0.59607846, g: 0.35686275, b: 0.27058825, a: 1}
     m_DetectorSpaceType: 0
   m_RotationType: 0
   m_DetectionBounds:
     m_Center: {x: 0, y: 0, z: 0}
-    m_Extent: {x: 105, y: 0.5, z: 105}
+    m_Extent: {x: 500, y: 0.5, z: 500}
   m_EditorBounds:
     m_Center: {x: 0, y: 0, z: 0}
-    m_Extent: {x: 105, y: 0.5, z: 105}
-  m_CellSize: 35
-  m_NumCells: {x: 6, y: 1, z: 6}
-  m_DetectionSize: {x: 210, y: 1, z: 210}
-  m_BoundsSize: {x: 210, y: 1, z: 210}
+    m_Extent: {x: 500, y: 0.5, z: 500}
+  m_CellSize: 50
+  m_NumCells: {x: 20, y: 1, z: 20}
+  m_DetectionSize: {x: 1000, y: 1, z: 1000}
+  m_BoundsSize: {x: 1000, y: 1, z: 1000}
   m_Offset: {x: 0, y: 0, z: 0}
 --- !u!1 &6508573061898438162
 GameObject:
