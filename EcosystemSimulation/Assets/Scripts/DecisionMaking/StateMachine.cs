@@ -12,16 +12,14 @@ namespace DecisionMaking
     
         public State CurrentState { get; private set; }
         private List<State> _statesList; //main states are states that can be switched to regardless of current state
-    
+
+        
         private void Start()
         {
             _statesList = states.GetComponents<State>().ToList();
-            ChangeStateTo(defaultState);
-        }
-
-        private void Update()
-        {
-            InferState();
+            SetState(defaultState);
+            
+            GetComponentInParent<MovementAgent>().AfterAction += InferState;
         }
 
         private void InferState()
@@ -35,8 +33,14 @@ namespace DecisionMaking
 
         private void ChangeStateTo(State newState)
         {
+            CurrentState.OnLeaveState();
+            SetState(newState);
+        }
+
+        private void SetState(State newState)
+        {
             CurrentState = newState;
-            CurrentState.PrepareModel();
+            CurrentState.PrepareModel(); 
         }
     }
 }

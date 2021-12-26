@@ -1,7 +1,4 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using Interactions;
 using Unity.MLAgents;
 using Unity.MLAgents.Actuators;
 using Unity.MLAgents.Sensors;
@@ -13,14 +10,12 @@ public class MovementAgent : Agent
     [SerializeField] private float turningSpeed;   
     
     private Rigidbody _agentRigidbody;
-    private InteractionManager _interactionManager;
 
-    private bool _wantInteraction = false;
+    public bool WantInteraction { get; private set; } = false;
 
     public override void Initialize()
     {
         _agentRigidbody = GetComponent<Rigidbody>();
-        _interactionManager = GetComponentInChildren<InteractionManager>();
     }
 
     public override void CollectObservations(VectorSensor sensor)
@@ -30,11 +25,14 @@ public class MovementAgent : Agent
         sensor.AddObservation(localVelocity.z);
     }
 
+    public Action AfterAction;
+    
     public override void OnActionReceived(ActionBuffers actions)
     {
         MoveAgent(actions);
-        Interact(actions);
+        GetInteractDesire(actions);
         ModifyRewardOnActionReceived();
+        AfterAction();
     }
 
     protected virtual void ModifyRewardOnActionReceived()
@@ -65,44 +63,40 @@ public class MovementAgent : Agent
             _agentRigidbody.velocity *= 0.95f;
         }
     }
-    
-    void OnCollisionEnter(Collision collision)
-    {
-        if (_wantInteraction)
-        {
-            _interactionManager.Interact(collision.gameObject);
-        }
-    }
 
-    private void Interact(ActionBuffers actions)
+
+    private void GetInteractDesire(ActionBuffers actions)
     {
-        _wantInteraction = actions.DiscreteActions[0] > 0;
-        if (!_wantInteraction && _interactionManager.IsInteracting)
-        {
-            _interactionManager.StopInteraction();
-        }
+        WantInteraction = actions.DiscreteActions[0] > 0;
     }
 
     public override void Heuristic(in ActionBuffers actionsOut)
     {
         var continuousActionsOut = actionsOut.ContinuousActions;
-        if (UnityEngine.Input.GetKey(KeyCode.D))
+        if (Input.GetKey(KeyCode.RightArrow))
         {
             continuousActionsOut[2] = 1;
         }
-        if (UnityEngine.Input.GetKey(KeyCode.W))
+        if (Input.GetKey(KeyCode.UpArrow))
         {
             continuousActionsOut[0] = 1;
         }
-        if (UnityEngine.Input.GetKey(KeyCode.A))
+        if (Input.GetKey(KeyCode.LeftArrow))
         {
             continuousActionsOut[2] = -1;
         }
-        if (UnityEngine.Input.GetKey(KeyCode.S))
+        if (Input.GetKey(KeyCode.DownArrow))
         {
             continuousActionsOut[0] = -1;
         }
         var discreteActionsOut = actionsOut.DiscreteActions;
-        discreteActionsOut[0] = UnityEngine.Input.GetKey(KeyCode.Space) ? 1 : 0;
+        discreteActionsOut[0] = Input.GetKey(KeyCode.Space) ? 1 : 0;
+    }
+
+    public void KillAgent(string deathCause)
+    {
+        //todo expand to state
+        Debug.Log($"Agent {gameObject.name} died of {deathCause}");
+        Destroy(gameObject);
     }
 }

@@ -56,3 +56,4 @@ environment_parameters:
   is_training: 1
   agent_bump_into_wall: -0.1
   agent_interact_with_water: -0.1
+  rabbit_mating_reward: -1.0

@@ -1,9 +1,5 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using Unity.Barracuda;
 using Unity.MLAgents;
-using Unity.MLAgents.Integrations.Match3;
 using UnityEngine;
 
 public class ModelSwapper : MonoBehaviour

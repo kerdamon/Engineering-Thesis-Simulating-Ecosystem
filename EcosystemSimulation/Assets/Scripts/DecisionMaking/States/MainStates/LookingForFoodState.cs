@@ -1,8 +1,4 @@
-﻿using System;
-using DefaultNamespace;
-using UnityEngine;
-
-namespace DecisionMaking.States
+﻿namespace DecisionMaking.States
 {
     public class LookingForFoodState : MainState
     {
