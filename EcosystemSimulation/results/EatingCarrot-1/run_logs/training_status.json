@@ -1,0 +1,74 @@
+{
+    "rabbit_eating_carrot_reward": {
+        "lesson_num": 0
+    },
+    "fox_eating_rabbit_reward": {
+        "lesson_num": 0
+    },
+    "rabbit_each_step_fixed": {
+        "lesson_num": 0
+    },
+    "fox_each_step_fixed": {
+        "lesson_num": 0
+    },
+    "rabbit_on_eaten": {
+        "lesson_num": 0
+    },
+    "is_training": {
+        "lesson_num": 0
+    },
+    "agent_bump_into_wall": {
+        "lesson_num": 0
+    },
+    "agent_interact_with_water": {
+        "lesson_num": 0
+    },
+    "rabbit_mating_reward": {
+        "lesson_num": 0
+    },
+    "RabbitMovement": {
+        "checkpoints": [
+            {
+                "steps": 71880,
+                "file_path": "results\\EatingCarrot-1\\RabbitMovement\\RabbitMovement-71880.onnx",
+                "reward": 0.41199999779462815,
+                "creation_time": 1640546078.4928203,
+                "auxillary_file_paths": [
+                    "results\\EatingCarrot-1\\RabbitMovement\\RabbitMovement-71880.pt"
+                ]
+            },
+            {
+                "steps": 75080,
+                "file_path": "results\\EatingCarrot-1\\RabbitMovement\\RabbitMovement-75080.onnx",
+                "reward": null,
+                "creation_time": 1640549683.1933665,
+                "auxillary_file_paths": [
+                    "results\\EatingCarrot-1\\RabbitMovement\\RabbitMovement-75080.pt"
+                ]
+            },
+            {
+                "steps": 80840,
+                "file_path": "results\\EatingCarrot-1\\RabbitMovement\\RabbitMovement-80840.onnx",
+                "reward": null,
+                "creation_time": 1640549848.6871686,
+                "auxillary_file_paths": [
+                    "results\\EatingCarrot-1\\RabbitMovement\\RabbitMovement-80840.pt"
+                ]
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 80840,
+            "file_path": "results\\EatingCarrot-1\\RabbitMovement.onnx",
+            "reward": null,
+            "creation_time": 1640549848.6871686,
+            "auxillary_file_paths": [
+                "results\\EatingCarrot-1\\RabbitMovement\\RabbitMovement-80840.pt"
+            ]
+        }
+    },
+    "metadata": {
+        "stats_format_version": "0.3.0",
+        "mlagents_version": "0.27.0",
+        "torch_version": "1.7.1+cu110"
+    }
+}

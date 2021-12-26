@@ -1,0 +1,147 @@
+{
+    "rabbit_eating_carrot_reward": {
+        "lesson_num": 0
+    },
+    "fox_eating_rabbit_reward": {
+        "lesson_num": 0
+    },
+    "rabbit_each_step_fixed": {
+        "lesson_num": 0
+    },
+    "fox_each_step_fixed": {
+        "lesson_num": 0
+    },
+    "rabbit_on_eaten": {
+        "lesson_num": 0
+    },
+    "is_training": {
+        "lesson_num": 0
+    },
+    "agent_bump_into_wall": {
+        "lesson_num": 0
+    },
+    "agent_interact_with_water": {
+        "lesson_num": 0
+    },
+    "FoxMovement": {
+        "checkpoints": [
+            {
+                "steps": 592,
+                "file_path": "results\\test-curriculum-training\\FoxMovement\\FoxMovement-592.onnx",
+                "reward": 1.4000001437962055,
+                "creation_time": 1639848233.4619002,
+                "auxillary_file_paths": [
+                    "results\\test-curriculum-training\\FoxMovement\\FoxMovement-592.pt"
+                ]
+            },
+            {
+                "steps": 5200,
+                "file_path": "results\\test-curriculum-training\\FoxMovement\\FoxMovement-5200.onnx",
+                "reward": null,
+                "creation_time": 1639848409.8132238,
+                "auxillary_file_paths": [
+                    "results\\test-curriculum-training\\FoxMovement\\FoxMovement-5200.pt"
+                ]
+            },
+            {
+                "steps": 5200,
+                "file_path": "results\\test-curriculum-training\\FoxMovement\\FoxMovement-5200.onnx",
+                "reward": null,
+                "creation_time": 1639848445.746283,
+                "auxillary_file_paths": [
+                    "results\\test-curriculum-training\\FoxMovement\\FoxMovement-5200.pt"
+                ]
+            },
+            {
+                "steps": 26512,
+                "file_path": "results\\test-curriculum-training\\FoxMovement\\FoxMovement-26512.onnx",
+                "reward": null,
+                "creation_time": 1639848656.3107743,
+                "auxillary_file_paths": [
+                    "results\\test-curriculum-training\\FoxMovement\\FoxMovement-26512.pt"
+                ]
+            },
+            {
+                "steps": 259216,
+                "file_path": "results\\test-curriculum-training\\FoxMovement\\FoxMovement-259216.onnx",
+                "reward": 1.3888890151348379,
+                "creation_time": 1639850961.9611516,
+                "auxillary_file_paths": [
+                    "results\\test-curriculum-training\\FoxMovement\\FoxMovement-259216.pt"
+                ]
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 259216,
+            "file_path": "results\\test-curriculum-training\\FoxMovement.onnx",
+            "reward": 1.3888890151348379,
+            "creation_time": 1639850961.9611516,
+            "auxillary_file_paths": [
+                "results\\test-curriculum-training\\FoxMovement\\FoxMovement-259216.pt"
+            ]
+        }
+    },
+    "RabbitMovement": {
+        "checkpoints": [
+            {
+                "steps": 592,
+                "file_path": "results\\test-curriculum-training\\RabbitMovement\\RabbitMovement-592.onnx",
+                "reward": -0.6000002808868885,
+                "creation_time": 1639848233.6168566,
+                "auxillary_file_paths": [
+                    "results\\test-curriculum-training\\RabbitMovement\\RabbitMovement-592.pt"
+                ]
+            },
+            {
+                "steps": 5200,
+                "file_path": "results\\test-curriculum-training\\RabbitMovement\\RabbitMovement-5200.onnx",
+                "reward": null,
+                "creation_time": 1639848410.0538955,
+                "auxillary_file_paths": [
+                    "results\\test-curriculum-training\\RabbitMovement\\RabbitMovement-5200.pt"
+                ]
+            },
+            {
+                "steps": 5200,
+                "file_path": "results\\test-curriculum-training\\RabbitMovement\\RabbitMovement-5200.onnx",
+                "reward": null,
+                "creation_time": 1639848446.0169501,
+                "auxillary_file_paths": [
+                    "results\\test-curriculum-training\\RabbitMovement\\RabbitMovement-5200.pt"
+                ]
+            },
+            {
+                "steps": 26512,
+                "file_path": "results\\test-curriculum-training\\RabbitMovement\\RabbitMovement-26512.onnx",
+                "reward": null,
+                "creation_time": 1639848655.735986,
+                "auxillary_file_paths": [
+                    "results\\test-curriculum-training\\RabbitMovement\\RabbitMovement-26512.pt"
+                ]
+            },
+            {
+                "steps": 259216,
+                "file_path": "results\\test-curriculum-training\\RabbitMovement\\RabbitMovement-259216.onnx",
+                "reward": 0.6055555676834451,
+                "creation_time": 1639850961.6043448,
+                "auxillary_file_paths": [
+                    "results\\test-curriculum-training\\RabbitMovement\\RabbitMovement-259216.pt"
+                ]
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 259216,
+            "file_path": "results\\test-curriculum-training\\RabbitMovement.onnx",
+            "reward": 0.6055555676834451,
+            "creation_time": 1639850961.6043448,
+            "auxillary_file_paths": [
+                "results\\test-curriculum-training\\RabbitMovement\\RabbitMovement-259216.pt"
+            ]
+        }
+    },
+    "metadata": {
+        "stats_format_version": "0.3.0",
+        "mlagents_version": "0.27.0",
+        "torch_version": "1.7.1+cu110"
+    }
+}

@@ -43,7 +43,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3272609fac319594c94f3aabe18e4fb5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnInterval: 10
+  spawnInterval: 8
   foodPrefab: {fileID: 1825405095076266462, guid: aca7aeccaff29d64290ca94f0785d2e7, type: 3}
-  spawningRadius: 5
-  plantLimit: 10
+  spawningRadius: 6
+  plantLimit: 15

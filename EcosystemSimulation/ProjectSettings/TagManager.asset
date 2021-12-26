@@ -11,6 +11,8 @@ TagManager:
   - WaterContainer
   - Wall
   - FoxBody
+  - Rabbit-Male
+  - Rabbit-Female
   layers:
   - Default
   - TransparentFX

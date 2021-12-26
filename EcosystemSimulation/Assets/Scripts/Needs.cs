@@ -1,12 +1,14 @@
+using System;
 using UnityEngine;
 
 public class Needs : DictionarySerializer<float>
 {
     [SerializeField] private float increaseRate;
-    [SerializeField] private float maxNeedValue;
 
     private MovementAgent _movementAgent;
     private Features _features;
+    
+    private const float TOLERANCE = 0.0001f;  //constant for precision in floating point numbers equality checks
     
     private void Start()
     {
@@ -25,8 +27,7 @@ public class Needs : DictionarySerializer<float>
     private void IncreaseAndKillIfMax(string need)
     {
         IncreaseNeedUpToMax(need);
-        const float epsilon = 0.0001f;
-        if (this[need] >= maxNeedValue - epsilon)
+        if (IsMaxOrGreater(need))
         {
             _movementAgent.KillAgent(need);
         }
@@ -37,9 +38,14 @@ public class Needs : DictionarySerializer<float>
         var increaseAmount = Time.deltaTime * increaseRate;
         increaseAmount += increaseAmount * (_features.CurrentGeneticCost / _features.MaxGeneticCost);
         this[need] += increaseAmount;
-        if (this[need] >= maxNeedValue)
+        if (IsMaxOrGreater(need))
         {
-            this[need] = maxNeedValue;
+            this[need] = maxValue;
         }
+    }
+
+    public override bool IsMaxOrGreater(string feature)
+    {
+        return this[feature] >= maxValue - TOLERANCE;
     }
 }
