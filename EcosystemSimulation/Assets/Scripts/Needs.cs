@@ -1,7 +1,3 @@
-using System;
-using System.Collections.Generic;
-using Input;
-using Unity.MLAgents.Integrations.Match3;
 using UnityEngine;
 
 public class Needs : DictionarySerializer<float>

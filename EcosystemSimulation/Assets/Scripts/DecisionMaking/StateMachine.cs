@@ -1,7 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using DecisionMaking.States;
-using Unity.MLAgents.Integrations.Match3;
 using UnityEngine;
 
 namespace DecisionMaking
