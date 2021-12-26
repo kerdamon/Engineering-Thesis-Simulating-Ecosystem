@@ -1,23 +1,39 @@
-using Interactions;
 using UnityEngine;
 
-public class MatingInteraction : Interaction
+namespace Interaction.Interactions
 {
-    protected override void AtInteractionEnd()
+    public class MatingInteraction : Interaction
     {
-        SpawnOffspring(SecondSimulationObject);
-    }
-
-    private void SpawnOffspring(GameObject mate)
-    {
-        var offspring = Instantiate(gameObject, transform);
-        offspring.transform.Translate(Random.value, 0, Random.value);
-        var offspringFeatures = offspring.GetComponent<Features>();
-        var actorFeatures = SimulationObject.GetComponent<Features>();
-        var mateFeatures = mate.GetComponent<Features>(); 
-        foreach (var f in actorFeatures)
+        [SerializeField] private int maxChildrenPerLitter;
+        
+        protected override void AtInteractionEnd()
         {
-            offspringFeatures[f.Key] = (f.Value + mateFeatures[f.Key]) / 2;
+            SpawnOffspring(SecondSimulationObject);
+        }
+
+        private void SpawnOffspring(GameObject mate)
+        {
+            var numberOfChildren = Random.value * maxChildrenPerLitter;
+            for (var i = 0; i < numberOfChildren; i++)
+            {
+                var offspring = Instantiate(gameObject.transform.parent.gameObject, transform.parent.parent);
+                offspring.transform.Translate(Random.value * 2, 0, Random.value * 2);
+                var offspringFeatures = offspring.GetComponent<Features>();
+                var actorFeatures = SimulationObject.GetComponent<Features>();
+                var mateFeatures = mate.GetComponentInParent<Features>();
+                
+                //crossover
+                foreach (var f in actorFeatures)
+                {
+                    offspringFeatures[f.Key] = Random.value > 0.5f ? f.Value : mateFeatures[f.Key];
+                }
+
+                // //mutation
+                // foreach (var f in actorFeatures)
+                // {
+                //     offspringFeatures[f.Key] = Random.value > 0.5f ? f.Value : mateFeatures[f.Key];
+                // } 
+            }
         }
     }
 }

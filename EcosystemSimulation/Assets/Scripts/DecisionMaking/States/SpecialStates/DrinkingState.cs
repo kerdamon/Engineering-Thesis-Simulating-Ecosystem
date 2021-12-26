@@ -1,4 +1,5 @@
 ﻿using System;
+using Interaction.Interactions;
 using UnityEngine;
 
 namespace DecisionMaking.States.EventStates

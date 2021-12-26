@@ -1,7 +1,8 @@
-﻿using UnityEngine;
+﻿using Interaction.Interactions;
 using Unity.MLAgents;
+using UnityEngine;
 
-namespace Interactions
+namespace Interaction.InteractionManagers
 {
     public abstract class InteractionManager : MonoBehaviour
     {
@@ -9,7 +10,7 @@ namespace Interactions
         private DrinkingInteraction _drinkingInteraction;
         private Needs _needs;
         
-        public Interaction CurrentInteraction { get; protected set; }
+        public Interactions.Interaction CurrentInteraction { get; protected set; }
         public bool IsInteracting => !(CurrentInteraction is null);
 
         
@@ -33,13 +34,13 @@ namespace Interactions
             RegisterUpdatingCurrentInteractionAfterEndOf(_drinkingInteraction);
         }
 
-        protected void AddRewardAfterInteraction(Interaction interaction, float rewardValue)
+        protected void AddRewardAfterInteraction(Interactions.Interaction interaction, float rewardValue)
         {
             if (!(Mathf.Abs(rewardValue) > 0.0001f)) return;    //check for 0.0f with epsilon
             interaction.AfterSuccessfulInteraction += () => MovementAgent.AddReward(rewardValue);
         }
 
-        protected void RegisterUpdatingCurrentInteractionAfterEndOf(Interaction interaction)
+        protected void RegisterUpdatingCurrentInteractionAfterEndOf(Interactions.Interaction interaction)
         {
             void ClearCurrentInteraction() => CurrentInteraction = null;
             interaction.AfterSuccessfulInteraction += ClearCurrentInteraction;
@@ -62,7 +63,7 @@ namespace Interactions
             }
         }
 
-        protected void LaunchNewInteraction(Interaction interaction, GameObject target)
+        protected void LaunchNewInteraction(Interactions.Interaction interaction, GameObject target)
         {
             CurrentInteraction = interaction;
             CurrentInteraction.StartInteraction(target);
@@ -78,7 +79,6 @@ namespace Interactions
         {
             if (MovementAgent.WantInteraction && !IsInteracting)
             {
-                Debug.Log($"Rozpoczynam interakcje");
                 Interact(other.gameObject);
             }
         }

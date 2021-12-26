@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1211253179298616061}
   - component: {fileID: 3711428792702864768}
+  - component: {fileID: 8892488405163057830}
   m_Layer: 0
   m_Name: Interactors
   m_TagString: Untagged
@@ -46,6 +47,21 @@ MonoBehaviour:
   timeIncrement: 0.5
   interactionDuration: 2
   thirstChangeFactor: 3
+--- !u!114 &8892488405163057830
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 602868238624748119}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 712e16db7cc65c24d9a61ebe4f7f12f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeIncrement: 1
+  interactionDuration: 1
+  maxChildrenPerLitter: 3
 --- !u!1 &4018357708742935782
 GameObject:
   m_ObjectHideFlags: 0
@@ -59,6 +75,7 @@ GameObject:
   - component: {fileID: 7718515594970422042}
   - component: {fileID: 8113273528401967737}
   - component: {fileID: 2293594968326932604}
+  - component: {fileID: 8218680737150463211}
   m_Layer: 0
   m_Name: States
   m_TagString: Untagged
@@ -183,6 +200,22 @@ MonoBehaviour:
   rank: 1.1
   active: 0
   drinkingInteraction: {fileID: 3711428792702864768}
+--- !u!114 &8218680737150463211
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4018357708742935782}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a1d96bf09f546db80079df42e843f3f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nnModel: {fileID: 0}
+  rank: 1.1
+  active: 0
+  matingInteraction: {fileID: 8892488405163057830}
 --- !u!1 &6193517788997554062
 GameObject:
   m_ObjectHideFlags: 0
@@ -260,7 +293,7 @@ MonoBehaviour:
   - 30
   - 30
   - 0
-  increaseRate: 1
+  increaseRate: 0
   maxNeedValue: 100
 --- !u!114 &5933343763909004989
 MonoBehaviour:

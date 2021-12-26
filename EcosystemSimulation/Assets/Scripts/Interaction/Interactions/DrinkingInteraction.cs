@@ -1,29 +1,29 @@
-using System;
-using System.Threading;
-using Interactions;
 using UnityEngine;
 
-public class DrinkingInteraction : Interaction
+namespace Interaction.Interactions
 {
-    [SerializeField] private float thirstChangeFactor;
-    private Needs _needs;
+    public class DrinkingInteraction : Interaction
+    {
+        [SerializeField] private float thirstChangeFactor;
+        private Needs _needs;
     
-    protected override void Start()
-    {
-        base.Start();
-        _needs = SimulationObject.GetComponent<Needs>();
-    }
-
-    protected override void AtInteractionIncrement()
-    {
-        Debug.Log($"Drinking");
-        if (_needs["Thirst"] - thirstChangeFactor < 0)
+        protected override void Start()
         {
-            Interrupt();
+            base.Start();
+            _needs = SimulationObject.GetComponent<Needs>();
         }
-        else
+
+        protected override void AtInteractionIncrement()
         {
-            _needs["Thirst"] -= thirstChangeFactor;
+            Debug.Log($"Drinking");
+            if (_needs["Thirst"] - thirstChangeFactor < 0)
+            {
+                Interrupt();
+            }
+            else
+            {
+                _needs["Thirst"] -= thirstChangeFactor;
+            }
         }
     }
 }

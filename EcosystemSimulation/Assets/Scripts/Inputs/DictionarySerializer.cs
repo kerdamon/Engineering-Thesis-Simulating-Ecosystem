@@ -2,28 +2,25 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Input
+public class DictionarySerializer<TValue> : MonoBehaviour, IEnumerable<KeyValuePair<string, TValue>>
 {
-    public class DictionarySerializer<TValue> : MonoBehaviour, IEnumerable<KeyValuePair<string, TValue>>
+    [SerializeField] private List<string> keys;
+    [SerializeField] private List<TValue> values;
+
+    public TValue this[string key]
     {
-        [SerializeField] private List<string> keys;
-        [SerializeField] private List<TValue> values;
+        get => values[keys.IndexOf(key)];
+        set => values[keys.IndexOf(key)] = value;
+    }
 
-        public TValue this[string key]
-        {
-            get => values[keys.IndexOf(key)];
-            set => values[keys.IndexOf(key)] = value;
-        }
-
-        public IEnumerator<KeyValuePair<string, TValue>> GetEnumerator()
-        {
-            return new DictionarySerializerEnumerator<TValue>(keys, values);
-        }
-        
-        IEnumerator IEnumerable.GetEnumerator()
-        {
-            return GetEnumerator();
-        }
+    public IEnumerator<KeyValuePair<string, TValue>> GetEnumerator()
+    {
+        return new DictionarySerializerEnumerator<TValue>(keys, values);
+    }
+    
+    IEnumerator IEnumerable.GetEnumerator()
+    {
+        return GetEnumerator();
     }
 }
 

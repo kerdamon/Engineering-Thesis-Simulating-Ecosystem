@@ -1,7 +1,8 @@
-﻿using UnityEngine;
+﻿using Interaction.Interactions.FoxInteractions;
 using Unity.MLAgents;
+using UnityEngine;
 
-namespace Interactions
+namespace Interaction.InteractionManagers
 {
     public class FoxInteractionManager : InteractionManager
     {

@@ -1,7 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using DecisionMaking.States;
-using Interactions;
 using Unity.MLAgents.Integrations.Match3;
 using UnityEngine;
 
@@ -19,7 +18,7 @@ namespace DecisionMaking
         private void Start()
         {
             _statesList = states.GetComponents<State>().ToList();
-            ChangeStateTo(defaultState);
+            SetState(defaultState);
             
             GetComponentInParent<MovementAgent>().AfterAction += InferState;
         }
@@ -35,8 +34,14 @@ namespace DecisionMaking
 
         private void ChangeStateTo(State newState)
         {
+            CurrentState.OnLeaveState();
+            SetState(newState);
+        }
+
+        private void SetState(State newState)
+        {
             CurrentState = newState;
-            CurrentState.PrepareModel();
+            CurrentState.PrepareModel(); 
         }
     }
 }

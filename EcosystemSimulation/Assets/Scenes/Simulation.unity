@@ -437,14 +437,6 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Rabbit
       objectReference: {fileID: 0}
-    - target: {fileID: 4924524701558730523, guid: da0347d17e632d14a9af1a0994473def, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 56.95
-      objectReference: {fileID: 0}
-    - target: {fileID: 4924524701558730523, guid: da0347d17e632d14a9af1a0994473def, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -75.35
-      objectReference: {fileID: 0}
     - target: {fileID: 5014543819106390974, guid: da0347d17e632d14a9af1a0994473def, type: 3}
       propertyPath: m_Name
       value: SimulationArea
@@ -493,9 +485,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6880442420075742069, guid: da0347d17e632d14a9af1a0994473def, type: 3}
+      propertyPath: m_BehaviorType
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 8684830512259518663, guid: da0347d17e632d14a9af1a0994473def, type: 3}
       propertyPath: m_TagString
       value: Fox
+      objectReference: {fileID: 0}
+    - target: {fileID: 8931048257446040014, guid: da0347d17e632d14a9af1a0994473def, type: 3}
+      propertyPath: m_BehaviorType
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 9191415489041165400, guid: da0347d17e632d14a9af1a0994473def, type: 3}
       propertyPath: values.Array.data[2]

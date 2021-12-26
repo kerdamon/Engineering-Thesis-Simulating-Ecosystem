@@ -25,5 +25,9 @@ namespace DecisionMaking.States
             _agent.SetModel(_behaviourName, nnModel);
         }
         public abstract float CurrentRank { get; }
+
+        public virtual void OnLeaveState()
+        {
+        }
     }
 }
