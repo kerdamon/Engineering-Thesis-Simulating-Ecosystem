@@ -2,7 +2,7 @@ using System.Linq;
 using NaughtyAttributes;
 using UnityEngine;
 
-public class Features : DictionarySerializer<float>
+public class Features : DictionarySerializer<int>
 {
     [SerializeField] private float maxFeatureValue;
     /// <summary>

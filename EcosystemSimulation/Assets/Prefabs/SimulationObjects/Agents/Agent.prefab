@@ -62,6 +62,7 @@ MonoBehaviour:
   timeIncrement: 1
   interactionDuration: 1
   maxChildrenPerLitter: 3
+  mutationProbability: 0.05
 --- !u!1 &4018357708742935782
 GameObject:
   m_ObjectHideFlags: 0
@@ -310,9 +311,7 @@ MonoBehaviour:
   keys:
   - Speed
   - SensoryRange
-  values:
-  - 50
-  - 50
+  values: 3200000032000000
   maxFeatureValue: 100
 --- !u!114 &4035078786211711001
 MonoBehaviour:
