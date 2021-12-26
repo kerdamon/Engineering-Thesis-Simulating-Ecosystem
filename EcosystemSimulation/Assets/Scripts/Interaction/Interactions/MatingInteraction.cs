@@ -12,7 +12,8 @@ namespace Interaction.Interactions
         
         protected override void AtInteractionEnd()
         {
-            SpawnOffspring(SecondSimulationObject);
+            var mate = SecondSimulationObject.transform.parent.gameObject;
+            SpawnOffspring(mate);
         }
 
         private void SpawnOffspring(GameObject mate)
@@ -20,11 +21,12 @@ namespace Interaction.Interactions
             var numberOfChildren = Random.value * maxChildrenPerLitter;
             for (var i = 0; i < numberOfChildren; i++)
             {
-                var offspring = Instantiate(gameObject.transform.parent.gameObject, transform.parent.parent);
+                var originalGameObject = Random.value > 0.5f ? gameObject.transform.parent.gameObject : mate;
+                var offspring = Instantiate(originalGameObject, transform.parent.parent);
                 offspring.transform.Translate(Random.value * 2, 0, Random.value * 2);
                 var offspringFeatures = offspring.GetComponent<Features>();
                 var actorFeatures = SimulationObject.GetComponent<Features>();
-                var mateFeatures = mate.GetComponentInParent<Features>();
+                var mateFeatures = mate.GetComponent<Features>();
                 
                 //crossover
                 foreach (var f in actorFeatures)

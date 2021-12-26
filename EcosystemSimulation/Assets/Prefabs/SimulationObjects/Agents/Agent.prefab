@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1211253179298616061}
   - component: {fileID: 3711428792702864768}
   - component: {fileID: 8892488405163057830}
+  - component: {fileID: 8531648963139665844}
   m_Layer: 0
   m_Name: Interactors
   m_TagString: Untagged
@@ -63,6 +64,19 @@ MonoBehaviour:
   interactionDuration: 1
   maxChildrenPerLitter: 3
   mutationProbability: 0.03
+--- !u!65 &8531648963139665844
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 602868238624748119}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.5, y: 1, z: 1.5}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &4018357708742935782
 GameObject:
   m_ObjectHideFlags: 0
@@ -400,7 +414,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec8722596ac4fb346894cd62602b3999, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_ObservationShape: 5 channels x 45 width x 57 height
+  m_ObservationShape: 6 channels x 45 width x 57 height
   m_SensorName: PreciseMovementGridSensor
   m_ObservationStacks: 2
   m_CompressionType: 1
@@ -417,7 +431,7 @@ MonoBehaviour:
     IsEnabled: 0
     IsStandby: 0
   m_GridShape:
-    NumChannels: 5
+    NumChannels: 6
     Width: 45
     Height: 57
   m_ClearCacheOnReset: 0
@@ -466,20 +480,6 @@ MonoBehaviour:
       Enabled: 1
       Color: {r: 1, g: 0.63128126, b: 0.21960783, a: 1}
     m_DetectorSpaceType: 0
-  - Tag: Rabbit
-    Enabled: 1
-    DetectionType: 0
-    Modifier: 0
-    Detectable: {fileID: 3423865683179977847, guid: 4c91d6955328cdd4599cfe9d11ea14a7, type: 3}
-    m_UserObservables:
-      m_Observables: []
-    m_Observables:
-    - Name: One-Hot
-      Type: 1
-      Index: -1
-      Enabled: 1
-      Color: {r: 0.6037736, g: 0.5285867, b: 0.37821287, a: 1}
-    m_DetectorSpaceType: 0
   - Tag: Fox
     Enabled: 1
     DetectionType: 0
@@ -493,6 +493,34 @@ MonoBehaviour:
       Index: -1
       Enabled: 1
       Color: {r: 1, g: 0.22320865, b: 0, a: 1}
+    m_DetectorSpaceType: 0
+  - Tag: Rabbit-Female
+    Enabled: 1
+    DetectionType: 0
+    Modifier: 0
+    Detectable: {fileID: 7848537360153417307, guid: 18288d7095600f249aa0948e29a6c936, type: 3}
+    m_UserObservables:
+      m_Observables: []
+    m_Observables:
+    - Name: One-Hot
+      Type: 1
+      Index: -1
+      Enabled: 1
+      Color: {r: 0.62352943, g: 0.62352943, b: 0.62352943, a: 1}
+    m_DetectorSpaceType: 0
+  - Tag: Rabbit-Male
+    Enabled: 1
+    DetectionType: 0
+    Modifier: 0
+    Detectable: {fileID: 3504797305807381156, guid: 2101d50fe66352549b4d0bcc52eec465, type: 3}
+    m_UserObservables:
+      m_Observables: []
+    m_Observables:
+    - Name: One-Hot
+      Type: 1
+      Index: -1
+      Enabled: 1
+      Color: {r: 0.59607846, g: 0.35686275, b: 0.27058825, a: 1}
     m_DetectorSpaceType: 0
   m_RotationType: 0
   m_DetectionBounds:
