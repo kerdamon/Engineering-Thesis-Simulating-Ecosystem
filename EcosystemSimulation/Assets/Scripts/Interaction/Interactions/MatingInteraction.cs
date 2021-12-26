@@ -17,8 +17,7 @@ namespace Interaction.Interactions
 
         private void SpawnOffspring(GameObject mate)
         {
-            //var numberOfChildren = Random.value * maxChildrenPerLitter;
-            var numberOfChildren = 1;
+            var numberOfChildren = Random.value * maxChildrenPerLitter;
             for (var i = 0; i < numberOfChildren; i++)
             {
                 var offspring = Instantiate(gameObject.transform.parent.gameObject, transform.parent.parent);
@@ -32,7 +31,6 @@ namespace Interaction.Interactions
                 {
                     offspringFeatures[f.Key] = Random.value > 0.5f ? f.Value : mateFeatures[f.Key];
                 }
-
 
                 //mutation
                 foreach (var f in actorFeatures)
@@ -60,11 +58,12 @@ namespace Interaction.Interactions
 
                 if (mutatedFeature <= 100)
                 {
-                    Debug.Log($"Zmutowano {featureName} Old dec: {feature} bin: {featureBinOld}, new dec: {mutatedFeature} bin: {BitArrayToString(featureInBinaryRepresentation)}");
+                    //if(BitArrayToString(featureInBinaryRepresentation) != featureBinOld)
+                        //Debug.Log($"Zmutowano {featureName} Old dec: {feature} bin: {featureBinOld}, new dec: {mutatedFeature} bin: {BitArrayToString(featureInBinaryRepresentation)}");
                     return mutatedFeature;
                 }
 
-                Debug.Log($"Zmutowano cechę ponad 100, aktualna wartość: dec: {mutatedFeature}, bin: {BitArrayToString(featureInBinaryRepresentation)}");
+                //Debug.Log($"Zmutowano cechę ponad 100, aktualna wartość: dec: {mutatedFeature}, bin: {BitArrayToString(featureInBinaryRepresentation)}");
             }
         }
 
