@@ -73,24 +73,24 @@ public class MovementAgent : Agent
     public override void Heuristic(in ActionBuffers actionsOut)
     {
         var continuousActionsOut = actionsOut.ContinuousActions;
-        if (UnityEngine.Input.GetKey(KeyCode.D))
+        if (Input.GetKey(KeyCode.RightArrow))
         {
             continuousActionsOut[2] = 1;
         }
-        if (UnityEngine.Input.GetKey(KeyCode.W))
+        if (Input.GetKey(KeyCode.UpArrow))
         {
             continuousActionsOut[0] = 1;
         }
-        if (UnityEngine.Input.GetKey(KeyCode.A))
+        if (Input.GetKey(KeyCode.LeftArrow))
         {
             continuousActionsOut[2] = -1;
         }
-        if (UnityEngine.Input.GetKey(KeyCode.S))
+        if (Input.GetKey(KeyCode.DownArrow))
         {
             continuousActionsOut[0] = -1;
         }
         var discreteActionsOut = actionsOut.DiscreteActions;
-        discreteActionsOut[0] = UnityEngine.Input.GetKey(KeyCode.Space) ? 1 : 0;
+        discreteActionsOut[0] = Input.GetKey(KeyCode.Space) ? 1 : 0;
     }
 
     public void KillAgent(string deathCause)
