@@ -2,10 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DictionarySerializer<TValue> : MonoBehaviour, IEnumerable<KeyValuePair<string, TValue>>
+public abstract class DictionarySerializer<TValue> : MonoBehaviour, IEnumerable<KeyValuePair<string, TValue>>
 {
+    [SerializeField] protected float maxValue;
     [SerializeField] private List<string> keys;
     [SerializeField] private List<TValue> values;
+
 
     public TValue this[string key]
     {
@@ -22,6 +24,8 @@ public class DictionarySerializer<TValue> : MonoBehaviour, IEnumerable<KeyValueP
     {
         return GetEnumerator();
     }
+
+    public abstract bool IsMaxOrGreater(string value);
 }
 
 class DictionarySerializerEnumerator<TValue> : IEnumerator<KeyValuePair<string, TValue>>

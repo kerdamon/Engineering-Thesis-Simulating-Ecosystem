@@ -8,7 +8,7 @@ namespace Interaction.InteractionManagers
     {
         protected MovementAgent MovementAgent;
         private DrinkingInteraction _drinkingInteraction;
-        private Needs _needs;
+        protected Needs Needs;
         
         public Interactions.Interaction CurrentInteraction { get; protected set; }
         public bool IsInteracting => !(CurrentInteraction is null);
@@ -22,7 +22,7 @@ namespace Interaction.InteractionManagers
             var parent = transform.parent;
             MovementAgent = parent.GetComponent<MovementAgent>();
             
-            _needs = parent.GetComponent<Needs>();
+            Needs = parent.GetComponent<Needs>();
             
             agent_bump_into_wall = Academy.Instance.EnvironmentParameters.GetWithDefault("agent_bump_into_wall", 0.0f);
             agent_interact_with_water = Academy.Instance.EnvironmentParameters.GetWithDefault("agent_interact_with_water", 0.0f);
@@ -52,7 +52,7 @@ namespace Interaction.InteractionManagers
             switch (target.tag)
             {
                 case "Water":
-                    if (_needs["Thirst"] > 0)
+                    if (Needs["Thirst"] > 0)
                     {
                         LaunchNewInteraction(_drinkingInteraction, target);
                     }

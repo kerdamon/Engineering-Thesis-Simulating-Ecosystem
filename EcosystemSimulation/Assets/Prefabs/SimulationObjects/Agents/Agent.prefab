@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1211253179298616061}
   - component: {fileID: 3711428792702864768}
-  - component: {fileID: 8892488405163057830}
   - component: {fileID: 8531648963139665844}
   m_Layer: 0
   m_Name: Interactors
@@ -48,22 +47,6 @@ MonoBehaviour:
   timeIncrement: 0.5
   interactionDuration: 2
   thirstChangeFactor: 3
---- !u!114 &8892488405163057830
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 602868238624748119}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 712e16db7cc65c24d9a61ebe4f7f12f4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  timeIncrement: 1
-  interactionDuration: 1
-  maxChildrenPerLitter: 3
-  mutationProbability: 0.03
 --- !u!65 &8531648963139665844
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -230,7 +213,7 @@ MonoBehaviour:
   nnModel: {fileID: 0}
   rank: 1.1
   active: 0
-  matingInteraction: {fileID: 8892488405163057830}
+  matingInteraction: {fileID: 0}
 --- !u!1 &6193517788997554062
 GameObject:
   m_ObjectHideFlags: 0
@@ -300,6 +283,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7bb064e31cb9ba8488e74d4c4feb7dcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxValue: 100
   keys:
   - Hunger
   - Thirst
@@ -308,8 +292,7 @@ MonoBehaviour:
   - 30
   - 30
   - 0
-  increaseRate: 0
-  maxNeedValue: 100
+  increaseRate: 1
 --- !u!114 &5933343763909004989
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -322,12 +305,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 710280dd22ce97e439ee648f224eaf62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxValue: 100
   keys:
   - Speed
   - SensoryRange
   - Fertility
   values: 320000003200000032000000
-  maxFeatureValue: 100
 --- !u!114 &4035078786211711001
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -25,7 +25,8 @@ namespace Interaction.InteractionManagers
             switch (target.tag)
             {
                 case "Rabbit-Female":
-                    LaunchNewInteraction(_matingInteraction, target);
+                    if(Needs.IsMaxOrGreater("ReproductionUrge"))
+                        LaunchNewInteraction(_matingInteraction, target);
                     return;
             }
             base.Interact(target);
