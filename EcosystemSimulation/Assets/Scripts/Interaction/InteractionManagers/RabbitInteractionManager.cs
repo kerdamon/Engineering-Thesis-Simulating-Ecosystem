@@ -8,7 +8,6 @@ namespace Interaction.InteractionManagers
     public class RabbitInteractionManager : InteractionManager 
     {
         private EatingCarrotInteraction _eatingCarrotInteraction;
-        private MatingInteraction _matingInteraction;
 
         private TrainingArea _trainingArea; //TODO change; only to use method to randomize position of this agent upon eating in training mode, it is probably spaghetti code
 
@@ -21,19 +20,13 @@ namespace Interaction.InteractionManagers
             _trainingArea = GetComponentInParent<TrainingArea>();
             _isTraining = Mathf.Abs(Academy.Instance.EnvironmentParameters.GetWithDefault("is_training", 0.0f)) > 0.0001f;
 
-            var rabbit_eating_carrot_reward = Academy.Instance.EnvironmentParameters.GetWithDefault("rabbit_eating_carrot_reward", 0.0f);
             rabbit_on_eaten = Academy.Instance.EnvironmentParameters.GetWithDefault("rabbit_on_eaten", 0.0f);
 
-            var rabbit_mating_reward = Academy.Instance.EnvironmentParameters.GetWithDefault("rabbit_mating_reward", 0.0f);
-            
+            var rabbit_eating_carrot_reward = Academy.Instance.EnvironmentParameters.GetWithDefault("rabbit_eating_carrot_reward", 0.0f);
             _eatingCarrotInteraction = GetComponent<EatingCarrotInteraction>();
             AddRewardAfterInteraction(_eatingCarrotInteraction, rabbit_eating_carrot_reward);
             RegisterUpdatingCurrentInteractionAfterEndOf(_eatingCarrotInteraction);
 
-            _matingInteraction = GetComponent<MatingInteraction>();
-            AddRewardAfterInteraction(_matingInteraction, rabbit_mating_reward);
-            RegisterUpdatingCurrentInteractionAfterEndOf(_matingInteraction); 
-            
             base.Start();
         }
 
@@ -43,9 +36,6 @@ namespace Interaction.InteractionManagers
             {
                 case "Food":
                     LaunchNewInteraction(_eatingCarrotInteraction, target);
-                    return;
-                case "Rabbit-Female":
-                    LaunchNewInteraction(_matingInteraction, target);
                     return;
             }
             base.Interact(target);
