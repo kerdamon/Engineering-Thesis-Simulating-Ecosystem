@@ -5,12 +5,6 @@ namespace DecisionMaking.States
 {
     public class LookingForWaterState : MainState
     {
-        protected override void Start()
-        {
-            DrinkingInteraction = transform.parent.GetComponentInChildren<DrinkingInteraction>();
-            base.Start();
-        }
-        
         public override float CurrentRank => scoreCurve.Evaluate(Needs["Thirst"]);
         
         private void OnTriggerEnter(Collider other)

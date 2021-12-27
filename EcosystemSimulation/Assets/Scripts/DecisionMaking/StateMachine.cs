@@ -7,7 +7,6 @@ namespace DecisionMaking
 {
     public class StateMachine : MonoBehaviour
     {
-        [SerializeField] private GameObject states;
         [SerializeField] private State defaultState;
     
         public State CurrentState { get; private set; }
@@ -16,7 +15,7 @@ namespace DecisionMaking
         
         private void Start()
         {
-            _statesList = states.GetComponents<State>().ToList();
+            _statesList = GetComponentsInChildren<State>().ToList();
             SetState(defaultState);
             
             GetComponentInParent<MovementAgent>().AfterAction += InferState;

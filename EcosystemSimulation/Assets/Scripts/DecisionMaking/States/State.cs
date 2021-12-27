@@ -24,7 +24,7 @@ namespace DecisionMaking.States
             _behaviourName = GetComponentInParent<BehaviorParameters>().BehaviorName;    //todo change if there are multiple behaviours on one agent
             var parent = transform.parent;
 
-            DrinkingInteraction = parent.GetComponentInChildren<DrinkingInteraction>();
+            DrinkingInteraction = parent.parent.GetComponentInChildren<DrinkingInteraction>();
         }
 
         public void PrepareModel()

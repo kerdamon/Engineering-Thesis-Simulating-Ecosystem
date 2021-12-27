@@ -11,8 +11,9 @@ namespace DecisionMaking.States
 
         protected override void Start()
         {
-            Needs = GetComponentInParent<Needs>();
-            InteractionManager = transform.parent.GetComponentInChildren<InteractionManager>();
+            var parent = transform.parent.parent;
+            Needs = parent.GetComponent<Needs>();
+            InteractionManager = parent.GetComponentInChildren<InteractionManager>();
             base.Start();
         }
     }
