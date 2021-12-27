@@ -29,40 +29,31 @@
     "RabbitMovement": {
         "checkpoints": [
             {
-                "steps": 71880,
-                "file_path": "results\\EatingCarrot-1\\RabbitMovement\\RabbitMovement-71880.onnx",
-                "reward": 0.41199999779462815,
-                "creation_time": 1640546078.4928203,
+                "steps": 499968,
+                "file_path": "results\\EatingCarrot-1\\RabbitMovement\\RabbitMovement-499968.onnx",
+                "reward": null,
+                "creation_time": 1640576458.8599517,
                 "auxillary_file_paths": [
-                    "results\\EatingCarrot-1\\RabbitMovement\\RabbitMovement-71880.pt"
+                    "results\\EatingCarrot-1\\RabbitMovement\\RabbitMovement-499968.pt"
                 ]
             },
             {
-                "steps": 75080,
-                "file_path": "results\\EatingCarrot-1\\RabbitMovement\\RabbitMovement-75080.onnx",
+                "steps": 756480,
+                "file_path": "results\\EatingCarrot-1\\RabbitMovement\\RabbitMovement-756480.onnx",
                 "reward": null,
-                "creation_time": 1640549683.1933665,
+                "creation_time": 1640577322.5847075,
                 "auxillary_file_paths": [
-                    "results\\EatingCarrot-1\\RabbitMovement\\RabbitMovement-75080.pt"
-                ]
-            },
-            {
-                "steps": 80840,
-                "file_path": "results\\EatingCarrot-1\\RabbitMovement\\RabbitMovement-80840.onnx",
-                "reward": null,
-                "creation_time": 1640549848.6871686,
-                "auxillary_file_paths": [
-                    "results\\EatingCarrot-1\\RabbitMovement\\RabbitMovement-80840.pt"
+                    "results\\EatingCarrot-1\\RabbitMovement\\RabbitMovement-756480.pt"
                 ]
             }
         ],
         "final_checkpoint": {
-            "steps": 80840,
+            "steps": 756480,
             "file_path": "results\\EatingCarrot-1\\RabbitMovement.onnx",
             "reward": null,
-            "creation_time": 1640549848.6871686,
+            "creation_time": 1640577322.5847075,
             "auxillary_file_paths": [
-                "results\\EatingCarrot-1\\RabbitMovement\\RabbitMovement-80840.pt"
+                "results\\EatingCarrot-1\\RabbitMovement\\RabbitMovement-756480.pt"
             ]
         }
     },
