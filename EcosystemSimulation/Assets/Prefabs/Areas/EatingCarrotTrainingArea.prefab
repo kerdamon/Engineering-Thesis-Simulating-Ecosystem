@@ -7,6 +7,74 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 11971054831944999, guid: d12ac809e5ac5d048958702a68cb5f16, type: 3}
+      propertyPath: energyReceivedPerBite
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 263426470705565593, guid: d12ac809e5ac5d048958702a68cb5f16, type: 3}
+      propertyPath: increaseRate
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 263426470705565593, guid: d12ac809e5ac5d048958702a68cb5f16, type: 3}
+      propertyPath: values.Array.data[0]
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 1547058030614674117, guid: d12ac809e5ac5d048958702a68cb5f16, type: 3}
+      propertyPath: increaseRate
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1547058030614674117, guid: d12ac809e5ac5d048958702a68cb5f16, type: 3}
+      propertyPath: values.Array.data[0]
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 2453557336643291265, guid: d12ac809e5ac5d048958702a68cb5f16, type: 3}
+      propertyPath: increaseRate
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2453557336643291265, guid: d12ac809e5ac5d048958702a68cb5f16, type: 3}
+      propertyPath: values.Array.data[0]
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 2537703456901297906, guid: d12ac809e5ac5d048958702a68cb5f16, type: 3}
+      propertyPath: increaseRate
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2537703456901297906, guid: d12ac809e5ac5d048958702a68cb5f16, type: 3}
+      propertyPath: values.Array.data[0]
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 2819538712508014450, guid: d12ac809e5ac5d048958702a68cb5f16, type: 3}
+      propertyPath: energyReceivedPerBite
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3726718014358695043, guid: d12ac809e5ac5d048958702a68cb5f16, type: 3}
+      propertyPath: increaseRate
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3726718014358695043, guid: d12ac809e5ac5d048958702a68cb5f16, type: 3}
+      propertyPath: values.Array.data[0]
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 3932680626186464324, guid: d12ac809e5ac5d048958702a68cb5f16, type: 3}
+      propertyPath: increaseRate
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3932680626186464324, guid: d12ac809e5ac5d048958702a68cb5f16, type: 3}
+      propertyPath: values.Array.data[0]
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 3995265146231819619, guid: d12ac809e5ac5d048958702a68cb5f16, type: 3}
+      propertyPath: increaseRate
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3995265146231819619, guid: d12ac809e5ac5d048958702a68cb5f16, type: 3}
+      propertyPath: values.Array.data[0]
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 4445286111648401575, guid: d12ac809e5ac5d048958702a68cb5f16, type: 3}
+      propertyPath: energyReceivedPerBite
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5457864386793967586, guid: d12ac809e5ac5d048958702a68cb5f16, type: 3}
       propertyPath: m_Name
       value: EatingCarrotTrainingArea
@@ -58,6 +126,58 @@ PrefabInstance:
     - target: {fileID: 5457864386892318407, guid: d12ac809e5ac5d048958702a68cb5f16, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5573181825319052568, guid: d12ac809e5ac5d048958702a68cb5f16, type: 3}
+      propertyPath: energyReceivedPerBite
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6342526085915581178, guid: d12ac809e5ac5d048958702a68cb5f16, type: 3}
+      propertyPath: increaseRate
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6342526085915581178, guid: d12ac809e5ac5d048958702a68cb5f16, type: 3}
+      propertyPath: values.Array.data[0]
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 6595603809050480708, guid: d12ac809e5ac5d048958702a68cb5f16, type: 3}
+      propertyPath: energyReceivedPerBite
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7322710504382273402, guid: d12ac809e5ac5d048958702a68cb5f16, type: 3}
+      propertyPath: increaseRate
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7322710504382273402, guid: d12ac809e5ac5d048958702a68cb5f16, type: 3}
+      propertyPath: values.Array.data[0]
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 7753047962453537630, guid: d12ac809e5ac5d048958702a68cb5f16, type: 3}
+      propertyPath: energyReceivedPerBite
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7979281724869342105, guid: d12ac809e5ac5d048958702a68cb5f16, type: 3}
+      propertyPath: energyReceivedPerBite
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8024748477006762686, guid: d12ac809e5ac5d048958702a68cb5f16, type: 3}
+      propertyPath: energyReceivedPerBite
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8800987117876451164, guid: d12ac809e5ac5d048958702a68cb5f16, type: 3}
+      propertyPath: energyReceivedPerBite
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8869858827191462191, guid: d12ac809e5ac5d048958702a68cb5f16, type: 3}
+      propertyPath: energyReceivedPerBite
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9155441767388889263, guid: d12ac809e5ac5d048958702a68cb5f16, type: 3}
+      propertyPath: increaseRate
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9155441767388889263, guid: d12ac809e5ac5d048958702a68cb5f16, type: 3}
+      propertyPath: values.Array.data[0]
+      value: 80
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d12ac809e5ac5d048958702a68cb5f16, type: 3}
