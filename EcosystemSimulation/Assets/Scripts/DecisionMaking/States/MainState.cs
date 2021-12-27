@@ -21,14 +21,12 @@ namespace DecisionMaking.States
 
         public override void OnEnterState()
         {
-            Debug.Log($"Enabluje {gameObject.name}");
             enabled = true;
             base.OnEnterState();
         }
         
         public override void OnLeaveState()
         {
-            Debug.Log($"Disabluje {gameObject.name}");
             enabled = false;
             base.OnLeaveState();
         }

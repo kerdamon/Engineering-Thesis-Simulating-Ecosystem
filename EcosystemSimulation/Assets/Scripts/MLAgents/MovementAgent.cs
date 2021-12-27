@@ -3,6 +3,7 @@ using Unity.MLAgents;
 using Unity.MLAgents.Actuators;
 using Unity.MLAgents.Sensors;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class MovementAgent : Agent
 {
@@ -91,6 +92,34 @@ public class MovementAgent : Agent
         }
         var discreteActionsOut = actionsOut.DiscreteActions;
         discreteActionsOut[0] = Input.GetKey(KeyCode.Space) ? 1 : 0;
+    }
+
+    public override void OnEpisodeBegin()
+    {
+        var transform1 = transform;
+        RandomizePositionAndRotationWithCollisionCheck(transform1, transform1.parent);
+    }
+    
+    //todo abstract to other place, this is just copied from TrainingArea Script, but is even worse, with magic numbers
+    void RandomizePositionAndRotationWithCollisionCheck(Transform obj, Transform containterTransform)
+    {
+        var iterator = 0;
+        var newPosition = obj.position;
+        var newRotation = obj.rotation;
+        while (iterator < 50)
+        {
+            newPosition = containterTransform.TransformPoint(new Vector3(Random.Range(-80, 80), obj.localPosition.y, Random.Range(-80, 80)));
+            newRotation = Quaternion.Euler(new Vector3(0f, Random.Range(0, 360)));
+            var isCollision = Physics.CheckBox(newPosition, obj.localScale / 2);
+            if(!isCollision)
+            {
+                break;
+            }
+            iterator++;
+
+        }
+        obj.position = newPosition;
+        obj.rotation = newRotation;
     }
 
     public void KillAgent(string deathCause)

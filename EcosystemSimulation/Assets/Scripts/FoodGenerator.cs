@@ -25,11 +25,9 @@ public class FoodGenerator : MonoBehaviour
                 while (iterator < maxRepositionsOnCollisions)
                 {
                     var newRelativePosition = RandomizeRelativePosition();
-                    Debug.Log($"Randomizuje nową pozycję");
                     var newPosition = transform.TransformPoint(newRelativePosition);
                     newPosition.y += 0.501f;
                     var isCollision = Physics.CheckBox(newPosition, new Vector3(0.5f, 0.5f, 0.5f));
-                    Debug.Log($"Czy jest kolizja na pozycji rel:{newRelativePosition} abs:{newPosition}: {isCollision}");
                     if(!isCollision)
                     {
                         SpawnOneFoodInPosition(newRelativePosition);
