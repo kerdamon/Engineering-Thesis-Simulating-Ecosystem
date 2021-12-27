@@ -16,7 +16,6 @@ namespace DecisionMaking
         private void Start()
         {
             _statesList = GetComponentsInChildren<State>().ToList();
-            Debug.Log($"_statesListCount = {_statesList.Count}");
             SetState(defaultState);
             CurrentState.OnEnterState();
             

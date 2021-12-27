@@ -8,6 +8,7 @@ public class FoodGenerator : MonoBehaviour
     [SerializeField] private GameObject foodPrefab;
     [SerializeField] private float spawningRadius;
     [SerializeField] private int plantLimit;
+    [SerializeField] private int maxRepositionsOnCollisions;
 
     private void Start()
     {
@@ -20,8 +21,22 @@ public class FoodGenerator : MonoBehaviour
         {
             if (!PlantLimitReached())
             {
-                var relativePosition = RandomizeRelativePosition();
-                SpawnOneFoodInPosition(relativePosition);
+                var iterator = 0;
+                while (iterator < maxRepositionsOnCollisions)
+                {
+                    var newRelativePosition = RandomizeRelativePosition();
+                    Debug.Log($"Randomizuje nową pozycję");
+                    var newPosition = transform.TransformPoint(newRelativePosition);
+                    newPosition.y += 0.501f;
+                    var isCollision = Physics.CheckBox(newPosition, new Vector3(0.5f, 0.5f, 0.5f));
+                    Debug.Log($"Czy jest kolizja na pozycji rel:{newRelativePosition} abs:{newPosition}: {isCollision}");
+                    if(!isCollision)
+                    {
+                        SpawnOneFoodInPosition(newRelativePosition);
+                        break;
+                    }
+                    iterator++;
+                }
             }
             yield return new WaitForSeconds(spawnInterval);
         }
