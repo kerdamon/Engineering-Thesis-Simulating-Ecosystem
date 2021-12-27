@@ -129,15 +129,33 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Shape:
     m_ScanResultsByLOD:
-    - LocalPoints: []
-    m_LocalPoints: []
+    - LocalPoints:
+      - {x: 0, y: 0, z: 0}
+    - LocalPoints:
+      - {x: -0.25, y: -0.2500025, z: -0.25}
+      - {x: -0.25, y: -0.2500025, z: 0.25}
+      - {x: -0.25, y: 0.2500025, z: -0.25}
+      - {x: -0.25, y: 0.2500025, z: 0.25}
+      - {x: 0.25, y: -0.2500025, z: -0.25}
+      - {x: 0.25, y: -0.2500025, z: 0.25}
+      - {x: 0.25, y: 0.2500025, z: -0.25}
+      - {x: 0.25, y: 0.2500025, z: 0.25}
+    m_LocalPoints:
+    - {x: -0.25, y: -0.2500025, z: -0.25}
+    - {x: -0.25, y: -0.2500025, z: 0.25}
+    - {x: -0.25, y: 0.2500025, z: -0.25}
+    - {x: -0.25, y: 0.2500025, z: 0.25}
+    - {x: 0.25, y: -0.2500025, z: -0.25}
+    - {x: 0.25, y: -0.2500025, z: 0.25}
+    - {x: 0.25, y: 0.2500025, z: -0.25}
+    - {x: 0.25, y: 0.2500025, z: 0.25}
     m_WorldPoints: []
     m_MergeDisconnected: 0
     m_Flatten: 0
-    m_MaxLOD: 0
-    m_SelectedLOD: 0
-    m_ScanLOD: 0
-    m_GizmoLOD: 0
+    m_MaxLOD: 1
+    m_SelectedLOD: 1
+    m_ScanLOD: 1
+    m_GizmoLOD: 1
     m_Projection: 0
-    m_PointCount: 0
+    m_PointCount: 8
     m_DrawGrid: 0
