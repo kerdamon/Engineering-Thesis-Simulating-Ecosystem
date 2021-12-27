@@ -1,5 +1,6 @@
 ﻿using Interaction;
 using Interaction.InteractionManagers;
+using Interaction.RabbitInteractions;
 using Unity.Barracuda;
 using Unity.MLAgents;
 using Unity.MLAgents.Policies;
@@ -17,17 +18,19 @@ namespace DecisionMaking.States
         private string _behaviourName;
 
         protected DrinkingInteraction DrinkingInteraction;
+        protected EatingCarrotInteraction EatingCarrotInteraction;
 
         protected virtual void Start()
         {
             _agent = GetComponentInParent<MovementAgent>();
             _behaviourName = GetComponentInParent<BehaviorParameters>().BehaviorName;    //todo change if there are multiple behaviours on one agent
-            var parent = transform.parent;
+            var grandParent = transform.parent.parent;
 
-            DrinkingInteraction = parent.parent.GetComponentInChildren<DrinkingInteraction>();
+            DrinkingInteraction = grandParent.GetComponentInChildren<DrinkingInteraction>();
+            EatingCarrotInteraction = grandParent.GetComponentInChildren<EatingCarrotInteraction>();
         }
 
-        public void PrepareModel()
+        private void PrepareModel()
         {
             _agent.SetModel(_behaviourName, nnModel);
         }
@@ -35,6 +38,7 @@ namespace DecisionMaking.States
 
         public virtual void OnEnterState()
         {
+            PrepareModel();
         }
         
         public virtual void OnLeaveState()

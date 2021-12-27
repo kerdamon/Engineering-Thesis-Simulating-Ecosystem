@@ -9,7 +9,7 @@ namespace DecisionMaking.States
         
         private void OnTriggerEnter(Collider other)
         {
-            if(other.gameObject.CompareTag("Water") && Needs["Thirst"] > 0) //todo abstract this method to State
+            if(enabled && other.gameObject.CompareTag("Water") && Needs["Thirst"] > 0) //todo abstract this method to State
                 InteractionManager.InteractIfAbleWith(DrinkingInteraction, other.gameObject);
         }
     }

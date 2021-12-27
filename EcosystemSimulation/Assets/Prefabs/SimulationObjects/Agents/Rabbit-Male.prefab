@@ -75,9 +75,9 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 4857345277020938569, guid: 96ed80feb81eb9047973ee382c5a40df, type: 3}
   m_PrefabInstance: {fileID: 188104543231642217}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &9110020829121355153 stripped
+--- !u!1 &7499429874173925585 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 9002981221177071608, guid: 96ed80feb81eb9047973ee382c5a40df, type: 3}
+  m_CorrespondingSourceObject: {fileID: 7678386304431903416, guid: 96ed80feb81eb9047973ee382c5a40df, type: 3}
   m_PrefabInstance: {fileID: 188104543231642217}
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &5843987951246055420
@@ -108,13 +108,13 @@ MonoBehaviour:
   interactionDuration: 1
   maxChildrenPerLitter: 3
   mutationProbability: 0.03
---- !u!114 &3359072417513128965
+--- !u!114 &3694023323502829355
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9110020829121355153}
+  m_GameObject: {fileID: 7499429874173925585}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 78661b1d268540b1992312ea4d51b9bc, type: 3}
