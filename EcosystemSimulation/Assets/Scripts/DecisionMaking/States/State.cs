@@ -1,4 +1,7 @@
-﻿using Unity.Barracuda;
+﻿using Interaction;
+using Interaction.InteractionManagers;
+using Interaction.RabbitInteractions;
+using Unity.Barracuda;
 using Unity.MLAgents;
 using Unity.MLAgents.Policies;
 using UnityEngine;
@@ -14,18 +17,30 @@ namespace DecisionMaking.States
         private Agent _agent;
         private string _behaviourName;
 
+        protected DrinkingInteraction DrinkingInteraction;
+        protected EatingCarrotInteraction EatingCarrotInteraction;
+
         protected virtual void Start()
         {
             _agent = GetComponentInParent<MovementAgent>();
             _behaviourName = GetComponentInParent<BehaviorParameters>().BehaviorName;    //todo change if there are multiple behaviours on one agent
+            var grandParent = transform.parent.parent;
+
+            DrinkingInteraction = grandParent.GetComponentInChildren<DrinkingInteraction>();
+            EatingCarrotInteraction = grandParent.GetComponentInChildren<EatingCarrotInteraction>();
         }
 
-        public void PrepareModel()
+        private void PrepareModel()
         {
             _agent.SetModel(_behaviourName, nnModel);
         }
         public abstract float CurrentRank { get; }
 
+        public virtual void OnEnterState()
+        {
+            PrepareModel();
+        }
+        
         public virtual void OnLeaveState()
         {
         }

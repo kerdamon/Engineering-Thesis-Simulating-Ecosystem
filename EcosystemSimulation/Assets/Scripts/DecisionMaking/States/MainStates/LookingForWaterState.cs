@@ -1,15 +1,16 @@
-﻿namespace DecisionMaking.States
+﻿using Interaction;
+using UnityEngine;
+
+namespace DecisionMaking.States
 {
     public class LookingForWaterState : MainState
     {
-        private Needs _needs;
-
-        private void Awake()
-        {
-            _needs = GetComponentInParent<Needs>();
-        }
+        public override float CurrentRank => scoreCurve.Evaluate(Needs["Thirst"]);
         
-        public override float CurrentRank => scoreCurve.Evaluate(_needs["Thirst"]);
-
+        private void OnTriggerEnter(Collider other)
+        {
+            if(enabled && other.gameObject.CompareTag("Water") && Needs["Thirst"] > 0) //todo abstract this method to State
+                InteractionManager.InteractIfAbleWith(DrinkingInteraction, other.gameObject);
+        }
     }
 }

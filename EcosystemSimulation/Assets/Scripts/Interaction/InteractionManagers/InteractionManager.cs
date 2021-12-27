@@ -1,4 +1,4 @@
-﻿using Interaction.Interactions;
+﻿using Interaction;
 using Unity.MLAgents;
 using UnityEngine;
 
@@ -10,7 +10,7 @@ namespace Interaction.InteractionManagers
         private DrinkingInteraction _drinkingInteraction;
         protected Needs Needs;
         
-        public Interactions.Interaction CurrentInteraction { get; protected set; }
+        public Interaction CurrentInteraction { get; protected set; }
         public bool IsInteracting => !(CurrentInteraction is null);
 
         
@@ -34,20 +34,28 @@ namespace Interaction.InteractionManagers
             RegisterUpdatingCurrentInteractionAfterEndOf(_drinkingInteraction);
         }
 
-        protected void AddRewardAfterInteraction(Interactions.Interaction interaction, float rewardValue)
+        protected void AddRewardAfterInteraction(Interaction interaction, float rewardValue)
         {
             if (!(Mathf.Abs(rewardValue) > 0.0001f)) return;    //check for 0.0f with epsilon
             interaction.AfterSuccessfulInteraction += () => MovementAgent.AddReward(rewardValue);
         }
 
-        protected void RegisterUpdatingCurrentInteractionAfterEndOf(Interactions.Interaction interaction)
+        protected void RegisterUpdatingCurrentInteractionAfterEndOf(Interaction interaction)
         {
             void ClearCurrentInteraction() => CurrentInteraction = null;
             interaction.AfterSuccessfulInteraction += ClearCurrentInteraction;
             interaction.AfterInterruptedInteraction += ClearCurrentInteraction;
         }
 
-        protected virtual void Interact(GameObject target)
+        public void InteractIfAbleWith(Interaction interaction, GameObject target)
+        {
+            if (MovementAgent.WantInteraction && !IsInteracting)
+            {
+                LaunchNewInteraction(interaction, target);
+            }
+        }
+        
+        protected virtual void StartRelevantInteraction(GameObject target)
         {
             switch (target.tag)
             {
@@ -63,7 +71,7 @@ namespace Interaction.InteractionManagers
             }
         }
 
-        protected void LaunchNewInteraction(Interactions.Interaction interaction, GameObject target)
+        protected void LaunchNewInteraction(Interaction interaction, GameObject target)
         {
             CurrentInteraction = interaction;
             CurrentInteraction.StartInteraction(target);
@@ -74,13 +82,10 @@ namespace Interaction.InteractionManagers
             if(!MovementAgent.WantInteraction && IsInteracting)
                 CurrentInteraction.Interrupt();
         }
-       
+        
         private void OnTriggerEnter(Collider other)
         {
-            if (MovementAgent.WantInteraction && !IsInteracting)
-            {
-                Interact(other.gameObject);
-            }
+            //todo add other collisions like bumping into wall
         }
     }
 }

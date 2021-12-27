@@ -11,5 +11,10 @@
         
         public override float CurrentRank => scoreCurve.Evaluate(_needs["ReproductionUrge"]);
 
+        // private void OnTriggerEnter(Collider other)
+        // {
+        //     if(other.gameObject.CompareTag("")) //todo abstract this method to State
+        //         InteractionManager.InteractIfAbleWith(drinkingInteraction, other.gameObject);
+        // }
     }
 }

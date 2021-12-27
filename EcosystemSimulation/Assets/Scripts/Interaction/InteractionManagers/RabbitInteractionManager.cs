@@ -1,5 +1,5 @@
-﻿using Interaction.Interactions;
-using Interaction.Interactions.RabbitInteractions;
+﻿using Interaction;
+using Interaction.RabbitInteractions;
 using Unity.MLAgents;
 using UnityEngine;
 
@@ -30,7 +30,7 @@ namespace Interaction.InteractionManagers
             base.Start();
         }
 
-        protected override void Interact(GameObject target)
+        protected override void StartRelevantInteraction(GameObject target)
         {
             switch (target.tag)
             {
@@ -38,7 +38,7 @@ namespace Interaction.InteractionManagers
                     LaunchNewInteraction(_eatingCarrotInteraction, target);
                     return;
             }
-            base.Interact(target);
+            base.StartRelevantInteraction(target);
         }
 
         public float OnEaten()
