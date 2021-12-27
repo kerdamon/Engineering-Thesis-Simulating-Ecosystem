@@ -1,4 +1,4 @@
-﻿using Interaction.Interactions;
+﻿using Interaction;
 using UnityEngine;
 
 namespace DecisionMaking.States.SpecialStates
@@ -15,11 +15,6 @@ namespace DecisionMaking.States.SpecialStates
             matingInteraction.AfterInterruptedInteraction += DeactivateThis;
             matingInteraction.AfterSuccessfulInteraction += DeactivateThis;
             base.Start();
-        }
-
-        public override void OnLeaveState()
-        {
-            matingInteraction.Interrupt();
         }
     }
 }

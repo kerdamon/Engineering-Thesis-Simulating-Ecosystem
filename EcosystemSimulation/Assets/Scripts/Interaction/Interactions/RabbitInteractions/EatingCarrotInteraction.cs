@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Interaction.Interactions.RabbitInteractions
+namespace Interaction.RabbitInteractions
 {
     public class EatingCarrotInteraction : Interaction
     {

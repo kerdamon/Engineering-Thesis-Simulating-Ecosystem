@@ -2,7 +2,7 @@
 using System.Collections;
 using UnityEngine;
 
-namespace Interaction.Interactions
+namespace Interaction
 {
     public abstract class Interaction : MonoBehaviour
     {

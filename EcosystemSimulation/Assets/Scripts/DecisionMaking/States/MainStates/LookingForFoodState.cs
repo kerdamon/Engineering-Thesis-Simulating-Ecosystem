@@ -1,4 +1,6 @@
-﻿namespace DecisionMaking.States
+﻿using UnityEngine;
+
+namespace DecisionMaking.States
 {
     public class LookingForFoodState : MainState
     {
@@ -10,6 +12,5 @@
         }
         
         public override float CurrentRank => scoreCurve.Evaluate(_needs["Hunger"]);
-
     }
 }

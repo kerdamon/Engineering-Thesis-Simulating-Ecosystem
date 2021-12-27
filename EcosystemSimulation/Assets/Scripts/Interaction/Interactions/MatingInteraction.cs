@@ -3,7 +3,7 @@ using System.Collections;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-namespace Interaction.Interactions
+namespace Interaction
 {
     public class MatingInteraction : Interaction
     {

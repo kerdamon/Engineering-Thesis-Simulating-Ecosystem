@@ -1,5 +1,5 @@
-﻿using Interaction.Interactions;
-using Interaction.Interactions.RabbitInteractions;
+﻿using Interaction;
+using Interaction.RabbitInteractions;
 using Unity.MLAgents;
 using UnityEngine;
 
@@ -20,7 +20,7 @@ namespace Interaction.InteractionManagers
             base.Start();
         }
 
-        protected override void Interact(GameObject target)
+        protected override void StartRelevantInteraction(GameObject target)
         {
             switch (target.tag)
             {
@@ -29,7 +29,7 @@ namespace Interaction.InteractionManagers
                         LaunchNewInteraction(_matingInteraction, target);
                     return;
             }
-            base.Interact(target);
+            base.StartRelevantInteraction(target);
         }
     }
 }

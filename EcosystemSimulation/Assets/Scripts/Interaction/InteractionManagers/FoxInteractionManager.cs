@@ -1,4 +1,4 @@
-﻿using Interaction.Interactions.FoxInteractions;
+﻿using Interaction.FoxInteractions;
 using Unity.MLAgents;
 using UnityEngine;
 
@@ -19,7 +19,7 @@ namespace Interaction.InteractionManagers
             base.Start();
         }
 
-        protected override void Interact(GameObject target)
+        protected override void StartRelevantInteraction(GameObject target)
         {
             switch (target.tag)
             {
@@ -27,7 +27,7 @@ namespace Interaction.InteractionManagers
                     LaunchNewInteraction(_eatingRabbitInteraction, target);
                     return;
             }
-            base.Interact(target);
+            base.StartRelevantInteraction(target);
         }
     }
 }

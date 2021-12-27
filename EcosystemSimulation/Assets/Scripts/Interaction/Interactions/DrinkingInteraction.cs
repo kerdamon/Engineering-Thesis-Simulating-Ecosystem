@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Interaction.Interactions
+namespace Interaction
 {
     public class DrinkingInteraction : Interaction
     {

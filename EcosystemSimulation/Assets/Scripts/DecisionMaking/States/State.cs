@@ -1,4 +1,6 @@
-﻿using Unity.Barracuda;
+﻿using Interaction;
+using Interaction.InteractionManagers;
+using Unity.Barracuda;
 using Unity.MLAgents;
 using Unity.MLAgents.Policies;
 using UnityEngine;
@@ -14,10 +16,15 @@ namespace DecisionMaking.States
         private Agent _agent;
         private string _behaviourName;
 
+        protected DrinkingInteraction DrinkingInteraction;
+
         protected virtual void Start()
         {
             _agent = GetComponentInParent<MovementAgent>();
             _behaviourName = GetComponentInParent<BehaviorParameters>().BehaviorName;    //todo change if there are multiple behaviours on one agent
+            var parent = transform.parent;
+
+            DrinkingInteraction = parent.GetComponentInChildren<DrinkingInteraction>();
         }
 
         public void PrepareModel()
@@ -26,6 +33,10 @@ namespace DecisionMaking.States
         }
         public abstract float CurrentRank { get; }
 
+        public virtual void OnEnterState()
+        {
+        }
+        
         public virtual void OnLeaveState()
         {
         }

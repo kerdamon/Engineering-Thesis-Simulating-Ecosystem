@@ -59,6 +59,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Rabbit-Male
       objectReference: {fileID: 0}
+    - target: {fileID: 4124046174458232821, guid: 96ed80feb81eb9047973ee382c5a40df, type: 3}
+      propertyPath: matingInteraction
+      value: 
+      objectReference: {fileID: 7663351392798028170}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 96ed80feb81eb9047973ee382c5a40df, type: 3}
 --- !u!4 &242094881198228130 stripped

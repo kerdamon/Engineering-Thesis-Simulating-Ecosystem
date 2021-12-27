@@ -1,6 +1,6 @@
 ﻿using Interaction.InteractionManagers;
 
-namespace Interaction.Interactions.FoxInteractions
+namespace Interaction.FoxInteractions
 {
     public class EatingRabbitInteraction : Interaction
     {
