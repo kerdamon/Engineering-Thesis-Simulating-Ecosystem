@@ -40,7 +40,7 @@ namespace Interaction.InteractionManagers
             interaction.AfterSuccessfulInteraction += () =>
             {
                 MovementAgent.AddReward(rewardValue);
-                Debug.Log($"Added reward of value {rewardValue} after successful interaction {interaction.name}");
+                Debug.Log($"Added reward of value {rewardValue} after successful interaction {interaction.GetType()}");
             };
         }
 
@@ -91,6 +91,7 @@ namespace Interaction.InteractionManagers
         {
             if (other.gameObject.CompareTag("Wall"))
             {
+                Debug.Log($"Added reward of value {agent_bump_into_wall} after bumping into wall");
                 MovementAgent.AddReward(agent_bump_into_wall); 
             }
         }
