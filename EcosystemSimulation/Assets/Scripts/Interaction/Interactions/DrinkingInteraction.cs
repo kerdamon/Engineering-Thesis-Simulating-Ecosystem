@@ -6,23 +6,32 @@ namespace Interaction
     {
         [SerializeField] private float thirstChangeFactor;
         private Needs _needs;
+
+        private float _drankAmount;
     
         protected override void Start()
         {
             base.Start();
             _needs = SimulationObject.GetComponent<Needs>();
+            AfterSuccessfulInteraction += () => _needs["Thirst"] -= _drankAmount;
+            AfterInterruptedInteraction += () => _needs["Thirst"] -= _drankAmount;
+        }
+
+        protected override void AtInteractionStart()
+        {
+            _drankAmount = 0;
         }
 
         protected override void AtInteractionIncrement()
         {
             Debug.Log($"Drinking");
-            if (_needs["Thirst"] - thirstChangeFactor < 0)
+            if (_needs["Thirst"] - _drankAmount < 0)
             {
                 Interrupt();
             }
             else
             {
-                _needs["Thirst"] -= thirstChangeFactor;
+                _drankAmount += thirstChangeFactor;
             }
         }
     }

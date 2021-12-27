@@ -9,7 +9,7 @@ namespace Interaction
         private IEnumerator _interactCoroutine;
         protected float TimeElapsed;
         [SerializeField] protected float timeIncrement;
-        [SerializeField] private float interactionDuration;
+        [SerializeField] protected float interactionDuration;
 
         protected GameObject SimulationObject;
         public GameObject SecondSimulationObject { get; set; }

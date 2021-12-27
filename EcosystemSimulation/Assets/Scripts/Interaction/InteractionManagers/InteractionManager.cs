@@ -37,7 +37,11 @@ namespace Interaction.InteractionManagers
         protected void AddRewardAfterInteraction(Interaction interaction, float rewardValue)
         {
             if (!(Mathf.Abs(rewardValue) > 0.0001f)) return;    //check for 0.0f with epsilon
-            interaction.AfterSuccessfulInteraction += () => MovementAgent.AddReward(rewardValue);
+            interaction.AfterSuccessfulInteraction += () =>
+            {
+                MovementAgent.AddReward(rewardValue);
+                Debug.Log($"Added reward of value {rewardValue} after successful interaction {interaction.name}");
+            };
         }
 
         protected void RegisterUpdatingCurrentInteractionAfterEndOf(Interaction interaction)
@@ -85,7 +89,10 @@ namespace Interaction.InteractionManagers
         
         private void OnTriggerEnter(Collider other)
         {
-            //todo add other collisions like bumping into wall
+            if (other.gameObject.CompareTag("Wall"))
+            {
+                MovementAgent.AddReward(agent_bump_into_wall); 
+            }
         }
     }
 }

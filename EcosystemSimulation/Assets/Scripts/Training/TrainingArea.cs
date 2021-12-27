@@ -44,7 +44,6 @@ public class TrainingArea : MonoBehaviour, ITrainingArea
                 break;
             }
             iterator++;
-
         }
         obj.position = newPosition;
         obj.rotation = newRotation;

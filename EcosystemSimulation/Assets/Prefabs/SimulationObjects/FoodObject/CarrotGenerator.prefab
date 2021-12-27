@@ -47,3 +47,4 @@ MonoBehaviour:
   foodPrefab: {fileID: 1825405095076266462, guid: aca7aeccaff29d64290ca94f0785d2e7, type: 3}
   spawningRadius: 6
   plantLimit: 15
+  maxRepositionsOnCollisions: 50
