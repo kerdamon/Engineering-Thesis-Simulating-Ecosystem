@@ -16,21 +16,24 @@ namespace DecisionMaking.States
         [SerializeField] private NNModel nnModel;
         private Agent _agent;
         private string _behaviourName;
+        protected Needs Needs;
 
         protected DrinkingInteraction DrinkingInteraction;
         protected EatingCarrotInteraction EatingCarrotInteraction;
         protected MatingInteraction MatingInteraction;
         protected GameObject Mate;  //todo change - this shouldn't be here. It is for setting mating state in mate
 
-        protected virtual void Start()
+        protected virtual void Awake()
         {
             _agent = GetComponentInParent<MovementAgent>();
+            var parent = transform.parent.parent;
+            Needs = parent.GetComponent<Needs>();
             _behaviourName = GetComponentInParent<BehaviorParameters>().BehaviorName;    //todo change if there are multiple behaviours on one agent
             var grandParent = transform.parent.parent;
 
             DrinkingInteraction = grandParent.GetComponentInChildren<DrinkingInteraction>();
             EatingCarrotInteraction = grandParent.GetComponentInChildren<EatingCarrotInteraction>();
-            MatingInteraction = grandParent.GetComponent<MatingInteraction>();
+            MatingInteraction = grandParent.GetComponentInChildren<MatingInteraction>();
         }
 
         private void PrepareModel()

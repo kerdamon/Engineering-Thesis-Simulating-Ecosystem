@@ -9,11 +9,13 @@ namespace Interaction
     {
         [SerializeField] private int maxChildrenPerLitter;
         [SerializeField] private float mutationProbability;
+
+        [SerializeField] private GameObject maleRabbitChild;
+        [SerializeField] private GameObject femaleRabbitChild;
  
         protected override void AtInteractionEnd()
         {
-            var mate = SecondSimulationObject.transform.parent.gameObject;
-            SpawnOffspring(mate);
+            SpawnOffspring(SecondSimulationObject);
         }
 
         private void SpawnOffspring(GameObject mate)
@@ -21,8 +23,10 @@ namespace Interaction
             var numberOfChildren = Random.value * maxChildrenPerLitter;
             for (var i = 0; i < numberOfChildren; i++)
             {
-                var originalGameObject = Random.value > 0.5f ? gameObject.transform.parent.gameObject : mate;
+                var originalGameObject = Random.value > 0.5f ? maleRabbitChild : femaleRabbitChild;
+                Debug.Log($"wylosowano {originalGameObject.name}");
                 var offspring = Instantiate(originalGameObject, transform.parent.parent);
+                offspring.transform.position = mate.transform.position;
                 offspring.transform.Translate(Random.value * 2, 0, Random.value * 2);
                 var offspringFeatures = offspring.GetComponent<Features>();
                 var actorFeatures = SimulationObject.GetComponent<Features>();

@@ -10,7 +10,7 @@ namespace DecisionMaking.States.EventStates
             if (!other.isTrigger && other.gameObject.CompareTag("Fox")) //todo change magic number of this agent's predator tag)
             {
                 ActivateThis();
-                Debug.Log($"Sees predator");
+                //Debug.Log($"Sees predator");
             }
         }
 

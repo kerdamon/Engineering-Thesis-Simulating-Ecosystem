@@ -11,12 +11,14 @@ public class MovementAgent : Agent
     [SerializeField] private float turningSpeed;   
     
     private Rigidbody _agentRigidbody;
+    private bool _isTraining;
 
     public bool WantInteraction { get; private set; } = false;
 
     public override void Initialize()
     {
         _agentRigidbody = GetComponent<Rigidbody>();
+        _isTraining = Mathf.Abs(Academy.Instance.EnvironmentParameters.GetWithDefault("is_training", 0.0f)) > 0.0001f;
     }
 
     public override void CollectObservations(VectorSensor sensor)
@@ -96,6 +98,7 @@ public class MovementAgent : Agent
 
     public override void OnEpisodeBegin()
     {
+        if (!_isTraining) return;
         var transform1 = transform;
         RandomizePositionAndRotationWithCollisionCheck(transform1, transform1.parent);
     }

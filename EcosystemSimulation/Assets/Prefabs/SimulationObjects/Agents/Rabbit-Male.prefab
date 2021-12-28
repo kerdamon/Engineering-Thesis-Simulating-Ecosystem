@@ -108,6 +108,8 @@ MonoBehaviour:
   interactionDuration: 1
   maxChildrenPerLitter: 3
   mutationProbability: 0.03
+  maleRabbitChild: {fileID: 0}
+  femaleRabbitChild: {fileID: 4682881298591539552, guid: 5b95f44433656d34581289181c8e67a5, type: 3}
 --- !u!114 &3694023323502829355
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -145,6 +147,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  increaseInPartnersUrgeOnMatingAttempt: 5
 --- !u!1001 &9037921327190137155
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -5,9 +5,9 @@ namespace DecisionMaking.States.EventStates
 {
     public class DrinkingState : SpecialState
     {
-        protected override void Start()
+        protected override void Awake()
         {
-            base.Start();
+            base.Awake();
             DrinkingInteraction.BeforeInteraction += ActivateThis;
             DrinkingInteraction.AfterInterruptedInteraction += DeactivateThis;
             DrinkingInteraction.AfterSuccessfulInteraction += DeactivateThis;

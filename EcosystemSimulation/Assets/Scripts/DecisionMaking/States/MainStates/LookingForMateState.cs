@@ -12,9 +12,9 @@ namespace DecisionMaking.States
         private MatingState _thisMatingState;
         private MatingState _partnerMatingState;
         
-        protected override void Start()
+        protected override void Awake()
         {
-            base.Start();
+            base.Awake();
             _thisMatingState = transform.parent.GetComponentInChildren<MatingState>();
             MatingInteraction.BeforeInteraction += () =>
             {
@@ -35,12 +35,12 @@ namespace DecisionMaking.States
 
         private void OnTriggerEnter(Collider other)
         {
-            var mateNeeds = other.GetComponent<Needs>();
             if (!enabled || !other.gameObject.CompareTag("Rabbit-Female")) return;
+            Mate = other.transform.parent.gameObject;
+            var mateNeeds = Mate.GetComponent<Needs>();
+            _partnerMatingState = Mate.GetComponentInChildren<MatingState>();
             if (mateNeeds.IsMaxOrGreater("ReproductionUrge"))
             {
-                Mate = other.transform.parent.gameObject;
-                _partnerMatingState = Mate.GetComponentInChildren<MatingState>();
                 InteractionManager.InteractIfAbleWith(MatingInteraction, Mate);
             }
             else
