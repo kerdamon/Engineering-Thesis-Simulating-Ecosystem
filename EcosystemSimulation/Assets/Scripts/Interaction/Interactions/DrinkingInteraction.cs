@@ -13,8 +13,13 @@ namespace Interaction
         {
             base.Start();
             _needs = SimulationObject.GetComponent<Needs>();
+            RegisterThirstChangeAfterInteraction();
+        }
+        
+        protected virtual void RegisterThirstChangeAfterInteraction()
+        {
             AfterSuccessfulInteraction += () => _needs["Thirst"] -= _drankAmount;
-            AfterInterruptedInteraction += () => _needs["Thirst"] -= _drankAmount;
+            AfterInterruptedInteraction += () => _needs["Thirst"] -= _drankAmount; 
         }
 
         protected override void AtInteractionStart()
@@ -24,7 +29,6 @@ namespace Interaction
 
         protected override void AtInteractionIncrement()
         {
-            Debug.Log($"Drinking");
             if (_needs["Thirst"] - _drankAmount < 0)
             {
                 Interrupt();
