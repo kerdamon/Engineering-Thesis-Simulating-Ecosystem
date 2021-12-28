@@ -1,20 +1,52 @@
-﻿namespace DecisionMaking.States
+﻿using DecisionMaking.States.SpecialStates;
+using Interaction;
+using UnityEngine;
+
+namespace DecisionMaking.States
 {
     public class LookingForMateState : MainState
     {
-        private Needs _needs;
+        [SerializeField] private float increaseInPartnersUrgeOnMatingAttempt;
+        public override float CurrentRank => scoreCurve.Evaluate(Needs["ReproductionUrge"]);
 
-        private void Awake()
-        {
-            _needs = GetComponentInParent<Needs>();
-        }
+        private MatingState _thisMatingState;
+        private MatingState _partnerMatingState;
         
-        public override float CurrentRank => scoreCurve.Evaluate(_needs["ReproductionUrge"]);
+        protected override void Start()
+        {
+            base.Start();
+            _thisMatingState = transform.parent.GetComponentInChildren<MatingState>();
+            MatingInteraction.BeforeInteraction += () =>
+            {
+                _thisMatingState.ActivateThis();
+                _partnerMatingState.ActivateThis();
+            };
+            MatingInteraction.AfterInterruptedInteraction += () =>
+            {
+                _thisMatingState.DeactivateThis();
+                _partnerMatingState.DeactivateThis();
+            };
+            MatingInteraction.AfterSuccessfulInteraction += () =>
+            {
+                _thisMatingState.DeactivateThis();
+                _partnerMatingState.DeactivateThis();
+            };
+        }
 
-        // private void OnTriggerEnter(Collider other)
-        // {
-        //     if(other.gameObject.CompareTag("")) //todo abstract this method to State
-        //         InteractionManager.InteractIfAbleWith(drinkingInteraction, other.gameObject);
-        // }
+        private void OnTriggerEnter(Collider other)
+        {
+            var mateNeeds = other.GetComponent<Needs>();
+            if (!enabled || !other.gameObject.CompareTag("Rabbit-Female")) return;
+            if (mateNeeds.IsMaxOrGreater("ReproductionUrge"))
+            {
+                Mate = other.transform.parent.gameObject;
+                _partnerMatingState = Mate.GetComponentInChildren<MatingState>();
+                InteractionManager.InteractIfAbleWith(MatingInteraction, Mate);
+            }
+            else
+            {
+                mateNeeds["ReproductionUrge"] += increaseInPartnersUrgeOnMatingAttempt;
+            }
+        }
     }
 }

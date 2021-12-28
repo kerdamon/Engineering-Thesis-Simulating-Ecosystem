@@ -8,8 +8,6 @@ namespace DecisionMaking.States.EventStates
         protected override void Start()
         {
             base.Start();
-            void ActivateThis() => active = true;
-            void DeactivateThis() => active = false;
             DrinkingInteraction.BeforeInteraction += ActivateThis;
             DrinkingInteraction.AfterInterruptedInteraction += DeactivateThis;
             DrinkingInteraction.AfterSuccessfulInteraction += DeactivateThis;

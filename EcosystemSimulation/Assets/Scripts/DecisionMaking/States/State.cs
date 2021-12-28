@@ -19,6 +19,8 @@ namespace DecisionMaking.States
 
         protected DrinkingInteraction DrinkingInteraction;
         protected EatingCarrotInteraction EatingCarrotInteraction;
+        protected MatingInteraction MatingInteraction;
+        protected GameObject Mate;  //todo change - this shouldn't be here. It is for setting mating state in mate
 
         protected virtual void Start()
         {
@@ -28,6 +30,7 @@ namespace DecisionMaking.States
 
             DrinkingInteraction = grandParent.GetComponentInChildren<DrinkingInteraction>();
             EatingCarrotInteraction = grandParent.GetComponentInChildren<EatingCarrotInteraction>();
+            MatingInteraction = grandParent.GetComponent<MatingInteraction>();
         }
 
         private void PrepareModel()

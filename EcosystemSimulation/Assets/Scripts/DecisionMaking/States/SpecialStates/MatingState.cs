@@ -5,16 +5,24 @@ namespace DecisionMaking.States.SpecialStates
 {
     public class MatingState : SpecialState
     {
-        // [SerializeField] private MatingInteraction matingInteraction;
-
-        protected override void Start()
-        {
-            // void ActivateThis() => active = true;
-            // void DeactivateThis() => active = false;
-            // matingInteraction.BeforeInteraction += ActivateThis;
-            // matingInteraction.AfterInterruptedInteraction += DeactivateThis;
-            // matingInteraction.AfterSuccessfulInteraction += DeactivateThis;
-            base.Start();
-        }
+        // protected override void Start()
+        // {
+        //     base.Start();
+        //     MatingInteraction.BeforeInteraction += () =>
+        //     {
+        //         ActivateThis();
+        //         Mate.GetComponent<MatingState>().ActivateThis();
+        //     };
+        //     MatingInteraction.AfterInterruptedInteraction += () =>
+        //     {
+        //         DeactivateThis();
+        //         Mate.GetComponent<MatingState>().DeactivateThis();
+        //     };
+        //     MatingInteraction.AfterSuccessfulInteraction += () =>
+        //     {
+        //         DeactivateThis();
+        //         Mate.GetComponent<MatingState>().DeactivateThis();
+        //     };
+        // }
     }
 }

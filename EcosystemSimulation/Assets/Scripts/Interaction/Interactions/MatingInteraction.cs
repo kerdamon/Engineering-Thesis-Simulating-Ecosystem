@@ -9,7 +9,7 @@ namespace Interaction
     {
         [SerializeField] private int maxChildrenPerLitter;
         [SerializeField] private float mutationProbability;
-        
+ 
         protected override void AtInteractionEnd()
         {
             var mate = SecondSimulationObject.transform.parent.gameObject;
