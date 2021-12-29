@@ -645,6 +645,14 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Rabbit
       objectReference: {fileID: 0}
+    - target: {fileID: 4087781399380897816, guid: da0347d17e632d14a9af1a0994473def, type: 3}
+      propertyPath: values.Array.data[2]
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 4440252359356821727, guid: da0347d17e632d14a9af1a0994473def, type: 3}
+      propertyPath: values.Array.data[2]
+      value: 90
+      objectReference: {fileID: 0}
     - target: {fileID: 5014543819106390974, guid: da0347d17e632d14a9af1a0994473def, type: 3}
       propertyPath: m_Name
       value: SimulationArea
@@ -693,6 +701,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8017043056650797236, guid: da0347d17e632d14a9af1a0994473def, type: 3}
+      propertyPath: maleRabbitChild
+      value: 
+      objectReference: {fileID: 2043107266091046649, guid: 2a7aa60a53a7ec2429c616a5b35a764f, type: 3}
     - target: {fileID: 8684830512259518663, guid: da0347d17e632d14a9af1a0994473def, type: 3}
       propertyPath: m_TagString
       value: Fox

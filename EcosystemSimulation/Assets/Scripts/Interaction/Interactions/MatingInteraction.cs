@@ -12,9 +12,20 @@ namespace Interaction
 
         [SerializeField] private GameObject maleRabbitChild;
         [SerializeField] private GameObject femaleRabbitChild;
- 
+
+        private Needs _needs;
+
+        protected override void Start()
+        {
+            base.Start();
+            _needs = GetComponentInParent<Needs>();
+        }
+
         protected override void AtInteractionEnd()
         {
+            var mateNeeds = SecondSimulationObject.GetComponent<Needs>();
+            _needs["ReproductionUrge"] = 0;
+            mateNeeds["ReproductionUrge"] = 0;
             SpawnOffspring(SecondSimulationObject);
         }
 

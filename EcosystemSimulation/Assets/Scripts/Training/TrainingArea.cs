@@ -22,11 +22,11 @@ public class TrainingArea : MonoBehaviour, ITrainingArea
             RandomizePositionAndRotation(water);
         }
         yield return 0;
-        foreach (Transform agent in agentsContainterTransform)
-        {
-            RandomizePositionAndRotationWithCollisionCheck(agent, agentsContainterTransform);
-        }
-        yield return 0;
+        // foreach (Transform agent in agentsContainterTransform)
+        // {
+        //     RandomizePositionAndRotationWithCollisionCheck(agent, agentsContainterTransform);
+        // }
+        // yield return 0;
     }
 
     public void RandomizePositionAndRotationWithCollisionCheck(Transform obj, Transform containterTransform)

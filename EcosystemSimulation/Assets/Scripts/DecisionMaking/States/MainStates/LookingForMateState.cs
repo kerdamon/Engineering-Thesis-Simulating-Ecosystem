@@ -11,6 +11,7 @@ namespace DecisionMaking.States
 
         private MatingState _thisMatingState;
         private MatingState _partnerMatingState;
+        private Needs _mateNeeds;
         
         protected override void Awake()
         {
@@ -37,15 +38,15 @@ namespace DecisionMaking.States
         {
             if (!enabled || !other.gameObject.CompareTag("Rabbit-Female")) return;
             Mate = other.transform.parent.gameObject;
-            var mateNeeds = Mate.GetComponent<Needs>();
+            _mateNeeds = Mate.GetComponent<Needs>();
             _partnerMatingState = Mate.GetComponentInChildren<MatingState>();
-            if (mateNeeds.IsMaxOrGreater("ReproductionUrge"))
+            if (_mateNeeds.IsMaxOrGreater("ReproductionUrge"))
             {
                 InteractionManager.InteractIfAbleWith(MatingInteraction, Mate);
             }
             else
             {
-                mateNeeds["ReproductionUrge"] += increaseInPartnersUrgeOnMatingAttempt;
+                _mateNeeds["ReproductionUrge"] += increaseInPartnersUrgeOnMatingAttempt;
             }
         }
     }
