@@ -11,12 +11,18 @@ public class MovementAgent : Agent
     [SerializeField] private float turningSpeed;   
     
     private Rigidbody _agentRigidbody;
-
+    
+    
+    private bool _isTraining;
+    private TrainingArea _trainingArea;
+    
     public bool WantInteraction { get; private set; } = false;
 
     public override void Initialize()
     {
         _agentRigidbody = GetComponent<Rigidbody>();
+        _trainingArea = GetComponentInParent<TrainingArea>();
+        _isTraining = Mathf.Abs(Academy.Instance.EnvironmentParameters.GetWithDefault("is_training", 0.0f)) > 0.0001f;
     }
 
     public override void CollectObservations(VectorSensor sensor)
@@ -96,32 +102,11 @@ public class MovementAgent : Agent
 
     public override void OnEpisodeBegin()
     {
+        if (!_isTraining) return;
         var transform1 = transform;
-        RandomizePositionAndRotationWithCollisionCheck(transform1, transform1.parent);
+        _trainingArea.RandomizePositionAndRotationWithCollisionCheck(transform1, transform1.parent);
     }
     
-    //todo abstract to other place, this is just copied from TrainingArea Script, but is even worse, with magic numbers
-    void RandomizePositionAndRotationWithCollisionCheck(Transform obj, Transform containterTransform)
-    {
-        var iterator = 0;
-        var newPosition = obj.position;
-        var newRotation = obj.rotation;
-        while (iterator < 50)
-        {
-            newPosition = containterTransform.TransformPoint(new Vector3(Random.Range(-80, 80), obj.localPosition.y, Random.Range(-80, 80)));
-            newRotation = Quaternion.Euler(new Vector3(0f, Random.Range(0, 360)));
-            var isCollision = Physics.CheckBox(newPosition, obj.localScale / 2);
-            if(!isCollision)
-            {
-                break;
-            }
-            iterator++;
-
-        }
-        obj.position = newPosition;
-        obj.rotation = newRotation;
-    }
-
     public void KillAgent(string deathCause)
     {
         //todo expand to state

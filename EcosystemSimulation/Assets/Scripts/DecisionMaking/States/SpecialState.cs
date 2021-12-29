@@ -16,5 +16,7 @@ namespace DecisionMaking.States
         [SerializeField] protected bool active;
 
         public override float CurrentRank => active ? rank : 0.0f;
+        public void DeactivateThis() => active = false;
+        public void ActivateThis() => active = true;
     }
 }
