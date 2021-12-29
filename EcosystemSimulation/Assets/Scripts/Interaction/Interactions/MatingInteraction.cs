@@ -35,7 +35,6 @@ namespace Interaction
             for (var i = 0; i < numberOfChildren; i++)
             {
                 var originalGameObject = Random.value > 0.5f ? maleRabbitChild : femaleRabbitChild;
-                Debug.Log($"wylosowano {originalGameObject.name}");
                 var offspring = Instantiate(originalGameObject, transform.parent.parent);
                 offspring.transform.position = mate.transform.position;
                 offspring.transform.Translate(Random.value * 2, 0, Random.value * 2);
