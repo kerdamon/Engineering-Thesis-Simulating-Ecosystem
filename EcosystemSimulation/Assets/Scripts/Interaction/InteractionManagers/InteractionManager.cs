@@ -15,6 +15,7 @@ namespace Interaction.InteractionManagers
 
         
         private float agent_bump_into_wall;
+        private float agent_bump_into_water;
         private float agent_interact_with_water;
 
         protected virtual void Start()
@@ -25,6 +26,7 @@ namespace Interaction.InteractionManagers
             Needs = parent.GetComponent<Needs>();
             
             agent_bump_into_wall = Academy.Instance.EnvironmentParameters.GetWithDefault("agent_bump_into_wall", 0.0f);
+            agent_bump_into_water = Academy.Instance.EnvironmentParameters.GetWithDefault("agent_bump_into_water", 0.0f);
             agent_interact_with_water = Academy.Instance.EnvironmentParameters.GetWithDefault("agent_interact_with_water", 0.0f);
 
             MovementAgent.AfterAction += StopInteractionWhenAgentDontWantTo;
@@ -91,7 +93,13 @@ namespace Interaction.InteractionManagers
         {
             if (other.gameObject.CompareTag("Wall"))
             {
+                Debug.Log($"Added reward of value {agent_bump_into_wall} after bumping into wall");
                 MovementAgent.AddReward(agent_bump_into_wall); 
+            }
+            if (other.gameObject.CompareTag("Water"))
+            {
+                Debug.Log($"Added reward of value {agent_bump_into_water} after bumping into water");
+                MovementAgent.AddReward(agent_bump_into_water); 
             }
         }
     }
