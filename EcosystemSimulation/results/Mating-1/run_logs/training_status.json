@@ -32,24 +32,6 @@
     "MaleRabbitMovement": {
         "checkpoints": [
             {
-                "steps": 499968,
-                "file_path": "results\\Mating-1\\MaleRabbitMovement\\MaleRabbitMovement-499968.onnx",
-                "reward": null,
-                "creation_time": 1640743259.0168903,
-                "auxillary_file_paths": [
-                    "results\\Mating-1\\MaleRabbitMovement\\MaleRabbitMovement-499968.pt"
-                ]
-            },
-            {
-                "steps": 999936,
-                "file_path": "results\\Mating-1\\MaleRabbitMovement\\MaleRabbitMovement-999936.onnx",
-                "reward": null,
-                "creation_time": 1640745613.8134,
-                "auxillary_file_paths": [
-                    "results\\Mating-1\\MaleRabbitMovement\\MaleRabbitMovement-999936.pt"
-                ]
-            },
-            {
                 "steps": 1196800,
                 "file_path": "results\\Mating-1\\MaleRabbitMovement\\MaleRabbitMovement-1196800.onnx",
                 "reward": null,
@@ -57,15 +39,51 @@
                 "auxillary_file_paths": [
                     "results\\Mating-1\\MaleRabbitMovement\\MaleRabbitMovement-1196800.pt"
                 ]
+            },
+            {
+                "steps": 1200640,
+                "file_path": "results\\Mating-1\\MaleRabbitMovement\\MaleRabbitMovement-1200640.onnx",
+                "reward": null,
+                "creation_time": 1640747018.6984644,
+                "auxillary_file_paths": [
+                    "results\\Mating-1\\MaleRabbitMovement\\MaleRabbitMovement-1200640.pt"
+                ]
+            },
+            {
+                "steps": 1499968,
+                "file_path": "results\\Mating-1\\MaleRabbitMovement\\MaleRabbitMovement-1499968.onnx",
+                "reward": null,
+                "creation_time": 1640749951.9382138,
+                "auxillary_file_paths": [
+                    "results\\Mating-1\\MaleRabbitMovement\\MaleRabbitMovement-1499968.pt"
+                ]
+            },
+            {
+                "steps": 1999936,
+                "file_path": "results\\Mating-1\\MaleRabbitMovement\\MaleRabbitMovement-1999936.onnx",
+                "reward": null,
+                "creation_time": 1640751881.350036,
+                "auxillary_file_paths": [
+                    "results\\Mating-1\\MaleRabbitMovement\\MaleRabbitMovement-1999936.pt"
+                ]
+            },
+            {
+                "steps": 2000640,
+                "file_path": "results\\Mating-1\\MaleRabbitMovement\\MaleRabbitMovement-2000640.onnx",
+                "reward": 5.1,
+                "creation_time": 1640751883.42975,
+                "auxillary_file_paths": [
+                    "results\\Mating-1\\MaleRabbitMovement\\MaleRabbitMovement-2000640.pt"
+                ]
             }
         ],
         "final_checkpoint": {
-            "steps": 1196800,
+            "steps": 2000640,
             "file_path": "results\\Mating-1\\MaleRabbitMovement.onnx",
-            "reward": null,
-            "creation_time": 1640746490.988557,
+            "reward": 5.1,
+            "creation_time": 1640751883.42975,
             "auxillary_file_paths": [
-                "results\\Mating-1\\MaleRabbitMovement\\MaleRabbitMovement-1196800.pt"
+                "results\\Mating-1\\MaleRabbitMovement\\MaleRabbitMovement-2000640.pt"
             ]
         }
     },

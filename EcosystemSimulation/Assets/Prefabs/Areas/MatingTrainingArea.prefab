@@ -152,9 +152,25 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5457864387194649313, guid: d12ac809e5ac5d048958702a68cb5f16, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 5457864387194649313, guid: d12ac809e5ac5d048958702a68cb5f16, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 60
+      objectReference: {fileID: 0}
     - target: {fileID: 5457864387605602060, guid: d12ac809e5ac5d048958702a68cb5f16, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5457864388153945210, guid: d12ac809e5ac5d048958702a68cb5f16, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5457864388153945210, guid: d12ac809e5ac5d048958702a68cb5f16, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8088624349415881931, guid: d12ac809e5ac5d048958702a68cb5f16, type: 3}
       propertyPath: m_Model
@@ -203,7 +219,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5eb72420e9fc40788abded8e0b277818, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  range: 80
+  range: 280
   waterContainterTransform: {fileID: 9089976728024982138}
   agentsContainterTransform: {fileID: 9089976727852923922}
   maxRepositionsOnCollisions: 50
