@@ -1,4 +1,5 @@
 using System;
+using NaughtyAttributes;
 using Unity.MLAgents;
 using Unity.MLAgents.Actuators;
 using Unity.MLAgents.Sensors;
@@ -16,7 +17,14 @@ public class MovementAgent : Agent
     private bool _isTraining;
     private TrainingArea _trainingArea;
     
-    public bool WantInteraction { get; private set; } = false;
+    [ShowNativeProperty] public int LifeTime { get; private set; }
+    
+    public bool WantInteraction { get; private set; }
+
+    private void Update()
+    {
+        LifeTime++;
+    }
 
     public override void Initialize()
     {

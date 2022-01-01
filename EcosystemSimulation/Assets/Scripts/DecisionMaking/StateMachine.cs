@@ -19,7 +19,11 @@ namespace DecisionMaking
             SetState(defaultState);
             CurrentState.OnEnterState();
             
-            GetComponentInParent<MovementAgent>().AfterAction += InferState;
+            // GetComponentInParent<MovementAgent>().AfterAction += InferState;
+        }
+        
+        private void Update(){
+            InferState();
         }
 
         private void InferState()

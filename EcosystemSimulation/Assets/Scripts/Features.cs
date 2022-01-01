@@ -1,5 +1,6 @@
 using System.Linq;
 using NaughtyAttributes;
+using Unity.MLAgents;
 using UnityEngine;
 
 public class Features : DictionarySerializer<int>
@@ -9,7 +10,7 @@ public class Features : DictionarySerializer<int>
     /// </summary>
     [ShowNativeProperty] public float CurrentGeneticCost => this.Sum(feature => feature.Value);
     [ShowNativeProperty] public float MaxGeneticCost => this.Count() * maxValue;
-
+    
     public override bool IsMaxOrGreater(string value)
     {
         return this[value] >= maxValue;
