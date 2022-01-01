@@ -3,7 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
+using DefaultNamespace.SimulationControl;
 using Unity.Mathematics;
+using Unity.MLAgents;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -23,23 +25,74 @@ public class SimulationController : MonoBehaviour
 
     [Range(1, 20)]
     [SerializeField] private int updatePeriod = 1;
-    
+
+    [Range(10, 100)]
+    [SerializeField] private int logPeriod = 20;
+
+    private FileLogger _fileLogger;
+
+    private void Awake()
+    {
+        _fileLogger = GetComponent<FileLogger>();
+    }
+
+    private void Start()
+    {
+        _fileLogger.LogLine("Timestamp,FoxesPopulation,RabbitPopulation,RabbitSpeedMedian,RabbitSensoryRangeMedian,RabbitFertilityMedian,FoxSpeedMedian,FoxSensoryRangeMedian,FoxFertilityMedian");
+    }
+
     private void Update()
     {
-        if (ShouldUpdateUI()) return;
-        UpdateStatsText(foxesPopulationText, $"Foxes on scene: {CountRabbits().ToString()}");
-        UpdateStatsText(rabbitsPopulationText, $"Rabbits on scene: {CountFoxes().ToString()}");
-        UpdateStatsText(rabbitSpeedMedianText, $"Median of rabbit's speed: {getMedianOfFeatue("Speed", rabbitContainer).ToString(CultureInfo.InvariantCulture)}");
-        UpdateStatsText(rabbitSensoryRangeMedianText, $"Median of rabbit's speed: {getMedianOfFeatue("SensoryRange", rabbitContainer).ToString(CultureInfo.InvariantCulture)}");
-        UpdateStatsText(rabbitFertilityMedianText, $"Median of rabbit's speed: {getMedianOfFeatue("Fertility", rabbitContainer).ToString(CultureInfo.InvariantCulture)}");
-        UpdateStatsText(foxSpeedMedianText, $"Median of rabbit's speed: {getMedianOfFeatue("Speed", foxesContainer).ToString(CultureInfo.InvariantCulture)}");
-        UpdateStatsText(foxSensoryRangeMedianText, $"Median of rabbit's speed: {getMedianOfFeatue("SensoryRange", foxesContainer).ToString(CultureInfo.InvariantCulture)}");
-        UpdateStatsText(foxFertilityMedianText, $"Median of rabbit's speed: {getMedianOfFeatue("Fertility", foxesContainer).ToString(CultureInfo.InvariantCulture)}");
+        if (!ShouldLogToFile() && !ShouldUpdateUI()) return;
+        var foxesPopulation = CountRabbits();
+        var rabbitsPopulation = CountFoxes();
+        var rabbitSpeedMedian = getMedianOfFeatue("Speed", rabbitContainer);
+        var rabbitSensoryRangeMedian = getMedianOfFeatue("SensoryRange", rabbitContainer);
+        var rabbitFertilityMedian = getMedianOfFeatue("Fertility", rabbitContainer);
+        var foxSpeedMedian = getMedianOfFeatue("Speed", foxesContainer);
+        var foxSensoryRangeMedian = getMedianOfFeatue("SensoryRange", foxesContainer);
+        var foxFertilityMedian = getMedianOfFeatue("Fertility", foxesContainer);
+
+        if (ShouldUpdateUI())
+        {
+            UpdateStatsText(foxesPopulationText, $"Foxes on scene: {foxesPopulation.ToString()}");
+            UpdateStatsText(rabbitsPopulationText, $"Rabbits on scene: {rabbitsPopulation.ToString()}");
+            UpdateStatsText(rabbitSpeedMedianText,
+                $"Median of rabbit's speed: {rabbitSpeedMedian.ToString(CultureInfo.InvariantCulture)}");
+            UpdateStatsText(rabbitSensoryRangeMedianText,
+                $"Median of rabbit's speed: {rabbitSensoryRangeMedian.ToString(CultureInfo.InvariantCulture)}");
+            UpdateStatsText(rabbitFertilityMedianText,
+                $"Median of rabbit's speed: {rabbitFertilityMedian.ToString(CultureInfo.InvariantCulture)}");
+            UpdateStatsText(foxSpeedMedianText,
+                $"Median of rabbit's speed: {foxSpeedMedian.ToString(CultureInfo.InvariantCulture)}");
+            UpdateStatsText(foxSensoryRangeMedianText,
+                $"Median of rabbit's speed: {foxSensoryRangeMedian.ToString(CultureInfo.InvariantCulture)}");
+            UpdateStatsText(foxFertilityMedianText,
+                $"Median of rabbit's speed: {foxFertilityMedian.ToString(CultureInfo.InvariantCulture)}");
+        }
+
+        if (ShouldLogToFile())
+        {
+            _fileLogger.LogLine($"{Academy.Instance.StepCount.ToString()}" +
+                                $"{foxesPopulation.ToString()}," +
+                                $"{rabbitsPopulation.ToString()}," +
+                                $"{rabbitSpeedMedian.ToString(CultureInfo.InvariantCulture)}," +
+                                $"{rabbitSensoryRangeMedian.ToString(CultureInfo.InvariantCulture)}," +
+                                $"{rabbitFertilityMedian.ToString(CultureInfo.InvariantCulture)}," +
+                                $"{foxSpeedMedian.ToString(CultureInfo.InvariantCulture)}," +
+                                $"{foxSensoryRangeMedian.ToString(CultureInfo.InvariantCulture)}," +
+                                $"{foxFertilityMedian.ToString(CultureInfo.InvariantCulture)}");
+        }
+    }
+
+    private bool ShouldLogToFile()
+    {
+        return Time.frameCount % logPeriod == 0;
     }
 
     private bool ShouldUpdateUI()
     {
-        return Time.frameCount % updatePeriod != 0;
+        return Time.frameCount % updatePeriod == 0;
     }
 
     private void UpdateStatsText(Text textElement, string text)
