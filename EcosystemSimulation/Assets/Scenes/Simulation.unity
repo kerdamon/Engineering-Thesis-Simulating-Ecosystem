@@ -189,6 +189,85 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &228880722
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 228880723}
+  - component: {fileID: 228880725}
+  - component: {fileID: 228880724}
+  m_Layer: 5
+  m_Name: FoxesPopulationText
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &228880723
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 228880722}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 321251132}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -569.65, y: 424.55}
+  m_SizeDelta: {x: 657.391, y: 131.745}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &228880724
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 228880722}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 52
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 0
+    m_MaxSize: 300
+    m_Alignment: 0
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: 'Foxes on scene:'
+--- !u!222 &228880725
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 228880722}
+  m_CullTransparentMesh: 1
 --- !u!1 &321251128
 GameObject:
   m_ObjectHideFlags: 0
@@ -281,6 +360,7 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 1943430476}
+  - {fileID: 228880723}
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -399,9 +479,14 @@ MonoBehaviour:
   _enableSpeedAcceleration: 1
   _speedAccelerationFactor: 1.5
   _initPositonButton: 114
---- !u!1 &1192944587 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5014543820233124429, guid: da0347d17e632d14a9af1a0994473def, type: 3}
+--- !u!4 &1144109234 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5014543819024325272, guid: da0347d17e632d14a9af1a0994473def, type: 3}
+  m_PrefabInstance: {fileID: 5014543820302176318}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1192944588 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5014543820233124426, guid: da0347d17e632d14a9af1a0994473def, type: 3}
   m_PrefabInstance: {fileID: 5014543820302176318}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1277857821
@@ -413,9 +498,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1277857823}
+  - component: {fileID: 1277857824}
   - component: {fileID: 1277857822}
   m_Layer: 0
-  m_Name: SimulationSettings
+  m_Name: SimulationController
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -430,9 +516,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1277857821}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 79cf4798c54ac6b43899f312b4396eef, type: 3}
+  m_Script: {fileID: 11500000, guid: 9f69e7728de013742815437e8e1b5510, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  simulationMetricsUI: {fileID: 321251128}
 --- !u!4 &1277857823
 Transform:
   m_ObjectHideFlags: 0
@@ -447,6 +534,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1277857824
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1277857821}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 252bca9fd7d597f4a912577635c38580, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  foxesContainer: {fileID: 1144109234}
+  rabbitContainer: {fileID: 1192944588}
+  foxesPopulationText: {fileID: 228880724}
+  rabbitsPopulationText: {fileID: 1943430478}
 --- !u!1 &1312118939
 GameObject:
   m_ObjectHideFlags: 0
@@ -551,9 +654,8 @@ GameObject:
   - component: {fileID: 1943430476}
   - component: {fileID: 1943430479}
   - component: {fileID: 1943430478}
-  - component: {fileID: 1943430477}
   m_Layer: 5
-  m_Name: Text
+  m_Name: RabbitsPopulationText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -578,20 +680,6 @@ RectTransform:
   m_AnchoredPosition: {x: -673.07806, y: 480.77}
   m_SizeDelta: {x: 450.542, y: 244.182}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1943430477
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1943430475}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ccd7f27e4319e0f418aaca110a5c4f57, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  textElement: {fileID: 1943430478}
-  agents: {fileID: 1192944587}
 --- !u!114 &1943430478
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -614,18 +702,18 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 65
+    m_FontSize: 52
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 10
-    m_MaxSize: 237
+    m_MinSize: 0
+    m_MaxSize: 300
     m_Alignment: 0
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Agents on scene:'
+  m_Text: 'Rabbits on scene:'
 --- !u!222 &1943430479
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -641,17 +729,53 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 244229199749264219, guid: da0347d17e632d14a9af1a0994473def, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 68.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 244229199749264219, guid: da0347d17e632d14a9af1a0994473def, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -36.8
+      objectReference: {fileID: 0}
     - target: {fileID: 2208977992953163621, guid: da0347d17e632d14a9af1a0994473def, type: 3}
       propertyPath: m_TagString
       value: Rabbit
+      objectReference: {fileID: 0}
+    - target: {fileID: 3915948004203474453, guid: da0347d17e632d14a9af1a0994473def, type: 3}
+      propertyPath: nnModel
+      value: 
+      objectReference: {fileID: 5022602860645237092, guid: fdf4b44548f5db14ba743394c4db0518, type: 3}
+    - target: {fileID: 4087781399380897816, guid: da0347d17e632d14a9af1a0994473def, type: 3}
+      propertyPath: increaseRate
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4087781399380897816, guid: da0347d17e632d14a9af1a0994473def, type: 3}
+      propertyPath: values.Array.data[0]
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 4087781399380897816, guid: da0347d17e632d14a9af1a0994473def, type: 3}
+      propertyPath: values.Array.data[1]
+      value: -52.67
       objectReference: {fileID: 0}
     - target: {fileID: 4087781399380897816, guid: da0347d17e632d14a9af1a0994473def, type: 3}
       propertyPath: values.Array.data[2]
       value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 4440252359356821727, guid: da0347d17e632d14a9af1a0994473def, type: 3}
+      propertyPath: values.Array.data[0]
+      value: -306.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4440252359356821727, guid: da0347d17e632d14a9af1a0994473def, type: 3}
+      propertyPath: values.Array.data[1]
+      value: -270.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 4440252359356821727, guid: da0347d17e632d14a9af1a0994473def, type: 3}
       propertyPath: values.Array.data[2]
       value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 4520546824721253538, guid: da0347d17e632d14a9af1a0994473def, type: 3}
+      propertyPath: rank
+      value: 1.4
       objectReference: {fileID: 0}
     - target: {fileID: 5014543819106390974, guid: da0347d17e632d14a9af1a0994473def, type: 3}
       propertyPath: m_Name
@@ -702,17 +826,33 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8017043056650797236, guid: da0347d17e632d14a9af1a0994473def, type: 3}
+      propertyPath: timeIncrement
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8017043056650797236, guid: da0347d17e632d14a9af1a0994473def, type: 3}
       propertyPath: maleRabbitChild
       value: 
       objectReference: {fileID: 2043107266091046649, guid: 2a7aa60a53a7ec2429c616a5b35a764f, type: 3}
+    - target: {fileID: 8017043056650797236, guid: da0347d17e632d14a9af1a0994473def, type: 3}
+      propertyPath: interactionDuration
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 8684830512259518663, guid: da0347d17e632d14a9af1a0994473def, type: 3}
       propertyPath: m_TagString
       value: Fox
       objectReference: {fileID: 0}
+    - target: {fileID: 8710879929082767106, guid: da0347d17e632d14a9af1a0994473def, type: 3}
+      propertyPath: nnModel
+      value: 
+      objectReference: {fileID: 5022602860645237092, guid: 041fbaf744003a04fb7ba924c2b25d3b, type: 3}
     - target: {fileID: 8931048257446040014, guid: da0347d17e632d14a9af1a0994473def, type: 3}
       propertyPath: m_BehaviorType
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 9063218668523972549, guid: da0347d17e632d14a9af1a0994473def, type: 3}
+      propertyPath: nnModel
+      value: 
+      objectReference: {fileID: 5022602860645237092, guid: 041fbaf744003a04fb7ba924c2b25d3b, type: 3}
     - target: {fileID: 9191415489041165400, guid: da0347d17e632d14a9af1a0994473def, type: 3}
       propertyPath: values.Array.data[2]
       value: 92.8

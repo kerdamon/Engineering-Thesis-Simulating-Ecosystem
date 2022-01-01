@@ -320,7 +320,7 @@ MonoBehaviour:
   - 30
   - 30
   - 0
-  increaseRate: 0
+  increaseRate: 1
 --- !u!114 &5933343763909004989
 MonoBehaviour:
   m_ObjectHideFlags: 0
