@@ -12,8 +12,8 @@ namespace Interaction
         [SerializeField] private int maxRandomDeviation;
         [SerializeField] private float mutationProbability;
 
-        [SerializeField] private GameObject maleRabbitChild;
-        [SerializeField] private GameObject femaleRabbitChild;
+        [SerializeField] private GameObject maleChild;
+        [SerializeField] private GameObject femaleChild;
 
         [SerializeField] private float maxSensorySphereColliderRadius;
         [SerializeField] private float minSensorySphereColliderRadius;
@@ -48,7 +48,7 @@ namespace Interaction
             var numberOfChildren = CalculateNumberOfOffspring(mateFeatures["Fertility"]);
             for (var i = 0; i < numberOfChildren; i++)
             {
-                var originalGameObject = Random.value > 0.5f ? maleRabbitChild : femaleRabbitChild;
+                var originalGameObject = Random.value > 0.5f ? maleChild : femaleChild;
                 var offspring = Instantiate(originalGameObject, transform.parent.parent);
                 offspring.transform.position = mate.transform.position;
                 offspring.transform.Translate(Random.value * 2, 0, Random.value * 2);

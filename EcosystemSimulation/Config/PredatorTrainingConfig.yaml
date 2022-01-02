@@ -59,3 +59,4 @@ environment_parameters:
   agent_bump_into_food: -0.2
   agent_drink_reward: 0.0
   rabbit_mating_reward: -1.0
+  fox_mating_reward: -1.0
