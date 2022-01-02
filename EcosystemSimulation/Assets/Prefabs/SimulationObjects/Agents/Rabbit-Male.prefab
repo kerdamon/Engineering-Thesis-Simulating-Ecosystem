@@ -148,6 +148,7 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   increaseInPartnersUrgeOnMatingAttempt: 5
+  femaleTag: Rabbit-Female
 --- !u!1001 &9037921327190137155
 PrefabInstance:
   m_ObjectHideFlags: 0
