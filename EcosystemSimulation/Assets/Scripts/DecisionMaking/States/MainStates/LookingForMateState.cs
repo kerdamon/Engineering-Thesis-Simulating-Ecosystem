@@ -1,5 +1,6 @@
 ﻿using DecisionMaking.States.SpecialStates;
 using Interaction;
+using Interaction.InteractionManagers;
 using UnityEngine;
 
 namespace DecisionMaking.States
@@ -34,7 +35,7 @@ namespace DecisionMaking.States
             };
         }
 
-        private void OnTriggerEnter(Collider other)
+        private void OnTriggerStay(Collider other)
         {
             if (!enabled || !other.gameObject.CompareTag("Rabbit-Female")) return;
             Mate = other.transform.parent.gameObject;
@@ -44,10 +45,15 @@ namespace DecisionMaking.States
             {
                 InteractionManager.InteractIfAbleWith(MatingInteraction, Mate);
             }
-            else
-            {
-                _mateNeeds["ReproductionUrge"] += increaseInPartnersUrgeOnMatingAttempt;
-            }
+        }
+
+        private void OnTriggerEnter(Collider other)
+        {
+            if (!enabled || !other.gameObject.CompareTag("Rabbit-Female")) return;
+            if (!InteractionManager.AbleToInteract()) return;
+            Mate = other.transform.parent.gameObject;
+            _mateNeeds = Mate.GetComponent<Needs>();
+            _mateNeeds["ReproductionUrge"] += increaseInPartnersUrgeOnMatingAttempt;
         }
     }
 }

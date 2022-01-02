@@ -12,14 +12,9 @@ namespace DecisionMaking.States.EventStates
                 ActivateThis();
                 //Debug.Log($"Sees predator");
             }
-        }
-
-        private void OnTriggerExit(Collider other)
-        {
-            if (!other.isTrigger && other.gameObject.CompareTag("Fox"))
+            else
             {
                 DeactivateThis();
-                Debug.Log($"Stop seeing predator");                
             }
         }
     }

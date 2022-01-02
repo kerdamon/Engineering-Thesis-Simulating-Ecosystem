@@ -4,7 +4,7 @@ using UnityEngine;
 
 public abstract class DictionarySerializer<TValue> : MonoBehaviour, IEnumerable<KeyValuePair<string, TValue>>
 {
-    [SerializeField] protected float maxValue;
+    [SerializeField] public float maxValue;
     [SerializeField] private List<string> keys;
     [SerializeField] private List<TValue> values;
 

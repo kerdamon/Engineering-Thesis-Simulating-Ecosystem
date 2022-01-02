@@ -7,18 +7,26 @@ namespace Interaction
 {
     public class MatingInteraction : Interaction
     {
-        [SerializeField] private int maxChildrenPerLitter;
+        [SerializeField] private int averageOffspringNumberPerLitter;
+        [SerializeField] private int maxDeviationFromFertility;
+        [SerializeField] private int maxRandomDeviation;
         [SerializeField] private float mutationProbability;
 
         [SerializeField] private GameObject maleRabbitChild;
         [SerializeField] private GameObject femaleRabbitChild;
 
         private Needs _needs;
+        private Features _features;
+
+        private int _maxFeatureValue;
+        private int _minFeatureValue = 0;   //todo change, magic number
 
         protected override void Start()
         {
             base.Start();
             _needs = GetComponentInParent<Needs>();
+            _features = GetComponentInParent<Features>();
+            _maxFeatureValue = (int)_features.maxValue;
         }
 
         protected override void AtInteractionEnd()
@@ -31,7 +39,10 @@ namespace Interaction
 
         private void SpawnOffspring(GameObject mate)
         {
-            var numberOfChildren = Random.value * maxChildrenPerLitter;
+            var actorFeatures = SimulationObject.GetComponent<Features>();
+            var mateFeatures = mate.GetComponent<Features>();
+
+            var numberOfChildren = CalculateNumberOfOffspring(mateFeatures["Fertility"]);
             for (var i = 0; i < numberOfChildren; i++)
             {
                 var originalGameObject = Random.value > 0.5f ? maleRabbitChild : femaleRabbitChild;
@@ -39,8 +50,6 @@ namespace Interaction
                 offspring.transform.position = mate.transform.position;
                 offspring.transform.Translate(Random.value * 2, 0, Random.value * 2);
                 var offspringFeatures = offspring.GetComponent<Features>();
-                var actorFeatures = SimulationObject.GetComponent<Features>();
-                var mateFeatures = mate.GetComponent<Features>();
                 
                 //crossover
                 foreach (var f in actorFeatures)
@@ -52,9 +61,37 @@ namespace Interaction
                 foreach (var f in actorFeatures)
                 {
                     var feature = f.Key;
-                    offspringFeatures[feature] = MutateFeature(offspringFeatures[feature], mutationProbability, feature);
+                    offspringFeatures[feature] = Random.value < mutationProbability
+                        ? Random.Range(0, 101)
+                        : offspringFeatures[feature];
                 } 
             }
+        }
+
+        private int CalculateNumberOfOffspring(int fertility)
+        {
+            return averageOffspringNumberPerLitter + CalculateNumberOfOffspringFromFertility(fertility) + CalculateRandomChildrenComponent();
+        }
+        
+        private int CalculateNumberOfOffspringFromFertility(int fertility)
+        {
+            var wholeLength = _maxFeatureValue - _minFeatureValue;
+            Debug.Log($"wholeLength {wholeLength}");
+            var numberOfRanges = maxDeviationFromFertility * 2 + 1;
+            Debug.Log($"numberOfRanges {numberOfRanges}");
+            var rangeLength = wholeLength * 1.0f / numberOfRanges;
+            Debug.Log($"rangeLength {rangeLength}");
+            var returned = (int)(fertility / rangeLength) - maxDeviationFromFertility;
+            Debug.Log($"returned {returned}");
+
+            return returned;
+        }
+
+        private int CalculateRandomChildrenComponent()
+        {
+            var returned = Random.Range(-maxRandomDeviation, maxRandomDeviation+1);
+            Debug.Log($"Random childeren component: {returned}");
+            return returned;
         }
         
         private static int MutateFeature(int feature, float probability, string featureName)

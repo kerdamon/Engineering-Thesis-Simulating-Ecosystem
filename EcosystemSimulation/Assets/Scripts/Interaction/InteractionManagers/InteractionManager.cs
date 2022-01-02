@@ -60,6 +60,8 @@ namespace Interaction.InteractionManagers
                 LaunchNewInteraction(interaction, target);
             }
         }
+
+        public bool AbleToInteract() => MovementAgent.WantInteraction && !IsInteracting; 
         
         protected virtual void StartRelevantInteraction(GameObject target)
         {
