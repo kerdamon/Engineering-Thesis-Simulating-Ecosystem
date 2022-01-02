@@ -30,17 +30,6 @@ namespace Interaction.InteractionManagers
             base.Start();
         }
 
-        protected override void StartRelevantInteraction(GameObject target)
-        {
-            switch (target.tag)
-            {
-                case "Food":
-                    LaunchNewInteraction(_eatingCarrotInteraction, target);
-                    return;
-            }
-            base.StartRelevantInteraction(target);
-        }
-
         public float OnEaten()
         {
             var parent = transform.parent;

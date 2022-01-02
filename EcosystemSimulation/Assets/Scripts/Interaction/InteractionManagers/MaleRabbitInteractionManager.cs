@@ -18,17 +18,5 @@ namespace Interaction.InteractionManagers
             
             base.Start();
         }
-
-        protected override void StartRelevantInteraction(GameObject target)
-        {
-            switch (target.tag)
-            {
-                case "Rabbit-Female":
-                    if(Needs.IsMaxOrGreater("ReproductionUrge"))
-                        LaunchNewInteraction(MatingInteraction, target);
-                    return;
-            }
-            base.StartRelevantInteraction(target);
-        }
     }
 }
