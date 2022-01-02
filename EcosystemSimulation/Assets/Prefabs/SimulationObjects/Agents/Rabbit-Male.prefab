@@ -106,7 +106,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeIncrement: 1
   interactionDuration: 1
-  maxChildrenPerLitter: 3
+  averageOffspringNumberPerLitter: 6
+  maxDeviationFromFertility: 3
+  maxRandomDeviation: 2
   mutationProbability: 0.03
   maleRabbitChild: {fileID: 0}
   femaleRabbitChild: {fileID: 4682881298591539552, guid: 5b95f44433656d34581289181c8e67a5, type: 3}

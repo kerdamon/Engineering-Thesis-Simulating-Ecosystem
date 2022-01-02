@@ -9,10 +9,10 @@ using Random = UnityEngine.Random;
 public class MovementAgent : Agent
 {
     [SerializeField] private float movementSpeed;
-    [SerializeField] private float turningSpeed;   
+    [SerializeField] private float turningSpeed;
     
     private Rigidbody _agentRigidbody;
-    
+    private Features _features;
     
     private bool _isTraining;
     private TrainingArea _trainingArea;
@@ -28,6 +28,7 @@ public class MovementAgent : Agent
 
     public override void Initialize()
     {
+        _features = GetComponent<Features>();
         _agentRigidbody = GetComponent<Rigidbody>();
         _trainingArea = GetComponentInParent<TrainingArea>();
         _isTraining = Mathf.Abs(Academy.Instance.EnvironmentParameters.GetWithDefault("is_training", 0.0f)) > 0.0001f;
@@ -44,8 +45,10 @@ public class MovementAgent : Agent
     
     public override void OnActionReceived(ActionBuffers actions)
     {
+        Debug.Log($"{actions.DiscreteActions[0]}", this);
         MoveAgent(actions);
         GetInteractDesire(actions);
+        //Debug.Log($"Ustawiam {WantInteraction}, bo dics.acts[0] = {actions.DiscreteActions[0]}", this);
         ModifyRewardOnActionReceived();
         AfterAction();
     }
@@ -69,8 +72,8 @@ public class MovementAgent : Agent
         dirToGo += transform.right * right;
         rotateDir = transform.up * rotate;
 
-
-        _agentRigidbody.AddForce(dirToGo * movementSpeed, ForceMode.VelocityChange);
+        var featuresFactor = CalculateFeaturesFactor(_features["Speed"]);
+        _agentRigidbody.AddForce(dirToGo * movementSpeed * featuresFactor, ForceMode.VelocityChange);
         transform.Rotate(rotateDir, Time.fixedDeltaTime * turningSpeed);
         
         if (_agentRigidbody.velocity.sqrMagnitude > 25f) // slow it down
@@ -79,6 +82,10 @@ public class MovementAgent : Agent
         }
     }
 
+    private static float CalculateFeaturesFactor(int featureValue)
+    {
+        return Mathf.Pow(1.0139598f, featureValue - 50);
+    }
 
     private void GetInteractDesire(ActionBuffers actions)
     {

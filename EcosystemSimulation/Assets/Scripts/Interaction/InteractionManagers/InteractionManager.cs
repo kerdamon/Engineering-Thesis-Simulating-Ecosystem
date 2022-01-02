@@ -1,4 +1,5 @@
-﻿using Interaction;
+﻿using System;
+using Interaction;
 using Unity.MLAgents;
 using UnityEngine;
 
@@ -8,6 +9,7 @@ namespace Interaction.InteractionManagers
     {
         protected MovementAgent MovementAgent;
         private DrinkingInteraction _drinkingInteraction;
+        protected MatingInteraction MatingInteraction;
         protected Needs Needs;
         
         public Interaction CurrentInteraction { get; protected set; }
@@ -29,11 +31,18 @@ namespace Interaction.InteractionManagers
             agent_bump_into_water = Academy.Instance.EnvironmentParameters.GetWithDefault("agent_bump_into_water", 0.0f);
             agent_interact_with_water = Academy.Instance.EnvironmentParameters.GetWithDefault("agent_interact_with_water", 0.0f);
 
-            MovementAgent.AfterAction += StopInteractionWhenAgentDontWantTo;
+            //MovementAgent.AfterAction += StopInteractionWhenAgentDontWantTo;
             
             _drinkingInteraction = GetComponent<DrinkingInteraction>();
             AddRewardAfterInteraction(_drinkingInteraction, agent_interact_with_water);
             RegisterUpdatingCurrentInteractionAfterEndOf(_drinkingInteraction);
+
+            MatingInteraction = GetComponent<MatingInteraction>();
+        }
+
+        private void Update()
+        {
+            StopInteractionWhenAgentDontWantTo();
         }
 
         protected void AddRewardAfterInteraction(Interaction interaction, float rewardValue)
@@ -60,6 +69,8 @@ namespace Interaction.InteractionManagers
                 LaunchNewInteraction(interaction, target);
             }
         }
+
+        public bool AbleToInteract() => MovementAgent.WantInteraction && !IsInteracting; 
         
         protected virtual void StartRelevantInteraction(GameObject target)
         {
@@ -85,8 +96,9 @@ namespace Interaction.InteractionManagers
 
         private void StopInteractionWhenAgentDontWantTo()
         {
+            if (CurrentInteraction == MatingInteraction) return;   //DONT TOUCH THIS i have no idea why it works, but without that guard clause it does not
             if(!MovementAgent.WantInteraction && IsInteracting)
-                CurrentInteraction.Interrupt();
+                 CurrentInteraction.Interrupt();
         }
         
         private void OnTriggerEnter(Collider other)
