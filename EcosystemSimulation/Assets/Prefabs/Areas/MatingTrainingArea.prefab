@@ -187,16 +187,6 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 7019780964327185640, guid: d12ac809e5ac5d048958702a68cb5f16, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: d12ac809e5ac5d048958702a68cb5f16, type: 3}
---- !u!1 &9089976726840804838 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5457864386793967586, guid: d12ac809e5ac5d048958702a68cb5f16, type: 3}
-  m_PrefabInstance: {fileID: 3861888435848874500}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &9089976728024982138 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 5457864387723864190, guid: d12ac809e5ac5d048958702a68cb5f16, type: 3}
-  m_PrefabInstance: {fileID: 3861888435848874500}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &9089976727852923922 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5457864387828889110, guid: d12ac809e5ac5d048958702a68cb5f16, type: 3}
@@ -207,22 +197,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 5388131700792968770, guid: d12ac809e5ac5d048958702a68cb5f16, type: 3}
   m_PrefabInstance: {fileID: 3861888435848874500}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &5656424448561053216
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9089976726840804838}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5eb72420e9fc40788abded8e0b277818, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  range: 280
-  waterContainterTransform: {fileID: 9089976728024982138}
-  agentsContainterTransform: {fileID: 9089976727852923922}
-  maxRepositionsOnCollisions: 50
 --- !u!114 &8074509296941199570
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -237,11 +211,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeIncrement: 0
   interactionDuration: 0
-  maxChildrenPerLitter: 0
+  averageOffspringNumberPerLitter: 0
+  maxDeviationFromFertility: 0
+  maxRandomDeviation: 0
   mutationProbability: 0
   maleRabbitChild: {fileID: 0}
   femaleRabbitChild: {fileID: 0}
-  trainingArea: {fileID: 5656424448561053216}
+  maxSensorySphereColliderRadius: 0
+  minSensorySphereColliderRadius: 0
+  trainingArea: {fileID: 0}
 --- !u!1001 &3961440716523369239
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -416,11 +394,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeIncrement: 0
   interactionDuration: 0
-  maxChildrenPerLitter: 0
+  averageOffspringNumberPerLitter: 0
+  maxDeviationFromFertility: 0
+  maxRandomDeviation: 0
   mutationProbability: 0
   maleRabbitChild: {fileID: 0}
   femaleRabbitChild: {fileID: 0}
-  trainingArea: {fileID: 5656424448561053216}
+  maxSensorySphereColliderRadius: 0
+  minSensorySphereColliderRadius: 0
+  trainingArea: {fileID: 0}
 --- !u!1001 &4943090203424473585
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -676,11 +658,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeIncrement: 0
   interactionDuration: 0
-  maxChildrenPerLitter: 0
+  averageOffspringNumberPerLitter: 0
+  maxDeviationFromFertility: 0
+  maxRandomDeviation: 0
   mutationProbability: 0
   maleRabbitChild: {fileID: 0}
   femaleRabbitChild: {fileID: 0}
-  trainingArea: {fileID: 5656424448561053216}
+  maxSensorySphereColliderRadius: 0
+  minSensorySphereColliderRadius: 0
+  trainingArea: {fileID: 0}
 --- !u!1001 &5402733437845683241
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -855,11 +841,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeIncrement: 0
   interactionDuration: 0
-  maxChildrenPerLitter: 0
+  averageOffspringNumberPerLitter: 0
+  maxDeviationFromFertility: 0
+  maxRandomDeviation: 0
   mutationProbability: 0
   maleRabbitChild: {fileID: 0}
   femaleRabbitChild: {fileID: 0}
-  trainingArea: {fileID: 5656424448561053216}
+  maxSensorySphereColliderRadius: 0
+  minSensorySphereColliderRadius: 0
+  trainingArea: {fileID: 0}
 --- !u!1001 &6480081607116576756
 PrefabInstance:
   m_ObjectHideFlags: 0
