@@ -12,15 +12,12 @@ namespace DecisionMaking
     
         public State CurrentState { get; private set; }
         private List<State> _statesList; //main states are states that can be switched to regardless of current state
-
-        private bool is_training;
         
         private void Start()
         {
             _statesList = GetComponentsInChildren<State>().ToList();
             SetDefaultState();
             CurrentState.OnEnterState();
-            is_training = Academy.Instance.EnvironmentParameters.GetWithDefault("is_training", 0.0f) > 0.00001f;
         }
 
         protected virtual void SetDefaultState()
@@ -29,10 +26,7 @@ namespace DecisionMaking
         }
         
         protected virtual void Update(){
-            if (!is_training)
-            {
-                InferState();
-            }
+            InferState();
         }
 
         private void InferState()
