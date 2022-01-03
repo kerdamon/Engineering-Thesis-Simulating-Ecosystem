@@ -12,6 +12,7 @@ namespace DecisionMaking.States.EventStates
 
         protected override void Awake()
         {
+            base.Awake();
             _sphereCollider = GetComponent<SphereCollider>();
         }
 
