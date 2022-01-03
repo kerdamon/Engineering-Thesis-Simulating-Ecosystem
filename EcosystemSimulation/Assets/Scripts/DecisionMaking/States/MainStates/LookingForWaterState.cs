@@ -7,7 +7,7 @@ namespace DecisionMaking.States
     {
         public override float CurrentRank => scoreCurve.Evaluate(Needs["Thirst"]);
         
-        private void OnTriggerEnter(Collider other)
+        private void OnTriggerStay(Collider other)
         {
             if(enabled && other.gameObject.CompareTag("Water") && Needs["Thirst"] > 0) //todo abstract this method to State
                 InteractionManager.InteractIfAbleWith(DrinkingInteraction, other.gameObject);
