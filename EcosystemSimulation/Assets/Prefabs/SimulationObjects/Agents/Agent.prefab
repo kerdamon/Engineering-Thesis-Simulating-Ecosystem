@@ -272,6 +272,7 @@ GameObject:
   - component: {fileID: 9079999088701981155}
   - component: {fileID: 3056754191753714340}
   - component: {fileID: 4367339644587198246}
+  - component: {fileID: 5574671973395308583}
   m_Layer: 0
   m_Name: Agent
   m_TagString: Untagged
@@ -571,6 +572,138 @@ MonoBehaviour:
   m_DetectionSize: {x: 51, y: 1, z: 60}
   m_BoundsSize: {x: 51, y: 1, z: 60}
   m_Offset: {x: 0, y: 0, z: 15}
+--- !u!114 &5574671973395308583
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6193517788997554062}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec8722596ac4fb346894cd62602b3999, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ObservationShape: 6 channels x 20 width x 20 height
+  m_SensorName: GridSensor
+  m_ObservationStacks: 1
+  m_CompressionType: 1
+  m_ObservationType: 0
+  m_ChannelLabels: []
+  m_Debug_CreateSensorOnAwake: 0
+  m_Debug_CreateSensorOnValidate: 1
+  m_Debug_FrameInterval: 1
+  m_Debug_DrawGridBuffer: 0
+  m_Debug_GridBufferDrawer:
+    Context: {fileID: 0}
+    Editor: {fileID: 0}
+    GridSizeRatio: 0
+    IsEnabled: 0
+    IsStandby: 0
+  m_GridShape:
+    NumChannels: 6
+    Width: 20
+    Height: 20
+  m_ClearCacheOnReset: 0
+  m_ColliderBufferSize: 128
+  m_TmpObjectToAdd: {fileID: 0}
+  m_GameObjectSettingsList:
+  - Tag: Food
+    Enabled: 1
+    DetectionType: 0
+    Modifier: 0
+    Detectable: {fileID: 3861191557342994614, guid: aca7aeccaff29d64290ca94f0785d2e7, type: 3}
+    m_UserObservables:
+      m_Observables: []
+    m_Observables:
+    - Name: One-Hot
+      Type: 1
+      Index: -1
+      Enabled: 1
+      Color: {r: 1, g: 0.57489336, b: 0, a: 1}
+    m_DetectorSpaceType: 0
+  - Tag: Water
+    Enabled: 1
+    DetectionType: 0
+    Modifier: 0
+    Detectable: {fileID: 7477169605539638210, guid: e6834bc987bb21b4db858d3a60b8ab18, type: 3}
+    m_UserObservables:
+      m_Observables: []
+    m_Observables:
+    - Name: One-Hot
+      Type: 1
+      Index: -1
+      Enabled: 1
+      Color: {r: 0.23650296, g: 0.2264151, b: 0.9056604, a: 1}
+    m_DetectorSpaceType: 0
+  - Tag: Rabbit-Male
+    Enabled: 1
+    DetectionType: 0
+    Modifier: 0
+    Detectable: {fileID: 3504797305807381156, guid: 2101d50fe66352549b4d0bcc52eec465, type: 3}
+    m_UserObservables:
+      m_Observables: []
+    m_Observables:
+    - Name: One-Hot
+      Type: 1
+      Index: -1
+      Enabled: 1
+      Color: {r: 0.509434, g: 0.2952403, b: 0.18983625, a: 1}
+    m_DetectorSpaceType: 0
+  - Tag: Rabbit-Female
+    Enabled: 1
+    DetectionType: 0
+    Modifier: 0
+    Detectable: {fileID: 7848537360153417307, guid: 18288d7095600f249aa0948e29a6c936, type: 3}
+    m_UserObservables:
+      m_Observables: []
+    m_Observables:
+    - Name: One-Hot
+      Type: 1
+      Index: -1
+      Enabled: 1
+      Color: {r: 0.5377358, g: 0.44496018, b: 0.38300994, a: 1}
+    m_DetectorSpaceType: 0
+  - Tag: Fox-Male
+    Enabled: 1
+    DetectionType: 0
+    Modifier: 0
+    Detectable: {fileID: 3198916722623561021, guid: 53c7dce78e6b4ed45a5dcde3aaa179de, type: 3}
+    m_UserObservables:
+      m_Observables: []
+    m_Observables:
+    - Name: One-Hot
+      Type: 1
+      Index: -1
+      Enabled: 1
+      Color: {r: 1, g: 0.22568533, b: 0, a: 1}
+    m_DetectorSpaceType: 0
+  - Tag: Fox-Female
+    Enabled: 1
+    DetectionType: 0
+    Modifier: 0
+    Detectable: {fileID: 9076831693116661885, guid: b827fdb2f43a21f478b3eaa5f5b869e2, type: 3}
+    m_UserObservables:
+      m_Observables: []
+    m_Observables:
+    - Name: One-Hot
+      Type: 1
+      Index: -1
+      Enabled: 1
+      Color: {r: 1, g: 0.12787381, b: 0, a: 1}
+    m_DetectorSpaceType: 0
+  m_RotationType: 0
+  m_DetectionBounds:
+    m_Center: {x: 0, y: 0, z: 0}
+    m_Extent: {x: 400, y: 0.5, z: 400}
+  m_EditorBounds:
+    m_Center: {x: 0, y: 0, z: 0}
+    m_Extent: {x: 400, y: 0.5, z: 400}
+  m_CellSize: 40
+  m_NumCells: {x: 20, y: 1, z: 20}
+  m_DetectionSize: {x: 800, y: 1, z: 800}
+  m_BoundsSize: {x: 800, y: 1, z: 800}
+  m_Offset: {x: 0, y: 0, z: 0}
 --- !u!1 &6508573061898438162
 GameObject:
   m_ObjectHideFlags: 0
