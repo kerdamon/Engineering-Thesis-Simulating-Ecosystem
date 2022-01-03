@@ -7,6 +7,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1662554868649015008, guid: da0347d17e632d14a9af1a0994473def, type: 3}
+      propertyPath: plantLimit
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1662554869728359723, guid: da0347d17e632d14a9af1a0994473def, type: 3}
+      propertyPath: plantLimit
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1662554869780671992, guid: da0347d17e632d14a9af1a0994473def, type: 3}
+      propertyPath: plantLimit
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1662554869953542640, guid: da0347d17e632d14a9af1a0994473def, type: 3}
+      propertyPath: plantLimit
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 5014543819106390974, guid: da0347d17e632d14a9af1a0994473def, type: 3}
       propertyPath: m_Name
       value: TrainingArea
