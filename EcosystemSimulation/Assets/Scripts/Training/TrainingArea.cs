@@ -33,6 +33,10 @@ public class TrainingArea : MonoBehaviour, ITrainingArea
         yield return 0;
         RandomizeFoodGenerators();
         yield return 0;
+        RandomizeRabbits();
+        yield return 0;
+        RandomizeFoxes();
+        yield return 0;
     }
 
     private void RandomizeFoodGenerators()
