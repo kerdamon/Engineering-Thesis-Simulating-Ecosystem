@@ -182,7 +182,6 @@ public class SimulationController : MonoBehaviour
         var halfIndex = count / 2;
 
         var sortedList = list.OrderBy(n => n);
-        float median;
         if (count % 2 == 0)
         {
             return (sortedList.ElementAt(halfIndex) + sortedList.ElementAt(halfIndex - 1)) / 2;

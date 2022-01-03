@@ -7,7 +7,8 @@ using Random = UnityEngine.Random;
 
 public class TrainingArea : MonoBehaviour, ITrainingArea
 {
-    [SerializeField] Transform waterContainterTransform;
+    [SerializeField] private Transform waterContainterTransform;
+    [SerializeField] private Transform foodGeneratorContainterTransform;
     [SerializeField] private int maxRepositionsOnCollisions;
     
     [Range(10, 100)]
@@ -28,6 +29,17 @@ public class TrainingArea : MonoBehaviour, ITrainingArea
     {
         RandomizeWater();
         yield return 0;
+        RandomizeFoodGenerators();
+        yield return 0;
+    }
+
+    private void RandomizeFoodGenerators()
+    {
+        foreach (Transform foodGenerator in foodGeneratorContainterTransform)
+        {
+            ClearFood(foodGenerator);
+            RandomizePositionAndRotationWithCollisionCheck(foodGenerator, foodGeneratorContainterTransform);
+        }
     }
 
     private void RandomizeWater()
@@ -52,6 +64,7 @@ public class TrainingArea : MonoBehaviour, ITrainingArea
         {
             geographicalObjectsContainer.localScale = new Vector3(newScale, 1, newScale);
             RandomizeWater();
+            RandomizeFoodGenerators();
             _lastGeographicalObjectsContainerScale = newScale;
         }
     }
@@ -63,7 +76,8 @@ public class TrainingArea : MonoBehaviour, ITrainingArea
         var newRotation = obj.rotation;
         while (iterator < maxRepositionsOnCollisions)
         {
-            newPosition = containterTransform.TransformPoint(new Vector3(Random.Range(-ContentSetupRange, ContentSetupRange), obj.localPosition.y, Random.Range(-ContentSetupRange, ContentSetupRange)));
+            var range = ContentSetupRange * 0.8f;
+            newPosition = containterTransform.TransformPoint(new Vector3(Random.Range(-range, range), obj.localPosition.y, Random.Range(-range, range)));
             newRotation = Quaternion.Euler(new Vector3(0f, Random.Range(0, 360)));
             var isCollision = Physics.CheckBox(newPosition, obj.localScale / 2);
             if(!isCollision)
@@ -78,7 +92,16 @@ public class TrainingArea : MonoBehaviour, ITrainingArea
 
     protected void RandomizePositionAndRotation(Transform gameObject)
     {
-        gameObject.localPosition = new Vector3(Random.Range(-ContentSetupRange, ContentSetupRange), gameObject.localPosition.y, Random.Range(-ContentSetupRange, ContentSetupRange));
+        var range = ContentSetupRange * 0.8f;
+        gameObject.localPosition = new Vector3(Random.Range(-range, range), gameObject.localPosition.y, Random.Range(-range, range));
         gameObject.rotation = Quaternion.Euler(new Vector3(0f, Random.Range(0, 360)));
+    }
+
+    private static void ClearFood(Transform foodGeneratorTransform)
+    {
+        foreach(Transform foodObject in foodGeneratorTransform)
+        {
+            Destroy(foodObject.gameObject);
+        }
     }
 }

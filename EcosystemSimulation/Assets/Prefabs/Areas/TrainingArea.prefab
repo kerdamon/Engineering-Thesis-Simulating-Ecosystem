@@ -83,6 +83,16 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7125608475866666454, guid: da0347d17e632d14a9af1a0994473def, type: 3}
   m_PrefabInstance: {fileID: 1020355273932119132}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &5457864387723864190 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5014543820875019298, guid: da0347d17e632d14a9af1a0994473def, type: 3}
+  m_PrefabInstance: {fileID: 1020355273932119132}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &5457864387605602061 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5014543820979110737, guid: da0347d17e632d14a9af1a0994473def, type: 3}
+  m_PrefabInstance: {fileID: 1020355273932119132}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &8642981763297538425
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -95,7 +105,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2cf0de714fb84316a50e19a47b7acaaf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waterContainterTransform: {fileID: 0}
+  waterContainterTransform: {fileID: 5457864387723864190}
+  foodGeneratorContainterTransform: {fileID: 5457864387605602061}
   maxRepositionsOnCollisions: 50
   updateSizePeriod: 50
   geographicalObjectsContainer: {fileID: 7839140296609761674}
