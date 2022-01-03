@@ -15,7 +15,7 @@ public class Needs : DictionarySerializer<float>
     
     private void Start()
     {
-        var is_training = Academy.Instance.EnvironmentParameters.GetWithDefault("is_training", 0) > 0;
+        is_training = Academy.Instance.EnvironmentParameters.GetWithDefault("is_training", 0) > 0;
         _features = GetComponent<Features>();
         _movementAgent = GetComponent<MovementAgent>();
         _movementAgent.AfterAction += UpdateNeeds;
