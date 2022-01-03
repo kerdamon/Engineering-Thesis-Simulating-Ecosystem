@@ -31,6 +31,12 @@ public class TrainingArea : MonoBehaviour, ITrainingArea
         yield return 0;
     }
 
+    private void Start()
+    {
+        var newScale = Academy.Instance.EnvironmentParameters.GetWithDefault("training_area_size", 1.0f);
+        geographicalObjectsContainer.localScale = new Vector3(newScale, 1, newScale);
+    }
+
     private void Update()
     {
         if (Time.frameCount % updateSizePeriod != 0) return;
