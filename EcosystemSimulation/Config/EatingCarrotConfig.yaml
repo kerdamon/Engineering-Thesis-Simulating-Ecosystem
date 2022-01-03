@@ -33,7 +33,7 @@ environment_parameters:
   fox_each_episode_fixed: 0
   rabbit_on_eaten: 0
   agent_bump_into_wall: -0.2
-  agent_bump_into_water: -0.2
+  agent_bump_into_water: 0
   agent_bump_into_food: -0.2
   agent_drink_reward: 0
   rabbit_mating_reward: 0
@@ -54,13 +54,6 @@ environment_parameters:
   # training area size
   training_area_size:
     curriculum:
-      - name: SmallAreaSize
-        completion_criteria:
-          measure: progress
-          behavior: AgentMovement
-          min_lesson_length: 5
-          threshold: 0.1
-        value: 0.5
       - name: MediumAreaSize
         completion_criteria:
           measure: progress

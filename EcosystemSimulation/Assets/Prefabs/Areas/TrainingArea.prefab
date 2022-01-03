@@ -143,6 +143,6 @@ MonoBehaviour:
   foodGeneratorContainterTransform: {fileID: 5457864387605602061}
   rabbitContainterTransform: {fileID: 5457864387828889110}
   foxGeneratorContainterTransform: {fileID: 5457864386892318404}
-  maxRepositionsOnCollisions: 50
+  maxRepositionsOnCollisions: 500
   updateSizePeriod: 50
   geographicalObjectsContainer: {fileID: 7839140296609761674}

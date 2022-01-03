@@ -610,7 +610,7 @@ MonoBehaviour:
   m_GameObjectSettingsList:
   - Tag: Food
     Enabled: 1
-    DetectionType: 0
+    DetectionType: 2
     Modifier: 0
     Detectable: {fileID: 3861191557342994614, guid: aca7aeccaff29d64290ca94f0785d2e7, type: 3}
     m_UserObservables:
@@ -624,7 +624,7 @@ MonoBehaviour:
     m_DetectorSpaceType: 0
   - Tag: Water
     Enabled: 1
-    DetectionType: 0
+    DetectionType: 2
     Modifier: 0
     Detectable: {fileID: 7477169605539638210, guid: e6834bc987bb21b4db858d3a60b8ab18, type: 3}
     m_UserObservables:
@@ -638,7 +638,7 @@ MonoBehaviour:
     m_DetectorSpaceType: 0
   - Tag: Rabbit-Male
     Enabled: 1
-    DetectionType: 0
+    DetectionType: 2
     Modifier: 0
     Detectable: {fileID: 3504797305807381156, guid: 2101d50fe66352549b4d0bcc52eec465, type: 3}
     m_UserObservables:
@@ -652,7 +652,7 @@ MonoBehaviour:
     m_DetectorSpaceType: 0
   - Tag: Rabbit-Female
     Enabled: 1
-    DetectionType: 0
+    DetectionType: 2
     Modifier: 0
     Detectable: {fileID: 7848537360153417307, guid: 18288d7095600f249aa0948e29a6c936, type: 3}
     m_UserObservables:
@@ -666,7 +666,7 @@ MonoBehaviour:
     m_DetectorSpaceType: 0
   - Tag: Fox-Male
     Enabled: 1
-    DetectionType: 0
+    DetectionType: 2
     Modifier: 0
     Detectable: {fileID: 3198916722623561021, guid: 53c7dce78e6b4ed45a5dcde3aaa179de, type: 3}
     m_UserObservables:
@@ -680,7 +680,7 @@ MonoBehaviour:
     m_DetectorSpaceType: 0
   - Tag: Fox-Female
     Enabled: 1
-    DetectionType: 0
+    DetectionType: 2
     Modifier: 0
     Detectable: {fileID: 9076831693116661885, guid: b827fdb2f43a21f478b3eaa5f5b869e2, type: 3}
     m_UserObservables:
