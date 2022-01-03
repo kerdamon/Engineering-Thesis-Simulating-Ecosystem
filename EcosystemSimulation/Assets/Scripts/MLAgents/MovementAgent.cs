@@ -118,8 +118,11 @@ public class MovementAgent : Agent
     public override void OnEpisodeBegin()
     {
         if (!_isTraining) return;
+        
         var transform1 = transform;
         _trainingArea.RandomizePositionAndRotationWithCollisionCheck(transform1, transform1.parent);
+        
+        
     }
     
     public void KillAgent(string deathCause)
