@@ -28,21 +28,21 @@ public class Bumper : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Wall"))
         {
-            if(agent_bump_into_wall > 0.0001f){
+            if(Mathf.Abs(agent_bump_into_wall) > 0.0001f){
                 Debug.Log($"Added reward of value {agent_bump_into_wall} after bumping into wall", this);
                 _movementAgent.AddReward(agent_bump_into_wall); 
             }
         }
         if (other.gameObject.CompareTag("Water"))
         {
-            if(agent_bump_into_water > 0.0001f){
+            if(Mathf.Abs(agent_bump_into_water) > 0.0001f){
                 Debug.Log($"Added reward of value {agent_bump_into_water} after bumping into water", this);
                 _movementAgent.AddReward(agent_bump_into_water);
             }
         }
         if (other.gameObject.CompareTag("Food"))
         {
-            if(agent_bump_into_food > 0.0001f){
+            if(Mathf.Abs(agent_bump_into_food) > 0.0001f){
                 Debug.Log($"Added reward of value {agent_bump_into_food} after bumping into food", this);
                 _movementAgent.AddReward(agent_bump_into_food);
             }
