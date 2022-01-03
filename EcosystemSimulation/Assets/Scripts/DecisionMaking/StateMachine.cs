@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using DecisionMaking.States;
+using Unity.MLAgents;
 using UnityEngine;
 
 namespace DecisionMaking
@@ -12,18 +13,26 @@ namespace DecisionMaking
         public State CurrentState { get; private set; }
         private List<State> _statesList; //main states are states that can be switched to regardless of current state
 
+        private bool is_training;
         
         private void Start()
         {
             _statesList = GetComponentsInChildren<State>().ToList();
-            SetState(defaultState);
+            SetDefaultState();
             CurrentState.OnEnterState();
-            
-            // GetComponentInParent<MovementAgent>().AfterAction += InferState;
+            is_training = Academy.Instance.EnvironmentParameters.GetWithDefault("is_training", 0.0f) > 0.00001f;
+        }
+
+        protected virtual void SetDefaultState()
+        {
+           SetState(defaultState);
         }
         
-        private void Update(){
-            InferState();
+        protected virtual void Update(){
+            if (!is_training)
+            {
+                InferState();
+            }
         }
 
         private void InferState()

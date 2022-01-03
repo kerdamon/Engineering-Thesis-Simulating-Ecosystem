@@ -122,7 +122,6 @@ public class MovementAgent : Agent
         var transform1 = transform;
         _trainingArea.RandomizePositionAndRotationWithCollisionCheck(transform1, transform1.parent);
         
-        
     }
     
     public void KillAgent(string deathCause)

@@ -97,4 +97,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waterContainterTransform: {fileID: 0}
   maxRepositionsOnCollisions: 50
+  updateSizePeriod: 50
   geographicalObjectsContainer: {fileID: 7839140296609761674}
