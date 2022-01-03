@@ -20,7 +20,7 @@ behaviors:
         gamma: 0.99
         strength: 1.0
     keep_checkpoints: 5
-    max_steps: 2000000
+    max_steps: 1500000
     time_horizon: 64
     summary_freq: 10000
 environment_parameters:
@@ -58,21 +58,21 @@ environment_parameters:
         completion_criteria:
           measure: progress
           behavior: AgentMovement
-          min_lesson_length: 50
-          threshold: 0.2
+          min_lesson_length: 5
+          threshold: 0.1
         value: 0.5
       - name: MediumAreaSize
         completion_criteria:
           measure: progress
           behavior: AgentMovement
-          min_lesson_length: 50
+          min_lesson_length: 5
           threshold: 0.4
         value: 1.0
       - name: LargeAreaSize
         completion_criteria:
           measure: progress
           behavior: AgentMovement
-          min_lesson_length: 50
+          min_lesson_length: 5
           threshold: 0.7
         value: 2.0
       - name: ExtraLargeAreaSize

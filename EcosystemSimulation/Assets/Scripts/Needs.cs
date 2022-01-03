@@ -1,4 +1,5 @@
 using System;
+using Unity.MLAgents;
 using UnityEngine;
 
 public class Needs : DictionarySerializer<float>
@@ -9,9 +10,12 @@ public class Needs : DictionarySerializer<float>
     private Features _features;
     
     private const float TOLERANCE = 0.0001f;  //constant for precision in floating point numbers equality checks
+
+    private bool is_training;
     
     private void Start()
     {
+        var is_training = Academy.Instance.EnvironmentParameters.GetWithDefault("is_training", 0) > 0;
         _features = GetComponent<Features>();
         _movementAgent = GetComponent<MovementAgent>();
         _movementAgent.AfterAction += UpdateNeeds;
@@ -30,7 +34,10 @@ public class Needs : DictionarySerializer<float>
         IncreaseNeedUpToMax(need, modifier);
         if (IsMaxOrGreater(need))
         {
-            _movementAgent.KillAgent(need);
+            if (!is_training)
+            {
+                _movementAgent.KillAgent(need);
+            }
         }
     }
 
