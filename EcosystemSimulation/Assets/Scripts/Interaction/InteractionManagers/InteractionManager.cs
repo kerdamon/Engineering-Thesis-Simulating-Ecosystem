@@ -48,7 +48,7 @@ namespace Interaction.InteractionManagers
             interaction.AfterSuccessfulInteraction += () =>
             {
                 MovementAgent.AddReward(rewardValue);
-                Debug.Log($"Added reward of value {rewardValue} after successful interaction {interaction.name}");
+                Debug.Log($"Added reward of value {rewardValue} after successful interaction {interaction.GetType()}", this);
             };
         }
 

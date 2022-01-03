@@ -22,6 +22,8 @@ namespace DecisionMaking.States
         protected EatingCarrotInteraction EatingCarrotInteraction;
         protected MatingInteraction MatingInteraction;
         protected GameObject Mate;  //todo change - this shouldn't be here. It is for setting mating state in mate
+        
+        private bool is_training;
 
         protected virtual void Awake()
         {
@@ -34,11 +36,17 @@ namespace DecisionMaking.States
             DrinkingInteraction = grandParent.GetComponentInChildren<DrinkingInteraction>();
             EatingCarrotInteraction = grandParent.GetComponentInChildren<EatingCarrotInteraction>();
             MatingInteraction = grandParent.GetComponentInChildren<MatingInteraction>();
+            
+            is_training = Academy.Instance.EnvironmentParameters.GetWithDefault("is_training", 0) > 0;
+            Debug.Log($"Is training: {is_training}");
         }
 
         private void PrepareModel()
         {
-            _agent.SetModel(_behaviourName, nnModel);
+            if(!is_training)
+            {
+                _agent.SetModel(_behaviourName, nnModel);
+            }
         }
         public abstract float CurrentRank { get; }
 

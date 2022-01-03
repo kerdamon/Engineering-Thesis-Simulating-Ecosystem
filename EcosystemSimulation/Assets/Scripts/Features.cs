@@ -20,7 +20,11 @@ public class Features : DictionarySerializer<int>
     //todo change this hardcoded
     private void Start()
     {
-        this["Speed"] = (int)Academy.Instance.EnvironmentParameters.GetWithDefault("agent_speed", 50);
-        this["SensoryRange"] = (int)Academy.Instance.EnvironmentParameters.GetWithDefault("agent_sensory_range", 50);
+        var is_training = Academy.Instance.EnvironmentParameters.GetWithDefault("is_training", 0) > 0;
+        if (is_training)
+        {
+            this["Speed"] = (int)Academy.Instance.EnvironmentParameters.GetWithDefault("agent_speed", 50);
+            this["SensoryRange"] = (int)Academy.Instance.EnvironmentParameters.GetWithDefault("agent_sensory_range", 50);
+        }
     }
 }
