@@ -85,10 +85,7 @@ public class TrainingArea : MonoBehaviour, ITrainingArea
         if (Math.Abs(_lastGeographicalObjectsContainerScale - newScale) > 0.001f)
         {
             geographicalObjectsContainer.localScale = new Vector3(newScale, 1, newScale);
-            RandomizeWater();
-            RandomizeFoodGenerators();
-            RandomizeRabbits();
-            RandomizeFoxes();
+            StartCoroutine(nameof(InnerReset));
             _lastGeographicalObjectsContainerScale = newScale;
         }
     }
