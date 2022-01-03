@@ -9,6 +9,8 @@ public class TrainingArea : MonoBehaviour, ITrainingArea
 {
     [SerializeField] private Transform waterContainterTransform;
     [SerializeField] private Transform foodGeneratorContainterTransform;
+    [SerializeField] private Transform rabbitContainterTransform;
+    [SerializeField] private Transform foxGeneratorContainterTransform; 
     [SerializeField] private int maxRepositionsOnCollisions;
     
     [Range(10, 100)]
@@ -41,6 +43,22 @@ public class TrainingArea : MonoBehaviour, ITrainingArea
             RandomizePositionAndRotationWithCollisionCheck(foodGenerator, foodGeneratorContainterTransform);
         }
     }
+    
+    private void RandomizeRabbits()
+    {
+        foreach (Transform rabbit in rabbitContainterTransform)
+        {
+            RandomizePositionAndRotationWithCollisionCheck(rabbit, rabbitContainterTransform);
+        }
+    }
+    
+    private void RandomizeFoxes()
+    {
+        foreach (Transform fox in foxGeneratorContainterTransform)
+        {
+            RandomizePositionAndRotationWithCollisionCheck(fox, foxGeneratorContainterTransform);
+        }
+    }
 
     private void RandomizeWater()
     {
@@ -65,6 +83,8 @@ public class TrainingArea : MonoBehaviour, ITrainingArea
             geographicalObjectsContainer.localScale = new Vector3(newScale, 1, newScale);
             RandomizeWater();
             RandomizeFoodGenerators();
+            RandomizeRabbits();
+            RandomizeFoxes();
             _lastGeographicalObjectsContainerScale = newScale;
         }
     }

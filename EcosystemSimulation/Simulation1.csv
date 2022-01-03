@@ -1,3 +1,8 @@
 Timestamp,FoxesPopulation,RabbitPopulation,RabbitSpeedMedian,RabbitSensoryRangeMedian,RabbitFertilityMedian,FoxSpeedMedian,FoxSensoryRangeMedian,FoxFertilityMedian,MinRabbitLifeTime,AverageRabbitLifeTime,MaxRabbitLifeTime,MinFoxLifeTime,AverageFoxLifeTime,MaxFoxLifeTime
-302,2,50,50,28,50,50,50,20,20,20,20,20,20
-412,2,50,50,28,50,50,50,40,40,40,40,40,40
+292,2,50,50,28,50,50,50,20,20,20,20,20,20
+372,2,50,50,28,50,50,50,40,40,40,40,40,40
+462,2,50,50,28,50,50,50,60,60,60,60,60,60
+542,2,50,50,28,50,50,50,80,80,80,80,80,80
+632,2,50,50,28,50,50,50,100,100,100,100,100,100
+712,2,50,50,28,50,50,50,120,120,120,120,120,120
+802,2,50,50,28,50,50,50,140,140,140,140,140,140
