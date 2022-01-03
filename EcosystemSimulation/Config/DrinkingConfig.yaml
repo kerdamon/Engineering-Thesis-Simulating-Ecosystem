@@ -30,7 +30,6 @@ environment_parameters:
   rabbit_each_episode_fixed: -1.0
   fox_each_episode_fixed: -1.0
   agent_bump_into_wall: -0.2
-  agent_bump_into_water: -0.2
   agent_bump_into_food: -0.2
   agent_drink_reward: 1.0
 
