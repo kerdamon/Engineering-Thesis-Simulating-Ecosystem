@@ -58,7 +58,7 @@ environment_parameters:
     - value:
         sampler_type: constant
         sampler_parameters:
-          seed: 6379
+          seed: 9930
           value: 1
       name: is_training
       completion_criteria: null
@@ -67,7 +67,7 @@ environment_parameters:
     - value:
         sampler_type: constant
         sampler_parameters:
-          seed: 6380
+          seed: 9931
           value: -1.0
       name: rabbit_each_episode_fixed
       completion_criteria: null
@@ -76,7 +76,7 @@ environment_parameters:
     - value:
         sampler_type: constant
         sampler_parameters:
-          seed: 6381
+          seed: 9932
           value: -1.0
       name: fox_each_episode_fixed
       completion_criteria: null
@@ -85,7 +85,7 @@ environment_parameters:
     - value:
         sampler_type: constant
         sampler_parameters:
-          seed: 6382
+          seed: 9933
           value: -0.2
       name: agent_bump_into_wall
       completion_criteria: null
@@ -94,7 +94,7 @@ environment_parameters:
     - value:
         sampler_type: constant
         sampler_parameters:
-          seed: 6383
+          seed: 9934
           value: -0.2
       name: agent_bump_into_food
       completion_criteria: null
@@ -103,7 +103,7 @@ environment_parameters:
     - value:
         sampler_type: constant
         sampler_parameters:
-          seed: 6384
+          seed: 9935
           value: 1.0
       name: agent_drink_reward
       completion_criteria: null
@@ -112,7 +112,7 @@ environment_parameters:
     - value:
         sampler_type: uniform
         sampler_parameters:
-          seed: 6385
+          seed: 9936
           min_value: 0.0
           max_value: 100.0
       name: agent_speed
@@ -122,7 +122,7 @@ environment_parameters:
     - value:
         sampler_type: constant
         sampler_parameters:
-          seed: 6386
+          seed: 9937
           value: 0.0
       name: agent_sensory_range
       completion_criteria: null
@@ -131,7 +131,7 @@ environment_parameters:
     - value:
         sampler_type: constant
         sampler_parameters:
-          seed: 6387
+          seed: 9938
           value: 0.5
       name: SmallAreaSize
       completion_criteria:
@@ -144,7 +144,7 @@ environment_parameters:
     - value:
         sampler_type: constant
         sampler_parameters:
-          seed: 6388
+          seed: 9939
           value: 1.0
       name: MediumAreaSize
       completion_criteria:
@@ -157,7 +157,7 @@ environment_parameters:
     - value:
         sampler_type: constant
         sampler_parameters:
-          seed: 6389
+          seed: 9940
           value: 2.0
       name: LargeAreaSize
       completion_criteria:
@@ -170,21 +170,15 @@ environment_parameters:
     - value:
         sampler_type: constant
         sampler_parameters:
-          seed: 6390
+          seed: 9941
           value: 3.0
       name: ExtraLargeAreaSize
-      completion_criteria:
-        behavior: AgentMovement
-        measure: reward
-        min_lesson_length: 0
-        signal_smoothing: true
-        threshold: 0.0
-        require_reset: false
+      completion_criteria: null
 checkpoint_settings:
   run_id: Drinking-3
   initialize_from: null
   load_model: false
-  resume: false
+  resume: true
   force: false
   train_model: false
   inference: false

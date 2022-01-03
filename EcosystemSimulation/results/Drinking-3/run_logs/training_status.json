@@ -45,15 +45,33 @@
                 "auxillary_file_paths": [
                     "results\\Drinking-3\\AgentMovement\\AgentMovement-727552.pt"
                 ]
+            },
+            {
+                "steps": 999936,
+                "file_path": "results\\Drinking-3\\AgentMovement\\AgentMovement-999936.onnx",
+                "reward": 9.571553467240717,
+                "creation_time": 1641228840.7546601,
+                "auxillary_file_paths": [
+                    "results\\Drinking-3\\AgentMovement\\AgentMovement-999936.pt"
+                ]
+            },
+            {
+                "steps": 1001728,
+                "file_path": "results\\Drinking-3\\AgentMovement\\AgentMovement-1001728.onnx",
+                "reward": 9.571553467240717,
+                "creation_time": 1641228841.320378,
+                "auxillary_file_paths": [
+                    "results\\Drinking-3\\AgentMovement\\AgentMovement-1001728.pt"
+                ]
             }
         ],
         "final_checkpoint": {
-            "steps": 727552,
+            "steps": 1001728,
             "file_path": "results\\Drinking-3\\AgentMovement.onnx",
-            "reward": null,
-            "creation_time": 1641192312.64498,
+            "reward": 9.571553467240717,
+            "creation_time": 1641228841.320378,
             "auxillary_file_paths": [
-                "results\\Drinking-3\\AgentMovement\\AgentMovement-727552.pt"
+                "results\\Drinking-3\\AgentMovement\\AgentMovement-1001728.pt"
             ]
         }
     },

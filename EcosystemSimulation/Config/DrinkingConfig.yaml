@@ -66,6 +66,4 @@ environment_parameters:
           threshold: 0.7
         value: 2.0
       - name: ExtraLargeAreaSize
-        completion_criteria:
-          behavior: AgentMovement
         value: 3.0
