@@ -16,6 +16,8 @@ public class TrainingArea : MonoBehaviour, ITrainingArea
     public Transform geographicalObjectsContainer;
     [ShowNativeProperty] public float ContentSetupRange => geographicalObjectsContainer.localScale.x * 100;
 
+    private float _lastGeographicalObjectsContainerScale = -1234.0f;
+    
     public void ResetArea()
     {
         StopCoroutine(nameof(InnerReset));
@@ -24,11 +26,16 @@ public class TrainingArea : MonoBehaviour, ITrainingArea
 
     protected virtual IEnumerator InnerReset()
     {
+        RandomizeWater();
+        yield return 0;
+    }
+
+    private void RandomizeWater()
+    {
         foreach (Transform water in waterContainterTransform)
         {
             RandomizePositionAndRotation(water);
         }
-        yield return 0;
     }
 
     private void Start()
@@ -41,7 +48,12 @@ public class TrainingArea : MonoBehaviour, ITrainingArea
     {
         if (Time.frameCount % updateSizePeriod != 0) return;
         var newScale = Academy.Instance.EnvironmentParameters.GetWithDefault("training_area_size", 1.0f);
-        geographicalObjectsContainer.localScale = new Vector3(newScale, 1, newScale);
+        if (Math.Abs(_lastGeographicalObjectsContainerScale - newScale) > 0.001f)
+        {
+            geographicalObjectsContainer.localScale = new Vector3(newScale, 1, newScale);
+            RandomizeWater();
+            _lastGeographicalObjectsContainerScale = newScale;
+        }
     }
 
     public void RandomizePositionAndRotationWithCollisionCheck(Transform obj, Transform containterTransform)
