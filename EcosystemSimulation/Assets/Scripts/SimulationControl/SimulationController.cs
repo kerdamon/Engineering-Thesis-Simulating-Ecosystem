@@ -70,32 +70,32 @@ public class SimulationController : MonoBehaviour
             UpdateStatsText(rabbitsPopulationText, $"Rabbits on scene: {rabbitsPopulation.ToString()}");
             
             UpdateStatsText(rabbitSpeedMedianText,
-                $"Rabbit Speed Median: {rabbitSpeedMedian.ToString(CultureInfo.InvariantCulture)}");
+                $"Rabbit Speed Median: {rabbitSpeedMedian.ToString()}");
             UpdateStatsText(rabbitSensoryRangeMedianText,
-                $"Rabbit Sensory Range Median: {rabbitSensoryRangeMedian.ToString(CultureInfo.InvariantCulture)}");
+                $"Rabbit Sensory Range Median: {rabbitSensoryRangeMedian.ToString()}");
             UpdateStatsText(rabbitFertilityMedianText,
-                $"Rabbit Fertility Median: {rabbitFertilityMedian.ToString(CultureInfo.InvariantCulture)}");
+                $"Rabbit Fertility Median: {rabbitFertilityMedian.ToString()}");
             
             UpdateStatsText(foxSpeedMedianText,
-                $"Fox Speed Median: {foxSpeedMedian.ToString(CultureInfo.InvariantCulture)}");
+                $"Fox Speed Median: {foxSpeedMedian.ToString()}");
             UpdateStatsText(foxSensoryRangeMedianText,
-                $"Fox Sensory Range Median: {foxSensoryRangeMedian.ToString(CultureInfo.InvariantCulture)}");
+                $"Fox Sensory Range Median: {foxSensoryRangeMedian.ToString()}");
             UpdateStatsText(foxFertilityMedianText,
-                $"Fox Fertility Median: {foxFertilityMedian.ToString(CultureInfo.InvariantCulture)}");
+                $"Fox Fertility Median: {foxFertilityMedian.ToString()}");
             
             UpdateStatsText(minRabbitLifeTimeText,
-                $"Min Rabbit Life Time: {minRabbitLifeTime.ToString(CultureInfo.InvariantCulture)}");
+                $"Min Rabbit Life Time: {minRabbitLifeTime.ToString()}");
             UpdateStatsText(averageRabbitLifeTimeText,
-                $"Average Rabbit Life Time: {averageRabbitLifeTime.ToString(CultureInfo.InvariantCulture)}");
+                $"Average Rabbit Life Time: {averageRabbitLifeTime.ToString()}");
             UpdateStatsText(maxRabbitLifeTimeText,
-                $"Max Rabbit Life Time: {maxRabbitLifeTime.ToString(CultureInfo.InvariantCulture)}");
+                $"Max Rabbit Life Time: {maxRabbitLifeTime.ToString()}");
             
             UpdateStatsText(minFoxLifeTimeText,
-                $"Min Fox Life Time: {minFoxLifeTime.ToString(CultureInfo.InvariantCulture)}");
+                $"Min Fox Life Time: {minFoxLifeTime.ToString()}");
             UpdateStatsText(averageFoxLifeTimeText,
-                $"Average Fox Life Time: {averageFoxLifeTime.ToString(CultureInfo.InvariantCulture)}");
+                $"Average Fox Life Time: {averageFoxLifeTime.ToString()}");
             UpdateStatsText(maxFoxLifeTimeText,
-                $"Max Fox Life Time Text: {maxFoxLifeTime.ToString(CultureInfo.InvariantCulture)}");
+                $"Max Fox Life Time Text: {maxFoxLifeTime.ToString()}");
         }
 
         if (ShouldLogToFile())
@@ -104,21 +104,21 @@ public class SimulationController : MonoBehaviour
                                 $"{foxesPopulation.ToString()}," +
                                 $"{rabbitsPopulation.ToString()}," +
                                 
-                                $"{rabbitSpeedMedian.ToString(CultureInfo.InvariantCulture)}," +
-                                $"{rabbitSensoryRangeMedian.ToString(CultureInfo.InvariantCulture)}," +
-                                $"{rabbitFertilityMedian.ToString(CultureInfo.InvariantCulture)}," +
+                                $"{rabbitSpeedMedian.ToString()}," +
+                                $"{rabbitSensoryRangeMedian.ToString()}," +
+                                $"{rabbitFertilityMedian.ToString()}," +
                                 
-                                $"{foxSpeedMedian.ToString(CultureInfo.InvariantCulture)}," +
-                                $"{foxSensoryRangeMedian.ToString(CultureInfo.InvariantCulture)}," +
-                                $"{foxFertilityMedian.ToString(CultureInfo.InvariantCulture)}," +
+                                $"{foxSpeedMedian.ToString()}," +
+                                $"{foxSensoryRangeMedian.ToString()}," +
+                                $"{foxFertilityMedian.ToString()}," +
                                 
-                                $"{minRabbitLifeTime.ToString(CultureInfo.InvariantCulture)}," +
-                                $"{averageRabbitLifeTime.ToString(CultureInfo.InvariantCulture)}," +
-                                $"{maxRabbitLifeTime.ToString(CultureInfo.InvariantCulture)}," +
+                                $"{minRabbitLifeTime.ToString()}," +
+                                $"{averageRabbitLifeTime.ToString()}," +
+                                $"{maxRabbitLifeTime.ToString()}," +
                                 
-                                $"{minFoxLifeTime.ToString(CultureInfo.InvariantCulture)}," +
-                                $"{averageFoxLifeTime.ToString(CultureInfo.InvariantCulture)}," +
-                                $"{maxFoxLifeTime.ToString(CultureInfo.InvariantCulture)}");
+                                $"{minFoxLifeTime.ToString()}," +
+                                $"{averageFoxLifeTime.ToString()}," +
+                                $"{maxFoxLifeTime.ToString()}");
         }
     }
 
@@ -152,8 +152,9 @@ public class SimulationController : MonoBehaviour
         return container.childCount;
     }
 
-    private (int minLifeTime, float averageLifeTime, int maxLifeTime) GetLifeTimeOfAgents(Transform container)
+    private static (int? minLifeTime, float? averageLifeTime, int? maxLifeTime) GetLifeTimeOfAgents(Transform container)
     {
+        if (CountAgents(container) <= 0) return (null, null, null);
         var lifeTimes = new List<int>();
         foreach (Transform agent in container)
         {
@@ -163,8 +164,9 @@ public class SimulationController : MonoBehaviour
         return (lifeTimes.Min(), (float) lifeTimes.Average(), lifeTimes.Max());
     }
 
-    private float GetMedianOfFeature(string featureName, Transform agentsContainer)
+    private float? GetMedianOfFeature(string featureName, Transform agentsContainer)
     {
+        if (CountAgents(agentsContainer) <= 0) return null;
         var features = new List<int>();
         foreach (Transform agent in agentsContainer)
         {

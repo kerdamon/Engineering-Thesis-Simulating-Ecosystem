@@ -8,6 +8,7 @@ namespace DecisionMaking.States
     public class LookingForMateState : MainState
     {
         [SerializeField] private float increaseInPartnersUrgeOnMatingAttempt;
+        [SerializeField] private string femaleTag;
         public override float CurrentRank => scoreCurve.Evaluate(Needs["ReproductionUrge"]);
 
         private MatingState _thisMatingState;
@@ -37,7 +38,7 @@ namespace DecisionMaking.States
 
         private void OnTriggerStay(Collider other)
         {
-            if (!enabled || !other.gameObject.CompareTag("Rabbit-Female")) return;
+            if (!enabled || !other.gameObject.CompareTag(femaleTag)) return;
             Mate = other.transform.parent.gameObject;
             _mateNeeds = Mate.GetComponent<Needs>();
             _partnerMatingState = Mate.GetComponentInChildren<MatingState>();
@@ -49,7 +50,7 @@ namespace DecisionMaking.States
 
         private void OnTriggerEnter(Collider other)
         {
-            if (!enabled || !other.gameObject.CompareTag("Rabbit-Female")) return;
+            if (!enabled || !other.gameObject.CompareTag(femaleTag)) return;
             if (!InteractionManager.AbleToInteract()) return;
             Mate = other.transform.parent.gameObject;
             _mateNeeds = Mate.GetComponent<Needs>();

@@ -1,27 +1,19 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &3861888435848874500
+--- !u!1001 &2873732420885685921
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3726718014358695043, guid: d12ac809e5ac5d048958702a68cb5f16, type: 3}
-      propertyPath: values.Array.data[2]
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 3932680626186464324, guid: d12ac809e5ac5d048958702a68cb5f16, type: 3}
+    - target: {fileID: 176650768330153178, guid: d12ac809e5ac5d048958702a68cb5f16, type: 3}
       propertyPath: values.Array.data[0]
       value: 90
       objectReference: {fileID: 0}
-    - target: {fileID: 3932680626186464324, guid: d12ac809e5ac5d048958702a68cb5f16, type: 3}
-      propertyPath: values.Array.data[2]
-      value: 100
-      objectReference: {fileID: 0}
     - target: {fileID: 5457864386793967586, guid: d12ac809e5ac5d048958702a68cb5f16, type: 3}
       propertyPath: m_Name
-      value: MatingTrainingArea
+      value: HuntingTrainingArea
       objectReference: {fileID: 0}
     - target: {fileID: 5457864386793967587, guid: d12ac809e5ac5d048958702a68cb5f16, type: 3}
       propertyPath: m_RootOrder
@@ -67,50 +59,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5457864388153945210, guid: d12ac809e5ac5d048958702a68cb5f16, type: 3}
+    - target: {fileID: 5457864387194649313, guid: d12ac809e5ac5d048958702a68cb5f16, type: 3}
       propertyPath: m_LocalScale.x
-      value: 3
+      value: 20
       objectReference: {fileID: 0}
-    - target: {fileID: 5457864388153945210, guid: d12ac809e5ac5d048958702a68cb5f16, type: 3}
+    - target: {fileID: 5457864387194649313, guid: d12ac809e5ac5d048958702a68cb5f16, type: 3}
       propertyPath: m_LocalScale.z
-      value: 3
+      value: 20
       objectReference: {fileID: 0}
-    - target: {fileID: 8088624349415881931, guid: d12ac809e5ac5d048958702a68cb5f16, type: 3}
-      propertyPath: m_BehaviorType
-      value: 1
+    - target: {fileID: 5738833213121732716, guid: d12ac809e5ac5d048958702a68cb5f16, type: 3}
+      propertyPath: values.Array.data[0]
+      value: 90
       objectReference: {fileID: 0}
-    - target: {fileID: 8459121866987256844, guid: d12ac809e5ac5d048958702a68cb5f16, type: 3}
-      propertyPath: m_BehaviorName
-      value: MaleRabbitMovement
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 7019780964327185640, guid: d12ac809e5ac5d048958702a68cb5f16, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d12ac809e5ac5d048958702a68cb5f16, type: 3}
---- !u!1 &9177863429900160070 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5388131700792968770, guid: d12ac809e5ac5d048958702a68cb5f16, type: 3}
-  m_PrefabInstance: {fileID: 3861888435848874500}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &8074509296941199570
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9177863429900160070}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d45c24d6c8994603a65e2fedf2acb8f5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  timeIncrement: 0
-  interactionDuration: 0
-  averageOffspringNumberPerLitter: 0
-  maxDeviationFromFertility: 0
-  maxRandomDeviation: 0
-  mutationProbability: 0
-  maleChild: {fileID: 0}
-  femaleChild: {fileID: 0}
-  maxSensorySphereColliderRadius: 0
-  minSensorySphereColliderRadius: 0
-  trainingArea: {fileID: 0}

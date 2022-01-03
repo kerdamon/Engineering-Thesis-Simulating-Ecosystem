@@ -22,7 +22,7 @@ namespace DecisionMaking.States
         protected EatingCarrotInteraction EatingCarrotInteraction;
         protected MatingInteraction MatingInteraction;
         protected GameObject Mate;  //todo change - this shouldn't be here. It is for setting mating state in mate
-
+        
         protected virtual void Awake()
         {
             _agent = GetComponentInParent<MovementAgent>();

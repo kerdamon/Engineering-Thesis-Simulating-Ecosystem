@@ -4,8 +4,13 @@ namespace Interaction
 {
     public class TrainingDrinkingInteraction : DrinkingInteraction
     {
-        protected override void RegisterThirstChangeAfterInteraction()
+        [SerializeField] private TrainingArea trainingArea;
+        
+        protected override void AtInteractionEnd()
         {
+            var agent = SimulationObject.transform;
+            var agentContainer = agent.parent;
+            trainingArea.RandomizePositionAndRotationWithCollisionCheck(agent, agentContainer);
         }
     }
 }

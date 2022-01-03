@@ -259,7 +259,6 @@ GameObject:
   - component: {fileID: 9079999088701981155}
   - component: {fileID: 3056754191753714340}
   - component: {fileID: 4367339644587198246}
-  - component: {fileID: 160763740095807357}
   m_Layer: 0
   m_Name: Agent
   m_TagString: Untagged
@@ -320,7 +319,7 @@ MonoBehaviour:
   - 30
   - 30
   - 0
-  increaseRate: 1
+  increaseRate: 0
 --- !u!114 &5933343763909004989
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -425,7 +424,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec8722596ac4fb346894cd62602b3999, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_ObservationShape: 6 channels x 34 width x 40 height
+  m_ObservationShape: 7 channels x 34 width x 40 height
   m_SensorName: PreciseMovementGridSensor
   m_ObservationStacks: 1
   m_CompressionType: 1
@@ -442,7 +441,7 @@ MonoBehaviour:
     IsEnabled: 0
     IsStandby: 0
   m_GridShape:
-    NumChannels: 6
+    NumChannels: 7
     Width: 34
     Height: 40
   m_ClearCacheOnReset: 0
@@ -491,20 +490,6 @@ MonoBehaviour:
       Enabled: 1
       Color: {r: 1, g: 0.63128126, b: 0.21960783, a: 1}
     m_DetectorSpaceType: 0
-  - Tag: Fox
-    Enabled: 1
-    DetectionType: 0
-    Modifier: 0
-    Detectable: {fileID: 5474469622085842203, guid: 2bb30b5902d36a14ea786951524b6ca1, type: 3}
-    m_UserObservables:
-      m_Observables: []
-    m_Observables:
-    - Name: One-Hot
-      Type: 1
-      Index: -1
-      Enabled: 1
-      Color: {r: 1, g: 0.22320865, b: 0, a: 1}
-    m_DetectorSpaceType: 0
   - Tag: Rabbit-Female
     Enabled: 1
     DetectionType: 0
@@ -532,6 +517,34 @@ MonoBehaviour:
       Index: -1
       Enabled: 1
       Color: {r: 0.59607846, g: 0.35686275, b: 0.27058825, a: 1}
+    m_DetectorSpaceType: 0
+  - Tag: Fox-Male
+    Enabled: 1
+    DetectionType: 0
+    Modifier: 0
+    Detectable: {fileID: 3198916722623561021, guid: 53c7dce78e6b4ed45a5dcde3aaa179de, type: 3}
+    m_UserObservables:
+      m_Observables: []
+    m_Observables:
+    - Name: One-Hot
+      Type: 1
+      Index: -1
+      Enabled: 1
+      Color: {r: 1, g: 0.35062516, b: 0, a: 1}
+    m_DetectorSpaceType: 0
+  - Tag: Fox-Female
+    Enabled: 1
+    DetectionType: 0
+    Modifier: 0
+    Detectable: {fileID: 9076831693116661885, guid: b827fdb2f43a21f478b3eaa5f5b869e2, type: 3}
+    m_UserObservables:
+      m_Observables: []
+    m_Observables:
+    - Name: One-Hot
+      Type: 1
+      Index: -1
+      Enabled: 1
+      Color: {r: 0.9607843, g: 0.06184696, b: 0.027450979, a: 1}
     m_DetectorSpaceType: 0
   m_RotationType: 0
   m_DetectionBounds:
@@ -545,96 +558,6 @@ MonoBehaviour:
   m_DetectionSize: {x: 51, y: 1, z: 60}
   m_BoundsSize: {x: 51, y: 1, z: 60}
   m_Offset: {x: 0, y: 0, z: 15}
---- !u!114 &160763740095807357
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6193517788997554062}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec8722596ac4fb346894cd62602b3999, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_ObservationShape: 3 channels x 20 width x 20 height
-  m_SensorName: WideMovementGridSensor
-  m_ObservationStacks: 1
-  m_CompressionType: 1
-  m_ObservationType: 0
-  m_ChannelLabels: []
-  m_Debug_CreateSensorOnAwake: 0
-  m_Debug_CreateSensorOnValidate: 1
-  m_Debug_FrameInterval: 1
-  m_Debug_DrawGridBuffer: 0
-  m_Debug_GridBufferDrawer:
-    Context: {fileID: 0}
-    Editor: {fileID: 0}
-    GridSizeRatio: 0
-    IsEnabled: 0
-    IsStandby: 0
-  m_GridShape:
-    NumChannels: 3
-    Width: 20
-    Height: 20
-  m_ClearCacheOnReset: 0
-  m_ColliderBufferSize: 128
-  m_TmpObjectToAdd: {fileID: 0}
-  m_GameObjectSettingsList:
-  - Tag: Food
-    Enabled: 1
-    DetectionType: 0
-    Modifier: 0
-    Detectable: {fileID: 3861191557342994614, guid: aca7aeccaff29d64290ca94f0785d2e7, type: 3}
-    m_UserObservables:
-      m_Observables: []
-    m_Observables:
-    - Name: One-Hot
-      Type: 1
-      Index: -1
-      Enabled: 1
-      Color: {r: 1, g: 0.6313726, b: 0.21960786, a: 1}
-    m_DetectorSpaceType: 0
-  - Tag: Rabbit-Female
-    Enabled: 1
-    DetectionType: 0
-    Modifier: 0
-    Detectable: {fileID: 7848537360153417307, guid: 18288d7095600f249aa0948e29a6c936, type: 3}
-    m_UserObservables:
-      m_Observables: []
-    m_Observables:
-    - Name: One-Hot
-      Type: 1
-      Index: -1
-      Enabled: 1
-      Color: {r: 0.62352943, g: 0.62352943, b: 0.62352943, a: 1}
-    m_DetectorSpaceType: 0
-  - Tag: Rabbit-Male
-    Enabled: 1
-    DetectionType: 0
-    Modifier: 0
-    Detectable: {fileID: 3504797305807381156, guid: 2101d50fe66352549b4d0bcc52eec465, type: 3}
-    m_UserObservables:
-      m_Observables: []
-    m_Observables:
-    - Name: One-Hot
-      Type: 1
-      Index: -1
-      Enabled: 1
-      Color: {r: 0.59607846, g: 0.35686275, b: 0.27058825, a: 1}
-    m_DetectorSpaceType: 0
-  m_RotationType: 0
-  m_DetectionBounds:
-    m_Center: {x: 0, y: 0, z: 0}
-    m_Extent: {x: 500, y: 0.5, z: 500}
-  m_EditorBounds:
-    m_Center: {x: 0, y: 0, z: 0}
-    m_Extent: {x: 500, y: 0.5, z: 500}
-  m_CellSize: 50
-  m_NumCells: {x: 20, y: 1, z: 20}
-  m_DetectionSize: {x: 1000, y: 1, z: 1000}
-  m_BoundsSize: {x: 1000, y: 1, z: 1000}
-  m_Offset: {x: 0, y: 0, z: 0}
 --- !u!1 &6508573061898438162
 GameObject:
   m_ObjectHideFlags: 0
@@ -646,6 +569,7 @@ GameObject:
   - component: {fileID: 4063550574669453954}
   - component: {fileID: 5257989358077140616}
   - component: {fileID: 5579557256278850665}
+  - component: {fileID: 7377179863575582569}
   m_Layer: 0
   m_Name: State
   m_TagString: Untagged
@@ -693,6 +617,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 82dbc458fa7bab34aaf9cc38a33f78ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &7377179863575582569
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6508573061898438162}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 815cb3556cc84c04b855eafc8f127b4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &8989164855890944937

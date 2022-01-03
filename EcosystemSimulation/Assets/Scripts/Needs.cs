@@ -19,23 +19,24 @@ public class Needs : DictionarySerializer<float>
 
     private void UpdateNeeds()
     {
-        IncreaseAndKillIfMax("Hunger");
-        IncreaseAndKillIfMax("Thirst");
-        IncreaseNeedUpToMax("ReproductionUrge");
+        IncreaseAndKillIfMax("Hunger", 1.0f);
+        IncreaseAndKillIfMax("Thirst", 1.0f);
+        var reproductionUrgeModifier = CalculateReproductionUrgeModifier();
+        IncreaseNeedUpToMax("ReproductionUrge", reproductionUrgeModifier);
     }
 
-    private void IncreaseAndKillIfMax(string need)
+    private void IncreaseAndKillIfMax(string need, float modifier)
     {
-        IncreaseNeedUpToMax(need);
+        IncreaseNeedUpToMax(need, modifier);
         if (IsMaxOrGreater(need))
         {
             _movementAgent.KillAgent(need);
         }
     }
 
-    private void IncreaseNeedUpToMax(string need)
+    private void IncreaseNeedUpToMax(string need, float modifier)
     {
-        var increaseAmount = Time.deltaTime * increaseRate;
+        var increaseAmount = Time.deltaTime * increaseRate * modifier;
         increaseAmount += increaseAmount * (_features.CurrentGeneticCost / _features.MaxGeneticCost);
         this[need] += increaseAmount;
         if (IsMaxOrGreater(need))
@@ -47,5 +48,10 @@ public class Needs : DictionarySerializer<float>
     public override bool IsMaxOrGreater(string feature)
     {
         return this[feature] >= maxValue - TOLERANCE;
+    }
+
+    private float CalculateReproductionUrgeModifier()
+    {
+        return _features["Fertility"] * 2.0f / 500.0f + 0.8f;
     }
 }

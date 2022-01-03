@@ -45,7 +45,7 @@ public class MovementAgent : Agent
     
     public override void OnActionReceived(ActionBuffers actions)
     {
-        Debug.Log($"{actions.DiscreteActions[0]}", this);
+        //Debug.Log($"{actions.DiscreteActions[0]}", this);
         MoveAgent(actions);
         GetInteractDesire(actions);
         //Debug.Log($"Ustawiam {WantInteraction}, bo dics.acts[0] = {actions.DiscreteActions[0]}", this);
@@ -118,8 +118,10 @@ public class MovementAgent : Agent
     public override void OnEpisodeBegin()
     {
         if (!_isTraining) return;
+        
         var transform1 = transform;
         _trainingArea.RandomizePositionAndRotationWithCollisionCheck(transform1, transform1.parent);
+        
     }
     
     public void KillAgent(string deathCause)

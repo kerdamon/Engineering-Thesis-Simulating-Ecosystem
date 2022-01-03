@@ -59,10 +59,6 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Rabbit-Male
       objectReference: {fileID: 0}
-    - target: {fileID: 4124046174458232821, guid: 96ed80feb81eb9047973ee382c5a40df, type: 3}
-      propertyPath: matingInteraction
-      value: 
-      objectReference: {fileID: 7663351392798028170}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 96ed80feb81eb9047973ee382c5a40df, type: 3}
 --- !u!4 &242094881198228130 stripped
@@ -105,13 +101,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeIncrement: 1
-  interactionDuration: 1
+  interactionDuration: 5
   averageOffspringNumberPerLitter: 6
   maxDeviationFromFertility: 3
   maxRandomDeviation: 2
-  mutationProbability: 0.03
-  maleRabbitChild: {fileID: 0}
-  femaleRabbitChild: {fileID: 4682881298591539552, guid: 5b95f44433656d34581289181c8e67a5, type: 3}
+  mutationProbability: 0.005
+  maleChild: {fileID: 0}
+  femaleChild: {fileID: 4682881298591539552, guid: 5b95f44433656d34581289181c8e67a5, type: 3}
+  maxSensorySphereColliderRadius: 27
+  minSensorySphereColliderRadius: 15
 --- !u!114 &3694023323502829355
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -150,6 +148,7 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   increaseInPartnersUrgeOnMatingAttempt: 5
+  femaleTag: Rabbit-Female
 --- !u!1001 &9037921327190137155
 PrefabInstance:
   m_ObjectHideFlags: 0

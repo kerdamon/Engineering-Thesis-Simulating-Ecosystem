@@ -1,13 +1,20 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
+using NaughtyAttributes;
+using Unity.MLAgents;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class TrainingArea : MonoBehaviour, ITrainingArea
 {
-    public float range;
-
     [SerializeField] Transform waterContainterTransform;
-    [SerializeField] Transform agentsContainterTransform;
     [SerializeField] private int maxRepositionsOnCollisions;
+    
+    [Range(10, 100)]
+    [SerializeField] private int updateSizePeriod;
+
+    public Transform geographicalObjectsContainer;
+    [ShowNativeProperty] public float ContentSetupRange => geographicalObjectsContainer.localScale.x * 100;
 
     public void ResetArea()
     {
@@ -22,11 +29,13 @@ public class TrainingArea : MonoBehaviour, ITrainingArea
             RandomizePositionAndRotation(water);
         }
         yield return 0;
-        // foreach (Transform agent in agentsContainterTransform)
-        // {
-        //     RandomizePositionAndRotationWithCollisionCheck(agent, agentsContainterTransform);
-        // }
-        // yield return 0;
+    }
+
+    private void Update()
+    {
+        if (Time.frameCount % updateSizePeriod != 0) return;
+        var newScale = Academy.Instance.EnvironmentParameters.GetWithDefault("training_area_size", 1.0f);
+        geographicalObjectsContainer.localScale = new Vector3(newScale, 1, newScale);
     }
 
     public void RandomizePositionAndRotationWithCollisionCheck(Transform obj, Transform containterTransform)
@@ -36,7 +45,7 @@ public class TrainingArea : MonoBehaviour, ITrainingArea
         var newRotation = obj.rotation;
         while (iterator < maxRepositionsOnCollisions)
         {
-            newPosition = containterTransform.TransformPoint(new Vector3(Random.Range(-range, range), obj.localPosition.y, Random.Range(-range, range)));
+            newPosition = containterTransform.TransformPoint(new Vector3(Random.Range(-ContentSetupRange, ContentSetupRange), obj.localPosition.y, Random.Range(-ContentSetupRange, ContentSetupRange)));
             newRotation = Quaternion.Euler(new Vector3(0f, Random.Range(0, 360)));
             var isCollision = Physics.CheckBox(newPosition, obj.localScale / 2);
             if(!isCollision)
@@ -51,7 +60,7 @@ public class TrainingArea : MonoBehaviour, ITrainingArea
 
     protected void RandomizePositionAndRotation(Transform gameObject)
     {
-        gameObject.localPosition = new Vector3(Random.Range(-range, range), gameObject.localPosition.y, Random.Range(-range, range));
+        gameObject.localPosition = new Vector3(Random.Range(-ContentSetupRange, ContentSetupRange), gameObject.localPosition.y, Random.Range(-ContentSetupRange, ContentSetupRange));
         gameObject.rotation = Quaternion.Euler(new Vector3(0f, Random.Range(0, 360)));
     }
 }
