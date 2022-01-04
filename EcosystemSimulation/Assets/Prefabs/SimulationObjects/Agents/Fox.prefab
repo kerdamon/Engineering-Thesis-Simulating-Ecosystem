@@ -81,7 +81,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 899d62eb8e8440ba896a1db4d791fac5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nnModel: {fileID: 0}
+  nnModel: {fileID: 5022602860645237092, guid: 23fe5b042452fa1459e5f90451ee583e, type: 3}
   scoreCurve:
     serializedVersion: 2
     m_Curve:
