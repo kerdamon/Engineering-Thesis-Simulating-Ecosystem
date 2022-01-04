@@ -31,6 +31,14 @@ PrefabInstance:
       propertyPath: plantLimit
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 4805249877757151309, guid: da0347d17e632d14a9af1a0994473def, type: 3}
+      propertyPath: rank
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4922581225974114008, guid: da0347d17e632d14a9af1a0994473def, type: 3}
+      propertyPath: rank
+      value: 0.49
+      objectReference: {fileID: 0}
     - target: {fileID: 5014543819106390974, guid: da0347d17e632d14a9af1a0994473def, type: 3}
       propertyPath: m_Name
       value: TrainingArea
