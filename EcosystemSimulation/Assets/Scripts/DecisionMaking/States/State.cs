@@ -36,6 +36,7 @@ namespace DecisionMaking.States
             DrinkingInteraction = grandParent.GetComponentInChildren<DrinkingInteraction>();
             EatingCarrotInteraction = grandParent.GetComponentInChildren<EatingCarrotInteraction>();
             MatingInteraction = grandParent.GetComponentInChildren<MatingInteraction>();
+            EatingRabbitInteraction = grandParent.GetComponentInChildren<EatingRabbitInteraction>();
         }
 
         private void PrepareModel()
