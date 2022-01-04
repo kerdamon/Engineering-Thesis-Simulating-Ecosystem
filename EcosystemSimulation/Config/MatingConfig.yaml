@@ -56,9 +56,9 @@ environment_parameters:
   rabbit_each_episode_fixed: -1
   fox_each_episode_fixed: -1
   rabbit_on_eaten: 0
-  agent_bump_into_wall: -0.2
-  agent_bump_into_water: -0.2
-  agent_bump_into_food: -0.2
+  agent_bump_into_wall: -0.01
+  agent_bump_into_water: -0.01
+  agent_bump_into_food: -0.01
   agent_drink_reward: 0
   rabbit_mating_reward: 1
   fox_mating_reward: 1
@@ -81,25 +81,25 @@ environment_parameters:
       - name: SmallAreaSize
         completion_criteria:
           measure: progress
-          behavior: AgentMovement
+          behavior: MaleRabbitMovement
           min_lesson_length: 5
           threshold: 0.1
         value: 0.5
       - name: MediumAreaSize
         completion_criteria:
           measure: progress
-          behavior: AgentMovement
+          behavior: MaleRabbitMovement
           min_lesson_length: 5
-          threshold: 0.4
+          threshold: 0.5
         value: 1.0
       - name: LargeAreaSize
         completion_criteria:
           measure: progress
-          behavior: AgentMovement
+          behavior: MaleRabbitMovement
           min_lesson_length: 5
-          threshold: 0.7
+          threshold: 0.8
         value: 2.0
       - name: ExtraLargeAreaSize
         completion_criteria:
-          behavior: AgentMovement
+          behavior: MaleRabbitMovement
         value: 3.0

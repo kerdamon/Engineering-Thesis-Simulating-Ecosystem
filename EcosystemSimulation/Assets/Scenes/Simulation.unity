@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1745,10 +1745,6 @@ PrefabInstance:
       propertyPath: values.Array.data[2]
       value: 28
       objectReference: {fileID: 0}
-    - target: {fileID: 3915948004203474453, guid: da0347d17e632d14a9af1a0994473def, type: 3}
-      propertyPath: nnModel
-      value: 
-      objectReference: {fileID: 5022602860645237092, guid: fdf4b44548f5db14ba743394c4db0518, type: 3}
     - target: {fileID: 4000194725464032197, guid: da0347d17e632d14a9af1a0994473def, type: 3}
       propertyPath: m_LocalPosition.x
       value: -26.8
@@ -1781,9 +1777,17 @@ PrefabInstance:
       propertyPath: values.Array.data[1]
       value: -682.7
       objectReference: {fileID: 0}
+    - target: {fileID: 4087781399380897816, guid: da0347d17e632d14a9af1a0994473def, type: 3}
+      propertyPath: values.Array.data[2]
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 4440252359356821727, guid: da0347d17e632d14a9af1a0994473def, type: 3}
       propertyPath: values.Array.data[1]
-      value: 95
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 4440252359356821727, guid: da0347d17e632d14a9af1a0994473def, type: 3}
+      propertyPath: values.Array.data[2]
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 4520546824721253538, guid: da0347d17e632d14a9af1a0994473def, type: 3}
       propertyPath: rank
@@ -1861,10 +1865,6 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Fox
       objectReference: {fileID: 0}
-    - target: {fileID: 8710879929082767106, guid: da0347d17e632d14a9af1a0994473def, type: 3}
-      propertyPath: nnModel
-      value: 
-      objectReference: {fileID: 5022602860645237092, guid: 041fbaf744003a04fb7ba924c2b25d3b, type: 3}
     - target: {fileID: 8814797357442350963, guid: da0347d17e632d14a9af1a0994473def, type: 3}
       propertyPath: m_LocalPosition.x
       value: -36.25
@@ -1897,10 +1897,6 @@ PrefabInstance:
       propertyPath: m_BehaviorType
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 9063218668523972549, guid: da0347d17e632d14a9af1a0994473def, type: 3}
-      propertyPath: nnModel
-      value: 
-      objectReference: {fileID: 5022602860645237092, guid: 041fbaf744003a04fb7ba924c2b25d3b, type: 3}
     - target: {fileID: 9191415489041165400, guid: da0347d17e632d14a9af1a0994473def, type: 3}
       propertyPath: values.Array.data[2]
       value: 92.8
