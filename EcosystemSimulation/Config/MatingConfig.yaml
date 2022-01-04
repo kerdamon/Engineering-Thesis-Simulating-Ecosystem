@@ -56,9 +56,9 @@ environment_parameters:
   rabbit_each_episode_fixed: -1
   fox_each_episode_fixed: -1
   rabbit_on_eaten: 0
-  agent_bump_into_wall: -0.2
-  agent_bump_into_water: -0.2
-  agent_bump_into_food: -0.2
+  agent_bump_into_wall: -0.01
+  agent_bump_into_water: -0.01
+  agent_bump_into_food: -0.01
   agent_drink_reward: 0
   rabbit_mating_reward: 1
   fox_mating_reward: 1

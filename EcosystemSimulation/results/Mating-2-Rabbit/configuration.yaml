@@ -96,7 +96,7 @@ environment_parameters:
     - value:
         sampler_type: constant
         sampler_parameters:
-          seed: 2485
+          seed: 9936
           value: 1
       name: is_training
       completion_criteria: null
@@ -105,7 +105,7 @@ environment_parameters:
     - value:
         sampler_type: constant
         sampler_parameters:
-          seed: 2486
+          seed: 9937
           value: 0
       name: rabbit_eating_carrot_reward
       completion_criteria: null
@@ -114,7 +114,7 @@ environment_parameters:
     - value:
         sampler_type: constant
         sampler_parameters:
-          seed: 2487
+          seed: 9938
           value: 0
       name: fox_eating_rabbit_reward
       completion_criteria: null
@@ -123,7 +123,7 @@ environment_parameters:
     - value:
         sampler_type: constant
         sampler_parameters:
-          seed: 2488
+          seed: 9939
           value: -1
       name: rabbit_each_episode_fixed
       completion_criteria: null
@@ -132,7 +132,7 @@ environment_parameters:
     - value:
         sampler_type: constant
         sampler_parameters:
-          seed: 2489
+          seed: 9940
           value: -1
       name: fox_each_episode_fixed
       completion_criteria: null
@@ -141,7 +141,7 @@ environment_parameters:
     - value:
         sampler_type: constant
         sampler_parameters:
-          seed: 2490
+          seed: 9941
           value: 0
       name: rabbit_on_eaten
       completion_criteria: null
@@ -150,8 +150,8 @@ environment_parameters:
     - value:
         sampler_type: constant
         sampler_parameters:
-          seed: 2491
-          value: -0.2
+          seed: 9942
+          value: -0.01
       name: agent_bump_into_wall
       completion_criteria: null
   agent_bump_into_water:
@@ -159,8 +159,8 @@ environment_parameters:
     - value:
         sampler_type: constant
         sampler_parameters:
-          seed: 2492
-          value: -0.2
+          seed: 9943
+          value: -0.01
       name: agent_bump_into_water
       completion_criteria: null
   agent_bump_into_food:
@@ -168,8 +168,8 @@ environment_parameters:
     - value:
         sampler_type: constant
         sampler_parameters:
-          seed: 2493
-          value: -0.2
+          seed: 9944
+          value: -0.01
       name: agent_bump_into_food
       completion_criteria: null
   agent_drink_reward:
@@ -177,7 +177,7 @@ environment_parameters:
     - value:
         sampler_type: constant
         sampler_parameters:
-          seed: 2494
+          seed: 9945
           value: 0
       name: agent_drink_reward
       completion_criteria: null
@@ -186,7 +186,7 @@ environment_parameters:
     - value:
         sampler_type: constant
         sampler_parameters:
-          seed: 2495
+          seed: 9946
           value: 1
       name: rabbit_mating_reward
       completion_criteria: null
@@ -195,7 +195,7 @@ environment_parameters:
     - value:
         sampler_type: constant
         sampler_parameters:
-          seed: 2496
+          seed: 9947
           value: 1
       name: fox_mating_reward
       completion_criteria: null
@@ -204,7 +204,7 @@ environment_parameters:
     - value:
         sampler_type: uniform
         sampler_parameters:
-          seed: 2497
+          seed: 9948
           min_value: 0.0
           max_value: 100.0
       name: agent_speed
@@ -214,7 +214,7 @@ environment_parameters:
     - value:
         sampler_type: uniform
         sampler_parameters:
-          seed: 2498
+          seed: 9949
           min_value: 0.0
           max_value: 100.0
       name: agent_sensory_range
@@ -224,7 +224,7 @@ environment_parameters:
     - value:
         sampler_type: constant
         sampler_parameters:
-          seed: 2499
+          seed: 9950
           value: 0.5
       name: SmallAreaSize
       completion_criteria:
@@ -237,7 +237,7 @@ environment_parameters:
     - value:
         sampler_type: constant
         sampler_parameters:
-          seed: 2500
+          seed: 9951
           value: 1.0
       name: MediumAreaSize
       completion_criteria:
@@ -250,7 +250,7 @@ environment_parameters:
     - value:
         sampler_type: constant
         sampler_parameters:
-          seed: 2501
+          seed: 9952
           value: 2.0
       name: LargeAreaSize
       completion_criteria:
@@ -263,7 +263,7 @@ environment_parameters:
     - value:
         sampler_type: constant
         sampler_parameters:
-          seed: 2502
+          seed: 9953
           value: 3.0
       name: ExtraLargeAreaSize
       completion_criteria:

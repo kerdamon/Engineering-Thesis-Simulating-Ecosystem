@@ -47,24 +47,6 @@
     "MaleRabbitMovement": {
         "checkpoints": [
             {
-                "steps": 8640,
-                "file_path": "results\\Mating-2-Rabbit\\MaleRabbitMovement\\MaleRabbitMovement-8640.onnx",
-                "reward": 0.4499999977648258,
-                "creation_time": 1641261569.8127024,
-                "auxillary_file_paths": [
-                    "results\\Mating-2-Rabbit\\MaleRabbitMovement\\MaleRabbitMovement-8640.pt"
-                ]
-            },
-            {
-                "steps": 122400,
-                "file_path": "results\\Mating-2-Rabbit\\MaleRabbitMovement\\MaleRabbitMovement-122400.onnx",
-                "reward": null,
-                "creation_time": 1641262473.4855409,
-                "auxillary_file_paths": [
-                    "results\\Mating-2-Rabbit\\MaleRabbitMovement\\MaleRabbitMovement-122400.pt"
-                ]
-            },
-            {
                 "steps": 136320,
                 "file_path": "results\\Mating-2-Rabbit\\MaleRabbitMovement\\MaleRabbitMovement-136320.onnx",
                 "reward": 2.093333332737287,
@@ -90,15 +72,33 @@
                 "auxillary_file_paths": [
                     "results\\Mating-2-Rabbit\\MaleRabbitMovement\\MaleRabbitMovement-528000.pt"
                 ]
+            },
+            {
+                "steps": 543840,
+                "file_path": "results\\Mating-2-Rabbit\\MaleRabbitMovement\\MaleRabbitMovement-543840.onnx",
+                "reward": -7.3866667449474335,
+                "creation_time": 1641265571.782485,
+                "auxillary_file_paths": [
+                    "results\\Mating-2-Rabbit\\MaleRabbitMovement\\MaleRabbitMovement-543840.pt"
+                ]
+            },
+            {
+                "steps": 644640,
+                "file_path": "results\\Mating-2-Rabbit\\MaleRabbitMovement\\MaleRabbitMovement-644640.onnx",
+                "reward": null,
+                "creation_time": 1641267408.2841527,
+                "auxillary_file_paths": [
+                    "results\\Mating-2-Rabbit\\MaleRabbitMovement\\MaleRabbitMovement-644640.pt"
+                ]
             }
         ],
         "final_checkpoint": {
-            "steps": 528000,
+            "steps": 644640,
             "file_path": "results\\Mating-2-Rabbit\\MaleRabbitMovement.onnx",
             "reward": null,
-            "creation_time": 1641265035.145034,
+            "creation_time": 1641267408.2841527,
             "auxillary_file_paths": [
-                "results\\Mating-2-Rabbit\\MaleRabbitMovement\\MaleRabbitMovement-528000.pt"
+                "results\\Mating-2-Rabbit\\MaleRabbitMovement\\MaleRabbitMovement-644640.pt"
             ]
         }
     },
