@@ -10,7 +10,7 @@ namespace DecisionMaking.States
         private void OnTriggerStay(Collider other)
         {
             if(enabled && (other.gameObject.CompareTag("Rabbit-Male") || other.gameObject.CompareTag("Rabbit-Female")) && Needs["Hunger"] > 0)
-                InteractionManager.InteractIfAbleWith(EatingRabbitInteraction, other.gameObject);
+                InteractionManager.InteractIfAbleWith(EatingRabbitInteraction, other.transform.parent.gameObject);
         }
     }
 }
