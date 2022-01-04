@@ -81,15 +81,24 @@
                 "auxillary_file_paths": [
                     "results\\Mating-2-Fox\\MaleFoxMovement\\MaleFoxMovement-646560.pt"
                 ]
+            },
+            {
+                "steps": 720480,
+                "file_path": "results\\Mating-2-Fox\\MaleFoxMovement\\MaleFoxMovement-720480.onnx",
+                "reward": 2.1062497643133002,
+                "creation_time": 1641277721.890435,
+                "auxillary_file_paths": [
+                    "results\\Mating-2-Fox\\MaleFoxMovement\\MaleFoxMovement-720480.pt"
+                ]
             }
         ],
         "final_checkpoint": {
-            "steps": 646560,
+            "steps": 720480,
             "file_path": "results\\Mating-2-Fox\\MaleFoxMovement.onnx",
-            "reward": null,
-            "creation_time": 1641276085.3869467,
+            "reward": 2.1062497643133002,
+            "creation_time": 1641277721.890435,
             "auxillary_file_paths": [
-                "results\\Mating-2-Fox\\MaleFoxMovement\\MaleFoxMovement-646560.pt"
+                "results\\Mating-2-Fox\\MaleFoxMovement\\MaleFoxMovement-720480.pt"
             ]
         }
     },
