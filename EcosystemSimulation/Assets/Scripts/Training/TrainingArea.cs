@@ -48,7 +48,7 @@ public class TrainingArea : MonoBehaviour, ITrainingArea
         }
     }
     
-    private void RandomizeRabbits()
+    public void RandomizeRabbits()
     {
         foreach (Transform rabbit in rabbitContainterTransform)
         {
