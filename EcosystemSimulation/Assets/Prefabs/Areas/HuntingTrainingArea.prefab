@@ -71,5 +71,58 @@ PrefabInstance:
       propertyPath: values.Array.data[0]
       value: 90
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8177272368930193150, guid: d12ac809e5ac5d048958702a68cb5f16, type: 3}
+    - {fileID: 7294480653354264594, guid: d12ac809e5ac5d048958702a68cb5f16, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: d12ac809e5ac5d048958702a68cb5f16, type: 3}
+--- !u!114 &5770103389894301656 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8642981763297538425, guid: d12ac809e5ac5d048958702a68cb5f16, type: 3}
+  m_PrefabInstance: {fileID: 2873732420885685921}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2cf0de714fb84316a50e19a47b7acaaf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &6146436035707641627 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8263273447118453178, guid: d12ac809e5ac5d048958702a68cb5f16, type: 3}
+  m_PrefabInstance: {fileID: 2873732420885685921}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &4687180028794046967 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7416787632085610326, guid: d12ac809e5ac5d048958702a68cb5f16, type: 3}
+  m_PrefabInstance: {fileID: 2873732420885685921}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &3321780101739591225
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6146436035707641627}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8de4c102271440e88b9970850723546, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeIncrement: 0
+  interactionDuration: 0
+  trainingArea: {fileID: 5770103389894301656}
+--- !u!114 &9045434211549000453
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4687180028794046967}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8de4c102271440e88b9970850723546, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeIncrement: 0
+  interactionDuration: 0
+  trainingArea: {fileID: 5770103389894301656}

@@ -100,6 +100,4 @@ environment_parameters:
           threshold: 0.8
         value: 2.0
       - name: ExtraLargeAreaSize
-        completion_criteria:
-          behavior: MaleFoxMovement
         value: 3.0
