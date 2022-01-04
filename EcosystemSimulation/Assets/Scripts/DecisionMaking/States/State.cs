@@ -1,4 +1,5 @@
 ﻿using Interaction;
+using Interaction.FoxInteractions;
 using Interaction.InteractionManagers;
 using Interaction.RabbitInteractions;
 using Unity.Barracuda;
@@ -20,6 +21,7 @@ namespace DecisionMaking.States
 
         protected DrinkingInteraction DrinkingInteraction;
         protected EatingCarrotInteraction EatingCarrotInteraction;
+        protected EatingRabbitInteraction EatingRabbitInteraction;
         protected MatingInteraction MatingInteraction;
         protected GameObject Mate;  //todo change - this shouldn't be here. It is for setting mating state in mate
         
