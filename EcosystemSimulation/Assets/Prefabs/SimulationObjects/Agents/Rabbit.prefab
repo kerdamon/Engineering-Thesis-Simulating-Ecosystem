@@ -83,6 +83,10 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 8218680737150463211, guid: 7024a0394b3d4d94bbb875675d3ef939, type: 3}
+      propertyPath: rank
+      value: 1.3
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 7853836569500315272, guid: 7024a0394b3d4d94bbb875675d3ef939, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 7024a0394b3d4d94bbb875675d3ef939, type: 3}
@@ -152,7 +156,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 386c2ea4e80d4e618f55df30907e3540, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nnModel: {fileID: 0}
+  nnModel: {fileID: 5022602860645237092, guid: 9f2f756f6e429554b936b4475220c325, type: 3}
   scoreCurve:
     serializedVersion: 2
     m_Curve:
