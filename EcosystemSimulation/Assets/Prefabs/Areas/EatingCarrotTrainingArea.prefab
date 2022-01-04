@@ -494,6 +494,54 @@ PrefabInstance:
       propertyPath: values.Array.data[0]
       value: 80
       objectReference: {fileID: 0}
+    - target: {fileID: 1818208979558345404, guid: d12ac809e5ac5d048958702a68cb5f16, type: 3}
+      propertyPath: plantLimit
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1818208979558345404, guid: d12ac809e5ac5d048958702a68cb5f16, type: 3}
+      propertyPath: spawnInterval
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1818208979558345404, guid: d12ac809e5ac5d048958702a68cb5f16, type: 3}
+      propertyPath: spawningRadius
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1818208980643260791, guid: d12ac809e5ac5d048958702a68cb5f16, type: 3}
+      propertyPath: plantLimit
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1818208980643260791, guid: d12ac809e5ac5d048958702a68cb5f16, type: 3}
+      propertyPath: spawnInterval
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1818208980643260791, guid: d12ac809e5ac5d048958702a68cb5f16, type: 3}
+      propertyPath: spawningRadius
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1818208980938696108, guid: d12ac809e5ac5d048958702a68cb5f16, type: 3}
+      propertyPath: plantLimit
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1818208980938696108, guid: d12ac809e5ac5d048958702a68cb5f16, type: 3}
+      propertyPath: spawnInterval
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1818208980938696108, guid: d12ac809e5ac5d048958702a68cb5f16, type: 3}
+      propertyPath: spawningRadius
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1818208981130473892, guid: d12ac809e5ac5d048958702a68cb5f16, type: 3}
+      propertyPath: plantLimit
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1818208981130473892, guid: d12ac809e5ac5d048958702a68cb5f16, type: 3}
+      propertyPath: spawnInterval
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1818208981130473892, guid: d12ac809e5ac5d048958702a68cb5f16, type: 3}
+      propertyPath: spawningRadius
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 2453557336643291265, guid: d12ac809e5ac5d048958702a68cb5f16, type: 3}
       propertyPath: increaseRate
       value: 0

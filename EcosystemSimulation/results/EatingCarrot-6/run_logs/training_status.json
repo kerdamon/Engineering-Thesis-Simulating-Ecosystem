@@ -42,27 +42,63 @@
         "lesson_num": 0
     },
     "training_area_size": {
-        "lesson_num": 2
+        "lesson_num": 3
     },
     "RabbitMovement": {
         "checkpoints": [
             {
-                "steps": 488448,
-                "file_path": "results\\EatingCarrot-6\\RabbitMovement\\RabbitMovement-488448.onnx",
+                "steps": 745344,
+                "file_path": "results\\EatingCarrot-6\\RabbitMovement\\RabbitMovement-745344.onnx",
                 "reward": null,
-                "creation_time": 1641250631.543037,
+                "creation_time": 1641253545.1368425,
                 "auxillary_file_paths": [
-                    "results\\EatingCarrot-6\\RabbitMovement\\RabbitMovement-488448.pt"
+                    "results\\EatingCarrot-6\\RabbitMovement\\RabbitMovement-745344.pt"
+                ]
+            },
+            {
+                "steps": 745344,
+                "file_path": "results\\EatingCarrot-6\\RabbitMovement\\RabbitMovement-745344.onnx",
+                "reward": null,
+                "creation_time": 1641253581.8162334,
+                "auxillary_file_paths": [
+                    "results\\EatingCarrot-6\\RabbitMovement\\RabbitMovement-745344.pt"
+                ]
+            },
+            {
+                "steps": 840576,
+                "file_path": "results\\EatingCarrot-6\\RabbitMovement\\RabbitMovement-840576.onnx",
+                "reward": null,
+                "creation_time": 1641254260.3592696,
+                "auxillary_file_paths": [
+                    "results\\EatingCarrot-6\\RabbitMovement\\RabbitMovement-840576.pt"
+                ]
+            },
+            {
+                "steps": 999936,
+                "file_path": "results\\EatingCarrot-6\\RabbitMovement\\RabbitMovement-999936.onnx",
+                "reward": null,
+                "creation_time": 1641256009.3488188,
+                "auxillary_file_paths": [
+                    "results\\EatingCarrot-6\\RabbitMovement\\RabbitMovement-999936.pt"
+                ]
+            },
+            {
+                "steps": 1000320,
+                "file_path": "results\\EatingCarrot-6\\RabbitMovement\\RabbitMovement-1000320.onnx",
+                "reward": null,
+                "creation_time": 1641256009.5408704,
+                "auxillary_file_paths": [
+                    "results\\EatingCarrot-6\\RabbitMovement\\RabbitMovement-1000320.pt"
                 ]
             }
         ],
         "final_checkpoint": {
-            "steps": 488448,
+            "steps": 1000320,
             "file_path": "results\\EatingCarrot-6\\RabbitMovement.onnx",
             "reward": null,
-            "creation_time": 1641250631.543037,
+            "creation_time": 1641256009.5408704,
             "auxillary_file_paths": [
-                "results\\EatingCarrot-6\\RabbitMovement\\RabbitMovement-488448.pt"
+                "results\\EatingCarrot-6\\RabbitMovement\\RabbitMovement-1000320.pt"
             ]
         }
     },

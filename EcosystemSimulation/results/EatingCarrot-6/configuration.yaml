@@ -32,7 +32,7 @@ behaviors:
     init_path: null
     keep_checkpoints: 5
     checkpoint_interval: 500000
-    max_steps: 1200000
+    max_steps: 1000000
     time_horizon: 64
     summary_freq: 10000
     threaded: false
@@ -58,7 +58,7 @@ environment_parameters:
     - value:
         sampler_type: constant
         sampler_parameters:
-          seed: 1727
+          seed: 9547
           value: 1
       name: is_training
       completion_criteria: null
@@ -67,7 +67,7 @@ environment_parameters:
     - value:
         sampler_type: constant
         sampler_parameters:
-          seed: 1728
+          seed: 9548
           value: 1
       name: rabbit_eating_carrot_reward
       completion_criteria: null
@@ -76,7 +76,7 @@ environment_parameters:
     - value:
         sampler_type: constant
         sampler_parameters:
-          seed: 1729
+          seed: 9549
           value: 0
       name: fox_eating_rabbit_reward
       completion_criteria: null
@@ -85,7 +85,7 @@ environment_parameters:
     - value:
         sampler_type: constant
         sampler_parameters:
-          seed: 1730
+          seed: 9550
           value: -1
       name: rabbit_each_episode_fixed
       completion_criteria: null
@@ -94,7 +94,7 @@ environment_parameters:
     - value:
         sampler_type: constant
         sampler_parameters:
-          seed: 1731
+          seed: 9551
           value: 0
       name: fox_each_episode_fixed
       completion_criteria: null
@@ -103,7 +103,7 @@ environment_parameters:
     - value:
         sampler_type: constant
         sampler_parameters:
-          seed: 1732
+          seed: 9552
           value: 0
       name: rabbit_on_eaten
       completion_criteria: null
@@ -112,7 +112,7 @@ environment_parameters:
     - value:
         sampler_type: constant
         sampler_parameters:
-          seed: 1733
+          seed: 9553
           value: -0.2
       name: agent_bump_into_wall
       completion_criteria: null
@@ -121,8 +121,8 @@ environment_parameters:
     - value:
         sampler_type: constant
         sampler_parameters:
-          seed: 1734
-          value: -0.2
+          seed: 9554
+          value: 0
       name: agent_bump_into_water
       completion_criteria: null
   agent_bump_into_food:
@@ -130,7 +130,7 @@ environment_parameters:
     - value:
         sampler_type: constant
         sampler_parameters:
-          seed: 1735
+          seed: 9555
           value: 0
       name: agent_bump_into_food
       completion_criteria: null
@@ -139,7 +139,7 @@ environment_parameters:
     - value:
         sampler_type: constant
         sampler_parameters:
-          seed: 1736
+          seed: 9556
           value: 0
       name: agent_drink_reward
       completion_criteria: null
@@ -148,7 +148,7 @@ environment_parameters:
     - value:
         sampler_type: constant
         sampler_parameters:
-          seed: 1737
+          seed: 9557
           value: 0
       name: rabbit_mating_reward
       completion_criteria: null
@@ -157,7 +157,7 @@ environment_parameters:
     - value:
         sampler_type: constant
         sampler_parameters:
-          seed: 1738
+          seed: 9558
           value: 0
       name: fox_mating_reward
       completion_criteria: null
@@ -166,7 +166,7 @@ environment_parameters:
     - value:
         sampler_type: uniform
         sampler_parameters:
-          seed: 1739
+          seed: 9559
           min_value: 0.0
           max_value: 100.0
       name: agent_speed
@@ -176,7 +176,7 @@ environment_parameters:
     - value:
         sampler_type: uniform
         sampler_parameters:
-          seed: 1740
+          seed: 9560
           min_value: 0.0
           max_value: 100.0
       name: agent_sensory_range
@@ -186,7 +186,7 @@ environment_parameters:
     - value:
         sampler_type: constant
         sampler_parameters:
-          seed: 1741
+          seed: 9561
           value: 0.6
       name: SmallAreaSize
       completion_criteria:
@@ -199,7 +199,7 @@ environment_parameters:
     - value:
         sampler_type: constant
         sampler_parameters:
-          seed: 1742
+          seed: 9562
           value: 1.0
       name: MediumAreaSize
       completion_criteria:
@@ -212,7 +212,7 @@ environment_parameters:
     - value:
         sampler_type: constant
         sampler_parameters:
-          seed: 1743
+          seed: 9563
           value: 2.0
       name: LargeAreaSize
       completion_criteria:
@@ -225,7 +225,7 @@ environment_parameters:
     - value:
         sampler_type: constant
         sampler_parameters:
-          seed: 1744
+          seed: 9564
           value: 3.0
       name: ExtraLargeAreaSize
       completion_criteria:
@@ -239,7 +239,7 @@ checkpoint_settings:
   run_id: EatingCarrot-6
   initialize_from: null
   load_model: false
-  resume: false
+  resume: true
   force: false
   train_model: false
   inference: false

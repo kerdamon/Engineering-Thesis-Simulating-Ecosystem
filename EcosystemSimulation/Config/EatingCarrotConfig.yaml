@@ -20,7 +20,7 @@ behaviors:
         gamma: 0.99
         strength: 1.0
     keep_checkpoints: 5
-    max_steps: 1200000
+    max_steps: 1000000
     time_horizon: 64
     summary_freq: 10000
 environment_parameters:
@@ -33,7 +33,7 @@ environment_parameters:
   fox_each_episode_fixed: 0
   rabbit_on_eaten: 0
   agent_bump_into_wall: -0.2
-  agent_bump_into_water: -0.2
+  agent_bump_into_water: 0
   agent_bump_into_food: 0
   agent_drink_reward: 0
   rabbit_mating_reward: 0
