@@ -112,7 +112,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Fox-Male
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8399794872883688511, guid: acd699e18a8d6a645a22ce50ac40996b, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: acd699e18a8d6a645a22ce50ac40996b, type: 3}
 --- !u!4 &6124280814844809170 stripped
 Transform:
@@ -151,6 +152,18 @@ MonoBehaviour:
   femaleChild: {fileID: 4741656434621148992, guid: 0219e5a339fc73c4597fa5665f3610ac, type: 3}
   maxSensorySphereColliderRadius: 27
   minSensorySphereColliderRadius: 15
+--- !u!114 &6443000846202470058
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1609264088786331216}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9472b74bf874d15a65fe90f36dd0f39, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &2886606892053129483
 MonoBehaviour:
   m_ObjectHideFlags: 0
