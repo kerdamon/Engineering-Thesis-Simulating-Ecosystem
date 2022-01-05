@@ -20,7 +20,7 @@ behaviors:
         gamma: 0.99
         strength: 1.0
     keep_checkpoints: 5
-    max_steps: 500000
+    max_steps: 1000000
     time_horizon: 64
     summary_freq: 10000
 environment_parameters:
@@ -52,14 +52,4 @@ environment_parameters:
       max_value: 100
 
   # training area size
-  training_area_size:
-    curriculum:
-      - name: MediumAreaSize
-        completion_criteria:
-          measure: progress
-          behavior: FoxMovement
-          min_lesson_length: 5
-          threshold: 0.5
-        value: 1.0
-      - name: LargeAreaSize
-        value: 2.0
+  training_area_size: 1.0
