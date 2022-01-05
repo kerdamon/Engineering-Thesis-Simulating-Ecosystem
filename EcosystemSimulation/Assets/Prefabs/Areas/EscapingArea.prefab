@@ -357,6 +357,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 8177272368930193150, guid: d12ac809e5ac5d048958702a68cb5f16, type: 3}
+    - {fileID: 4815619316538129910, guid: d12ac809e5ac5d048958702a68cb5f16, type: 3}
+    - {fileID: 6238670913509993242, guid: d12ac809e5ac5d048958702a68cb5f16, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: d12ac809e5ac5d048958702a68cb5f16, type: 3}
 --- !u!114 &3512829296518665606 stripped
 MonoBehaviour:
@@ -488,6 +490,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 861767974503531313, guid: 0219e5a339fc73c4597fa5665f3610ac, type: 3}
+    - {fileID: 4060726023978188857, guid: 0219e5a339fc73c4597fa5665f3610ac, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 0219e5a339fc73c4597fa5665f3610ac, type: 3}
 --- !u!1 &6332184236854600478 stripped
 GameObject:
@@ -714,7 +717,8 @@ PrefabInstance:
       propertyPath: values.Array.data[0]
       value: 90
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3633415779843339504, guid: df5ccfc4b6efae84c916c101ecb37e68, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: df5ccfc4b6efae84c916c101ecb37e68, type: 3}
 --- !u!1 &9106710407679972404 stripped
 GameObject:
