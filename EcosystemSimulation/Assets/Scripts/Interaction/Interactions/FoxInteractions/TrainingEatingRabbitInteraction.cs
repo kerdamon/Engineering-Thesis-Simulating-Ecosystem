@@ -22,7 +22,7 @@ namespace Interaction.FoxInteractions
             var rabbitContainer = rabbit.parent;
             trainingArea.RandomizePositionAndRotationWithCollisionCheck(rabbit, rabbitContainer);
 
-            if (Mathf.Abs(rabbit_on_eaten) > 0.00001f) return;
+            if (Mathf.Abs(rabbit_on_eaten) < 0.00001f) return;
             rabbit.GetComponent<MovementAgent>().AddReward(rabbit_on_eaten);
             Debug.Log($"Added reward of value {rabbit_on_eaten} after rabbit was eaten", this);
         }
