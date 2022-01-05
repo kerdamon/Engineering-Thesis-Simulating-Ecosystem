@@ -82,22 +82,22 @@ environment_parameters:
         completion_criteria:
           measure: progress
           behavior: FoxMovement
-          min_lesson_length: 50
+          min_lesson_length: 5
           threshold: 0.15
         value: 0.5
       - name: MediumAreaSize
         completion_criteria:
           measure: progress
           behavior: FoxMovement
-          min_lesson_length: 50
+          min_lesson_length: 5
           threshold: 0.5
         value: 1.0
       - name: LargeAreaSize
         completion_criteria:
           measure: progress
           behavior: FoxMovement
-          min_lesson_length: 50
+          min_lesson_length: 5
           threshold: 0.75
-        value: 2.0
+        value: 1.0
       - name: ExtraLargeAreaSize
-        value: 3.0
+        value: 1.0

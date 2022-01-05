@@ -58,7 +58,7 @@ environment_parameters:
     - value:
         sampler_type: constant
         sampler_parameters:
-          seed: 4140
+          seed: 5610
           value: 1
       name: is_training
       completion_criteria: null
@@ -67,7 +67,7 @@ environment_parameters:
     - value:
         sampler_type: constant
         sampler_parameters:
-          seed: 4141
+          seed: 5611
           value: 0
       name: rabbit_eating_carrot_reward
       completion_criteria: null
@@ -76,7 +76,7 @@ environment_parameters:
     - value:
         sampler_type: constant
         sampler_parameters:
-          seed: 4142
+          seed: 5612
           value: 1
       name: fox_eating_rabbit_reward
       completion_criteria: null
@@ -85,7 +85,7 @@ environment_parameters:
     - value:
         sampler_type: constant
         sampler_parameters:
-          seed: 4143
+          seed: 5613
           value: 1
       name: rabbit_each_episode_fixed
       completion_criteria: null
@@ -94,7 +94,7 @@ environment_parameters:
     - value:
         sampler_type: constant
         sampler_parameters:
-          seed: 4144
+          seed: 5614
           value: -1
       name: fox_each_episode_fixed
       completion_criteria: null
@@ -103,7 +103,7 @@ environment_parameters:
     - value:
         sampler_type: constant
         sampler_parameters:
-          seed: 4145
+          seed: 5615
           value: -1
       name: rabbit_on_eaten
       completion_criteria: null
@@ -112,7 +112,7 @@ environment_parameters:
     - value:
         sampler_type: constant
         sampler_parameters:
-          seed: 4146
+          seed: 5616
           value: -0.01
       name: agent_bump_into_wall
       completion_criteria: null
@@ -121,7 +121,7 @@ environment_parameters:
     - value:
         sampler_type: constant
         sampler_parameters:
-          seed: 4147
+          seed: 5617
           value: -0.01
       name: agent_bump_into_water
       completion_criteria: null
@@ -130,7 +130,7 @@ environment_parameters:
     - value:
         sampler_type: constant
         sampler_parameters:
-          seed: 4148
+          seed: 5618
           value: -0.01
       name: agent_bump_into_food
       completion_criteria: null
@@ -139,7 +139,7 @@ environment_parameters:
     - value:
         sampler_type: constant
         sampler_parameters:
-          seed: 4149
+          seed: 5619
           value: 0
       name: agent_drink_reward
       completion_criteria: null
@@ -148,7 +148,7 @@ environment_parameters:
     - value:
         sampler_type: constant
         sampler_parameters:
-          seed: 4150
+          seed: 5620
           value: 0
       name: rabbit_mating_reward
       completion_criteria: null
@@ -157,7 +157,7 @@ environment_parameters:
     - value:
         sampler_type: constant
         sampler_parameters:
-          seed: 4151
+          seed: 5621
           value: 0
       name: fox_mating_reward
       completion_criteria: null
@@ -166,7 +166,7 @@ environment_parameters:
     - value:
         sampler_type: uniform
         sampler_parameters:
-          seed: 4152
+          seed: 5622
           min_value: 0.0
           max_value: 100.0
       name: agent_speed
@@ -176,7 +176,7 @@ environment_parameters:
     - value:
         sampler_type: uniform
         sampler_parameters:
-          seed: 4153
+          seed: 5623
           min_value: 0.0
           max_value: 100.0
       name: agent_sensory_range
@@ -186,47 +186,47 @@ environment_parameters:
     - value:
         sampler_type: constant
         sampler_parameters:
-          seed: 4154
+          seed: 5624
           value: 0.5
       name: SmallAreaSize
       completion_criteria:
         behavior: FoxMovement
         measure: progress
-        min_lesson_length: 50
+        min_lesson_length: 5
         signal_smoothing: true
         threshold: 0.15
         require_reset: false
     - value:
         sampler_type: constant
         sampler_parameters:
-          seed: 4155
+          seed: 5625
           value: 1.0
       name: MediumAreaSize
       completion_criteria:
         behavior: FoxMovement
         measure: progress
-        min_lesson_length: 50
+        min_lesson_length: 5
         signal_smoothing: true
         threshold: 0.5
         require_reset: false
     - value:
         sampler_type: constant
         sampler_parameters:
-          seed: 4156
-          value: 2.0
+          seed: 5626
+          value: 1.0
       name: LargeAreaSize
       completion_criteria:
         behavior: FoxMovement
         measure: progress
-        min_lesson_length: 50
+        min_lesson_length: 5
         signal_smoothing: true
         threshold: 0.75
         require_reset: false
     - value:
         sampler_type: constant
         sampler_parameters:
-          seed: 4157
-          value: 3.0
+          seed: 5627
+          value: 1.0
       name: ExtraLargeAreaSize
       completion_criteria: null
 checkpoint_settings:
