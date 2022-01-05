@@ -7,10 +7,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7809161314938491063}
     m_Modifications:
+    - target: {fileID: 1624268067034258691, guid: 5b95f44433656d34581289181c8e67a5, type: 3}
+      propertyPath: nnModel
+      value: 
+      objectReference: {fileID: 5022602860645237092, guid: 2a79f3eef03f3d847bb85a9435a4b352, type: 3}
     - target: {fileID: 2517616513507157751, guid: 5b95f44433656d34581289181c8e67a5, type: 3}
       propertyPath: m_Model
       value: 
-      objectReference: {fileID: 5022602860645237092, guid: 2862df3cb02578745881f6a49884b34c, type: 3}
+      objectReference: {fileID: 5022602860645237092, guid: 2a79f3eef03f3d847bb85a9435a4b352, type: 3}
     - target: {fileID: 2517616513507157751, guid: 5b95f44433656d34581289181c8e67a5, type: 3}
       propertyPath: m_BehaviorType
       value: 2
@@ -137,6 +141,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rabbit-Male (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 5344914806650989210, guid: 2a7aa60a53a7ec2429c616a5b35a764f, type: 3}
+      propertyPath: nnModel
+      value: 
+      objectReference: {fileID: 5022602860645237092, guid: 2a79f3eef03f3d847bb85a9435a4b352, type: 3}
     - target: {fileID: 6965565514104315452, guid: 2a7aa60a53a7ec2429c616a5b35a764f, type: 3}
       propertyPath: energyReceivedPerBite
       value: 0
@@ -148,7 +156,7 @@ PrefabInstance:
     - target: {fileID: 9103501494216184174, guid: 2a7aa60a53a7ec2429c616a5b35a764f, type: 3}
       propertyPath: m_Model
       value: 
-      objectReference: {fileID: 5022602860645237092, guid: 2862df3cb02578745881f6a49884b34c, type: 3}
+      objectReference: {fileID: 5022602860645237092, guid: 2a79f3eef03f3d847bb85a9435a4b352, type: 3}
     - target: {fileID: 9103501494216184174, guid: 2a7aa60a53a7ec2429c616a5b35a764f, type: 3}
       propertyPath: m_BehaviorType
       value: 2
@@ -163,10 +171,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7809161314938491063}
     m_Modifications:
+    - target: {fileID: 1624268067034258691, guid: 5b95f44433656d34581289181c8e67a5, type: 3}
+      propertyPath: nnModel
+      value: 
+      objectReference: {fileID: 5022602860645237092, guid: 2a79f3eef03f3d847bb85a9435a4b352, type: 3}
     - target: {fileID: 2517616513507157751, guid: 5b95f44433656d34581289181c8e67a5, type: 3}
       propertyPath: m_Model
       value: 
-      objectReference: {fileID: 5022602860645237092, guid: 2862df3cb02578745881f6a49884b34c, type: 3}
+      objectReference: {fileID: 5022602860645237092, guid: 2a79f3eef03f3d847bb85a9435a4b352, type: 3}
     - target: {fileID: 2517616513507157751, guid: 5b95f44433656d34581289181c8e67a5, type: 3}
       propertyPath: m_BehaviorType
       value: 2
@@ -261,6 +273,14 @@ PrefabInstance:
       propertyPath: nnModel
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 4692195935673223160, guid: d12ac809e5ac5d048958702a68cb5f16, type: 3}
+      propertyPath: nnModel
+      value: 
+      objectReference: {fileID: 5022602860645237092, guid: 2a79f3eef03f3d847bb85a9435a4b352, type: 3}
+    - target: {fileID: 4916313614946928447, guid: d12ac809e5ac5d048958702a68cb5f16, type: 3}
+      propertyPath: nnModel
+      value: 
+      objectReference: {fileID: 5022602860645237092, guid: 2a79f3eef03f3d847bb85a9435a4b352, type: 3}
     - target: {fileID: 5457864386793967586, guid: d12ac809e5ac5d048958702a68cb5f16, type: 3}
       propertyPath: m_Name
       value: HuntingTrainingArea
@@ -344,7 +364,7 @@ PrefabInstance:
     - target: {fileID: 8088624349415881931, guid: d12ac809e5ac5d048958702a68cb5f16, type: 3}
       propertyPath: m_Model
       value: 
-      objectReference: {fileID: 5022602860645237092, guid: 2862df3cb02578745881f6a49884b34c, type: 3}
+      objectReference: {fileID: 5022602860645237092, guid: 2a79f3eef03f3d847bb85a9435a4b352, type: 3}
     - target: {fileID: 8088624349415881931, guid: d12ac809e5ac5d048958702a68cb5f16, type: 3}
       propertyPath: m_BehaviorType
       value: 2
@@ -352,7 +372,7 @@ PrefabInstance:
     - target: {fileID: 8459121866987256844, guid: d12ac809e5ac5d048958702a68cb5f16, type: 3}
       propertyPath: m_Model
       value: 
-      objectReference: {fileID: 5022602860645237092, guid: 2862df3cb02578745881f6a49884b34c, type: 3}
+      objectReference: {fileID: 5022602860645237092, guid: 2a79f3eef03f3d847bb85a9435a4b352, type: 3}
     - target: {fileID: 8459121866987256844, guid: d12ac809e5ac5d048958702a68cb5f16, type: 3}
       propertyPath: m_BehaviorType
       value: 2
@@ -478,6 +498,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rabbit-Male (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 5344914806650989210, guid: 2a7aa60a53a7ec2429c616a5b35a764f, type: 3}
+      propertyPath: nnModel
+      value: 
+      objectReference: {fileID: 5022602860645237092, guid: 2a79f3eef03f3d847bb85a9435a4b352, type: 3}
     - target: {fileID: 6965565514104315452, guid: 2a7aa60a53a7ec2429c616a5b35a764f, type: 3}
       propertyPath: energyReceivedPerBite
       value: 0
@@ -489,7 +513,7 @@ PrefabInstance:
     - target: {fileID: 9103501494216184174, guid: 2a7aa60a53a7ec2429c616a5b35a764f, type: 3}
       propertyPath: m_Model
       value: 
-      objectReference: {fileID: 5022602860645237092, guid: 2862df3cb02578745881f6a49884b34c, type: 3}
+      objectReference: {fileID: 5022602860645237092, guid: 2a79f3eef03f3d847bb85a9435a4b352, type: 3}
     - target: {fileID: 9103501494216184174, guid: 2a7aa60a53a7ec2429c616a5b35a764f, type: 3}
       propertyPath: m_BehaviorType
       value: 2
@@ -504,10 +528,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7809161314938491063}
     m_Modifications:
+    - target: {fileID: 1624268067034258691, guid: 5b95f44433656d34581289181c8e67a5, type: 3}
+      propertyPath: nnModel
+      value: 
+      objectReference: {fileID: 5022602860645237092, guid: 2a79f3eef03f3d847bb85a9435a4b352, type: 3}
     - target: {fileID: 2517616513507157751, guid: 5b95f44433656d34581289181c8e67a5, type: 3}
       propertyPath: m_Model
       value: 
-      objectReference: {fileID: 5022602860645237092, guid: 2862df3cb02578745881f6a49884b34c, type: 3}
+      objectReference: {fileID: 5022602860645237092, guid: 2a79f3eef03f3d847bb85a9435a4b352, type: 3}
     - target: {fileID: 2517616513507157751, guid: 5b95f44433656d34581289181c8e67a5, type: 3}
       propertyPath: m_BehaviorType
       value: 2
@@ -634,6 +662,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rabbit-Male (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 5344914806650989210, guid: 2a7aa60a53a7ec2429c616a5b35a764f, type: 3}
+      propertyPath: nnModel
+      value: 
+      objectReference: {fileID: 5022602860645237092, guid: 2a79f3eef03f3d847bb85a9435a4b352, type: 3}
     - target: {fileID: 6965565514104315452, guid: 2a7aa60a53a7ec2429c616a5b35a764f, type: 3}
       propertyPath: energyReceivedPerBite
       value: 0
@@ -645,7 +677,7 @@ PrefabInstance:
     - target: {fileID: 9103501494216184174, guid: 2a7aa60a53a7ec2429c616a5b35a764f, type: 3}
       propertyPath: m_Model
       value: 
-      objectReference: {fileID: 5022602860645237092, guid: 2862df3cb02578745881f6a49884b34c, type: 3}
+      objectReference: {fileID: 5022602860645237092, guid: 2a79f3eef03f3d847bb85a9435a4b352, type: 3}
     - target: {fileID: 9103501494216184174, guid: 2a7aa60a53a7ec2429c616a5b35a764f, type: 3}
       propertyPath: m_BehaviorType
       value: 2
@@ -660,10 +692,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7809161314938491063}
     m_Modifications:
+    - target: {fileID: 1624268067034258691, guid: 5b95f44433656d34581289181c8e67a5, type: 3}
+      propertyPath: nnModel
+      value: 
+      objectReference: {fileID: 5022602860645237092, guid: 2a79f3eef03f3d847bb85a9435a4b352, type: 3}
     - target: {fileID: 2517616513507157751, guid: 5b95f44433656d34581289181c8e67a5, type: 3}
       propertyPath: m_Model
       value: 
-      objectReference: {fileID: 5022602860645237092, guid: 2862df3cb02578745881f6a49884b34c, type: 3}
+      objectReference: {fileID: 5022602860645237092, guid: 2a79f3eef03f3d847bb85a9435a4b352, type: 3}
     - target: {fileID: 2517616513507157751, guid: 5b95f44433656d34581289181c8e67a5, type: 3}
       propertyPath: m_BehaviorType
       value: 2
@@ -790,6 +826,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rabbit-Male (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 5344914806650989210, guid: 2a7aa60a53a7ec2429c616a5b35a764f, type: 3}
+      propertyPath: nnModel
+      value: 
+      objectReference: {fileID: 5022602860645237092, guid: 2a79f3eef03f3d847bb85a9435a4b352, type: 3}
     - target: {fileID: 6965565514104315452, guid: 2a7aa60a53a7ec2429c616a5b35a764f, type: 3}
       propertyPath: energyReceivedPerBite
       value: 0
@@ -801,7 +841,7 @@ PrefabInstance:
     - target: {fileID: 9103501494216184174, guid: 2a7aa60a53a7ec2429c616a5b35a764f, type: 3}
       propertyPath: m_Model
       value: 
-      objectReference: {fileID: 5022602860645237092, guid: 2862df3cb02578745881f6a49884b34c, type: 3}
+      objectReference: {fileID: 5022602860645237092, guid: 2a79f3eef03f3d847bb85a9435a4b352, type: 3}
     - target: {fileID: 9103501494216184174, guid: 2a7aa60a53a7ec2429c616a5b35a764f, type: 3}
       propertyPath: m_BehaviorType
       value: 2
