@@ -1664,7 +1664,7 @@ MonoBehaviour:
   rabbitsDiedOfThirstText: {fileID: 1018546602}
   rabbitsDiedOfBeingEatenText: {fileID: 2065910910}
   updatePeriod: 20
-  logPeriod: 50
+  logPeriod: 20
 --- !u!114 &1277857825
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2568,18 +2568,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 244229199749264219, guid: da0347d17e632d14a9af1a0994473def, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 68.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 244229199749264219, guid: da0347d17e632d14a9af1a0994473def, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -36.8
-      objectReference: {fileID: 0}
-    - target: {fileID: 429398522172624679, guid: da0347d17e632d14a9af1a0994473def, type: 3}
-      propertyPath: values.Array.data[0]
-      value: 90
-      objectReference: {fileID: 0}
     - target: {fileID: 890183611443429510, guid: da0347d17e632d14a9af1a0994473def, type: 3}
       propertyPath: values.Array.data[2]
       value: 100
@@ -2588,10 +2576,6 @@ PrefabInstance:
       propertyPath: simulationController
       value: 
       objectReference: {fileID: 1277857824}
-    - target: {fileID: 1275985215772023243, guid: da0347d17e632d14a9af1a0994473def, type: 3}
-      propertyPath: values.Array.data[0]
-      value: 90
-      objectReference: {fileID: 0}
     - target: {fileID: 1850730002602087418, guid: da0347d17e632d14a9af1a0994473def, type: 3}
       propertyPath: values.Array.data[1]
       value: -715.6
@@ -2599,10 +2583,6 @@ PrefabInstance:
     - target: {fileID: 2208977992953163621, guid: da0347d17e632d14a9af1a0994473def, type: 3}
       propertyPath: m_TagString
       value: Rabbit
-      objectReference: {fileID: 0}
-    - target: {fileID: 2226417876731324148, guid: da0347d17e632d14a9af1a0994473def, type: 3}
-      propertyPath: values.Array.data[2]
-      value: 28
       objectReference: {fileID: 0}
     - target: {fileID: 3056870355900881544, guid: da0347d17e632d14a9af1a0994473def, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2639,30 +2619,6 @@ PrefabInstance:
     - target: {fileID: 4000194725464032197, guid: da0347d17e632d14a9af1a0994473def, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: -90.092
-      objectReference: {fileID: 0}
-    - target: {fileID: 4440252359356821727, guid: da0347d17e632d14a9af1a0994473def, type: 3}
-      propertyPath: values.Array.data[0]
-      value: 95
-      objectReference: {fileID: 0}
-    - target: {fileID: 4440252359356821727, guid: da0347d17e632d14a9af1a0994473def, type: 3}
-      propertyPath: values.Array.data[1]
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 4440252359356821727, guid: da0347d17e632d14a9af1a0994473def, type: 3}
-      propertyPath: values.Array.data[2]
-      value: 69.45
-      objectReference: {fileID: 0}
-    - target: {fileID: 4480128360679492708, guid: da0347d17e632d14a9af1a0994473def, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -26.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 4480128360679492708, guid: da0347d17e632d14a9af1a0994473def, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -58.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4520546824721253538, guid: da0347d17e632d14a9af1a0994473def, type: 3}
-      propertyPath: rank
-      value: 1.4
       objectReference: {fileID: 0}
     - target: {fileID: 4723547934748982320, guid: da0347d17e632d14a9af1a0994473def, type: 3}
       propertyPath: values.Array.data[2]

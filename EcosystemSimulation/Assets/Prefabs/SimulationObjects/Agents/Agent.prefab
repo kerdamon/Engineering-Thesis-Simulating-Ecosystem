@@ -123,7 +123,7 @@ MonoBehaviour:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0.6
+      value: 0.5
       inSlope: 0
       outSlope: 0
       tangentMode: 34
@@ -132,7 +132,7 @@ MonoBehaviour:
       outWeight: 0.33333334
     - serializedVersion: 3
       time: 1
-      value: 0.6
+      value: 0.5
       inSlope: 0
       outSlope: 0
       tangentMode: 34
@@ -333,7 +333,7 @@ MonoBehaviour:
   - 30
   - 30
   - 0
-  increaseRate: 1
+  increaseRate: 0.5
 --- !u!114 &5933343763909004989
 MonoBehaviour:
   m_ObjectHideFlags: 0
