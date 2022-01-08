@@ -140,9 +140,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76f49ade36404bc08086cdbe189a4431, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeIncrement: 0
-  interactionDuration: 0
-  energyReceivedPerBite: 30
+  timeIncrement: 0.5
+  interactionDuration: 10
+  energyReceivedPerBite: 5
   biteSize: 0.2
 --- !u!114 &8809249897345490066
 MonoBehaviour:
@@ -195,4 +195,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nnModel: {fileID: 0}
   rank: 1.5
+  active: 0
+--- !u!114 &915744610030688251
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9002981221177071608}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8bc9dde287b4500b69b3390b92f8a8b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nnModel: {fileID: 0}
+  rank: 1.1
   active: 0

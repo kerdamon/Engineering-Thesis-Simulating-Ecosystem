@@ -19,17 +19,17 @@ public class PlantGrower : MonoBehaviour
 
     public float OnEaten(float value)
     {
-        var eatenValue = value > size ? size : value;
-        if ((size - value) <= minSize)
+        if (size - value < minSize)
         {
-            Destroy(this.gameObject);
+            Destroy(gameObject);
+            return 0;
         }
         else
         {
             size -= value;
             UpdateScale();
+            return 1;
         }
-        return eatenValue;
     }
 
     private IEnumerator Grow()
