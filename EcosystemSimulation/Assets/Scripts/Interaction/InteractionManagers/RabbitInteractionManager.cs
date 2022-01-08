@@ -29,13 +29,6 @@ namespace Interaction.InteractionManagers
             base.Start();
         }
 
-        public float OnEaten()
-        {
-            var parent = transform.parent;
-            Destroy(parent.gameObject);
-            return 50.0f; //todo make this depenndent on feature like size
-        }
-
         protected override void StopInteractionWhenAgentDontWantTo()
         {
             if (IsInteracting && _stateMachine.CurrentState == _escapingPredatorState)
