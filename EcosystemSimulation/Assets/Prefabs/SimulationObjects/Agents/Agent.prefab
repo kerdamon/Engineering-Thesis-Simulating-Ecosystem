@@ -400,6 +400,7 @@ MonoBehaviour:
   MaxStep: 4000
   movementSpeed: 1
   turningSpeed: 50
+  simulationController: {fileID: 0}
 --- !u!114 &9079999088701981155
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -13,10 +13,15 @@ public class SimulationController : MonoBehaviour
 {
     [SerializeField] private GameObject statsCanvas;
     [SerializeField] private GameObject deathCanvas;
+    [SerializeField] private GameObject timeCanvas;
     
     [SerializeField] private Transform foxesContainer;
     [SerializeField] private Transform rabbitContainer;
 
+    [SerializeField] private Text timestampText;
+    [SerializeField] private Text secondsFromBegininngText;
+    [SerializeField] private Text timeScaleText;
+    
     [SerializeField] private Text foxesPopulationText;
     [SerializeField] private Text rabbitsPopulationText;
     
@@ -63,7 +68,7 @@ public class SimulationController : MonoBehaviour
     private void Start()
     {
         _fileLogger.LogLine(
-            "Timestamp,FoxesPopulation,RabbitPopulation,RabbitSpeedMedian,RabbitSensoryRangeMedian,RabbitFertilityMedian,FoxSpeedMedian,FoxSensoryRangeMedian,FoxFertilityMedian,MinRabbitLifeTime,AverageRabbitLifeTime,MaxRabbitLifeTime,MinFoxLifeTime,AverageFoxLifeTime,MaxFoxLifeTime,FoxesDiedOfHunger,FoxesDiedOfThirst,RabbitsDiedOfHunger,RabbitsDiedOfThirst,RabbitsDiedOfBeingEaten");
+            "SecondsFromStart,FramesFromStart,FoxesPopulation,RabbitPopulation,RabbitSpeedMedian,RabbitSensoryRangeMedian,RabbitFertilityMedian,FoxSpeedMedian,FoxSensoryRangeMedian,FoxFertilityMedian,MinRabbitLifeTime,AverageRabbitLifeTime,MaxRabbitLifeTime,MinFoxLifeTime,AverageFoxLifeTime,MaxFoxLifeTime,FoxesDiedOfHunger,FoxesDiedOfThirst,RabbitsDiedOfHunger,RabbitsDiedOfThirst,RabbitsDiedOfBeingEaten");
     }
 
     private void Update()
@@ -128,10 +133,22 @@ public class SimulationController : MonoBehaviour
             UpdateStatsText(rabbitsDiedOfBeingEatenText,
                 $"Rabbits died of being eaten: {RabbitsDiedOfBeingEaten.ToString()}");
         }
+        
+        if (ShouldUpdateTimeCanvas())
+        {
+            UpdateStatsText(timestampText,
+                $"Frames passed: {Time.frameCount.ToString()}");
+            UpdateStatsText(secondsFromBegininngText,
+                $"Seconds passed: {Time.realtimeSinceStartup.ToString()}");
+            UpdateStatsText(timeScaleText,
+                $"Time scale: {Time.timeScale.ToString()}");
+        }
 
         if (ShouldLogToFile())
         {
-            _fileLogger.LogLine($"{Academy.Instance.StepCount.ToString()}," +
+            _fileLogger.LogLine($"{Time.realtimeSinceStartup.ToString()}" +
+                                $"{Time.frameCount.ToString()}," +
+                                
                                 $"{foxesPopulation.ToString()}," +
                                 $"{rabbitsPopulation.ToString()}," +
                                 
@@ -174,6 +191,11 @@ public class SimulationController : MonoBehaviour
     private bool ShouldUpdateDeathCanvas()
     {
         return Time.frameCount % updatePeriod == 0 && deathCanvas.activeSelf;
+    }
+    
+    private bool ShouldUpdateTimeCanvas()
+    {
+        return Time.frameCount % updatePeriod == 0 && timeCanvas.activeSelf;
     }
 
     private static void UpdateStatsText(Text textElement, string text)

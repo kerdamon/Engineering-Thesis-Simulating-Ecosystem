@@ -128,6 +128,7 @@ MonoBehaviour:
   MaxStep: 4000
   movementSpeed: 1
   turningSpeed: 50
+  simulationController: {fileID: 0}
 --- !u!114 &7077091236591670357
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -193,7 +194,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0fd605caa99545da9ab874ffe69fbb37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nnModel: {fileID: 0}
+  nnModel: {fileID: 5022602860645237092, guid: 2a79f3eef03f3d847bb85a9435a4b352, type: 3}
   rank: 1.5
   active: 0
 --- !u!114 &915744610030688251
