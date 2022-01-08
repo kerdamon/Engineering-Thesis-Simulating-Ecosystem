@@ -1733,17 +1733,9 @@ PrefabInstance:
       propertyPath: values.Array.data[1]
       value: -715.6
       objectReference: {fileID: 0}
-    - target: {fileID: 2000043793606764083, guid: da0347d17e632d14a9af1a0994473def, type: 3}
-      propertyPath: values.Array.data[2]
-      value: 28
-      objectReference: {fileID: 0}
     - target: {fileID: 2208977992953163621, guid: da0347d17e632d14a9af1a0994473def, type: 3}
       propertyPath: m_TagString
       value: Rabbit
-      objectReference: {fileID: 0}
-    - target: {fileID: 2226417876731324148, guid: da0347d17e632d14a9af1a0994473def, type: 3}
-      propertyPath: values.Array.data[2]
-      value: 28
       objectReference: {fileID: 0}
     - target: {fileID: 4000194725464032197, guid: da0347d17e632d14a9af1a0994473def, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1773,25 +1765,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.y
       value: -90.092
       objectReference: {fileID: 0}
-    - target: {fileID: 4087781399380897816, guid: da0347d17e632d14a9af1a0994473def, type: 3}
-      propertyPath: values.Array.data[1]
-      value: -682.7
-      objectReference: {fileID: 0}
-    - target: {fileID: 4087781399380897816, guid: da0347d17e632d14a9af1a0994473def, type: 3}
-      propertyPath: values.Array.data[2]
-      value: 100
-      objectReference: {fileID: 0}
     - target: {fileID: 4440252359356821727, guid: da0347d17e632d14a9af1a0994473def, type: 3}
       propertyPath: values.Array.data[1]
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 4440252359356821727, guid: da0347d17e632d14a9af1a0994473def, type: 3}
-      propertyPath: values.Array.data[2]
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 4520546824721253538, guid: da0347d17e632d14a9af1a0994473def, type: 3}
-      propertyPath: rank
-      value: 1.4
+      value: 63.53
       objectReference: {fileID: 0}
     - target: {fileID: 4723547934748982320, guid: da0347d17e632d14a9af1a0994473def, type: 3}
       propertyPath: values.Array.data[2]
@@ -1901,6 +1877,5 @@ PrefabInstance:
       propertyPath: values.Array.data[2]
       value: 92.8
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 3085997134548533024, guid: da0347d17e632d14a9af1a0994473def, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: da0347d17e632d14a9af1a0994473def, type: 3}

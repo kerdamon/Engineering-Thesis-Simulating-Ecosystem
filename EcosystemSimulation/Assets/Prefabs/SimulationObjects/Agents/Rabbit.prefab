@@ -193,6 +193,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0fd605caa99545da9ab874ffe69fbb37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nnModel: {fileID: 0}
+  nnModel: {fileID: 5022602860645237092, guid: 2a79f3eef03f3d847bb85a9435a4b352, type: 3}
   rank: 1.5
   active: 0
