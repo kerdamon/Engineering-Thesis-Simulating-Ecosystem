@@ -23,20 +23,20 @@ public class Needs : DictionarySerializer<float>
 
     private void UpdateNeeds()
     {
-        IncreaseAndKillIfMax("Hunger", 1.0f);
-        IncreaseAndKillIfMax("Thirst", 1.0f);
+        IncreaseAndKillIfMax("Hunger", 1.0f, DeathCause.Hunger);
+        IncreaseAndKillIfMax("Thirst", 1.0f, DeathCause.Thirst);
         var reproductionUrgeModifier = CalculateReproductionUrgeModifier();
         IncreaseNeedUpToMax("ReproductionUrge", reproductionUrgeModifier);
     }
 
-    private void IncreaseAndKillIfMax(string need, float modifier)
+    private void IncreaseAndKillIfMax(string need, float modifier, DeathCause deathCause)
     {
         IncreaseNeedUpToMax(need, modifier);
         if (IsMaxOrGreater(need))
         {
             if (!is_training)
             {
-                _movementAgent.KillAgent(need);
+                _movementAgent.KillAgent(deathCause);
             }
         }
     }

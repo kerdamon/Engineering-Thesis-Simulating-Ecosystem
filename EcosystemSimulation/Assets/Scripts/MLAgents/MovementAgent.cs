@@ -10,6 +10,8 @@ public class MovementAgent : Agent
 {
     [SerializeField] private float movementSpeed;
     [SerializeField] private float turningSpeed;
+
+    [SerializeField] protected SimulationController simulationController;
     
     private Rigidbody _agentRigidbody;
     private Features _features;
@@ -126,11 +128,19 @@ public class MovementAgent : Agent
             _trainingArea.RandomizePositionAndRotationWithCollisionCheck(agent, containterTransform);
         }
     }
-    
-    public void KillAgent(string deathCause)
+
+
+    public virtual void KillAgent(DeathCause deathCause)
     {
         //todo expand to state
-        Debug.Log($"Agent {gameObject.name} died of {deathCause}");
+        Debug.Log($"Agent {gameObject.name} died of {deathCause.ToString()}");
         Destroy(gameObject);
     }
+}
+
+public enum DeathCause
+{
+    Hunger,
+    Thirst,
+    Eaten
 }

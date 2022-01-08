@@ -1,4 +1,6 @@
 ﻿using System;
+using DecisionMaking;
+using DecisionMaking.States;
 using Interaction;
 using Unity.MLAgents;
 using UnityEngine;
@@ -15,7 +17,6 @@ namespace Interaction.InteractionManagers
         public Interaction CurrentInteraction { get; protected set; }
         public bool IsInteracting => !(CurrentInteraction is null);
 
-        
 
         private float agent_drink_reward;
 
@@ -35,6 +36,7 @@ namespace Interaction.InteractionManagers
             RegisterUpdatingCurrentInteractionAfterEndOf(_drinkingInteraction);
 
             MatingInteraction = GetComponent<MatingInteraction>();
+
         }
 
         private void Update()
@@ -75,13 +77,9 @@ namespace Interaction.InteractionManagers
             CurrentInteraction.StartInteraction(target);
         }
 
-        private void StopInteractionWhenAgentDontWantTo()
+        protected virtual void StopInteractionWhenAgentDontWantTo()
         {
-            if (CurrentInteraction == MatingInteraction) return;   //DONT TOUCH THIS i have no idea why it works, but without that guard clause it does not
-            if(!MovementAgent.WantInteraction && IsInteracting)
-                 CurrentInteraction.Interrupt();
-        }
-        
 
+        }
     }
 }

@@ -13,9 +13,9 @@ namespace Interaction.FoxInteractions
         }
         protected override void AtInteractionEnd()
         {
-            var rabbitInteractionManager = SecondSimulationObject.GetComponentInChildren<RabbitInteractionManager>();
-            var energyReceived = rabbitInteractionManager.OnEaten();
-            _needs["Hunger"] -= energyReceived;
+            var rabbit = SecondSimulationObject.GetComponentInChildren<MovementAgent>();
+            rabbit.KillAgent(DeathCause.Eaten);
+            _needs["Hunger"] = 0;
         }
     }
 }
