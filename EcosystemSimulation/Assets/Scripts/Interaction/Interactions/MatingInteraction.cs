@@ -70,9 +70,9 @@ namespace Interaction
                 UpdateSensorColliderSize(offspringFeatures, offspring);
 
                 if (isMale)
-                    offspring.GetComponentInChildren<MatingInteraction>().maleChild = GetComponentInChildren<MatingInteraction>().maleChild;
+                    offspring.GetComponentInChildren<MatingInteraction>().maleChild = GetComponent<MatingInteraction>().maleChild;
                 offspring.GetComponent<MovementAgent>().simulationController =
-                    GetComponent<MovementAgent>().simulationController;
+                    transform.parent.GetComponent<MovementAgent>().simulationController;
             }
         }
 
