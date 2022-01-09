@@ -141,9 +141,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76f49ade36404bc08086cdbe189a4431, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeIncrement: 0.5
+  timeIncrement: 1
   interactionDuration: 10
-  energyReceivedPerBite: 5
+  energyReceivedPerBite: 10
   biteSize: 0.2
 --- !u!114 &8809249897345490066
 MonoBehaviour:

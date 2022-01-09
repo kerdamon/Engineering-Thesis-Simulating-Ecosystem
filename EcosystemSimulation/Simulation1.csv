@@ -1,7 +1,3 @@
 SecondsFromStart,FramesFromStart,FoxesPopulation,RabbitPopulation,RabbitSpeedMedian,RabbitSensoryRangeMedian,RabbitFertilityMedian,FoxSpeedMedian,FoxSensoryRangeMedian,FoxFertilityMedian,MinRabbitLifeTime,AverageRabbitLifeTime,MaxRabbitLifeTime,MinFoxLifeTime,AverageFoxLifeTime,MaxFoxLifeTime,FoxesDiedOfHunger,FoxesDiedOfThirst,RabbitsDiedOfHunger,RabbitsDiedOfThirst,RabbitsDiedOfBeingEaten
-6,8082550,4,2,53,72,43,50,50,50,50,50,50,0,0,0,0,0,0,0,0
-7,051283100,4,2,53,72,43,50,50,50,100,100,100,0,0,0,0,0,0,0,0
-7,265982150,4,2,53,72,43,50,50,50,150,150,150,0,0,0,0,0,0,0,0
-7,484221200,4,2,53,72,43,50,50,50,200,200,200,0,0,0,0,0,0,0,0
-7,713318250,4,2,53,72,43,50,50,50,250,250,250,0,0,0,0,0,0,0,0
-7,957005300,4,2,53,72,43,50,50,50,300,300,300,0,0,0,0,0,0,0,0
+7,10722750,4,2,69,59,44,50,50,50,50,50,50,0,0,0,0,0,0,0,0
+7,328362100,4,2,69,59,44,50,50,50,100,100,100,0,0,0,0,0,0,0,0

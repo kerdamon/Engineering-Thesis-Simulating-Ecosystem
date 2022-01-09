@@ -330,9 +330,9 @@ MonoBehaviour:
   - Thirst
   - ReproductionUrge
   values:
+  - 31
   - 30
   - 30
-  - 0
   increaseRate: 0.5
 --- !u!114 &5933343763909004989
 MonoBehaviour:
