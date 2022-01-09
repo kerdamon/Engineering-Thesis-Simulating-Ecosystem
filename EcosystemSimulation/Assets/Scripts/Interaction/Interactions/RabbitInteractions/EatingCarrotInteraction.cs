@@ -33,7 +33,7 @@ namespace Interaction.RabbitInteractions
 
         protected override void AtInteractionIncrement()
         {
-            if (_needs["Hunger"] - _eatenAmount < 0)
+            if ((_needs["Hunger"] - _eatenAmount < 0) || (_plantGrower == null))
             {
                 Interrupt();
             }
