@@ -1,4 +1,7 @@
 using System;
+using Interaction;
+using Interaction.InteractionManagers;
+using Interaction.RabbitInteractions;
 using Unity.MLAgents;
 using UnityEngine;
 
@@ -12,6 +15,9 @@ public class Needs : DictionarySerializer<float>
     private const float TOLERANCE = 0.0001f;  //constant for precision in floating point numbers equality checks
 
     private bool is_training;
+    private InteractionManager _interactionManager;
+    private EatingCarrotInteraction _eatingCarrotInteraction;
+    private DrinkingInteraction _drinkingInteraction;
     
     private void Start()
     {
@@ -19,12 +25,19 @@ public class Needs : DictionarySerializer<float>
         _features = GetComponent<Features>();
         _movementAgent = GetComponent<MovementAgent>();
         _movementAgent.AfterAction += UpdateNeeds;
+        _interactionManager.GetComponentInChildren<InteractionManager>();
+        _eatingCarrotInteraction = _eatingCarrotInteraction.GetComponentInChildren<EatingCarrotInteraction>();
+        _drinkingInteraction = _drinkingInteraction.GetComponentInChildren<DrinkingInteraction>();
     }
 
     private void UpdateNeeds()
     {
-        IncreaseAndKillIfMax("Hunger", 1.0f, DeathCause.Hunger);
-        IncreaseAndKillIfMax("Thirst", 1.0f, DeathCause.Thirst);
+        if (_eatingCarrotInteraction == null || _interactionManager.CurrentInteraction != _eatingCarrotInteraction)
+            IncreaseAndKillIfMax("Hunger", 1.0f, DeathCause.Hunger);
+        
+        if(_interactionManager.CurrentInteraction != _drinkingInteraction)
+            IncreaseAndKillIfMax("Thirst", 1.0f, DeathCause.Thirst);
+        
         var reproductionUrgeModifier = CalculateReproductionUrgeModifier();
         IncreaseNeedUpToMax("ReproductionUrge", reproductionUrgeModifier);
     }
