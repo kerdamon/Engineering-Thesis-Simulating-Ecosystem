@@ -25,7 +25,7 @@ public class Needs : DictionarySerializer<float>
         _features = GetComponent<Features>();
         _movementAgent = GetComponent<MovementAgent>();
         _movementAgent.AfterAction += UpdateNeeds;
-        _interactionManager.GetComponentInChildren<InteractionManager>();
+        _interactionManager = GetComponentInChildren<InteractionManager>();
         _eatingCarrotInteraction = GetComponentInChildren<EatingCarrotInteraction>();
         _drinkingInteraction = GetComponentInChildren<DrinkingInteraction>();
     }
