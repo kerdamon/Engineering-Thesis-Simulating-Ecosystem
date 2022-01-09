@@ -11,7 +11,7 @@ public class MovementAgent : Agent
     [SerializeField] private float movementSpeed;
     [SerializeField] private float turningSpeed;
 
-    [SerializeField] protected SimulationController simulationController;
+    [SerializeField] public SimulationController simulationController;
     
     private Rigidbody _agentRigidbody;
     private Features _features;
