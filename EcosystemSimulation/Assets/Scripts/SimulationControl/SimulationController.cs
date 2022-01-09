@@ -68,7 +68,7 @@ public class SimulationController : MonoBehaviour
     private void Start()
     {
         _fileLogger.LogLine(
-            "SecondsFromStart,FramesFromStart,FoxesPopulation,RabbitPopulation,RabbitSpeedMedian,RabbitSensoryRangeMedian,RabbitFertilityMedian,FoxSpeedMedian,FoxSensoryRangeMedian,FoxFertilityMedian,MinRabbitLifeTime,AverageRabbitLifeTime,MaxRabbitLifeTime,MinFoxLifeTime,AverageFoxLifeTime,MaxFoxLifeTime,FoxesDiedOfHunger,FoxesDiedOfThirst,RabbitsDiedOfHunger,RabbitsDiedOfThirst,RabbitsDiedOfBeingEaten");
+            "SecondsFromStart,FramesFromStart,FoxesPopulation,RabbitPopulation,RabbitSpeedMedian,RabbitSensoryRangeMedian,RabbitFertilityMedian,FoxSpeedMedian,FoxSensoryRangeMedian,FoxFertilityMedian,FoxesDiedOfHunger,FoxesDiedOfThirst,RabbitsDiedOfHunger,RabbitsDiedOfThirst,RabbitsDiedOfBeingEaten");
     }
 
     private void Update()
@@ -82,8 +82,8 @@ public class SimulationController : MonoBehaviour
         var foxSpeedMedian = GetMedianOfFeature("Speed", foxesContainer);
         var foxSensoryRangeMedian = GetMedianOfFeature("SensoryRange", foxesContainer);
         var foxFertilityMedian = GetMedianOfFeature("Fertility", foxesContainer);
-        var (minRabbitLifeTime, averageRabbitLifeTime, maxRabbitLifeTime) = GetLifeTimeOfAgents(rabbitContainer);
-        var (minFoxLifeTime, averageFoxLifeTime, maxFoxLifeTime) = GetLifeTimeOfAgents(foxesContainer);
+        //var (minRabbitLifeTime, averageRabbitLifeTime, maxRabbitLifeTime) = GetLifeTimeOfAgents(rabbitContainer);
+        //var (minFoxLifeTime, averageFoxLifeTime, maxFoxLifeTime) = GetLifeTimeOfAgents(foxesContainer);
 
         if (ShouldUpdateStatsCanvas())
         {
@@ -104,19 +104,19 @@ public class SimulationController : MonoBehaviour
             UpdateStatsText(foxFertilityMedianText,
                 $"Fox Fertility Median: {foxFertilityMedian.ToString()}");
             
-            UpdateStatsText(minRabbitLifeTimeText,
-                $"Min Rabbit Life Time: {minRabbitLifeTime.ToString()}");
-            UpdateStatsText(averageRabbitLifeTimeText,
-                $"Average Rabbit Life Time: {averageRabbitLifeTime.ToString()}");
-            UpdateStatsText(maxRabbitLifeTimeText,
-                $"Max Rabbit Life Time: {maxRabbitLifeTime.ToString()}");
+            // UpdateStatsText(minRabbitLifeTimeText,
+            //     $"Min Rabbit Life Time: {minRabbitLifeTime.ToString()}");
+            // UpdateStatsText(averageRabbitLifeTimeText,
+            //     $"Average Rabbit Life Time: {averageRabbitLifeTime.ToString()}");
+            // UpdateStatsText(maxRabbitLifeTimeText,
+            //     $"Max Rabbit Life Time: {maxRabbitLifeTime.ToString()}");
             
-            UpdateStatsText(minFoxLifeTimeText,
-                $"Min Fox Life Time: {minFoxLifeTime.ToString()}");
-            UpdateStatsText(averageFoxLifeTimeText,
-                $"Average Fox Life Time: {averageFoxLifeTime.ToString()}");
-            UpdateStatsText(maxFoxLifeTimeText,
-                $"Max Fox Life Time Text: {maxFoxLifeTime.ToString()}");
+            // UpdateStatsText(minFoxLifeTimeText,
+            //     $"Min Fox Life Time: {minFoxLifeTime.ToString()}");
+            // UpdateStatsText(averageFoxLifeTimeText,
+            //     $"Average Fox Life Time: {averageFoxLifeTime.ToString()}");
+            // UpdateStatsText(maxFoxLifeTimeText,
+            //     $"Max Fox Life Time Text: {maxFoxLifeTime.ToString()}");
         }
         
         if (ShouldUpdateDeathCanvas())
@@ -160,13 +160,13 @@ public class SimulationController : MonoBehaviour
                                 $"{foxSensoryRangeMedian.ToString()}," +
                                 $"{foxFertilityMedian.ToString()}," +
                                 
-                                $"{minRabbitLifeTime.ToString()}," +
-                                $"{averageRabbitLifeTime.ToString()}," +
-                                $"{maxRabbitLifeTime.ToString()}," +
+                                //$"{minRabbitLifeTime.ToString()}," +
+                                //$"{averageRabbitLifeTime.ToString()}," +
+                                //$"{maxRabbitLifeTime.ToString()}," +
                                 
-                                $"{minFoxLifeTime.ToString()}," +
-                                $"{averageFoxLifeTime.ToString()}," +
-                                $"{maxFoxLifeTime.ToString()}," +
+                                //$"{minFoxLifeTime.ToString()}," +
+                                //$"{averageFoxLifeTime.ToString()}," +
+                                //$"{maxFoxLifeTime.ToString()}," +
                                 
                                 $"{FoxesDiedOfHunger.ToString()}," +
                                 $"{FoxesDiedOfThirst.ToString()}," +

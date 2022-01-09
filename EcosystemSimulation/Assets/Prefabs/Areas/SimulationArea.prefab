@@ -103,7 +103,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &5014543819024325272
 Transform:
   m_ObjectHideFlags: 0
@@ -1638,6 +1638,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Fox-Male
       objectReference: {fileID: 0}
+    - target: {fileID: 5503373344250157754, guid: df5ccfc4b6efae84c916c101ecb37e68, type: 3}
+      propertyPath: values.Array.data[0]
+      value: 64
+      objectReference: {fileID: 0}
+    - target: {fileID: 5503373344250157754, guid: df5ccfc4b6efae84c916c101ecb37e68, type: 3}
+      propertyPath: values.Array.data[1]
+      value: 79
+      objectReference: {fileID: 0}
+    - target: {fileID: 5503373344250157754, guid: df5ccfc4b6efae84c916c101ecb37e68, type: 3}
+      propertyPath: values.Array.data[2]
+      value: 54
+      objectReference: {fileID: 0}
     - target: {fileID: 6124280814844809170, guid: df5ccfc4b6efae84c916c101ecb37e68, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -1775,6 +1787,18 @@ PrefabInstance:
     - target: {fileID: 4741656434621148992, guid: 0219e5a339fc73c4597fa5665f3610ac, type: 3}
       propertyPath: m_Name
       value: Fox-Female
+      objectReference: {fileID: 0}
+    - target: {fileID: 5073599981971680883, guid: 0219e5a339fc73c4597fa5665f3610ac, type: 3}
+      propertyPath: values.Array.data[0]
+      value: 44
+      objectReference: {fileID: 0}
+    - target: {fileID: 5073599981971680883, guid: 0219e5a339fc73c4597fa5665f3610ac, type: 3}
+      propertyPath: values.Array.data[1]
+      value: 35
+      objectReference: {fileID: 0}
+    - target: {fileID: 5073599981971680883, guid: 0219e5a339fc73c4597fa5665f3610ac, type: 3}
+      propertyPath: values.Array.data[2]
+      value: 55
       objectReference: {fileID: 0}
     - target: {fileID: 6830610844513696539, guid: 0219e5a339fc73c4597fa5665f3610ac, type: 3}
       propertyPath: m_RootOrder
