@@ -139,14 +139,14 @@ public class SimulationController : MonoBehaviour
             UpdateStatsText(timestampText,
                 $"Frames passed: {Time.frameCount.ToString()}");
             UpdateStatsText(secondsFromBegininngText,
-                $"Seconds passed: {Time.realtimeSinceStartup.ToString()}");
+                $"Seconds passed: {Time.realtimeSinceStartup.ToString(CultureInfo.InvariantCulture)}");
             UpdateStatsText(timeScaleText,
                 $"Time scale: {Time.timeScale.ToString()}");
         }
 
         if (ShouldLogToFile())
         {
-            _fileLogger.LogLine($"{Time.realtimeSinceStartup.ToString()}" +
+            _fileLogger.LogLine($"{Time.realtimeSinceStartup.ToString(CultureInfo.InvariantCulture)}," +
                                 $"{Time.frameCount.ToString()}," +
                                 
                                 $"{foxesPopulation.ToString()}," +
