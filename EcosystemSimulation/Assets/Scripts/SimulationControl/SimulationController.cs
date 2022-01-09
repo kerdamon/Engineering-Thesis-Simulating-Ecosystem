@@ -74,8 +74,8 @@ public class SimulationController : MonoBehaviour
     private void Update()
     {
         if (!ShouldLogToFile() && !ShouldUpdateStatsCanvas()) return;
-        var foxesPopulation = CountRabbits();
-        var rabbitsPopulation = CountFoxes();
+        var foxesPopulation = CountFoxes();
+        var rabbitsPopulation = CountRabbits();
         var rabbitSpeedMedian = GetMedianOfFeature("Speed", rabbitContainer);
         var rabbitSensoryRangeMedian = GetMedianOfFeature("SensoryRange", rabbitContainer);
         var rabbitFertilityMedian = GetMedianOfFeature("Fertility", rabbitContainer);
