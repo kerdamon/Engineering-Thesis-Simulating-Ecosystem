@@ -2637,13 +2637,25 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1662554869780671992, guid: da0347d17e632d14a9af1a0994473def, type: 3}
+      propertyPath: plantLimit
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 1662554869780671992, guid: da0347d17e632d14a9af1a0994473def, type: 3}
+      propertyPath: spawnInterval
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1662554869780671992, guid: da0347d17e632d14a9af1a0994473def, type: 3}
+      propertyPath: spawningRadius
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 1662554869780671999, guid: da0347d17e632d14a9af1a0994473def, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -11.9
+      value: 75.3
       objectReference: {fileID: 0}
     - target: {fileID: 1662554869780671999, guid: da0347d17e632d14a9af1a0994473def, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -5.3
+      value: -57.5
       objectReference: {fileID: 0}
     - target: {fileID: 1662554869953542646, guid: da0347d17e632d14a9af1a0994473def, type: 3}
       propertyPath: m_IsActive
