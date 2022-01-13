@@ -115,13 +115,9 @@ namespace Interaction
         private int CalculateNumberOfOffspringFromFertility(int fertility)
         {
             var wholeLength = _maxFeatureValue - _minFeatureValue;
-            //Debug.Log($"wholeLength {wholeLength}");
             var numberOfRanges = maxDeviationFromFertility * 2 + 1;
-            //Debug.Log($"numberOfRanges {numberOfRanges}");
             var rangeLength = wholeLength * 1.0f / numberOfRanges;
-            //Debug.Log($"rangeLength {rangeLength}");
             var returned = (int)(fertility / rangeLength) - maxDeviationFromFertility;
-            //Debug.Log($"returned {returned}");
 
             return returned;
         }
@@ -129,7 +125,6 @@ namespace Interaction
         private int CalculateRandomChildrenComponent()
         {
             var returned = Random.Range(-maxRandomDeviation, maxRandomDeviation+1);
-            //Debug.Log($"Random childeren component: {returned}");
             return returned;
         }
     }

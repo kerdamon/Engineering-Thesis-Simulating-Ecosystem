@@ -12,8 +12,6 @@ public class TrainingSettings : MonoBehaviour
         _academyInstance = Academy.Instance;
         _academyInstance.OnEnvironmentReset += EnvironmentReset;
         TrainingAreas = new List<ITrainingArea>();
-
-        //AddFixedRewardsForAgents();
     }
 
     private void EnvironmentReset()

@@ -26,21 +26,5 @@ namespace DecisionMaking.States.EventStates
             }
             DeactivateThis();
         }
-
-        // private void OnTriggerStay(Collider other)
-        // {
-        //     if (!other.gameObject.CompareTag("Fox")) return;
-        //     if (!other.isTrigger) //todo change magic number of this agent's predator tag)
-        //         ActivateThis();
-        //     // else
-        //     //     DeactivateThis();
-        // }
-        //
-        // private void OnTriggerExit(Collider other)
-        // {
-        //     if (!other.gameObject.CompareTag("Fox")) return;
-        //     if (!other.isTrigger)
-        //         DeactivateThis();
-        // } 
     }
 }

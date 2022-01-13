@@ -29,8 +29,6 @@ namespace Interaction.InteractionManagers
             
             agent_drink_reward = Academy.Instance.EnvironmentParameters.GetWithDefault("agent_drink_reward", 0.0f);
 
-            //MovementAgent.AfterAction += StopInteractionWhenAgentDontWantTo;
-            
             _drinkingInteraction = GetComponent<DrinkingInteraction>();
             AddRewardAfterInteraction(_drinkingInteraction, agent_drink_reward);
             RegisterUpdatingCurrentInteractionAfterEndOf(_drinkingInteraction);

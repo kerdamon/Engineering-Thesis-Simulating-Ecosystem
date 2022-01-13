@@ -47,10 +47,8 @@ public class MovementAgent : Agent
     
     public override void OnActionReceived(ActionBuffers actions)
     {
-        //Debug.Log($"{actions.DiscreteActions[0]}", this);
         MoveAgent(actions);
         GetInteractDesire(actions);
-        //Debug.Log($"Ustawiam {WantInteraction}, bo dics.acts[0] = {actions.DiscreteActions[0]}", this);
         ModifyRewardOnActionReceived();
         AfterAction();
     }

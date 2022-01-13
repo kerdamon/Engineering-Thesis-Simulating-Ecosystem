@@ -33,14 +33,6 @@ public class SimulationController : MonoBehaviour
     [SerializeField] private Text foxSensoryRangeMedianText;
     [SerializeField] private Text foxFertilityMedianText;
     
-    [SerializeField] private Text minRabbitLifeTimeText;
-    [SerializeField] private Text averageRabbitLifeTimeText;
-    [SerializeField] private Text maxRabbitLifeTimeText;
-    
-    [SerializeField] private Text minFoxLifeTimeText;
-    [SerializeField] private Text averageFoxLifeTimeText;
-    [SerializeField] private Text maxFoxLifeTimeText;
-    
     [SerializeField] private Text foxesDiedOfHungerText;
     [SerializeField] private Text foxesDiedOfThirstText;
     
@@ -82,8 +74,6 @@ public class SimulationController : MonoBehaviour
         var foxSpeedMedian = GetMedianOfFeature("Speed", foxesContainer);
         var foxSensoryRangeMedian = GetMedianOfFeature("SensoryRange", foxesContainer);
         var foxFertilityMedian = GetMedianOfFeature("Fertility", foxesContainer);
-        //var (minRabbitLifeTime, averageRabbitLifeTime, maxRabbitLifeTime) = GetLifeTimeOfAgents(rabbitContainer);
-        //var (minFoxLifeTime, averageFoxLifeTime, maxFoxLifeTime) = GetLifeTimeOfAgents(foxesContainer);
 
         if (ShouldUpdateStatsCanvas())
         {
@@ -103,20 +93,6 @@ public class SimulationController : MonoBehaviour
                 $"Fox Sensory Range Median: {foxSensoryRangeMedian.ToString()}");
             UpdateStatsText(foxFertilityMedianText,
                 $"Fox Fertility Median: {foxFertilityMedian.ToString()}");
-            
-            // UpdateStatsText(minRabbitLifeTimeText,
-            //     $"Min Rabbit Life Time: {minRabbitLifeTime.ToString()}");
-            // UpdateStatsText(averageRabbitLifeTimeText,
-            //     $"Average Rabbit Life Time: {averageRabbitLifeTime.ToString()}");
-            // UpdateStatsText(maxRabbitLifeTimeText,
-            //     $"Max Rabbit Life Time: {maxRabbitLifeTime.ToString()}");
-            
-            // UpdateStatsText(minFoxLifeTimeText,
-            //     $"Min Fox Life Time: {minFoxLifeTime.ToString()}");
-            // UpdateStatsText(averageFoxLifeTimeText,
-            //     $"Average Fox Life Time: {averageFoxLifeTime.ToString()}");
-            // UpdateStatsText(maxFoxLifeTimeText,
-            //     $"Max Fox Life Time Text: {maxFoxLifeTime.ToString()}");
         }
         
         if (ShouldUpdateDeathCanvas())
@@ -159,14 +135,6 @@ public class SimulationController : MonoBehaviour
                                 $"{foxSpeedMedian.ToString()}," +
                                 $"{foxSensoryRangeMedian.ToString()}," +
                                 $"{foxFertilityMedian.ToString()}," +
-                                
-                                //$"{minRabbitLifeTime.ToString()}," +
-                                //$"{averageRabbitLifeTime.ToString()}," +
-                                //$"{maxRabbitLifeTime.ToString()}," +
-                                
-                                //$"{minFoxLifeTime.ToString()}," +
-                                //$"{averageFoxLifeTime.ToString()}," +
-                                //$"{maxFoxLifeTime.ToString()}," +
                                 
                                 $"{FoxesDiedOfHunger.ToString()}," +
                                 $"{FoxesDiedOfThirst.ToString()}," +
