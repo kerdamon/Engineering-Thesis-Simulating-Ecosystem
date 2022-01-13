@@ -11,7 +11,7 @@ namespace DecisionMaking
         [SerializeField] private State defaultState;
     
         public State CurrentState { get; private set; }
-        private List<State> _statesList; //main states are states that can be switched to regardless of current state
+        private List<State> _statesList;
         
         private void Start()
         {

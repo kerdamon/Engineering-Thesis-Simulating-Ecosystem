@@ -11,9 +11,17 @@ using UnityEngine.UI;
 
 public class SimulationController : MonoBehaviour
 {
+    [SerializeField] private GameObject statsCanvas;
+    [SerializeField] private GameObject deathCanvas;
+    [SerializeField] private GameObject timeCanvas;
+    
     [SerializeField] private Transform foxesContainer;
     [SerializeField] private Transform rabbitContainer;
 
+    [SerializeField] private Text timestampText;
+    [SerializeField] private Text secondsFromBegininngText;
+    [SerializeField] private Text timeScaleText;
+    
     [SerializeField] private Text foxesPopulationText;
     [SerializeField] private Text rabbitsPopulationText;
     
@@ -25,13 +33,12 @@ public class SimulationController : MonoBehaviour
     [SerializeField] private Text foxSensoryRangeMedianText;
     [SerializeField] private Text foxFertilityMedianText;
     
-    [SerializeField] private Text minRabbitLifeTimeText;
-    [SerializeField] private Text averageRabbitLifeTimeText;
-    [SerializeField] private Text maxRabbitLifeTimeText;
+    [SerializeField] private Text foxesDiedOfHungerText;
+    [SerializeField] private Text foxesDiedOfThirstText;
     
-    [SerializeField] private Text minFoxLifeTimeText;
-    [SerializeField] private Text averageFoxLifeTimeText;
-    [SerializeField] private Text maxFoxLifeTimeText;
+    [SerializeField] private Text rabbitsDiedOfHungerText;
+    [SerializeField] private Text rabbitsDiedOfThirstText;
+    [SerializeField] private Text rabbitsDiedOfBeingEatenText;
 
     [Range(1, 20)] [SerializeField] private int updatePeriod = 1;
 
@@ -39,6 +46,12 @@ public class SimulationController : MonoBehaviour
 
     private FileLogger _fileLogger;
 
+    public int FoxesDiedOfHunger { get; set; }
+    public int FoxesDiedOfThirst { get; set; }
+    public int RabbitsDiedOfHunger { get; set; }
+    public int RabbitsDiedOfThirst { get; set; }
+    public int RabbitsDiedOfBeingEaten { get; set; }
+    
     private void Awake()
     {
         _fileLogger = GetComponent<FileLogger>();
@@ -47,24 +60,22 @@ public class SimulationController : MonoBehaviour
     private void Start()
     {
         _fileLogger.LogLine(
-            "Timestamp,FoxesPopulation,RabbitPopulation,RabbitSpeedMedian,RabbitSensoryRangeMedian,RabbitFertilityMedian,FoxSpeedMedian,FoxSensoryRangeMedian,FoxFertilityMedian,MinRabbitLifeTime,AverageRabbitLifeTime,MaxRabbitLifeTime,MinFoxLifeTime,AverageFoxLifeTime,MaxFoxLifeTime");
+            "SecondsFromStart,FramesFromStart,FoxesPopulation,RabbitPopulation,RabbitSpeedMedian,RabbitSensoryRangeMedian,RabbitFertilityMedian,FoxSpeedMedian,FoxSensoryRangeMedian,FoxFertilityMedian,FoxesDiedOfHunger,FoxesDiedOfThirst,RabbitsDiedOfHunger,RabbitsDiedOfThirst,RabbitsDiedOfBeingEaten");
     }
 
     private void Update()
     {
-        if (!ShouldLogToFile() && !ShouldUpdateUI()) return;
-        var foxesPopulation = CountRabbits();
-        var rabbitsPopulation = CountFoxes();
+        if (!ShouldLogToFile() && !ShouldUpdateStatsCanvas()) return;
+        var foxesPopulation = CountFoxes();
+        var rabbitsPopulation = CountRabbits();
         var rabbitSpeedMedian = GetMedianOfFeature("Speed", rabbitContainer);
         var rabbitSensoryRangeMedian = GetMedianOfFeature("SensoryRange", rabbitContainer);
         var rabbitFertilityMedian = GetMedianOfFeature("Fertility", rabbitContainer);
         var foxSpeedMedian = GetMedianOfFeature("Speed", foxesContainer);
         var foxSensoryRangeMedian = GetMedianOfFeature("SensoryRange", foxesContainer);
         var foxFertilityMedian = GetMedianOfFeature("Fertility", foxesContainer);
-        var (minRabbitLifeTime, averageRabbitLifeTime, maxRabbitLifeTime) = GetLifeTimeOfAgents(rabbitContainer);
-        var (minFoxLifeTime, averageFoxLifeTime, maxFoxLifeTime) = GetLifeTimeOfAgents(foxesContainer);
 
-        if (ShouldUpdateUI())
+        if (ShouldUpdateStatsCanvas())
         {
             UpdateStatsText(foxesPopulationText, $"Foxes on scene: {foxesPopulation.ToString()}");
             UpdateStatsText(rabbitsPopulationText, $"Rabbits on scene: {rabbitsPopulation.ToString()}");
@@ -82,25 +93,38 @@ public class SimulationController : MonoBehaviour
                 $"Fox Sensory Range Median: {foxSensoryRangeMedian.ToString()}");
             UpdateStatsText(foxFertilityMedianText,
                 $"Fox Fertility Median: {foxFertilityMedian.ToString()}");
+        }
+        
+        if (ShouldUpdateDeathCanvas())
+        {
+            UpdateStatsText(foxesDiedOfHungerText,
+                $"Foxes that died of hunger: {FoxesDiedOfHunger.ToString()}");
+            UpdateStatsText(foxesDiedOfThirstText,
+                $"Foxes that died of thirst: {FoxesDiedOfThirst.ToString()}");
             
-            UpdateStatsText(minRabbitLifeTimeText,
-                $"Min Rabbit Life Time: {minRabbitLifeTime.ToString()}");
-            UpdateStatsText(averageRabbitLifeTimeText,
-                $"Average Rabbit Life Time: {averageRabbitLifeTime.ToString()}");
-            UpdateStatsText(maxRabbitLifeTimeText,
-                $"Max Rabbit Life Time: {maxRabbitLifeTime.ToString()}");
-            
-            UpdateStatsText(minFoxLifeTimeText,
-                $"Min Fox Life Time: {minFoxLifeTime.ToString()}");
-            UpdateStatsText(averageFoxLifeTimeText,
-                $"Average Fox Life Time: {averageFoxLifeTime.ToString()}");
-            UpdateStatsText(maxFoxLifeTimeText,
-                $"Max Fox Life Time Text: {maxFoxLifeTime.ToString()}");
+            UpdateStatsText(rabbitsDiedOfHungerText,
+                $"Rabbits that died of hunger: {RabbitsDiedOfHunger.ToString()}");
+            UpdateStatsText(rabbitsDiedOfThirstText,
+                $"Rabbits that died of thirst: {RabbitsDiedOfThirst.ToString()}");
+            UpdateStatsText(rabbitsDiedOfBeingEatenText,
+                $"Rabbits died of being eaten: {RabbitsDiedOfBeingEaten.ToString()}");
+        }
+        
+        if (ShouldUpdateTimeCanvas())
+        {
+            UpdateStatsText(timestampText,
+                $"Frames passed: {Time.frameCount.ToString()}");
+            UpdateStatsText(secondsFromBegininngText,
+                $"Seconds passed: {Time.realtimeSinceStartup.ToString(CultureInfo.InvariantCulture)}");
+            UpdateStatsText(timeScaleText,
+                $"Time scale: {Time.timeScale.ToString()}");
         }
 
         if (ShouldLogToFile())
         {
-            _fileLogger.LogLine($"{Academy.Instance.StepCount.ToString()}" +
+            _fileLogger.LogLine($"{Time.realtimeSinceStartup.ToString(CultureInfo.InvariantCulture)}," +
+                                $"{Time.frameCount.ToString()}," +
+                                
                                 $"{foxesPopulation.ToString()}," +
                                 $"{rabbitsPopulation.ToString()}," +
                                 
@@ -112,13 +136,13 @@ public class SimulationController : MonoBehaviour
                                 $"{foxSensoryRangeMedian.ToString()}," +
                                 $"{foxFertilityMedian.ToString()}," +
                                 
-                                $"{minRabbitLifeTime.ToString()}," +
-                                $"{averageRabbitLifeTime.ToString()}," +
-                                $"{maxRabbitLifeTime.ToString()}," +
-                                
-                                $"{minFoxLifeTime.ToString()}," +
-                                $"{averageFoxLifeTime.ToString()}," +
-                                $"{maxFoxLifeTime.ToString()}");
+                                $"{FoxesDiedOfHunger.ToString()}," +
+                                $"{FoxesDiedOfThirst.ToString()}," +
+                
+                                $"{RabbitsDiedOfHunger.ToString()}," +
+                                $"{RabbitsDiedOfThirst.ToString()}," +
+                                $"{RabbitsDiedOfBeingEaten.ToString()}"
+                                );
         }
     }
 
@@ -127,9 +151,19 @@ public class SimulationController : MonoBehaviour
         return Time.frameCount % logPeriod == 0;
     }
 
-    private bool ShouldUpdateUI()
+    private bool ShouldUpdateStatsCanvas()
     {
-        return Time.frameCount % updatePeriod == 0;
+        return Time.frameCount % updatePeriod == 0 && statsCanvas.activeSelf;
+    }
+    
+    private bool ShouldUpdateDeathCanvas()
+    {
+        return Time.frameCount % updatePeriod == 0 && deathCanvas.activeSelf;
+    }
+    
+    private bool ShouldUpdateTimeCanvas()
+    {
+        return Time.frameCount % updatePeriod == 0 && timeCanvas.activeSelf;
     }
 
     private static void UpdateStatsText(Text textElement, string text)

@@ -48,15 +48,31 @@ namespace Interaction
             var numberOfChildren = CalculateNumberOfOffspring(mateFeatures["Fertility"]);
             for (var i = 0; i < numberOfChildren; i++)
             {
-                var originalGameObject = Random.value > 0.5f ? maleChild : femaleChild;
+                GameObject originalGameObject;
+                bool isMale = false;
+                if (Random.value > 0.5f)
+                {
+                    originalGameObject = maleChild;
+                    isMale = true;
+                }
+                else
+                {
+                    originalGameObject = femaleChild;
+                }
+
                 var offspring = Instantiate(originalGameObject, transform.parent.parent);
                 offspring.transform.position = mate.transform.position;
                 offspring.transform.Translate(Random.value * 2, 0, Random.value * 2);
-                var offspringFeatures = offspring.GetComponent<Features>();
                 
+                var offspringFeatures = offspring.GetComponent<Features>();
                 Crossover(actorFeatures, offspringFeatures, mateFeatures);
                 Mutation(actorFeatures, offspringFeatures);
                 UpdateSensorColliderSize(offspringFeatures, offspring);
+
+                if (isMale)
+                    offspring.GetComponentInChildren<MatingInteraction>().maleChild = GetComponent<MatingInteraction>().maleChild;
+                offspring.GetComponent<MovementAgent>().simulationController =
+                    transform.parent.GetComponent<MovementAgent>().simulationController;
             }
         }
 
@@ -99,13 +115,9 @@ namespace Interaction
         private int CalculateNumberOfOffspringFromFertility(int fertility)
         {
             var wholeLength = _maxFeatureValue - _minFeatureValue;
-            //Debug.Log($"wholeLength {wholeLength}");
             var numberOfRanges = maxDeviationFromFertility * 2 + 1;
-            //Debug.Log($"numberOfRanges {numberOfRanges}");
             var rangeLength = wholeLength * 1.0f / numberOfRanges;
-            //Debug.Log($"rangeLength {rangeLength}");
             var returned = (int)(fertility / rangeLength) - maxDeviationFromFertility;
-            //Debug.Log($"returned {returned}");
 
             return returned;
         }
@@ -113,7 +125,6 @@ namespace Interaction
         private int CalculateRandomChildrenComponent()
         {
             var returned = Random.Range(-maxRandomDeviation, maxRandomDeviation+1);
-            //Debug.Log($"Random childeren component: {returned}");
             return returned;
         }
     }

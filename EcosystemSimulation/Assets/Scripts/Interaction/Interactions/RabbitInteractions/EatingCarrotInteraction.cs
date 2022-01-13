@@ -1,3 +1,4 @@
+using Interaction.InteractionManagers;
 using UnityEngine;
 
 namespace Interaction.RabbitInteractions
@@ -8,16 +9,42 @@ namespace Interaction.RabbitInteractions
         [SerializeField] private float biteSize;
 
         private Needs _needs;
+        private float _eatenAmount;
+        private PlantGrower _plantGrower;
     
         protected override void Start()
         {
             base.Start();
             _needs = SimulationObject.GetComponent<Needs>();
+            RegisterHungerChangeAfterInteraction();
         }
-        protected override void AtInteractionEnd()
+
+        protected virtual void RegisterHungerChangeAfterInteraction()
         {
-            var eatenValue = SecondSimulationObject.GetComponent<PlantGrower>().OnEaten(biteSize);
-            _needs["Hunger"] -= eatenValue * energyReceivedPerBite;
+            AfterSuccessfulInteraction += () => _needs["Hunger"] -= _eatenAmount;
+            AfterInterruptedInteraction += () => _needs["Hunger"] -= _eatenAmount;
+        }
+
+        protected override void AtInteractionStart()
+        {
+            _eatenAmount = 0;
+            _plantGrower = SecondSimulationObject.GetComponent<PlantGrower>();
+        }
+
+        protected override void AtInteractionIncrement()
+        {
+            if ((_needs["Hunger"] - _eatenAmount < 0) || (_plantGrower == null))
+            {
+                Interrupt();
+            }
+            else
+            {
+                _eatenAmount += energyReceivedPerBite;
+                if (_plantGrower.OnEaten(biteSize) < 0.5)
+                {
+                    Interrupt();
+                }
+            }
         }
     }
 }
